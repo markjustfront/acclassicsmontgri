@@ -9,7 +9,7 @@ const modelsData = [
         image: "images/renault4.jpg",
         characteristics: "Motor: 0.8L - 1.1L (27-45 CV)<br>Tracció: davantera<br>Portes: 5<br>Consum: molt baix",
 
-        // NEW: Expandable accessories with images
+        // Accessoris específics per al R4
         accessories: [
             {
                 name: "Barres de sostre originals",
@@ -25,7 +25,7 @@ const modelsData = [
             }
         ],
 
-        // NEW: Related YouTube videos (maintenance, adaptations, etc.)
+        // Videos relacionats específics per al R4
         videos: [
             {
                 title: "Restauració completa del Renault 4L - Part 1",
