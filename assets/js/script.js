@@ -8,7 +8,7 @@ const modelsData = [
         description: "El cotxe més venut de la història de Renault. Simbol de practicitat i durabilitat.",
         image: "images/renault4.jpg",
         characteristics: "Motor: 0.8L - 1.1L (27-45 CV)<br>Tracció: davantera<br>Portes: 5<br>Consum: molt baix",
-        
+
         // NEW: Expandable accessories with images
         accessories: [
             {
@@ -24,7 +24,7 @@ const modelsData = [
                 extra: "Ideal per a rutes llargues i concentracions."
             }
         ],
-        
+
         // NEW: Related YouTube videos (maintenance, adaptations, etc.)
         videos: [
             {
@@ -49,11 +49,32 @@ const modelsData = [
         description: "El supercotxe urbà dels anys 70-80.",
         image: "images/renault5.jpg",
         characteristics: "Motor: 0.8L - 1.7L (36-93 CV)",
+
+        // Accessoris específics per al R5
         accessories: [
-            { name: "Pack GT Alpine", description: "Aleró, llantes i interior esportiu.", images: [], extra: "" }
+            {
+                name: "Volant Iso Delta",
+                description: "Volant dispobible en les version Copa i Copa Turbo del R5 a partir de 1984.",
+                images: ["images/accessories/R5/iso-delta-r5.jpg"],
+                extra: "Es un volant molt buscat a espanya i molt difícil de trobar en bon estat."
+            },
+            {
+                name: "Rodes de recanvi extern + suport",
+                description: "Porta-rodes lateral original dels anys 70-80.",
+                images: ["images/accessories/r4-roda-externa.jpg", "images/accessories/r4-roda-externa2.jpg"],
+                extra: "Ideal per a rutes llargues i concentracions."
+            }
         ],
-        videos: []
-    }
+
+        // Videos relacionats específics per al R5
+        videos: [
+            {
+                title: "Bota de canvi de marxes del R5 en pell",
+                youtubeId: "CQthDNyU7f0",
+                description: "Explicacio de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5. Millora l'estètica i la sensació al tacte."
+            }
+        ]
+    },
     // Afegiu més models aquí...
 ];
 
@@ -85,7 +106,7 @@ function renderModels(filteredModels) {
 
 function filterModels() {
     const term = searchInput.value.toLowerCase().trim();
-    const filtered = modelsData.filter(m => 
+    const filtered = modelsData.filter(m =>
         m.brand.toLowerCase().includes(term) ||
         m.model.toLowerCase().includes(term) ||
         m.years.includes(term) ||
@@ -94,7 +115,7 @@ function filterModels() {
     renderModels(filtered);
 }
 
-window.showModel = function(id) {
+window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
 
@@ -107,8 +128,8 @@ window.showModel = function(id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ? 
-                        `<div class="accessory-images">
+                    ${acc.images && acc.images.length ?
+                `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -156,7 +177,7 @@ window.showModel = function(id) {
     document.getElementById('modal').style.display = 'flex';
 };
 
-window.closeModal = function() {
+window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
 };
 
