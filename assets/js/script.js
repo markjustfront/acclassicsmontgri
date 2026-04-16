@@ -1,4 +1,4 @@
-// ==================== UPDATED DATA STRUCTURE ====================
+// ==================== UPDATED DATA STRUCTURE WITH IMPROVED TECHNICAL SPECS ====================
 const modelsData = [
     {
         id: 1,
@@ -7,14 +7,30 @@ const modelsData = [
         years: "1961-1994",
         description: "El cotxe més venut de la història de Renault. Simbol de practicitat i durabilitat.",
         image: "images/renault4.jpg",
-        characteristics: "Motor: 0.8L - 1.1L (27-45 CV)<br>Tracció: davantera<br>Portes: 5<br>Consum: molt baix",
 
-        // Accessoris específics per al R4
+        // New General Characteristics (ranges)
+        generalCharacteristics: `
+            <strong>Període de producció:</strong> 1961-1994<br>
+            <strong>Desplaçament:</strong> 0.8L - 1.1L<br>
+            <strong>Potència:</strong> 27 - 45 CV<br>
+            <strong>Tracció:</strong> Davantera<br>
+            <strong>Nombre de portes:</strong> 5 (incloent porta posterior)<br>
+            <strong>Consum mitjà:</strong> 6 - 8 L/100km
+        `,
+
+        // Specific engine variants in table format
+        variants: [
+            { engine: "0.8L", power: "27-30 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió base" },
+            { engine: "1.0L", power: "34-40 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió més comuna" },
+            { engine: "1.1L", power: "45 CV", fuel: "Gasolina", traction: "Davantera", notes: "Últimes versions" }
+        ],
+
+        // Your existing accessories
         accessories: [
             {
                 name: "Barres de sostre originals",
                 description: "Permeten transportar equipatge o material de lleure. Versió oficial Renault.",
-                images: ["images/accessories/r4-barres.jpg"],   // ← puja les teves fotos aquí
+                images: ["images/accessories/r4-barres.jpg"],
                 extra: "Compatible amb totes les versions del R4. Molt buscades pels col·leccionistes."
             },
             {
@@ -25,11 +41,11 @@ const modelsData = [
             }
         ],
 
-        // Videos relacionats específics per al R4
+        // Your existing videos
         videos: [
             {
                 title: "Restauració completa del Renault 4L - Part 1",
-                youtubeId: "YOUR_VIDEO_ID_HERE",   // ← canvia per l'ID real del teu vídeo
+                youtubeId: "YOUR_VIDEO_ID_HERE",
                 description: "Desmuntatge de motor, suspensió i xassís pas a pas."
             },
             {
@@ -40,7 +56,6 @@ const modelsData = [
         ]
     },
 
-    // ──────── Altres models (exemple reduït) ────────
     {
         id: 2,
         brand: "Renault",
@@ -48,39 +63,50 @@ const modelsData = [
         years: "1972-1996",
         description: "El supercotxe urbà dels anys 70-80.",
         image: "images/renault5.jpg",
-        characteristics: "Motor: 0.8L - 1.7L (36-93 CV)",
 
-        // Accessoris específics per al R5
+        generalCharacteristics: `
+            <strong>Període de producció:</strong> 1972-1996<br>
+            <strong>Desplaçament:</strong> 0.8L - 1.7L<br>
+            <strong>Potència:</strong> 36 - 93 CV<br>
+            <strong>Tracció:</strong> Davantera<br>
+            <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
+        `,
+
+        variants: [
+            { engine: "0.8L - 1.0L", power: "36-45 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions TL / GTL" },
+            { engine: "1.4L", power: "60-70 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió més equilibrada" },
+            { engine: "1.7L Alpine / Turbo", power: "93 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions esportives" }
+        ],
+
         accessories: [
             {
                 name: "Volant Iso Delta (Copa i Copa Turbo)",
-                description: "Volant dispobible en les version Copa i Copa Turbo del R5 a partir de 1984.",
+                description: "Volant disponible en les versions Copa i Copa Turbo del R5 a partir de 1984.",
                 images: ["images/accessories/R5/iso-delta-r5.jpg", "images/accessories/R5/iso-delta-r5-2.jpg"],
-                extra: "Es un volant molt buscat a espanya i molt difícil de trobar en bon estat."
+                extra: "És un volant molt buscat a Espanya i molt difícil de trobar en bon estat."
             },
             {
                 name: "Rellotges Copa/Alpine",
-                description: "Rellotges temperatura d'oli i voltatge de bateria.",
+                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
                 images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
-                extra: "Tambe estava disponible en altres models apart del Copa." 
+                extra: "També estava disponible en altres models a part del Copa."
             },
             {
                 name: "Rellotges Copa Turbo/Alpine Turbo",
-                description: "Rellotges pressio d'oli i pressio turbo.",
+                description: "Rellotges de pressió d'oli i pressió turbo.",
                 images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
-                extra: "Molts aficionats portaben aquest rellotge encara que no i agues trubo."
+                extra: "Molts aficionats el portaven encara que no tinguessin turbo."
             }
         ],
 
-        // Videos relacionats específics per al R5
         videos: [
             {
                 title: "Bota de canvi de marxes del R5 en pell",
                 youtubeId: "CQthDNyU7f0",
-                description: "Explicacio de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5. Millora l'estètica i la sensació al tacte."
+                description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5. Millora l'estètica i la sensació al tacte."
             }
         ]
-    },
+    }
     // Afegiu més models aquí...
 ];
 
@@ -127,6 +153,36 @@ window.showModel = function (id) {
 
     document.getElementById('modalTitle').innerHTML = `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
+    // Build Variants Table
+    let variantsHTML = '';
+    if (model.variants && model.variants.length > 0) {
+        variantsHTML = `
+            <table style="width:100%; border-collapse:collapse; margin:15px 0 25px 0;">
+                <thead>
+                    <tr style="background:#f0e8d8;">
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Motor</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Potència</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Combustible</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Tracció</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${model.variants.map(v => `
+                        <tr>
+                            <td style="padding:12px; border:1px solid #ddd;">${v.engine}</td>
+                            <td style="padding:12px; border:1px solid #ddd;">${v.power}</td>
+                            <td style="padding:12px; border:1px solid #ddd;">${v.fuel}</td>
+                            <td style="padding:12px; border:1px solid #ddd;">${v.traction}</td>
+                            <td style="padding:12px; border:1px solid #ddd;">${v.notes}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+    }
+
+    // Accessories (unchanged)
     let accessoriesHTML = '';
     if (model.accessories && model.accessories.length > 0) {
         accessoriesHTML = model.accessories.map(acc => `
@@ -146,6 +202,7 @@ window.showModel = function (id) {
         accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
     }
 
+    // Videos (unchanged)
     let videosHTML = '';
     if (model.videos && model.videos.length > 0) {
         videosHTML = model.videos.map(video => `
@@ -162,15 +219,18 @@ window.showModel = function (id) {
             </div>
         `).join('');
     } else {
-        videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats. Afegeix-los a script.js!</p>';
+        videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
     }
 
     const bodyHTML = `
         <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
         <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
         
-        <h3>Característiques tècniques</h3>
-        <p style="background:#f8f6f0; padding:15px; border-radius:8px; margin-bottom:25px;">${model.characteristics}</p>
+        <h3>Característiques Generals</h3>
+        <p style="background:#f8f6f0; padding:15px; border-radius:8px; margin-bottom:25px;">${model.generalCharacteristics}</p>
+        
+        <h3>Variants de Motor</h3>
+        ${variantsHTML}
         
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
