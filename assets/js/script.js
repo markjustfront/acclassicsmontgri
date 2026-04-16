@@ -82,6 +82,18 @@ const modelsData = [
                 description: "Volant disponible en les versions Copa i Copa Turbo del R5 a partir de 1984.",
                 images: ["images/accessories/R5/iso-delta-r5.jpg", "images/accessories/R5/iso-delta-r5-2.jpg"],
                 extra: "És un volant molt buscat a Espanya i molt difícil de trobar en bon estat."
+            },
+            {
+                name: "Rellotges Copa/Alpine",
+                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
+                images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
+                extra: "També estava disponible en altres models."
+            },
+            {
+                name: "Rellotges Copa Turbo/Alpine Turbo",
+                description: "Rellotges de pressió d'oli i pressió turbo.",
+                images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
+                extra: "Molt populars entre els aficionats."
             }
         ],
 
@@ -102,7 +114,6 @@ const modelsData = [
         model: "5 Super Cinq (Phase 2)",
         years: "1984-1996",
         description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat i gamma més àmplia.",
-        image: "images/renault5-supercinq.jpg",   // ← Canvia la imatge si en tens una específica del Super Cinq
 
         generalCharacteristics: `
             <strong>Període de producció:</strong> 1984-1996<br>
