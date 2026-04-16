@@ -10,73 +10,25 @@
         :root {
             --gold: #c9a227;
             --dark: #1a1a1a;
+            --light: #f8f6f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f6f0;
-        }
-
-        header {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            color: var(--gold);
-        }
-
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background: #a67c1f;
-            transform: translateY(-3px);
+            background-color: var(--light);
         }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26, 26, 26, 0.96);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
         .nav-container {
@@ -88,11 +40,8 @@
             padding: 0 40px;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            text-decoration: none;
+        .logo-nav {
+            height: 60px;
         }
 
         .nav-links a {
@@ -100,6 +49,57 @@
             text-decoration: none;
             margin-left: 30px;
             font-weight: 400;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('assets/images/hero.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 20px;
+        }
+
+        .hero-logo {
+            width: 220px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.7rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #a67c1f;
+            transform: translateY(-3px);
         }
 
         section {
@@ -136,7 +136,7 @@
 
         .card img {
             width: 100%;
-            height: 240px;
+            height: 260px;
             object-fit: cover;
         }
 
@@ -152,19 +152,19 @@
             background: var(--dark);
             color: #ddd;
             text-align: center;
-            padding: 60px 20px;
+            padding: 70px 20px;
         }
 
-        .social a {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin: 0 15px;
-            text-decoration: none;
+        .footer-logo {
+            width: 140px;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 3.2rem; }
+            h1 { font-size: 3rem; }
             .subtitle { font-size: 1.4rem; }
+            .hero-logo { width: 180px; }
         }
     </style>
 </head>
@@ -172,7 +172,7 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">AC Classics Montgrí</a>
+            <img src="logo.png" alt="AC Classics Montgrí" class="logo-nav">
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#cars">Our Cars</a>
@@ -184,19 +184,18 @@
 
     <header>
         <div class="hero-content">
+            <img src="logo.png" alt="AC Classics Montgrí Logo" class="hero-logo">
             <h1>AC Classics Montgrí</h1>
-            <p class="subtitle">Passion for Classic Cars on the Costa Brava</p>
-            <a href="#about" class="btn">Discover Our Club</a>
+            <p class="subtitle">Classic Cars • Passion • Costa Brava</p>
+            <a href="#about" class="btn">Discover the Club</a>
         </div>
     </header>
 
     <section id="about" class="about">
-        <h2>About Us</h2>
-        <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.15rem;">
-            AC Classics Montgrí is a friendly club of enthusiasts dedicated to the preservation, enjoyment, and celebration of classic automobiles in the beautiful region of Montgrí, Girona.
-        </p>
-        <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem;">
-            We organize regular meetings, scenic drives along the Costa Brava, technical talks, and participation in national and international classic car events.
+        <h2>About AC Classics Montgrí</h2>
+        <p style="max-width: 720px; margin: 0 auto 30px; font-size: 1.2rem;">
+            We are a group of enthusiasts from the Montgrí region who share a deep passion for classic automobiles. 
+            Our club brings together owners and lovers of timeless cars for drives, meetings, and unforgettable moments on the beautiful Costa Brava.
         </p>
     </section>
 
@@ -204,73 +203,70 @@
         <h2>Featured Classics</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://picsum.photos/id/1015/600/400" alt="Classic AC Cobra">
+                <img src="assets/images/cobra.jpg" alt="AC Cobra">
                 <div class="card-content">
                     <h3>AC Cobra</h3>
-                    <p>Iconic British-American sports car. The legend lives on in our club.</p>
+                    <p>The legendary British-American sports car. A symbol of raw power and elegance.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://picsum.photos/id/201/600/400" alt="Jaguar E-Type">
+                <img src="assets/images/jaguar.jpg" alt="Jaguar E-Type">
                 <div class="card-content">
                     <h3>Jaguar E-Type</h3>
-                    <p>The most beautiful car ever made – several examples in the club.</p>
+                    <p>Often called the most beautiful car ever made. Several examples grace our club.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Porsche 911 Classic">
+                <img src="assets/images/porsche.jpg" alt="Porsche 911">
                 <div class="card-content">
-                    <h3>Porsche 911</h3>
-                    <p>Air-cooled classics from the golden era of Porsche.</p>
+                    <h3>Air-Cooled Porsche 911</h3>
+                    <p>Classic 911s from the golden era of Porsche engineering.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="events" class="events">
-        <h2>Upcoming Events</h2>
+        <h2>Upcoming Events 2026</h2>
         <div class="grid">
             <div class="card">
                 <div class="card-content">
-                    <h3>May 2026 • Spring Rally</h3>
-                    <p>Scenic drive through the Montgrí Natural Park and Empordà region.</p>
-                    <p><strong>Date:</strong> May 17, 2026</p>
+                    <h3>Spring Rally • May 17</h3>
+                    <p>Scenic drive through Montgrí Natural Park and the Empordà countryside.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <h3>June 2026 • Club Meeting & BBQ</h3>
-                    <p>Monthly gathering with live music and classic car display.</p>
-                    <p><strong>Date:</strong> June 14, 2026</p>
+                    <h3>Club BBQ & Meeting • June 14</h3>
+                    <p>Relaxed gathering with music, food and classic car display.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <h3>September 2026 • Costa Brava Concours</h3>
-                    <p>We participate as a club in this prestigious event.</p>
+                    <h3>Costa Brava Classic Concours • September</h3>
+                    <p>Club participation in this prestigious event.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Join the Club</h2>
+        <h2>Join Us</h2>
         <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">
-            Whether you own a classic car or simply love them, you're welcome to join us.
+            Love classic cars? You're welcome here — whether you own one or just admire them.
         </p>
-        <div style="text-align: center;">
-            <p><strong>Email:</strong> <a href="mailto:info@acclassicsmontgri.com" style="color: #c9a227;">info@acclassicsmontgri.com</a></p>
+        <div style="text-align: center; font-size: 1.15rem;">
+            <p><strong>Email:</strong> <a href="mailto:info@acclassicsmontgri.com" style="color: var(--gold);">info@acclassicsmontgri.com</a></p>
             <p><strong>Location:</strong> Montgrí / L'Estartit • Girona, Spain</p>
         </div>
     </section>
 
     <footer class="footer">
+        <img src="logo.png" alt="AC Classics Montgrí" class="footer-logo">
         <p>&copy; 2026 AC Classics Montgrí • Classic Car Club</p>
-        <div class="social" style="margin: 25px 0;">
-            <a href="#">📸 Instagram</a>
-            <a href="#">📘 Facebook</a>
-        </div>
-        <p style="font-size: 0.9rem; opacity: 0.7;">Made with passion for classic cars</p>
+        <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.8;">
+            Passion for timeless cars on the Costa Brava
+        </p>
     </footer>
 
 </body>
