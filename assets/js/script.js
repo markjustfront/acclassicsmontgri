@@ -203,14 +203,14 @@ const modelsData = [
             {
                 name: "Para-xocs amb spoiler (TS / Alpine)",
                 description: "Para-xocs davanter amb disseny més agressiu i millor aerodinàmica.",
-                images: ["images/accessories/R5/spoiler-ts.jpg"],
+                images: ["images/accessories/R5/spoilers-ts.jpg"],
                 extra: "Diferenciador visual important respecte versions base."
             },
             {
                 name: "Quadre d'instruments complet (TS / Alpine)",
                 description: "Inclou compta-revolucions i més informació mecànica.",
                 images: ["images/accessories/R5/quadre-ts.jpg"],
-                extra: "Millora funcional respecte quadres bàsics."
+                extra: "Millora funcional respecte quadres bàsics inclou sensor de temperatura d'oli."
             },
             {
                 name: "Tapisseria específica (GTL / TS / Alpine)",
@@ -222,13 +222,19 @@ const modelsData = [
                 name: "Miralls retrovisors babyTornado",
                 description: "Miralls metàl·lics típics de versions Alpine.",
                 images: ["images/accessories/R5/miralls-tornado.jpg"],
-                extra: "Detall clàssic dels primers R5."
+                extra: "Mes comuns a França."
             },
             {
                 name: "Miralls retrovisors California",
                 description: "Miralls de plastic típics de la epoca.",
                 images: ["images/accessories/R5/miralls-california.jpg"],
-                extra: "Detall clàssic dels primers R5."
+                extra: "Mes comuns a Espanya."
+            },
+            {
+                name: "Pom de canvi de pell Alpine",
+                description: "Pom de canvi de pell per a versions esportives.",
+                images: ["images/accessories/R5/pom-canvi-r5.jpg", "images/accessories/R5/pom-canvi-r5-2.jpg"],
+                extra: "Accesoris típics de versions esportives."
             }
         ],
         videos: [
