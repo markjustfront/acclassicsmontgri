@@ -177,12 +177,16 @@ function filterModels() {
     renderModels(filtered);
 }
 
+// ==================== FULL MODAL FUNCTIONALITY (Updated) ====================
+
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
 
-    document.getElementById('modalTitle').innerHTML = `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
+    document.getElementById('modalTitle').innerHTML =
+        `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
+    // Build Variants Table
     let variantsHTML = '';
     if (model.variants && model.variants.length > 0) {
         variantsHTML = `
@@ -211,6 +215,7 @@ window.showModel = function (id) {
         `;
     }
 
+    // Accessories (expandable)
     let accessoriesHTML = '';
     if (model.accessories && model.accessories.length > 0) {
         accessoriesHTML = model.accessories.map(acc => `
@@ -230,6 +235,7 @@ window.showModel = function (id) {
         accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
     }
 
+    // Videos
     let videosHTML = '';
     if (model.videos && model.videos.length > 0) {
         videosHTML = model.videos.map(video => `
@@ -249,6 +255,7 @@ window.showModel = function (id) {
         videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
     }
 
+    // Full modal content
     const bodyHTML = `
         <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
         <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
@@ -262,19 +269,29 @@ window.showModel = function (id) {
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
         
-        <h3>Vídeos Relacionats</h3>
+        <h3>Vídeos Relacionats (Manteniment, Adaptacions...)</h3>
         ${videosHTML}
     `;
 
     document.getElementById('modalBody').innerHTML = bodyHTML;
-    document.getElementById('modal').style.display = 'flex';
+
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+
+    // NEW: Click anywhere on the dark background to close
+    modal.onclick = function (e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    };
 };
 
 window.closeModal = function () {
-    document.getElementById('modal').style.display = 'none';
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
 };
 
-// Initialize
+// Make sure this stays at the bottom of your script.js
 if (searchInput && grid) {
     searchInput.addEventListener('keyup', filterModels);
     renderModels(modelsData);
