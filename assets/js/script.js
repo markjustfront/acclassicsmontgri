@@ -342,12 +342,6 @@ const modelsData = [
                 extra: "Un dels elements visuals més icònics."
             },
             {
-                name: "Entrades d'aire capó (GT Turbo)",
-                description: "Obertures funcionals per refrigeració del turbo.",
-                images: ["images/accessories/R5P2/capo-gt.jpg"],
-                extra: "Diferenciador clar respecte altres versions."
-            },
-            {
                 name: "Vinils GT Turbo",
                 description: "Decoració lateral amb el nom del model.",
                 images: ["images/accessories/R5P2/vinils-gt.jpg"],
@@ -360,40 +354,10 @@ const modelsData = [
                 extra: "La versió més refinada del Super Cinq."
             },
             {
-                name: "Volant cuir Baccara",
-                description: "Volant revestit en cuir.",
-                images: ["images/accessories/R5P2/volant-baccara.jpg"],
-                extra: "Orientat al confort i luxe."
-            },
-            {
-                name: "Tapisseria específica (GTL / TSE / GTX)",
-                description: "Diferents patrons segons versió.",
-                images: ["images/accessories/R5P2/tapisseria.jpg"],
-                extra: "Important per identificar acabats."
-            },
-            {
                 name: "Tancament centralitzat",
                 description: "Sistema de bloqueig central de portes.",
                 images: ["images/accessories/R5P2/centralitzat.jpg"],
                 extra: "Equipament més modern respecte Phase 1."
-            },
-            {
-                name: "Alçavidres elèctrics",
-                description: "Control elèctric de finestres.",
-                images: ["images/accessories/R5P2/elevalunas.jpg"],
-                extra: "Present en versions altes."
-            },
-            {
-                name: "Retrovisors regulables des de l'interior",
-                description: "Ajust manual des de l'habitacle.",
-                images: ["images/accessories/R5P2/retrovisors.jpg"],
-                extra: "Millora d’ergonomia."
-            },
-            {
-                name: "Techo solar (opcional)",
-                description: "Obertura al sostre manual o elèctrica.",
-                images: ["images/accessories/R5P2/techo-solar.jpg"],
-                extra: "Molt popular en els anys 80-90."
             }
         ],
 
