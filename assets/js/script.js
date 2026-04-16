@@ -114,6 +114,7 @@ const modelsData = [
         model: "5 Super Cinq (Phase 2)",
         years: "1984-1996",
         description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat i gamma més àmplia.",
+        image: "images/renault5-supercinq.jpg",
 
         generalCharacteristics: `
             <strong>Període de producció:</strong> 1984-1996<br>
