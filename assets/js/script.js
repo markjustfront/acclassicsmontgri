@@ -8,7 +8,6 @@ const modelsData = [
         description: "El cotxe més venut de la història de Renault. Simbol de practicitat i durabilitat.",
         image: "images/renault4.jpg",
 
-        // New General Characteristics (ranges)
         generalCharacteristics: `
             <strong>Període de producció:</strong> 1961-1994<br>
             <strong>Desplaçament:</strong> 0.8L - 1.1L<br>
@@ -18,14 +17,12 @@ const modelsData = [
             <strong>Consum mitjà:</strong> 6 - 8 L/100km
         `,
 
-        // Specific engine variants in table format
         variants: [
             { engine: "0.8L", power: "27-30 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió base" },
             { engine: "1.0L", power: "34-40 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió més comuna" },
             { engine: "1.1L", power: "45 CV", fuel: "Gasolina", traction: "Davantera", notes: "Últimes versions" }
         ],
 
-        // Your existing accessories
         accessories: [
             {
                 name: "Barres de sostre originals",
@@ -41,7 +38,6 @@ const modelsData = [
             }
         ],
 
-        // Your existing videos
         videos: [
             {
                 title: "Restauració completa del Renault 4L - Part 1",
@@ -59,23 +55,25 @@ const modelsData = [
     {
         id: 2,
         brand: "Renault",
-        model: "5 (R5)",
-        years: "1972-1996",
-        description: "El supercotxe urbà dels anys 70-80.",
+        model: "5 (R5) - Primera Generació (Phase 1)",
+        years: "1972-1984",
+        description: "El mític Renault 5 original. Un dels cotxes urbans més icònics dels anys 70 i principis dels 80.",
         image: "images/renault5.jpg",
 
         generalCharacteristics: `
-            <strong>Període de producció:</strong> 1972-1996<br>
-            <strong>Desplaçament:</strong> 0.8L - 1.7L<br>
-            <strong>Potència:</strong> 36 - 93 CV<br>
+            <strong>Període de producció:</strong> 1972-1984<br>
+            <strong>Desplaçament:</strong> 0.8L - 1.4L<br>
+            <strong>Potència:</strong> 37 - 110 CV<br>
             <strong>Tracció:</strong> Davantera<br>
-            <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
+            <strong>Carrosseries:</strong> Hatchback 3 portes (5 portes a partir de 1979)
         `,
 
         variants: [
-            { engine: "0.8L - 1.0L", power: "36-45 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions TL / GTL" },
-            { engine: "1.4L", power: "60-70 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió més equilibrada" },
-            { engine: "1.7L Alpine / Turbo", power: "93 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions esportives" }
+            { engine: "0.8L - 0.85L (Ventoux)", power: "37 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions bàsiques" },
+            { engine: "0.96L - 1.1L", power: "42 - 45 CV", fuel: "Gasolina", traction: "Davantera", notes: "TL / GTL" },
+            { engine: "1.3L", power: "55 - 64 CV", fuel: "Gasolina", traction: "Davantera", notes: "TS / LS" },
+            { engine: "1.4L Alpine", power: "93 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió esportiva" },
+            { engine: "1.4L Turbo", power: "110 CV", fuel: "Gasolina", traction: "Davantera", notes: "Alpine Turbo / Gordini Turbo" }
         ],
 
         accessories: [
@@ -84,18 +82,6 @@ const modelsData = [
                 description: "Volant disponible en les versions Copa i Copa Turbo del R5 a partir de 1984.",
                 images: ["images/accessories/R5/iso-delta-r5.jpg", "images/accessories/R5/iso-delta-r5-2.jpg"],
                 extra: "És un volant molt buscat a Espanya i molt difícil de trobar en bon estat."
-            },
-            {
-                name: "Rellotges Copa/Alpine",
-                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
-                images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
-                extra: "També estava disponible en altres models a part del Copa."
-            },
-            {
-                name: "Rellotges Copa Turbo/Alpine Turbo",
-                description: "Rellotges de pressió d'oli i pressió turbo.",
-                images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
-                extra: "Molts aficionats el portaven encara que no tinguessin turbo."
             }
         ],
 
@@ -103,14 +89,56 @@ const modelsData = [
             {
                 title: "Bota de canvi de marxes del R5 en pell",
                 youtubeId: "CQthDNyU7f0",
-                description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5. Millora l'estètica i la sensació al tacte."
+                description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5."
             }
         ]
+    },
+
+    {
+        id: 3,
+        brand: "Renault",
+        model: "5 Super Cinq (Phase 2)",
+        years: "1984-1996",
+        description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat i gamma més àmplia.",
+        image: "images/renault5-supercinq.jpg",   // ← Canvia la imatge si en tens una específica del Super Cinq
+
+        generalCharacteristics: `
+            <strong>Període de producció:</strong> 1984-1996<br>
+            <strong>Desplaçament:</strong> 0.96L - 1.7L<br>
+            <strong>Potència:</strong> 42 - 120 CV<br>
+            <strong>Tracció:</strong> Davantera<br>
+            <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
+        `,
+
+        variants: [
+            { engine: "0.96L (C1C)", power: "42 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió base TC/TL" },
+            { engine: "1.1L (C1E)", power: "47 CV", fuel: "Gasolina", traction: "Davantera", notes: "TL / GTL" },
+            { engine: "1.4L (C1J/C2J)", power: "60 - 72 CV", fuel: "Gasolina", traction: "Davantera", notes: "TS / TSE / GTL" },
+            { engine: "1.4L GT Turbo", power: "115 - 120 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió esportiva" },
+            { engine: "1.7L (F2N/F3N)", power: "90 - 95 CV", fuel: "Gasolina", traction: "Davantera", notes: "GTX / GTE / Baccara" }
+        ],
+
+        accessories: [
+            {
+                name: "Rellotges Copa/Alpine",
+                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
+                images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
+                extra: "També estava disponible en altres models."
+            },
+            {
+                name: "Rellotges Copa Turbo/Alpine Turbo",
+                description: "Rellotges de pressió d'oli i pressió turbo.",
+                images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
+                extra: "Molt populars entre els aficionats."
+            }
+        ],
+
+        videos: []
     }
-    // Afegiu més models aquí...
+    // Pots afegir més models aquí...
 ];
 
-// ==================== RENDER & MODAL ====================
+// ==================== RENDER & MODAL (unchanged) ====================
 const grid = document.getElementById('modelsGrid');
 const searchInput = document.getElementById('searchInput');
 
@@ -153,7 +181,6 @@ window.showModel = function (id) {
 
     document.getElementById('modalTitle').innerHTML = `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
-    // Build Variants Table
     let variantsHTML = '';
     if (model.variants && model.variants.length > 0) {
         variantsHTML = `
@@ -182,7 +209,6 @@ window.showModel = function (id) {
         `;
     }
 
-    // Accessories (unchanged)
     let accessoriesHTML = '';
     if (model.accessories && model.accessories.length > 0) {
         accessoriesHTML = model.accessories.map(acc => `
@@ -190,8 +216,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ?
-                `<div class="accessory-images">
+                    ${acc.images && acc.images.length ? 
+                        `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -202,7 +228,6 @@ window.showModel = function (id) {
         accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
     }
 
-    // Videos (unchanged)
     let videosHTML = '';
     if (model.videos && model.videos.length > 0) {
         videosHTML = model.videos.map(video => `
@@ -235,7 +260,7 @@ window.showModel = function (id) {
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
         
-        <h3>Vídeos Relacionats (Manteniment, Adaptacions...)</h3>
+        <h3>Vídeos Relacionats</h3>
         ${videosHTML}
     `;
 
