@@ -3,179 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AC Classics Montgrí - Club de cotxes clàssics europeus a la Costa Brava. Especialistes en Renault, Citroën i SEAT clàssics.">
     <title>AC Classics Montgrí | Club de Cotxes Clàssics</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
-
-        :root {
-            --gold: #c9a227;
-            --dark: #1a1a1a;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f6f0;
-        }
-
-        header {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
-                        url('images/hero.jpg') center/cover no-repeat;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            color: var(--gold);
-        }
-
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background: #a67c1f;
-            transform: translateY(-3px);
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-        }
-
-        .logo {
-            height: 62px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 400;
-            font-size: 1.05rem;
-        }
-
-        .nav-links a:hover { color: var(--gold); }
-
-        section {
-            padding: 100px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--dark);
-        }
-
-        .about { background: white; text-align: center; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .card img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .events { background: #f0e8d8; }
-
-        .noticies { background: white; }
-
-        .youtube {
-            background: #f0e8d8;
-            text-align: center;
-        }
-
-        .footer {
-            background: var(--dark);
-            color: #ddd;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .social a {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 3.2rem; }
-            .subtitle { font-size: 1.4rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <nav>
         <div class="nav-container">
-            <img src="logo.png" alt="AC Classics Montgrí" class="logo">
+            <img src="images/logo.png" alt="AC Classics Montgrí" class="logo">
             <div class="nav-links">
+                <a href="index.html">Inici</a>
                 <a href="#sobre">Sobre Nosaltres</a>
                 <a href="#cotxes">Els Nostres Cotxes</a>
+                <a href="cataleg.html">Catàleg</a>
                 <a href="#esdeveniments">Esdeveniments</a>
                 <a href="#noticies">Notícies</a>
                 <a href="#youtube">YouTube</a>
@@ -254,7 +94,6 @@
         <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem;">
             Aquí publicarem les nostres sortides, rutes i moments del club.
         </p>
-        <!-- Pots afegir targetes noves aquí quan facis noves concentracions -->
     </section>
 
     <section id="youtube" class="youtube">
@@ -291,5 +130,6 @@
         <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
     </footer>
 
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

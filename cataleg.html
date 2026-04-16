@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catàleg de Models - AC Classics Montgrí</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <img src="images/logo.png" alt="AC Classics Montgrí" class="logo">
+            <div class="nav-links">
+                <a href="index.html">Inici</a>
+                <a href="index.html#sobre">Sobre Nosaltres</a>
+                <a href="index.html#cotxes">Els Nostres Cotxes</a>
+                <a href="cataleg.html">Catàleg</a>
+                <a href="index.html#esdeveniments">Esdeveniments</a>
+                <a href="index.html#noticies">Notícies</a>
+                <a href="index.html#youtube">YouTube</a>
+                <a href="index.html#contacte">Contacte</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="cataleg" style="padding-top: 120px; background: white;">
+        <h2>Catàleg de Models Clàssics</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
+            Compila informació sobre cada model: característiques, accessoris, curiositats i més.<br>
+            Comença pels Renault dels anys 70-80 i expandeix-lo lliurement.
+        </p>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cerca per model, marca o any (ex: R5, Renault, 1975...)">
+        </div>
+
+        <div class="grid" id="modelsGrid"></div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" style="margin:0; font-size:2rem;"></h2>
+                <span class="close" onclick="closeModal()">×</span>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 AC Classics Montgrí • Club de Cotxes Clàssics</p>
+        <div class="social" style="margin: 25px 0;">
+            <a href="https://www.instagram.com/acclassicsmontgri/" target="_blank">📸 Instagram</a>
+            <a href="https://www.youtube.com/@ACClassicsMontgri" target="_blank">▶️ YouTube</a>
+        </div>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
