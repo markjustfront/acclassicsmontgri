@@ -53,16 +53,22 @@ const modelsData = [
         // Accessoris específics per al R5
         accessories: [
             {
-                name: "Volant Iso Delta",
+                name: "Volant Iso Delta (Copa i Copa Turbo)",
                 description: "Volant dispobible en les version Copa i Copa Turbo del R5 a partir de 1984.",
-                images: ["images/accessories/R5/iso-delta-r5.jpg"],
+                images: ["images/accessories/R5/iso-delta-r5.jpg", "images/accessories/R5/iso-delta-r5-2.jpg"],
                 extra: "Es un volant molt buscat a espanya i molt difícil de trobar en bon estat."
             },
             {
-                name: "Rodes de recanvi extern + suport",
-                description: "Porta-rodes lateral original dels anys 70-80.",
-                images: ["images/accessories/r4-roda-externa.jpg", "images/accessories/r4-roda-externa2.jpg"],
-                extra: "Ideal per a rutes llargues i concentracions."
+                name: "Rellotges Copa/Alpine",
+                description: "Rellotges temperatura d'oli i voltatge de bateria.",
+                images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
+                extra: "Tambe estava disponible en altres models apart del Copa."
+            },
+            {
+                name: "Rellotges Copa Turbo/Alpine Turbo",
+                description: "Rellotges pressio d'oli i pressio turbo.",
+                images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
+                extra: "Molts aficionats portaben aquest rellotge encara que no i agues trubo."
             }
         ],
 
