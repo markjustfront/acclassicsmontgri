@@ -300,7 +300,7 @@ const modelsData = [
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1984-1996<br>
-        <strong>Desplaçament:</strong> 1.0L - 1.7L<br>
+        <strong>Desplaçament:</strong> 1.0L - 1.7L (1.6L Diesel)<br>
         <strong>Potència:</strong> 42 - 120 CV<br>
         <strong>Tracció:</strong> Davantera<br>
         <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
@@ -335,6 +335,13 @@ const modelsData = [
                 fuel: "Gasolina",
                 traction: "Davantera",
                 notes: "Versió esportiva turbo"
+            },
+            {
+                engine: "1.6L Diesel (F8M)",
+                power: "54 - 55 CV",
+                fuel: "Diesel",
+                traction: "Davantera",
+                notes: "TD / GTD, molt fiable i econòmic"
             },
             {
                 engine: "1.7L (F2N / F3N)",
