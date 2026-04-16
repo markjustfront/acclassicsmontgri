@@ -4,52 +4,124 @@ const modelsData = [
         id: 1,
         brand: "Renault",
         model: "4 (R4)",
-        years: "1961-1994",
-        description: "El cotxe més venut de la història de Renault. Simbol de practicitat i durabilitat.",
+        years: "1961-1992",
+        description: "El Renault 4 és un dels cotxes més versàtils i icònics de Renault. Simple, robust i extremadament pràctic.",
         image: "images/renault4.jpg",
 
         generalCharacteristics: `
-            <strong>Període de producció:</strong> 1961-1994<br>
-            <strong>Desplaçament:</strong> 0.8L - 1.1L<br>
-            <strong>Potència:</strong> 27 - 45 CV<br>
-            <strong>Tracció:</strong> Davantera<br>
-            <strong>Nombre de portes:</strong> 5 (incloent porta posterior)<br>
-            <strong>Consum mitjà:</strong> 6 - 8 L/100km
-        `,
+        <strong>Període de producció:</strong> 1961-1992<br>
+        <strong>Desplaçament:</strong> 0.6L - 1.1L<br>
+        <strong>Potència:</strong> 23 - 34 CV<br>
+        <strong>Tracció:</strong> Davantera<br>
+        <strong>Carrosseries:</strong> Hatchback 5 portes / Furgoneta (F4/F6)
+    `,
 
         variants: [
-            { engine: "0.8L", power: "27-30 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió base" },
-            { engine: "1.0L", power: "34-40 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió més comuna" },
-            { engine: "1.1L", power: "45 CV", fuel: "Gasolina", traction: "Davantera", notes: "Últimes versions" }
+            {
+                engine: "0.6L (603 cc)",
+                power: "23 - 26 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Primeres versions (R4, R3)"
+            },
+
+            {
+                engine: "0.7L (747 cc)",
+                power: "27 - 32 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "R4L inicial"
+            },
+
+            {
+                engine: "0.8L (782 cc)",
+                power: "34 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "R4L / TL"
+            },
+
+            {
+                engine: "0.85L (845 cc)",
+                power: "34 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "TL / GTL (molt comú)"
+            },
+
+            {
+                engine: "1.1L (1108 cc)",
+                power: "34 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "GTL, més parell i eficiència"
+            }
         ],
 
         accessories: [
             {
-                name: "Barres de sostre originals",
-                description: "Permeten transportar equipatge o material de lleure. Versió oficial Renault.",
-                images: ["images/accessories/r4-barres.jpg"],
-                extra: "Compatible amb totes les versions del R4. Molt buscades pels col·leccionistes."
+                name: "Portaequipatges sostre",
+                description: "Estructura metàl·lica per transportar càrrega o equipatge.",
+                images: ["images/accessories/R4/roofrack.jpg"],
+                extra: "Molt icònic en el Renault 4, especialment en ús rural."
             },
             {
-                name: "Rodes de recanvi extern + suport",
-                description: "Porta-rodes lateral original dels anys 70-80.",
-                images: ["images/accessories/r4-roda-externa.jpg", "images/accessories/r4-roda-externa2.jpg"],
-                extra: "Ideal per a rutes llargues i concentracions."
+                name: "Seients reclinables (TL/GTL)",
+                description: "Permeten convertir l'interior en una superfície plana.",
+                images: ["images/accessories/R4/seients.jpg"],
+                extra: "Un dels punts forts del R4: versatilitat màxima."
+            },
+            {
+                name: "Tauler minimalista amb palanca de canvi al quadre",
+                description: "Sistema de canvi de marxes al quadre de comandament.",
+                images: ["images/accessories/R4/palanca.jpg"],
+                extra: "Característica única i molt reconeixible."
+            },
+            {
+                name: "Tapisseria específica GTL",
+                description: "Materials més cuidats en versions superiors.",
+                images: ["images/accessories/R4/tapisseria.jpg"],
+                extra: "Diferenciador interior respecte versions bàsiques."
+            },
+            {
+                name: "Para-xocs metàl·lics cromats",
+                description: "Para-xocs simples amb acabat cromat.",
+                images: ["images/accessories/R4/paraxocs.jpg"],
+                extra: "Típics de les primeres sèries."
+            },
+            {
+                name: "Deflectors de finestres",
+                description: "Permeten ventilació sense obrir completament les finestres.",
+                images: ["images/accessories/R4/deflectors.jpg"],
+                extra: "Accessoris molt comuns de concessionari."
+            },
+            {
+                name: "Furgoneta F4/F6 (kit comercial)",
+                description: "Versió adaptada per transport de mercaderies.",
+                images: ["images/accessories/R4/furgoneta.jpg"],
+                extra: "Molt utilitzada per negocis i serveis."
+            },
+            {
+                name: "Proteccions laterals (GTL Clan/Savane)",
+                description: "Motllures laterals de plàstic.",
+                images: ["images/accessories/R4/motllures.jpg"],
+                extra: "Característiques de les últimes versions."
+            },
+            {
+                name: "Llantes d'acer amb tapacubs Renault",
+                description: "Llantes bàsiques amb tapacubs decoratius.",
+                images: ["images/accessories/R4/tapacubs.jpg"],
+                extra: "Element clàssic del model."
+            },
+            {
+                name: "Vinils decoratius (Clan/Savane)",
+                description: "Adhesius laterals amb el nom de la versió.",
+                images: ["images/accessories/R4/vinils.jpg"],
+                extra: "Molt característics dels anys 80."
             }
         ],
 
-        videos: [
-            {
-                title: "Restauració completa del Renault 4L - Part 1",
-                youtubeId: "YOUR_VIDEO_ID_HERE",
-                description: "Desmuntatge de motor, suspensió i xassís pas a pas."
-            },
-            {
-                title: "Adaptació moderna al R4: frens de disc i direcció assistida",
-                youtubeId: "ANOTHER_VIDEO_ID",
-                description: "Com millorar la seguretat sense perdre l'essència clàssica."
-            }
-        ]
+        videos: []
     },
 
     {
@@ -223,27 +295,141 @@ const modelsData = [
         brand: "Renault",
         model: "5 Super Cinq (Phase 2)",
         years: "1984-1996",
-        description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat i gamma més àmplia.",
+        description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat, millor equipament i versions esportives icòniques com el GT Turbo.",
         image: "images/renault5-supercinq.jpg",
 
         generalCharacteristics: `
-            <strong>Període de producció:</strong> 1984-1996<br>
-            <strong>Desplaçament:</strong> 0.96L - 1.7L<br>
-            <strong>Potència:</strong> 42 - 120 CV<br>
-            <strong>Tracció:</strong> Davantera<br>
-            <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
-        `,
+        <strong>Període de producció:</strong> 1984-1996<br>
+        <strong>Desplaçament:</strong> 1.0L - 1.7L<br>
+        <strong>Potència:</strong> 42 - 120 CV<br>
+        <strong>Tracció:</strong> Davantera<br>
+        <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
+    `,
 
         variants: [
-            { engine: "0.96L (C1C)", power: "42 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió base TC/TL" },
-            { engine: "1.1L (C1E)", power: "47 CV", fuel: "Gasolina", traction: "Davantera", notes: "TL / GTL" },
-            { engine: "1.4L (C1J/C2J)", power: "60 - 72 CV", fuel: "Gasolina", traction: "Davantera", notes: "TS / TSE / GTL" },
-            { engine: "1.4L GT Turbo", power: "115 - 120 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió esportiva" },
-            { engine: "1.7L (F2N/F3N)", power: "90 - 95 CV", fuel: "Gasolina", traction: "Davantera", notes: "GTX / GTE / Baccara" }
+            {
+                engine: "1.0L (C1C)",
+                power: "42 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Versions bàsiques (TC / TL)"
+            },
+
+            {
+                engine: "1.1L (C1E)",
+                power: "47 - 49 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "TL / GTL"
+            },
+            {
+                engine: "1.4L (C1J / C2J)",
+                power: "60 - 72 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "TS / TSE / GTL"
+            },
+            {
+                engine: "1.4L GT Turbo",
+                power: "115 - 120 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Versió esportiva turbo"
+            },
+            {
+                engine: "1.7L (F2N / F3N)",
+                power: "90 - 95 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "GTE / GTX / Baccara"
+            }
         ],
 
         accessories: [
-            {}
+            {
+                name: "Volant GT Turbo",
+                description: "Volant esportiu de quatre radis amb disseny específic.",
+                images: ["images/accessories/R5P2/volant-gt-turbo.jpg"],
+                extra: "Un dels elements interiors més reconeixibles."
+            },
+            {
+                name: "Seients esportius GT Turbo",
+                description: "Seients amb gran subjecció lateral i disseny agressiu.",
+                images: ["images/accessories/R5P2/seients-gt-turbo.jpg"],
+                extra: "Clau en la identitat esportiva del model."
+            },
+            {
+                name: "Quadre amb compta-revolucions",
+                description: "Instrumentació completa amb informació esportiva.",
+                images: ["images/accessories/R5P2/quadre-gt.jpg"],
+                extra: "Absent en versions bàsiques."
+            },
+            {
+                name: "Kit aerodinàmic GT Turbo",
+                description: "Para-xocs específics, faldons laterals i spoiler.",
+                images: ["images/accessories/R5P2/kit-gt-turbo.jpg"],
+                extra: "Defineix completament l’aspecte del GT Turbo."
+            },
+            {
+                name: "Llandes d'aliatge GT Turbo",
+                description: "Llandes específiques amb disseny esportiu.",
+                images: ["images/accessories/R5P2/llandes-gt.jpg"],
+                extra: "Un dels elements visuals més icònics."
+            },
+            {
+                name: "Entrades d'aire capó (GT Turbo)",
+                description: "Obertures funcionals per refrigeració del turbo.",
+                images: ["images/accessories/R5P2/capo-gt.jpg"],
+                extra: "Diferenciador clar respecte altres versions."
+            },
+            {
+                name: "Vinils GT Turbo",
+                description: "Decoració lateral amb el nom del model.",
+                images: ["images/accessories/R5P2/vinils-gt.jpg"],
+                extra: "Molt característics dels anys 80."
+            },
+            {
+                name: "Interior Baccara",
+                description: "Acabats de luxe amb cuir i millor equipament.",
+                images: ["images/accessories/R5P2/baccara-interior.jpg"],
+                extra: "La versió més refinada del Super Cinq."
+            },
+            {
+                name: "Volant cuir Baccara",
+                description: "Volant revestit en cuir.",
+                images: ["images/accessories/R5P2/volant-baccara.jpg"],
+                extra: "Orientat al confort i luxe."
+            },
+            {
+                name: "Tapisseria específica (GTL / TSE / GTX)",
+                description: "Diferents patrons segons versió.",
+                images: ["images/accessories/R5P2/tapisseria.jpg"],
+                extra: "Important per identificar acabats."
+            },
+            {
+                name: "Tancament centralitzat",
+                description: "Sistema de bloqueig central de portes.",
+                images: ["images/accessories/R5P2/centralitzat.jpg"],
+                extra: "Equipament més modern respecte Phase 1."
+            },
+            {
+                name: "Alçavidres elèctrics",
+                description: "Control elèctric de finestres.",
+                images: ["images/accessories/R5P2/elevalunas.jpg"],
+                extra: "Present en versions altes."
+            },
+            {
+                name: "Retrovisors regulables des de l'interior",
+                description: "Ajust manual des de l'habitacle.",
+                images: ["images/accessories/R5P2/retrovisors.jpg"],
+                extra: "Millora d’ergonomia."
+            },
+            {
+                name: "Techo solar (opcional)",
+                description: "Obertura al sostre manual o elèctrica.",
+                images: ["images/accessories/R5P2/techo-solar.jpg"],
+                extra: "Molt popular en els anys 80-90."
+            }
         ],
 
         videos: []
