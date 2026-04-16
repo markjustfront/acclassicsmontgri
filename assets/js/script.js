@@ -509,122 +509,139 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== FULL MODAL FUNCTIONALITY (Updated) ====================
+// ==================== RENDER VIDEOS ====================
+function renderVideos(videos) {
+    return videos.map(video => `
+        <div class="video-block">
+            <h4>${video.title}</h4>
 
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/${video.youtubeId}" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p>${video.description}</p>
+
+            ${video.images && video.images.length ? `
+                <div class="video-images">
+                    ${video.images.map(img => `<img src="${img}" alt="${video.title}">`).join('')}
+                </div>
+            ` : ""}
+
+            ${video.imageDescription ? `
+                <p class="video-image-description">${video.imageDescription}</p>
+            ` : ""}
+        </div>
+    `).join('');
+}
+
+
+// ==================== GRID ====================
+const grid = document.getElementById('modelsGrid');
+const searchInput = document.getElementById('searchInput');
+
+function renderModels(filteredModels) {
+    grid.innerHTML = '';
+
+    if (filteredModels.length === 0) {
+        grid.innerHTML = `<p style="text-align:center;">Cap model trobat.</p>`;
+        return;
+    }
+
+    filteredModels.forEach(model => {
+        grid.innerHTML += `
+            <div class="card" onclick="showModel(${model.id})">
+                <img src="${model.image}" alt="${model.model}">
+                <div class="card-content">
+                    <h3>${model.brand} ${model.model}</h3>
+                    <p>${model.years}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+
+// ==================== MODAL ====================
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
 
-    document.getElementById('modalTitle').innerHTML =
-        `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
+    document.getElementById('modalTitle').innerText =
+        `${model.brand} ${model.model} (${model.years})`;
 
-    // Build Variants Table
-    let variantsHTML = '';
-    if (model.variants && model.variants.length > 0) {
-        variantsHTML = `
-            <table style="width:100%; border-collapse:collapse; margin:15px 0 25px 0;">
-                <thead>
-                    <tr style="background:#f0e8d8;">
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Motor</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Potència</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Combustible</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Tracció</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Notes</th>
+    let variantsHTML = model.variants?.length ? `
+        <table>
+            <tbody>
+                ${model.variants.map(v => `
+                    <tr>
+                        <td>${v.engine}</td>
+                        <td>${v.power}</td>
+                        <td>${v.fuel}</td>
+                        <td>${v.traction}</td>
+                        <td>${v.notes}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    ${model.variants.map(v => `
-                        <tr>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.engine}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.power}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.fuel}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.traction}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.notes}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        `;
-    }
+                `).join('')}
+            </tbody>
+        </table>
+    ` : '';
 
-    // Accessories (expandable)
-    let accessoriesHTML = '';
-    if (model.accessories && model.accessories.length > 0) {
-        accessoriesHTML = model.accessories.map(acc => `
-            <details>
-                <summary>${acc.name}</summary>
-                <div class="details-content">
-                    <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ?
-                `<div class="accessory-images">
-                            ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
-                         </div>` : ''}
-                    ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
-                </div>
-            </details>
-        `).join('');
-    } else {
-        accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
-    }
-
-    // Videos
-    let videosHTML = '';
-    if (model.videos && model.videos.length > 0) {
-        videosHTML = model.videos.map(video => `
-            <div>
-                <h4>${video.title}</h4>
-                <p style="margin-bottom:12px;">${video.description}</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
-                            title="${video.title}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
+    let accessoriesHTML = model.accessories?.length ? model.accessories.map(acc => `
+        <details>
+            <summary>${acc.name}</summary>
+            <div class="details-content">
+                <p>${acc.description}</p>
+                ${acc.images?.length ? `
+                    <div class="accessory-images">
+                        ${acc.images.map(img => `<img src="${img}">`).join('')}
+                    </div>
+                ` : ''}
+                <p>${acc.extra || ""}</p>
             </div>
-        `).join('');
-    } else {
-        videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
-    }
+        </details>
+    `).join('') : '<p>No accessoris</p>';
 
-    // Full modal content
-    const bodyHTML = `
-        <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
-        <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
-        
-        <h3>Característiques Generals</h3>
-        <p style="background:#f8f6f0; padding:15px; border-radius:8px; margin-bottom:25px;">${model.generalCharacteristics}</p>
-        
-        <h3>Variants de Motor</h3>
+    // 🔥 FIXED: USING renderVideos()
+    let videosHTML = model.videos?.length
+        ? renderVideos(model.videos)
+        : '<p>Encara no hi ha vídeos.</p>';
+
+    document.getElementById('modalBody').innerHTML = `
+        <img src="${model.image}" style="width:100%; border-radius:10px;">
+        <p>${model.description}</p>
+
+        <h3>Característiques</h3>
+        <div>${model.generalCharacteristics}</div>
+
+        <h3>Variants</h3>
         ${variantsHTML}
-        
-        <h3>Accessoris originals</h3>
+
+        <h3>Accessoris</h3>
         ${accessoriesHTML}
-        
-        <h3>Vídeos Relacionats (Manteniment, Adaptacions...)</h3>
+
+        <h3>Vídeos</h3>
         ${videosHTML}
     `;
 
-    document.getElementById('modalBody').innerHTML = bodyHTML;
-
-    const modal = document.getElementById('modal');
-    modal.style.display = 'flex';
-
-    // NEW: Click anywhere on the dark background to close
-    modal.onclick = function (e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    };
+    document.getElementById('modal').style.display = 'flex';
 };
 
 window.closeModal = function () {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
 };
 
-// Make sure this stays at the bottom of your script.js
-if (searchInput && grid) {
-    searchInput.addEventListener('keyup', filterModels);
-    renderModels(modelsData);
-}
+
+// ==================== SEARCH ====================
+searchInput.addEventListener('keyup', () => {
+    const term = searchInput.value.toLowerCase();
+    const filtered = modelsData.filter(m =>
+        m.brand.toLowerCase().includes(term) ||
+        m.model.toLowerCase().includes(term)
+    );
+    renderModels(filtered);
+});
+
+renderModels(modelsData);
