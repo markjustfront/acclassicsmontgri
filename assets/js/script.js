@@ -470,34 +470,6 @@ function renderModels(filteredModels) {
     });
 }
 
-function renderVideos(videos) {
-    return videos.map(video => `
-        <div class="video-block">
-            <h4>${video.title}</h4>
-
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/${video.youtubeId}" 
-                    frameborder="0" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <p>${video.description}</p>
-
-            ${video.images ? `
-                <div class="video-images">
-                    ${video.images.map(img => `<img src="${img}" alt="${video.title}">`).join('')}
-                </div>
-            ` : ""}
-
-            ${video.imageDescription ? `
-                <p class="video-image-description">${video.imageDescription}</p>
-            ` : ""}
-        </div>
-    `).join('');
-}
-
 function filterModels() {
     const term = searchInput.value.toLowerCase().trim();
     const filtered = modelsData.filter(m =>
