@@ -332,11 +332,6 @@ details[open] summary {
     line-height: 1.5;
 }
 
-.video-block h4 {
-    margin-bottom: 10px;
-    color: var(--dark);
-}
-
 /* Modal improvements */
 .modal-body h3 {
     margin-top: 35px;
