@@ -285,7 +285,7 @@ const modelsData = [
                 youtubeId: "CQthDNyU7f0",
                 description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5.",
                 images: ["images/accessories/R5/bota-canvi-r5.jpg"],
-                description: "Aixo era un acesori molt raro de trobar, i es va vendre a les botigues oficials Renault durant els anys 80. Molt buscada pels col·leccionistes actualment.",
+                imageDescription: "Això era un accessori molt rar de trobar, venut a concessionaris Renault durant els anys 80. Molt buscat pels col·leccionistes actualment."
             }
         ]
     },
@@ -468,6 +468,34 @@ function renderModels(filteredModels) {
         `;
         grid.innerHTML += cardHTML;
     });
+}
+
+function renderVideos(videos) {
+    return videos.map(video => `
+        <div class="video-block">
+            <h4>${video.title}</h4>
+
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/${video.youtubeId}" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p>${video.description}</p>
+
+            ${video.images ? `
+                <div class="video-images">
+                    ${video.images.map(img => `<img src="${img}" alt="${video.title}">`).join('')}
+                </div>
+            ` : ""}
+
+            ${video.imageDescription ? `
+                <p class="video-image-description">${video.imageDescription}</p>
+            ` : ""}
+        </div>
+    `).join('');
 }
 
 function filterModels() {

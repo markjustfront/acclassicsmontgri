@@ -309,6 +309,29 @@ details[open] summary {
     height: 100%;
 }
 
+/* Video gallery (images under video) */
+.video-images {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.video-images img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Image description under gallery */
+.video-image-description {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
 /* Modal improvements */
 .modal-body h3 {
     margin-top: 35px;
