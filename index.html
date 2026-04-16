@@ -46,31 +46,12 @@
         </p>
     </section>
 
-    <!-- Els Nostres Cotxes - Back on main page -->
-    <section id="cotxes">
+    <!-- Els Nostres Cotxes - Loaded from cotxes.html -->
+    <section id="cotxes-placeholder" style="padding-top: 80px;">
         <h2>Els Nostres Cotxes Destacats</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="images/renault4.jpg" alt="Renault 4">
-                <div class="card-content">
-                    <h3>Renault 4</h3>
-                    <p>El nostre clàssic preferit. Pràctic, simpàtic i ple de caràcter francès.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/citroen2cv.jpg" alt="Citroën 2CV">
-                <div class="card-content">
-                    <h3>Citroën 2CV</h3>
-                    <p>La llegendària "Deudeuche". Simbol de senzillesa i diversió sobre rodes.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/seat600.jpg" alt="SEAT 600">
-                <div class="card-content">
-                    <h3>SEAT 600</h3>
-                    <p>El cotxe que va motoritzar Espanya. Un clàssic nacional imprescindible.</p>
-                </div>
-            </div>
+        <div id="cotxes-content">
+            <!-- Content will be loaded here automatically -->
+            <p style="text-align:center; padding:40px;">Carregant els cotxes...</p>
         </div>
     </section>
 
@@ -96,7 +77,25 @@
         </div>
         <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
     </footer>
+    <script>
+        // Load the "Els Nostres Cotxes" section from cotxes.html
+        fetch('cotxes.html')
+            .then(response => response.text())
+            .then(data => {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
 
+                const originalSection = tempDiv.querySelector('#cotxes');
+
+                if (originalSection) {
+                    document.getElementById('cotxes-content').innerHTML = originalSection.innerHTML;
+                }
+            })
+            .catch(() => {
+                document.getElementById('cotxes-content').innerHTML =
+                    '<p style="color:red; text-align:center;">Error carregant la secció. Torna a intentar-ho.</p>';
+            });
+    </script>
 </body>
 
 </html>
