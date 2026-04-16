@@ -62,7 +62,7 @@ const modelsData = [
                 name: "Rellotges Copa/Alpine",
                 description: "Rellotges temperatura d'oli i voltatge de bateria.",
                 images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
-                extra: "Tambe estava disponible en altres models apart del Copa."
+                extra: "Tambe estava disponible en altres models apart del Copa." 
             },
             {
                 name: "Rellotges Copa Turbo/Alpine Turbo",
