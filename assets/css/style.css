@@ -315,3 +315,13 @@ details[open] summary {
     margin-bottom: 15px;
     color: var(--gold);
 }
+
+/* Logo link styling */
+.logo {
+    height: 62px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+}
