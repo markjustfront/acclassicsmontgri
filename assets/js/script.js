@@ -554,7 +554,301 @@ const modelsData = [
         ],
 
         videos: []
-    }
+    },
+    {
+    id: 7,
+    brand: "Renault",
+    model: "9 (R9)",
+    years: "1981-1989",
+    description: "El Renault 9 és una berlina compacta molt fiable, dissenyada per ser econòmica i global, guanyadora del premi Cotxe de l’Any 1982.",
+
+    image: "images/R9-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1981-1989<br>
+    <strong>Desplaçament:</strong> 1.1L - 1.4L<br>
+    <strong>Potència:</strong> 48 - 105 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Berlina 4 portes
+    `,
+
+    variants: [
+        {
+            engine: "1.1L (C1E)",
+            power: "48 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Versió base econòmica"
+        },
+        {
+            engine: "1.4L (C2J)",
+            power: "60 - 72 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Versió més comuna (GTL / TS)"
+        },
+        {
+            engine: "1.4L Turbo",
+            power: "105 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R9 Turbo (versió esportiva)"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 8,
+    brand: "Renault",
+    model: "11 (R11)",
+    years: "1983-1989",
+    description: "El Renault 11 és la versió hatchback del R9, amb disseny més modern i orientació urbana.",
+
+    image: "images/R11-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1983-1989<br>
+    <strong>Desplaçament:</strong> 1.1L - 1.7L<br>
+    <strong>Potència:</strong> 48 - 115 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Hatchback 3 i 5 portes
+    `,
+
+    variants: [
+        {
+            engine: "1.1L (C1E)",
+            power: "48 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Base TL"
+        },
+        {
+            engine: "1.4L (C2J)",
+            power: "60 - 72 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "GT / TXE"
+        },
+        {
+            engine: "1.7L",
+            power: "90 - 95 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Versions GTX / Baccara"
+        },
+        {
+            engine: "1.4L Turbo",
+            power: "105 - 115 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R11 Turbo (esportiu)"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 9,
+    brand: "Renault",
+    model: "12 (R12)",
+    years: "1969-1980",
+    description: "El Renault 12 és una berlina robusta i global, molt utilitzada a Europa i Amèrica del Sud.",
+
+    image: "images/R12-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1969-1980<br>
+    <strong>Desplaçament:</strong> 1.2L - 1.6L<br>
+    <strong>Potència:</strong> 54 - 113 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Berlina 4 portes / Familiar (Break)
+    `,
+
+    variants: [
+        {
+            engine: "1.2L (1289 cc)",
+            power: "54 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Base R12"
+        },
+        {
+            engine: "1.3L",
+            power: "60 - 70 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Versions TL / TS"
+        },
+        {
+            engine: "1.6L Gordini",
+            power: "113 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R12 Gordini (esportiu icònic)"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 10,
+    brand: "Renault",
+    model: "15 (R15)",
+    years: "1971-1980",
+    description: "Coupé derivat del R12 amb estil esportiu i disseny més baix i elegant.",
+
+    image: "images/R15-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1971-1980<br>
+    <strong>Desplaçament:</strong> 1.3L - 1.6L<br>
+    <strong>Potència:</strong> 60 - 110 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Coupé 2 portes
+    `,
+
+    variants: [
+        {
+            engine: "1.3L",
+            power: "60 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R15 TL"
+        },
+        {
+            engine: "1.6L",
+            power: "90 - 110 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R15 TS / GTL"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 11,
+    brand: "Renault",
+    model: "17 (R17)",
+    years: "1971-1980",
+    description: "Versió esportiva del R15 amb motor més potent i opcions més refinades.",
+
+    image: "images/R17-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1971-1980<br>
+    <strong>Desplaçament:</strong> 1.6L<br>
+    <strong>Potència:</strong> 108 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Coupé 2 portes
+    `,
+
+    variants: [
+        {
+            engine: "1.6L",
+            power: "108 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R17 TS / Gordini-style esportiu"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 12,
+    brand: "Renault",
+    model: "20 (R20)",
+    years: "1975-1984",
+    description: "Berlina gran i confortable, pensada per substituir el R16 en gamma alta.",
+
+    image: "images/R20-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1975-1984<br>
+    <strong>Desplaçament:</strong> 1.6L - 2.2L<br>
+    <strong>Potència:</strong> 64 - 130 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Berlina 5 portes
+    `,
+
+    variants: [
+        {
+            engine: "1.6L",
+            power: "64 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Base R20"
+        },
+        {
+            engine: "2.0L",
+            power: "90 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R20 TS"
+        },
+        {
+            engine: "2.2L Injection",
+            power: "130 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "R20 TX (top gamma)"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+},
+{
+    id: 13,
+    brand: "Renault",
+    model: "25 (R25)",
+    years: "1983-1992",
+    description: "Berlina de luxe de Renault, enfocada a confort, tecnologia i representació.",
+
+    image: "images/R25-main.jpg",
+
+    generalCharacteristics: `
+    <strong>Període de producció:</strong> 1983-1992<br>
+    <strong>Desplaçament:</strong> 2.0L - 2.9L<br>
+    <strong>Potència:</strong> 88 - 160 CV<br>
+    <strong>Tracció:</strong> Davantera<br>
+    <strong>Carrosseries:</strong> Berlina 5 portes
+    `,
+
+    variants: [
+        {
+            engine: "2.0L",
+            power: "88 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "Base R25"
+        },
+        {
+            engine: "2.2L Injection",
+            power: "120 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "TX / GTX"
+        },
+        {
+            engine: "2.5L V6",
+            power: "150 - 160 CV",
+            fuel: "Gasolina",
+            traction: "Davantera",
+            notes: "V6 Turbo (top gamma)"
+        }
+    ],
+
+    accessories: [],
+    videos: []
+}
     // Pots afegir més models aquí...
 ];
 
