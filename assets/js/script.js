@@ -121,18 +121,7 @@ const modelsData = [
         ],
 
         accessories: [
-            {
-                name: "Rellotges Copa/Alpine",
-                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
-                images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
-                extra: "També estava disponible en altres models."
-            },
-            {
-                name: "Rellotges Copa Turbo/Alpine Turbo",
-                description: "Rellotges de pressió d'oli i pressió turbo.",
-                images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
-                extra: "Molt populars entre els aficionats."
-            }
+            {}
         ],
 
         videos: []
