@@ -114,7 +114,7 @@ const modelsData = [
         model: "5 Super Cinq (Phase 2)",
         years: "1984-1996",
         description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat i gamma més àmplia.",
-        image: "images/renault5-supercinq.jpg",
+        image: "images/renault5-supercinq.jpg",   // ← Canvia la imatge si en tens una específica del Super Cinq
 
         generalCharacteristics: `
             <strong>Període de producció:</strong> 1984-1996<br>
@@ -184,7 +184,7 @@ window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
 
-    document.getElementById('modalTitle').innerHTML =
+    document.getElementById('modalTitle').innerHTML = 
         `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
     // Build Variants Table
@@ -224,8 +224,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ?
-                `<div class="accessory-images">
+                    ${acc.images && acc.images.length ? 
+                        `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -280,7 +280,7 @@ window.showModel = function (id) {
     modal.style.display = 'flex';
 
     // NEW: Click anywhere on the dark background to close
-    modal.onclick = function (e) {
+    modal.onclick = function(e) {
         if (e.target === modal) {
             closeModal();
         }
