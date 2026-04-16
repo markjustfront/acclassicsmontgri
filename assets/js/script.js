@@ -6,7 +6,7 @@ const modelsData = [
         model: "4 (R4)",
         years: "1961-1992",
         description: "El Renault 4 és un dels cotxes més versàtils i icònics de Renault. Simple, robust i extremadament pràctic.",
-        image: "images/R4/R4-main.jpg",
+        image: "images/accessories/R4/R4-main.jpg",
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1961-1992<br>
@@ -94,7 +94,7 @@ const modelsData = [
         model: "5 (R5) - Primera Generació (Phase 1)",
         years: "1972-1984",
         description: "El mític Renault 5 original. Un dels cotxes urbans més icònics dels anys 70 i principis dels 80.",
-        image: "images/R5/R5-main.jpg",
+        image: "images/accessories/R5/R5-main.jpg",
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1972-1984<br>
@@ -254,7 +254,7 @@ const modelsData = [
         model: "5 Super Cinq (Phase 2)",
         years: "1984-1996",
         description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat, millor equipament i versions esportives icòniques com el GT Turbo.",
-        image: "images/R5P2/R5P2-main.jpg",
+        image: "images/accessories/R5P2/R5P2-main.jpg",
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1984-1996<br>
