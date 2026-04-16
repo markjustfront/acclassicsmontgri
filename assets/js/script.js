@@ -207,6 +207,15 @@ const modelsData = [
                 extra: "Molt popular en ús quotidià als anys 70-80."
             }
         ],
+        videos: [
+            {
+                title: "Bota de canvi de marxes del R5 en pell",
+                youtubeId: "CQthDNyU7f0",
+                description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5.",
+                images: ["images/accessories/R5/bota-canvi-r5.jpg"],
+                description: "Aixo era un acesori molt raro de trobar, i es va vendre a les botigues oficials Renault durant els anys 80. Molt buscada pels col·leccionistes actualment.",
+            }
+        ]
     },
 
     {
