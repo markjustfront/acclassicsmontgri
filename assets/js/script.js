@@ -130,21 +130,81 @@ const modelsData = [
         accessories: [
             {
                 name: "Volant Iso Delta (Copa i Copa Turbo)",
-                description: "Volant disponible en les versions Copa i Copa Turbo del R5 a partir de 1984.",
+                description: "Volant esportiu de tres radis muntat en versions Copa i Copa Turbo.",
                 images: ["images/accessories/R5/iso-delta-r5.jpg", "images/accessories/R5/iso-delta-r5-2.jpg"],
-                extra: "És un volant molt buscat a Espanya i molt difícil de trobar en bon estat."
+                extra: "Molt buscat a Espanya i difícil de trobar original."
             },
             {
                 name: "Rellotges Copa/Alpine",
-                description: "Rellotges de temperatura d'oli i voltatge de bateria.",
+                description: "Quadre addicional amb temperatura d'oli i voltatge de bateria.",
                 images: ["images/accessories/R5/rellotges-copa-r5.jpg"],
-                extra: "També estava disponible en altres models."
+                extra: "Accessoris típics de versions esportives."
             },
             {
                 name: "Rellotges Copa Turbo/Alpine Turbo",
-                description: "Rellotges de pressió d'oli i pressió turbo.",
+                description: "Inclou pressió d'oli i pressió de turbo.",
                 images: ["images/accessories/R5/rellotges-copa-turbo-r5.jpg"],
-                extra: "Molt populars entre els aficionats."
+                extra: "Clau en models turboalimentats."
+            },
+            {
+                name: "Llandes Alpine (Gordini)",
+                description: "Llandes específiques d'aliatge de disseny esportiu.",
+                images: ["images/accessories/R5/llandes-alpine.jpg"],
+                extra: "Un dels elements visuals més icònics del R5 Alpine."
+            },
+            {
+                name: "Bandes decoratives Alpine/Copa",
+                description: "Vinils laterals amb inscripcions Alpine o Copa.",
+                images: ["images/accessories/R5/bandes-alpine.jpg"],
+                extra: "Molt utilitzades per diferenciar versions esportives."
+            },
+            {
+                name: "Seients esportius Alpine",
+                description: "Seients amb més subjecció lateral i disseny específic.",
+                images: ["images/accessories/R5/seients-alpine.jpg"],
+                extra: "Interior clarament diferenciat respecte versions bàsiques."
+            },
+            {
+                name: "Volant esportiu Alpine",
+                description: "Volant de menor diàmetre amb disseny esportiu.",
+                images: ["images/accessories/R5/volant-alpine.jpg"],
+                extra: "Alternativa al Iso Delta en versions franceses."
+            },
+            {
+                name: "Para-xocs amb spoiler (TS / Alpine)",
+                description: "Para-xocs davanter amb disseny més agressiu i millor aerodinàmica.",
+                images: ["images/accessories/R5/spoiler-ts.jpg"],
+                extra: "Diferenciador visual important respecte versions base."
+            },
+            {
+                name: "Quadre d'instruments complet (TS / Alpine)",
+                description: "Inclou compta-revolucions i més informació mecànica.",
+                images: ["images/accessories/R5/quadre-ts.jpg"],
+                extra: "Millora funcional respecte quadres bàsics."
+            },
+            {
+                name: "Tapisseria específica (GTL / TS / Alpine)",
+                description: "Diferents patrons i materials segons versió.",
+                images: ["images/accessories/R5/tapisseria-r5.jpg"],
+                extra: "Clau per identificar versions originals."
+            },
+            {
+                name: "Miralls retrovisors cromats",
+                description: "Miralls metàl·lics típics de versions primerenques.",
+                images: ["images/accessories/R5/miralls-cromats.jpg"],
+                extra: "Detall clàssic dels primers R5."
+            },
+            {
+                name: "Deflectors d'aire finestres",
+                description: "Accessoris per millorar ventilació sense obrir totalment la finestra.",
+                images: ["images/accessories/R5/deflectors.jpg"],
+                extra: "Accessoris molt comuns de concessionari."
+            },
+            {
+                name: "Portaequipatges sostre",
+                description: "Estructura metàl·lica per transportar equipatge.",
+                images: ["images/accessories/R5/portaequipatges.jpg"],
+                extra: "Molt popular en ús quotidià als anys 70-80."
             }
         ],
     },
