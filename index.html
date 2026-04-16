@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AC Classics Montgrí - Club de cotxes clàssics europeus (espanyols i francesos) a la Costa Brava. Renault, Citroën, SEAT i més.">
+    <meta name="description" content="AC Classics Montgrí - Club de cotxes clàssics europeus a la Costa Brava. Especialistes en Renault, Citroën i SEAT clàssics.">
     <title>AC Classics Montgrí | Club de Cotxes Clàssics</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
@@ -13,11 +13,7 @@
             --dark: #1a1a1a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Roboto', sans-serif;
@@ -27,7 +23,8 @@
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
+                        url('images/hero.jpg') center/cover no-repeat;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -91,11 +88,6 @@
 
         .logo {
             height: 62px;
-            transition: transform 0.3s;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -106,9 +98,7 @@
             font-size: 1.05rem;
         }
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
+        .nav-links a:hover { color: var(--gold); }
 
         section {
             padding: 100px 40px;
@@ -124,10 +114,7 @@
             color: var(--dark);
         }
 
-        .about {
-            background: white;
-            text-align: center;
-        }
+        .about { background: white; text-align: center; }
 
         .grid {
             display: grid;
@@ -140,11 +127,6 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
         }
 
         .card img {
@@ -157,32 +139,13 @@
             padding: 25px;
         }
 
-        .card-content h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
+        .events { background: #f0e8d8; }
 
-        .events {
-            background: #f0e8d8;
-        }
-
-        .noticies {
-            background: white;
-        }
+        .noticies { background: white; }
 
         .youtube {
             background: #f0e8d8;
             text-align: center;
-        }
-
-        .youtube-placeholder {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: #1a1a1a;
-            color: white;
-            border-radius: 12px;
-            font-size: 1.3rem;
         }
 
         .footer {
@@ -202,7 +165,6 @@
         @media (max-width: 768px) {
             h1 { font-size: 3.2rem; }
             .subtitle { font-size: 1.4rem; }
-            .nav-links a { margin-left: 15px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -233,10 +195,10 @@
     <section id="sobre" class="about">
         <h2>Sobre Nosaltres</h2>
         <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.15rem;">
-            AC Classics Montgrí és un club amigable d’entusiastes dedicat a la preservació, el gaudi i la celebració dels automòbils clàssics europeus, amb especial èmfasi en els models espanyols i francesos.
+            AC Classics Montgrí és un club d’entusiastes dedicat als cotxes clàssics europeus, amb especial afició als models espanyols i francesos.
         </p>
         <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem;">
-            Ens apassiona especialment els Renault clàssics! Organitzem trobades regulars, rutes escèniques per la Costa Brava, xerrades tècniques i participació en concentracions nacionals i internacionals.
+            Ens apassiona especialment els Renault clàssics. Organitzem rutes, trobades i participem en concentracions per la Costa Brava i l’Empordà.
         </p>
     </section>
 
@@ -244,24 +206,24 @@
         <h2>Els Nostres Cotxes Destacats</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://picsum.photos/id/1015/600/400" alt="Renault 4L">
+                <img src="images/renault4.jpg" alt="Renault 4">
                 <div class="card-content">
-                    <h3>Renault 4L</h3>
-                    <p>El clàssic francès per excel·lència. Molts exemplars al club i protagonistes a Instagram.</p>
+                    <h3>Renault 4</h3>
+                    <p>El nostre clàssic preferit. Pràctic, simpàtic i ple de caràcter francès.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Citroën 2CV">
+                <img src="images/citroen2cv.jpg" alt="Citroën 2CV">
                 <div class="card-content">
                     <h3>Citroën 2CV</h3>
-                    <p>La llegendària “Deudeuche”. Simbol de llibertat i senzillesa francesa.</p>
+                    <p>La llegendària "Deudeuche". Simbol de senzillesa i diversió sobre rodes.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://picsum.photos/id/201/600/400" alt="SEAT 600">
+                <img src="images/seat600.jpg" alt="SEAT 600">
                 <div class="card-content">
                     <h3>SEAT 600</h3>
-                    <p>El cotxe que va motoritzar Espanya. Un clàssic nacional que sempre ens acompanya.</p>
+                    <p>El cotxe que va motoritzar Espanya. Un clàssic nacional imprescindible.</p>
                 </div>
             </div>
         </div>
@@ -273,76 +235,49 @@
             <div class="card">
                 <div class="card-content">
                     <h3>Maig 2026 • Rally de Primavera</h3>
-                    <p>Ruta escènica pel Parc Natural del Montgrí i la comarca de l’Empordà.</p>
-                    <p><strong>Data:</strong> 17 de maig de 2026</p>
+                    <p>Ruta pel Parc Natural del Montgrí i l’Empordà.</p>
+                    <p><strong>17 de maig de 2026</strong></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <h3>Juny 2026 • Trobada del Club & Barbacoa</h3>
-                    <p>Reunió mensual amb música en directe i exposició de cotxes clàssics.</p>
-                    <p><strong>Data:</strong> 14 de juny de 2026</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>Setembre 2026 • Concurs Costa Brava</h3>
-                    <p>Participem com a club en aquest prestigiós esdeveniment.</p>
+                    <h3>Juny 2026 • Trobada & Barbacoa</h3>
+                    <p>Reunió mensual amb exposició de cotxes.</p>
+                    <p><strong>14 de juny de 2026</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="noticies" class="noticies">
-        <h2>Notícies &amp; Concentracions</h2>
+        <h2>Notícies & Concentracions</h2>
         <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem;">
-            Aquí anirem publicant relats, fotos i vídeos de les nostres sortides i concentracions. Actualitza aquestes targetes cada cop que vulguis!
+            Aquí publicarem les nostres sortides, rutes i moments del club.
         </p>
-        <div class="grid">
-            <div class="card">
-                <img src="https://picsum.photos/id/870/600/400" alt="Concentració recent">
-                <div class="card-content">
-                    <h3>Concentració a L’Estartit – Abril 2026</h3>
-                    <p>Ruta amb 12 cotxes clàssics i un dia inoblidable amb vistes al Montgrí.</p>
-                    <p><strong>15 d’abril de 2026</strong></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/id/1005/600/400" alt="Renault en ruta">
-                <div class="card-content">
-                    <h3>Ruta Renault per l’Empordà – Març 2026</h3>
-                    <p>Sortida exclusiva amb els nostres Renault 4 i 5. Fotos i vídeo a Instagram!</p>
-                    <p><strong>22 de març de 2026</strong></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/id/133/600/400" alt="Proper esdeveniment">
-                <div class="card-content">
-                    <h3>Proper post en camí...</h3>
-                    <p>La propera concentració ja s’està preparant. Mantingueu-vos atents!</p>
-                </div>
-            </div>
-        </div>
+        <!-- Pots afegir targetes noves aquí quan facis noves concentracions -->
     </section>
 
     <section id="youtube" class="youtube">
         <h2>El Nostre Canal de YouTube</h2>
-        <div class="youtube-placeholder">
-            <p style="font-size: 2.5rem; margin-bottom: 20px;">▶️</p>
-            <h3>Canal de YouTube AC Classics Montgrí</h3>
-            <p>Rutes, trobades, restauracions de Renault i moments únics del club.</p>
-            <p><strong>Enllaç en construcció – properament disponible!</strong></p>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <a href="https://www.youtube.com/@ACClassicsMontgri" target="_blank" class="btn" 
+               style="background:#ff0000; color:white; font-size: 1.2rem;">
+                Veure el canal de YouTube
+            </a>
+            <p style="margin-top: 20px; font-size: 1.1rem;">
+                Rutes, trobades, restauracions i vídeos del club.
+            </p>
         </div>
     </section>
 
     <section id="contacte">
         <h2>Uneix-te al Club</h2>
         <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">
-            Tant si tens un cotxe clàssic (Renault, Citroën, SEAT…) com si simplement t’apassiona el món clàssic, ets benvingut!
+            Si tens un cotxe clàssic o simplement t’apassiona el món dels clàssics, contacta’ns!
         </p>
         <div style="text-align: center;">
             <p><strong>Instagram:</strong> <a href="https://www.instagram.com/acclassicsmontgri/" target="_blank" style="color: #c9a227;">@acclassicsmontgri</a></p>
-            <p><strong>Email:</strong> <a href="mailto:acclassicsmontgri@gmail.com" style="color: #c9a227;">info@acclassicsmontgri.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:acclassicsmontgri@gmail.com" style="color: #c9a227;">acclassicsmontgri@gmail.com</a></p>
             <p><strong>Localització:</strong> Montgrí / L’Estartit • Girona, Catalunya</p>
         </div>
     </section>
@@ -351,6 +286,7 @@
         <p>&copy; 2026 AC Classics Montgrí • Club de Cotxes Clàssics</p>
         <div class="social" style="margin: 25px 0;">
             <a href="https://www.instagram.com/acclassicsmontgri/" target="_blank">📸 Instagram</a>
+            <a href="https://www.youtube.com/@ACClassicsMontgri" target="_blank">▶️ YouTube</a>
         </div>
         <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
     </footer>
