@@ -72,52 +72,16 @@ const modelsData = [
                 extra: "Un dels punts forts del R4: versatilitat màxima."
             },
             {
-                name: "Tauler minimalista amb palanca de canvi al quadre",
-                description: "Sistema de canvi de marxes al quadre de comandament.",
-                images: ["images/accessories/R4/palanca.jpg"],
-                extra: "Característica única i molt reconeixible."
-            },
-            {
                 name: "Tapisseria específica GTL",
                 description: "Materials més cuidats en versions superiors.",
                 images: ["images/accessories/R4/tapisseria.jpg"],
                 extra: "Diferenciador interior respecte versions bàsiques."
             },
             {
-                name: "Para-xocs metàl·lics cromats",
-                description: "Para-xocs simples amb acabat cromat.",
-                images: ["images/accessories/R4/paraxocs.jpg"],
-                extra: "Típics de les primeres sèries."
-            },
-            {
-                name: "Deflectors de finestres",
-                description: "Permeten ventilació sense obrir completament les finestres.",
-                images: ["images/accessories/R4/deflectors.jpg"],
-                extra: "Accessoris molt comuns de concessionari."
-            },
-            {
-                name: "Furgoneta F4/F6 (kit comercial)",
-                description: "Versió adaptada per transport de mercaderies.",
-                images: ["images/accessories/R4/furgoneta.jpg"],
-                extra: "Molt utilitzada per negocis i serveis."
-            },
-            {
                 name: "Proteccions laterals (GTL Clan/Savane)",
                 description: "Motllures laterals de plàstic.",
                 images: ["images/accessories/R4/motllures.jpg"],
                 extra: "Característiques de les últimes versions."
-            },
-            {
-                name: "Llantes d'acer amb tapacubs Renault",
-                description: "Llantes bàsiques amb tapacubs decoratius.",
-                images: ["images/accessories/R4/tapacubs.jpg"],
-                extra: "Element clàssic del model."
-            },
-            {
-                name: "Vinils decoratius (Clan/Savane)",
-                description: "Adhesius laterals amb el nom de la versió.",
-                images: ["images/accessories/R4/vinils.jpg"],
-                extra: "Molt característics dels anys 80."
             }
         ],
 
@@ -237,12 +201,6 @@ const modelsData = [
                 extra: "Interior clarament diferenciat respecte versions bàsiques."
             },
             {
-                name: "Volant esportiu Alpine",
-                description: "Volant de menor diàmetre amb disseny esportiu.",
-                images: ["images/accessories/R5/volant-alpine.jpg"],
-                extra: "Alternativa al Iso Delta en versions franceses."
-            },
-            {
                 name: "Para-xocs amb spoiler (TS / Alpine)",
                 description: "Para-xocs davanter amb disseny més agressiu i millor aerodinàmica.",
                 images: ["images/accessories/R5/spoiler-ts.jpg"],
@@ -261,22 +219,16 @@ const modelsData = [
                 extra: "Clau per identificar versions originals."
             },
             {
-                name: "Miralls retrovisors cromats",
-                description: "Miralls metàl·lics típics de versions primerenques.",
-                images: ["images/accessories/R5/miralls-cromats.jpg"],
+                name: "Miralls retrovisors babyTornado",
+                description: "Miralls metàl·lics típics de versions Alpine.",
+                images: ["images/accessories/R5/miralls-tornado.jpg"],
                 extra: "Detall clàssic dels primers R5."
             },
             {
-                name: "Deflectors d'aire finestres",
-                description: "Accessoris per millorar ventilació sense obrir totalment la finestra.",
-                images: ["images/accessories/R5/deflectors.jpg"],
-                extra: "Accessoris molt comuns de concessionari."
-            },
-            {
-                name: "Portaequipatges sostre",
-                description: "Estructura metàl·lica per transportar equipatge.",
-                images: ["images/accessories/R5/portaequipatges.jpg"],
-                extra: "Molt popular en ús quotidià als anys 70-80."
+                name: "Miralls retrovisors California",
+                description: "Miralls de plastic típics de la epoca.",
+                images: ["images/accessories/R5/miralls-california.jpg"],
+                extra: "Detall clàssic dels primers R5."
             }
         ],
         videos: [
