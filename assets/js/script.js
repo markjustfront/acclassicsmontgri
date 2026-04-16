@@ -61,19 +61,70 @@ const modelsData = [
         image: "images/renault5.jpg",
 
         generalCharacteristics: `
-            <strong>Període de producció:</strong> 1972-1984<br>
-            <strong>Desplaçament:</strong> 0.8L - 1.4L<br>
-            <strong>Potència:</strong> 37 - 110 CV<br>
-            <strong>Tracció:</strong> Davantera<br>
-            <strong>Carrosseries:</strong> Hatchback 3 portes (5 portes a partir de 1979)
-        `,
+        <strong>Període de producció:</strong> 1972-1984<br>
+        <strong>Desplaçament:</strong> 0.8L - 1.4L<br>
+        <strong>Potència:</strong> 34 - 160 CV<br>
+        <strong>Tracció:</strong> Davantera (excepte Turbo: RWD)<br>
+        <strong>Carrosseries:</strong> Hatchback 3 portes (5 portes a partir de 1979)
+    `,
 
         variants: [
-            { engine: "0.8L - 0.85L (Ventoux)", power: "37 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versions bàsiques" },
-            { engine: "0.96L - 1.1L", power: "42 - 45 CV", fuel: "Gasolina", traction: "Davantera", notes: "TL / GTL" },
-            { engine: "1.3L", power: "55 - 64 CV", fuel: "Gasolina", traction: "Davantera", notes: "TS / LS" },
-            { engine: "1.4L Alpine", power: "93 CV", fuel: "Gasolina", traction: "Davantera", notes: "Versió esportiva" },
-            { engine: "1.4L Turbo", power: "110 CV", fuel: "Gasolina", traction: "Davantera", notes: "Alpine Turbo / Gordini Turbo" }
+            {
+                engine: "0.8L (782 cc)",
+                power: "34 - 36 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Versions bàsiques inicials (L)"
+            },
+            {
+                engine: "0.85L (845 cc)",
+                power: "36 - 37 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Base més comuna (L / TL)"
+            },
+            {
+                engine: "1.0L (956 cc)",
+                power: "44 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Gamma mitjana inicial"
+            },
+            {
+                engine: "1.1L (1108 cc)",
+                power: "44 - 45 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "TL / GTL (molt popular)"
+            },
+            {
+                engine: "1.3L (1289 cc)",
+                power: "54 - 58 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "LS / TS, també amb canvi automàtic"
+            },
+            {
+                engine: "1.4L (1397 cc)",
+                power: "63 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "TS / TX"
+            },
+            {
+                engine: "1.4L Alpine",
+                power: "90 - 93 CV",
+                fuel: "Gasolina",
+                traction: "Davantera",
+                notes: "Versió esportiva (Alpine / Gordini)"
+            },
+            {
+                engine: "1.4L Turbo",
+                power: "110 - 160 CV",
+                fuel: "Gasolina",
+                traction: "Posterior",
+                notes: "Motor central, homologació rally (R5 Turbo)"
+            }
         ],
 
         accessories: [
@@ -96,16 +147,6 @@ const modelsData = [
                 extra: "Molt populars entre els aficionats."
             }
         ],
-
-        videos: [
-            {
-                title: "Bota de canvi de marxes del R5 en pell",
-                youtubeId: "CQthDNyU7f0",
-                description: "Explicació de la instal·lació d'una bota de canvi de marxes en pell per a un Renault 5.",
-                images: ["images/accessories/R5/bota-canvi-r5.jpg"],
-                description: "Aixo era un acesori molt raro de trobar, i es va vendre a les botigues oficials Renault durant els anys 80. Molt buscada pels col·leccionistes actualment.",
-            }
-        ]
     },
 
     {
@@ -184,7 +225,7 @@ window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
 
-    document.getElementById('modalTitle').innerHTML = 
+    document.getElementById('modalTitle').innerHTML =
         `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
     // Build Variants Table
@@ -224,8 +265,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ? 
-                        `<div class="accessory-images">
+                    ${acc.images && acc.images.length ?
+                `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -280,7 +321,7 @@ window.showModel = function (id) {
     modal.style.display = 'flex';
 
     // NEW: Click anywhere on the dark background to close
-    modal.onclick = function(e) {
+    modal.onclick = function (e) {
         if (e.target === modal) {
             closeModal();
         }
