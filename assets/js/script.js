@@ -81,12 +81,32 @@ function filterModels() {
     if (!searchInput) return;
 
     const term = searchInput.value.toLowerCase().trim();
-    const filtered = modelsData.filter(m =>
-        m.brand.toLowerCase().includes(term) ||
-        m.model.toLowerCase().includes(term) ||
-        m.years.includes(term) ||
-        m.description.toLowerCase().includes(term)
-    );
+    if (!term) {
+        renderModels(modelsData);
+        return;
+    }
+
+    const filtered = modelsData.filter(model => {
+        const basicMatch =
+            model.brand.toLowerCase().includes(term) ||
+            model.model.toLowerCase().includes(term) ||
+            model.years.toLowerCase().includes(term) ||
+            model.description.toLowerCase().includes(term);
+
+        if (basicMatch) return true;
+
+        // Search in variants
+        if (model.variants && model.variants.length > 0) {
+            return model.variants.some(v =>
+                Object.values(v).some(value =>
+                    value && value.toString().toLowerCase().includes(term)
+                )
+            );
+        }
+
+        return false;
+    });
+
     renderModels(filtered);
 }
 
