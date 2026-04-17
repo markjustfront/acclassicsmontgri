@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enllaços d'Interès - AC Classics Montgrí</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Shared Navigation -->
+    <script>
+        fetch('assets/components/nav.html')
+            .then(response => response.text())
+            .then(data => document.body.insertAdjacentHTML('afterbegin', data))
+            .catch(err => console.error('Error loading nav:', err));
+    </script>
+
+    <section style="padding-top: 120px;" class="noticies">
+        <h2>Enllaços d'Interès</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 50px; font-size: 1.1rem;">
+            Una selecció de webs, clubs i recursos útils per als amants dels cotxes clàssics europeus.
+        </p>
+
+        <div class="grid">
+            
+            <!-- Example 1 -->
+            <div class="card">
+                <img src="images/enllacos/renault-classic.jpg" alt="Renault Classic">
+                <div class="card-content">
+                    <h3>Renault Classic</h3>
+                    <p>Portal oficial de Renault sobre el seu patrimoni històric, amb informació tècnica, catàlegs i esdeveniments.</p>
+                    <a href="https://www.renault.com/renault-classic" target="_blank" class="btn" style="margin-top:15px; font-size:0.95rem; padding:10px 20px;">
+                        Visitar web
+                    </a>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="card">
+                <img src="images/enllacos/citroen-heritage.jpg" alt="Citroën Heritage">
+                <div class="card-content">
+                    <h3>Citroën Heritage</h3>
+                    <p>La secció oficial de Citroën dedicada als models històrics, restauracions i clubs.</p>
+                    <a href="https://www.citroen.com/heritage" target="_blank" class="btn" style="margin-top:15px; font-size:0.95rem; padding:10px 20px;">
+                        Visitar web
+                    </a>
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="card">
+                <img src="images/enllacos/classic-driver.jpg" alt="Classic Driver">
+                <div class="card-content">
+                    <h3>Classic Driver</h3>
+                    <p>Revista i marketplace internacional de cotxes clàssics d'alta gamma amb articles molt interessants.</p>
+                    <a href="https://www.classicdriver.com" target="_blank" class="btn" style="margin-top:15px; font-size:0.95rem; padding:10px 20px;">
+                        Visitar web
+                    </a>
+                </div>
+            </div>
+
+            <!-- Add more cards below following the same structure -->
+
+        </div>
+    </section>
+
+    <!-- Shared Footer -->
+    <script>
+        fetch('assets/components/footer.html')
+            .then(response => response.text())
+            .then(data => document.body.insertAdjacentHTML('beforeend', data))
+            .catch(err => console.error('Error loading footer:', err));
+    </script>
+
+</body>
+</html>
