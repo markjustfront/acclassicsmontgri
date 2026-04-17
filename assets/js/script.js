@@ -4,10 +4,19 @@ let modelsData = [];
 
 // List of all your car files (add new cars here)
 const carFiles = [
-    "assets/data/cars/renault4.js",
-    "assets/data/cars/renault5-phase1.js",
-    "assets/data/cars/renault5-supercinq.js",
-    "assets/data/cars/renault25.js"
+    "assets/data/cars/R4.js",
+    "assets/data/cars/R5.js",
+    "assets/data/cars/R5P2.js",
+    "assets/data/cars/R6.js",
+    "assets/data/cars/R7.js",
+    "assets/data/cars/R8.js",
+    "assets/data/cars/R9.js",
+    "assets/data/cars/R11.js",
+    "assets/data/cars/R12.js",
+    "assets/data/cars/R15.js",
+    "assets/data/cars/R17.js",
+    "assets/data/cars/R20.js",
+    "assets/data/cars/R25.js",
     // ← Add new car files here
 ];
 
