@@ -413,3 +413,64 @@ details[open] summary {
 .footer .social a:hover svg {
     fill: white;
 }
+
+/* ==================== RESPONSIVE ENGINE TABLE ==================== */
+
+/* Desktop: full table (unchanged) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0 25px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Mobile: simplified view */
+@media (max-width: 768px) {
+    table thead {
+        display: none; /* hide headers */
+    }
+
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        background: white;
+        cursor: pointer;
+    }
+
+    table td {
+        display: block;
+        text-align: left;
+        padding: 8px 0;
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        font-weight: 600;
+        color: var(--gold);
+    }
+
+    /* Hide extra columns by default on mobile */
+    table td:nth-child(3),
+    table td:nth-child(4),
+    table td:nth-child(5) {
+        display: none;
+    }
+
+    /* When row is "expanded" */
+    table tr.expanded td {
+        display: block;
+    }
+}
