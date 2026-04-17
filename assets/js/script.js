@@ -20,45 +20,44 @@ const carFiles = [
     "assets/data/cars/R21.js",
     "assets/data/cars/R25.js",
     "assets/data/cars/R30.js"
-    // Add new car files here
+    // Add new files here
 ];
 
-// Load all car files dynamically
+// Load all car files
 async function loadAllCars() {
     modelsData = [];
 
-    try {
-        const promises = carFiles.map(async (file) => {
+    for (const file of carFiles) {
+        try {
             const res = await fetch(file);
             if (!res.ok) {
                 console.warn(`Failed to load: ${file}`);
-                return;
+                continue;
             }
             const text = await res.text();
 
+            // Execute the car file
             const script = document.createElement('script');
             script.textContent = text;
             document.body.appendChild(script);
-            setTimeout(() => script.remove(), 50);
-        });
-
-        await Promise.all(promises);
-
-        if (window.carData && window.carData.length > 0) {
-            modelsData = [...window.carData];
-            window.carData = [];
-        }
-
-        renderModels(modelsData);
-
-    } catch (error) {
-        console.error("Error loading car data:", error);
-        if (grid) {
-            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; color:red;">
-                Error carregant els cotxes. Recarrega la pàgina.
-            </p>`;
+            await new Promise(r => setTimeout(r, 10)); // small delay for safety
+            script.remove();
+        } catch (err) {
+            console.warn(`Error loading ${file}:`, err);
         }
     }
+
+    // After all files are executed, copy the data
+    if (window.carData && Array.isArray(window.carData)) {
+        modelsData = [...window.carData];
+        // Do NOT clear window.carData here in case other pages need it
+    }
+
+    if (modelsData.length === 0) {
+        console.warn("No cars were loaded. Check file paths and carData.push()");
+    }
+
+    renderModels(modelsData);
 }
 
 // ==================== RENDER & SEARCH ====================
@@ -100,12 +99,12 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== GET DESTACATS (for homepage teaser) ====================
-function getCotxesDestacats() {
-    return modelsData.filter(model => model.destacat === true);
-}
+// ==================== GET DESTACATS ====================
+window.getCotxesDestacats = function () {
+    return modelsData.filter(m => m.destacat === true);
+};
 
-// ==================== MODAL FUNCTIONALITY WITH RESPONSIVE TABLE ====================
+// ==================== MODAL ====================
 
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
@@ -114,7 +113,6 @@ window.showModel = function (id) {
     document.getElementById('modalTitle').innerHTML =
         `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
-    // Responsive Variants Table
     let variantsHTML = '';
     if (model.variants && model.variants.length > 0) {
         variantsHTML = `
@@ -146,43 +144,29 @@ window.showModel = function (id) {
         `;
     }
 
-    let accessoriesHTML = '';
-    if (model.accessories && model.accessories.length > 0) {
-        accessoriesHTML = model.accessories.map(acc => `
-            <details>
-                <summary>${acc.name}</summary>
-                <div class="details-content">
-                    <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ? 
-                        `<div class="accessory-images">
-                            ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
-                         </div>` : ''}
-                    ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
-                </div>
-            </details>
-        `).join('');
-    } else {
-        accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
-    }
-
-    let videosHTML = '';
-    if (model.videos && model.videos.length > 0) {
-        videosHTML = model.videos.map(video => `
-            <div>
-                <h4>${video.title}</h4>
-                <p style="margin-bottom:12px;">${video.description}</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
-                            title="${video.title}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
+    let accessoriesHTML = model.accessories?.map(acc => `
+        <details>
+            <summary>${acc.name}</summary>
+            <div class="details-content">
+                <p>${acc.description}</p>
+                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
+                ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
             </div>
-        `).join('');
-    } else {
-        videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
-    }
+        </details>
+    `).join('') || '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
+
+    let videosHTML = model.videos?.map(video => `
+        <div>
+            <h4>${video.title}</h4>
+            <p style="margin-bottom:12px;">${video.description}</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
+                        title="${video.title}" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    `).join('') || '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
 
     const bodyHTML = `
         <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
@@ -206,7 +190,7 @@ window.showModel = function (id) {
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 
-    modal.onclick = function (e) {
+    modal.onclick = (e) => {
         if (e.target === modal) closeModal();
     };
 };
