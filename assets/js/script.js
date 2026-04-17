@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING ====================
 
 let modelsData = [];
 
@@ -22,7 +22,7 @@ const carFiles = [
     "assets/data/cars/R30.js"
 ];
 
-// Load all cars once
+// Load all car files
 async function loadAllCars() {
     modelsData = [];
 
@@ -48,19 +48,18 @@ async function loadAllCars() {
     }
 }
 
-// Get only destacats
-window.getCotxesDestacats = function () {
-    return modelsData.filter(m => m.destacat === true);
-};
+// ==================== RENDER & SEARCH (only run if elements exist) ====================
+const grid = document.getElementById('modelsGrid');
+const searchInput = document.getElementById('searchInput');
 
-// Render function for catalog page
 function renderModels(filteredModels) {
-    const grid = document.getElementById('modelsGrid');
-    if (!grid) return;
+    if (!grid) return;   // Prevent error on other pages
 
     grid.innerHTML = '';
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">Cap model trobat.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
         return;
     }
 
@@ -80,7 +79,8 @@ function renderModels(filteredModels) {
 }
 
 function filterModels() {
-    const term = document.getElementById('searchInput')?.value.toLowerCase().trim() || '';
+    if (!searchInput) return;
+    const term = searchInput.value.toLowerCase().trim();
     const filtered = modelsData.filter(m =>
         m.brand.toLowerCase().includes(term) ||
         m.model.toLowerCase().includes(term) ||
@@ -90,7 +90,13 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== MODAL (unchanged) ====================
+// ==================== GET DESTACATS (for cotxes.html) ====================
+window.getCotxesDestacats = function () {
+    return modelsData.filter(m => m.destacat === true);
+};
+
+// ==================== MODAL FUNCTIONALITY ====================
+
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
@@ -184,13 +190,11 @@ window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
 };
 
-// ==================== GET DESTACATS (for cotxes.html) ====================
-window.getCotxesDestacats = function() {
-    return modelsData.filter(m => m.destacat === true);
-};
-
-// ==================== INITIALIZE ====================
-if (searchInput && grid) {
-    searchInput.addEventListener('keyup', filterModels);
-    loadAllCars();
-}
+// ==================== INITIALIZE - Only run on pages that need it ====================
+document.addEventListener('DOMContentLoaded', () => {
+    // Only run catalog logic if we are on cataleg.html
+    if (document.getElementById('modelsGrid')) {
+        searchInput?.addEventListener('keyup', filterModels);
+        loadAllCars();
+    }
+});
