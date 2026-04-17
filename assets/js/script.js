@@ -11,12 +11,15 @@ const carFiles = [
     "assets/data/cars/R7.js",
     "assets/data/cars/R8.js",
     "assets/data/cars/R9.js",
+    "assets/data/cars/R10.js",
     "assets/data/cars/R11.js",
     "assets/data/cars/R12.js",
     "assets/data/cars/R15.js",
     "assets/data/cars/R17.js",
     "assets/data/cars/R20.js",
-    "assets/data/cars/R25.js"
+    "assets/data/cars/R21.js",
+    "assets/data/cars/R25.js",
+    "assets/data/cars/R30.js",
     // Add new car files here
 ];
 
