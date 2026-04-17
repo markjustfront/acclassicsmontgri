@@ -8,7 +8,7 @@ window.carData.push(
         years: "1968 - 1991",
         description: "El Land Rover Santana 109 és la versió de batalla llarga (109 polzades) fabricada a Linares. Més espaiós i versàtil que el 88, ideal per transport de passatgers, càrrega o ús professional. Robust, fiable i amb les mateixes evolucions pròpies de Santana, incloent motors de 6 cilindres i versions turbo.",
         image: "images/S109-main.jpg",
-        destacat: true,
+        destacat: false,
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1968 - 1991 (Series II/IIA des de 1968, Series III fins 1983, Series IV/2500/Super fins ~1991)<br>
