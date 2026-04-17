@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Final Fixed) ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
 
 let modelsData = [];
 
@@ -29,39 +29,33 @@ async function loadAllCars() {
     for (const file of carFiles) {
         try {
             const res = await fetch(file);
-            if (!res.ok) {
-                console.warn(`Failed to load: ${file}`);
-                continue;
-            }
-            const text = await res.text();
+            if (!res.ok) continue;
 
+            const text = await res.text();
             const script = document.createElement('script');
             script.textContent = text;
             document.head.appendChild(script);
             await new Promise(r => setTimeout(r, 40));
             script.remove();
         } catch (e) {
-            console.warn(`Error loading ${file}`);
+            console.warn(`Failed to load ${file}`);
         }
     }
 
     if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
         console.log(`✅ Loaded ${modelsData.length} cars total.`);
-    } else {
-        console.warn("⚠️ window.carData is empty or not an array.");
     }
 }
 
-// ==================== RENDER FUNCTION ====================
+// ==================== RENDER & SEARCH ====================
 function renderModels(filteredModels) {
     const grid = document.getElementById('modelsGrid');
-    if (!grid) return;   // Not on cataleg page
+    if (!grid) return;
 
     grid.innerHTML = '';
-
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.1rem; color:#777;">
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
             Cap model trobat.
         </p>`;
         return;
@@ -82,7 +76,6 @@ function renderModels(filteredModels) {
     });
 }
 
-// Search function
 function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
@@ -97,7 +90,7 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// Get destacats for cotxes.html
+// ==================== GET DESTACATS (for cotxes.html) ====================
 window.getCotxesDestacats = function () {
     return modelsData.filter(m => m.destacat === true);
 };
@@ -201,18 +194,18 @@ window.closeModal = function () {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCars();
 
-    // Catalog page specific
+    // Catalog page (cataleg.html)
     if (document.getElementById('modelsGrid')) {
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('keyup', filterModels);
         }
-        renderModels(modelsData);
+        renderModels(modelsData);   // Show all cars initially
     }
 
-    // cotxes.html specific - show destacats
+    // Cotxes page (cotxes.html)
     if (document.getElementById('cotxes-grid')) {
-        const destacats = window.getCotxesDestacats();
+        const destacats = window.getCotxesDestacats ? window.getCotxesDestacats() : [];
         const container = document.getElementById('cotxes-grid');
         container.innerHTML = '';
 
