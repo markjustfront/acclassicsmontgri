@@ -10,13 +10,22 @@
 
 <body>
 
-    <!-- Shared Navigation -->
     <section id="cotxes" style="padding-top: 120px;">
         <h2>Els Nostres Cotxes Destacats</h2>
         <div class="grid" id="cotxes-grid">
             <!-- Highlighted cars will be loaded here -->
         </div>
     </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle" style="margin:0; font-size:2rem;"></h2>
+                <span class="close" onclick="closeModal()">×</span>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
 
     <!-- Shared Navigation -->
     <script>
