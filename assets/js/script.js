@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
 
 let modelsData = [];
 
@@ -20,10 +20,9 @@ const carFiles = [
     "assets/data/cars/R21.js",
     "assets/data/cars/R25.js",
     "assets/data/cars/R30.js"
-    // Add new files here
 ];
 
-// Load all car files
+// Load all car files one by one
 async function loadAllCars() {
     modelsData = [];
 
@@ -31,30 +30,34 @@ async function loadAllCars() {
         try {
             const res = await fetch(file);
             if (!res.ok) {
-                console.warn(`Failed to load: ${file}`);
+                console.warn(`⚠️ Failed to load: ${file}`);
                 continue;
             }
+
             const text = await res.text();
 
-            // Execute the car file
-            const script = document.createElement('script');
+            // Create a temporary script to execute the car file
+            const script = document.createElement("script");
             script.textContent = text;
-            document.body.appendChild(script);
-            await new Promise(r => setTimeout(r, 10)); // small delay for safety
+            document.head.appendChild(script);
+
+            // Give it a tiny moment to execute
+            await new Promise(resolve => setTimeout(resolve, 30));
+
+            // Remove the script
             script.remove();
+
         } catch (err) {
-            console.warn(`Error loading ${file}:`, err);
+            console.error(`Error loading ${file}:`, err);
         }
     }
 
-    // After all files are executed, copy the data
-    if (window.carData && Array.isArray(window.carData)) {
+    // After all files are loaded, copy the data
+    if (window.carData && Array.isArray(window.carData) && window.carData.length > 0) {
         modelsData = [...window.carData];
-        // Do NOT clear window.carData here in case other pages need it
-    }
-
-    if (modelsData.length === 0) {
-        console.warn("No cars were loaded. Check file paths and carData.push()");
+        console.log(`✅ Loaded ${modelsData.length} cars successfully.`);
+    } else {
+        console.warn("⚠️ No cars were loaded. Check that each file uses window.carData.push()");
     }
 
     renderModels(modelsData);
@@ -99,13 +102,7 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== GET DESTACATS ====================
-window.getCotxesDestacats = function () {
-    return modelsData.filter(m => m.destacat === true);
-};
-
-// ==================== MODAL ====================
-
+// ==================== MODAL (unchanged) ====================
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
