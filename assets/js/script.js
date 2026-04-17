@@ -2,7 +2,7 @@
 
 let modelsData = [];
 
-// List of all your car files (add new cars here)
+// List of all car files (add new cars here)
 const carFiles = [
     "assets/data/cars/R4.js",
     "assets/data/cars/R5.js",
