@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Safe for all pages) ====================
 
 let modelsData = [];
 
@@ -48,50 +48,54 @@ async function loadAllCars() {
     }
 }
 
-// ==================== RENDER & SEARCH (only run if elements exist) ====================
-const grid = document.getElementById('modelsGrid');
-const searchInput = document.getElementById('searchInput');
+// ==================== RENDER & SEARCH (Safe - only if elements exist) ====================
+function initCatalog() {
+    const grid = document.getElementById('modelsGrid');
+    const searchInput = document.getElementById('searchInput');
 
-function renderModels(filteredModels) {
-    if (!grid) return;   // Prevent error on other pages
+    if (!grid) return;   // Not on cataleg.html → do nothing
 
-    grid.innerHTML = '';
-    if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
-            Cap model trobat.
-        </p>`;
-        return;
+    function renderModels(filteredModels) {
+        grid.innerHTML = '';
+        if (filteredModels.length === 0) {
+            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
+                Cap model trobat.
+            </p>`;
+            return;
+        }
+
+        filteredModels.forEach(model => {
+            const cardHTML = `
+                <div class="card" onclick="showModel(${model.id})">
+                    <img src="${model.image}" alt="${model.brand} ${model.model}">
+                    <div class="card-content">
+                        <h3>${model.brand} ${model.model}</h3>
+                        <p><strong>${model.years}</strong></p>
+                        <p>${model.description}</p>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        });
     }
 
-    filteredModels.forEach(model => {
-        const cardHTML = `
-            <div class="card" onclick="showModel(${model.id})">
-                <img src="${model.image}" alt="${model.brand} ${model.model}">
-                <div class="card-content">
-                    <h3>${model.brand} ${model.model}</h3>
-                    <p><strong>${model.years}</strong></p>
-                    <p>${model.description}</p>
-                </div>
-            </div>
-        `;
-        grid.innerHTML += cardHTML;
-    });
-}
+    function filterModels() {
+        const term = searchInput.value.toLowerCase().trim();
+        const filtered = modelsData.filter(m =>
+            m.brand.toLowerCase().includes(term) ||
+            m.model.toLowerCase().includes(term) ||
+            m.years.includes(term) ||
+            m.description.toLowerCase().includes(term)
+        );
+        renderModels(filtered);
+    }
 
-function filterModels() {
-    if (!searchInput) return;
-    const term = searchInput.value.toLowerCase().trim();
-    const filtered = modelsData.filter(m =>
-        m.brand.toLowerCase().includes(term) ||
-        m.model.toLowerCase().includes(term) ||
-        m.years.includes(term) ||
-        m.description.toLowerCase().includes(term)
-    );
-    renderModels(filtered);
+    searchInput.addEventListener('keyup', filterModels);
+    renderModels(modelsData);
 }
 
 // ==================== GET DESTACATS (for cotxes.html) ====================
-window.getCotxesDestacats = function () {
+window.getCotxesDestacats = function() {
     return modelsData.filter(m => m.destacat === true);
 };
 
@@ -190,11 +194,24 @@ window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
 };
 
-// // ==================== INITIALIZE - Only run on pages that need it ====================
-// document.addEventListener('DOMContentLoaded', () => {
-//     // Only run catalog logic if we are on cataleg.html
-//     if (document.getElementById('modelsGrid')) {
-//         searchInput?.addEventListener('keyup', filterModels);
-//         loadAllCars();
-//     }
-// });
+// ==================== INITIALIZE ====================
+document.addEventListener('DOMContentLoaded', () => {
+    loadAllCars();
+
+    // Only initialize catalog features if we are on cataleg.html
+    if (document.getElementById('modelsGrid')) {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keyup', () => {
+                const term = searchInput.value.toLowerCase().trim();
+                const filtered = modelsData.filter(m =>
+                    m.brand.toLowerCase().includes(term) ||
+                    m.model.toLowerCase().includes(term) ||
+                    m.years.includes(term) ||
+                    m.description.toLowerCase().includes(term)
+                );
+                renderModels(filtered);
+            });
+        }
+    }
+});
