@@ -80,28 +80,34 @@ function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
-    const term = searchInput.value.toLowerCase().trim();
+    let term = searchInput.value.toLowerCase().trim();
     if (!term) {
         renderModels(modelsData);
         return;
     }
 
+    // Optional: remove common units to improve matching
+    term = term.replace(/l$|cv$|hp$/i, '').trim();
+
     const filtered = modelsData.filter(model => {
-        const basicMatch =
+        // Basic fields
+        if (
             model.brand.toLowerCase().includes(term) ||
             model.model.toLowerCase().includes(term) ||
             model.years.toLowerCase().includes(term) ||
-            model.description.toLowerCase().includes(term);
+            model.description.toLowerCase().includes(term)
+        ) {
+            return true;
+        }
 
-        if (basicMatch) return true;
-
-        // Search in variants
+        // Deep search in variants
         if (model.variants && model.variants.length > 0) {
-            return model.variants.some(v =>
-                Object.values(v).some(value =>
-                    value && value.toString().toLowerCase().includes(term)
-                )
-            );
+            return model.variants.some(variant => {
+                return Object.values(variant).some(value => {
+                    if (!value) return false;
+                    return value.toString().toLowerCase().includes(term);
+                });
+            });
         }
 
         return false;
@@ -109,7 +115,6 @@ function filterModels() {
 
     renderModels(filtered);
 }
-
 // ==================== GET DESTACATS (for cotxes.html) ====================
 window.getCotxesDestacats = function () {
     return modelsData.filter(m => m.destacat === true);
