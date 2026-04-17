@@ -1,8 +1,8 @@
-// ==================== CATALOG SCRIPT - LOADS ALL CARS FROM SEPARATE FILES ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING ====================
 
 let modelsData = [];
 
-// List of all car files (add new cars here)
+// List of all your car files (add new ones here)
 const carFiles = [
     "assets/data/cars/R4.js",
     "assets/data/cars/R5.js",
@@ -16,36 +16,48 @@ const carFiles = [
     "assets/data/cars/R15.js",
     "assets/data/cars/R17.js",
     "assets/data/cars/R20.js",
-    "assets/data/cars/R25.js",
-    // ← Add new car files here
+    "assets/data/cars/R25.js"
+    // Add new car files here when you create them
 ];
 
 // Load all car files dynamically
 async function loadAllCars() {
-    modelsData = []; // reset
+    modelsData = []; 
 
-    const promises = carFiles.map(file =>
-        fetch(file)
-            .then(res => res.text())
-            .then(text => {
-                // Execute the file (it pushes to window.carData)
-                const script = document.createElement('script');
-                script.textContent = text;
-                document.body.appendChild(script);
-                // Remove the temporary script
-                setTimeout(() => script.remove(), 100);
-            })
-    );
+    try {
+        const promises = carFiles.map(async (file) => {
+            const res = await fetch(file);
+            if (!res.ok) {
+                console.warn(`Failed to load: ${file}`);
+                return;
+            }
+            const text = await res.text();
 
-    await Promise.all(promises);
+            // Execute the car file (it should push to window.carData)
+            const script = document.createElement('script');
+            script.textContent = text;
+            document.body.appendChild(script);
 
-    // After all files are loaded, copy the data
-    if (window.carData && window.carData.length > 0) {
-        modelsData = [...window.carData];
-        window.carData = []; // clean up
+            // Clean up temporary script
+            setTimeout(() => script.remove(), 50);
+        });
+
+        await Promise.all(promises);
+
+        // Copy loaded data
+        if (window.carData && window.carData.length > 0) {
+            modelsData = [...window.carData];
+            window.carData = []; // reset for next load
+        }
+
+        renderModels(modelsData);
+
+    } catch (error) {
+        console.error("Error loading car data:", error);
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; color:red;">
+            Error carregant els cotxes. Si us plau, recarrega la pàgina.
+        </p>`;
     }
-
-    renderModels(modelsData);
 }
 
 // ==================== RENDER & SEARCH ====================
@@ -55,7 +67,9 @@ const searchInput = document.getElementById('searchInput');
 function renderModels(filteredModels) {
     grid.innerHTML = '';
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">Cap model trobat.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
         return;
     }
 
@@ -85,16 +99,7 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// Keep your existing showModel and closeModal functions exactly as they are now
-// (the long modal code you already have)
-
-// ==================== INITIALIZE ====================
-if (searchInput && grid) {
-    searchInput.addEventListener('keyup', filterModels);
-    loadAllCars();        // ← This loads all separate car files
-}
-
-// ==================== FULL MODAL FUNCTIONALITY (Updated) ====================
+// ==================== MODAL FUNCTIONALITY ====================
 
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
@@ -103,7 +108,6 @@ window.showModel = function (id) {
     document.getElementById('modalTitle').innerHTML =
         `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
-    // Build Variants Table
     let variantsHTML = '';
     if (model.variants && model.variants.length > 0) {
         variantsHTML = `
@@ -132,7 +136,6 @@ window.showModel = function (id) {
         `;
     }
 
-    // Accessories (expandable)
     let accessoriesHTML = '';
     if (model.accessories && model.accessories.length > 0) {
         accessoriesHTML = model.accessories.map(acc => `
@@ -140,8 +143,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ?
-                `<div class="accessory-images">
+                    ${acc.images && acc.images.length ? 
+                        `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -152,7 +155,6 @@ window.showModel = function (id) {
         accessoriesHTML = '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
     }
 
-    // Videos
     let videosHTML = '';
     if (model.videos && model.videos.length > 0) {
         videosHTML = model.videos.map(video => `
@@ -172,7 +174,6 @@ window.showModel = function (id) {
         videosHTML = '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
     }
 
-    // Full modal content
     const bodyHTML = `
         <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
         <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
@@ -186,7 +187,7 @@ window.showModel = function (id) {
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
         
-        <h3>Vídeos Relacionats (Manteniment, Adaptacions...)</h3>
+        <h3>Vídeos Relacionats</h3>
         ${videosHTML}
     `;
 
@@ -195,21 +196,17 @@ window.showModel = function (id) {
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 
-    // NEW: Click anywhere on the dark background to close
     modal.onclick = function (e) {
-        if (e.target === modal) {
-            closeModal();
-        }
+        if (e.target === modal) closeModal();
     };
 };
 
 window.closeModal = function () {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
 };
 
 // ==================== INITIALIZE ====================
 if (searchInput && grid) {
     searchInput.addEventListener('keyup', filterModels);
-    loadAllCars();        // ← This loads all separate car files
+    loadAllCars();        // Load all modular car files
 }

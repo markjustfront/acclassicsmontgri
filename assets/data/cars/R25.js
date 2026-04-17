@@ -42,6 +42,13 @@ window.carData.push({
         }
     ],
 
-    accessories: [],
+    accessories: [
+        {
+            name: "Interior Baccara",
+            description: "Seients de cuir, fusta i equipament de luxe.",
+            images: ["images/accessories/R25/baccara.jpg"],
+            extra: "Versió més exclusiva del R25."
+        }
+    ],
     videos: []
 });
