@@ -1,31 +1,37 @@
-## ✨ Característiques principals
+# AC Classics Montgrí
 
-- Disseny elegant i responsive
-- Catàleg modular de cotxes clàssics (fàcil d'ampliar)
-- Informació detallada de cada model (característiques, variants de motor, accessoris i vídeos)
-- Modal interactiu amb taula responsive
-- Navegació i peu de pàgina compartits
-- Totalment estàtic i optimitzat per a **GitHub Pages**
+Pàgina web oficial del **Club de cotxes clàssics AC Classics Montgrí**, situat a la Costa Brava (Girona).
 
-## 🚀 Com publicar o actualitzar el web
+## 🌐 Web
 
-1. Fes els canvis necessaris (afegir cotxes, modificar text, etc.)
-2. Puja els fitxers a la branca `main`
-3. El web s'actualitza automàticament a GitHub Pages
+[https://markjustfront.github.io/acclassicsmontgri](https://markjustfront.github.io/acclassicsmontgri)
 
-### Per afegir un nou cotxe al catàleg:
+## 🛠 Eines i tecnologies utilitzades
 
-1. Crea un nou fitxer a `assets/data/cars/` (ex: `R18.js`)
-2. Copia l'estructura d'un altre fitxer i modifica les dades
-3. Afegeix el nou fitxer a la llista `carFiles` dins de `assets/js/script.js`
+- **HTML5**, **CSS3** i **JavaScript** (Vanilla JS)
+- Disseny responsive amb CSS Grid i media queries
+- Sistema modular de components (navegació i peu de pàgina compartits)
+- Catàleg de cotxes carregat de forma dinàmica des de fitxers individuals (`assets/data/cars/`)
+- Mapa interactiu amb **Leaflet** (per a la pàgina d'esdeveniments)
+- Allotjat gratuïtament a **GitHub Pages**
 
-## 🛠 Tecnologies utilitzades
+### Finalitat del projecte
 
-- HTML5
-- CSS3 (amb variables i media queries)
-- JavaScript vanilla
-- Leaflet (per al mapa d'esdeveniments)
-- GitHub Pages (hosting)
+Crear una pàgina web elegant, fàcil de mantenir i professional per al club AC Classics Montgrí, on es pugui:
+
+- Mostrar els cotxes del club
+- Consultar un catàleg detallat de models clàssics (amb característiques tècniques, variants de motor, accessoris i vídeos)
+- Informar sobre esdeveniments i trobades
+- Facilitar el contacte amb el club
+
+El disseny és totalment estàtic, ràpid i optimitzat per a mòbils.
+
+## 📁 Estructura principal
+
+- `assets/components/` → Components reutilitzables (`nav.html`, `footer.html`)
+- `assets/data/cars/` → Cada cotxe en un fitxer independent (fàcil d'ampliar)
+- `assets/js/script.js` → Lògica del catàleg i modal
+- `assets/css/style.css` → Estils principals
 
 ## 📬 Contacte
 
