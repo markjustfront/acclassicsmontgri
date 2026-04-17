@@ -22,57 +22,45 @@ const carFiles = [
     "assets/data/cars/R30.js"
 ];
 
-// Load all car files one by one
+// Load all cars once
 async function loadAllCars() {
     modelsData = [];
 
     for (const file of carFiles) {
         try {
             const res = await fetch(file);
-            if (!res.ok) {
-                console.warn(`⚠️ Failed to load: ${file}`);
-                continue;
-            }
+            if (!res.ok) continue;
 
             const text = await res.text();
-
-            // Create a temporary script to execute the car file
-            const script = document.createElement("script");
+            const script = document.createElement('script');
             script.textContent = text;
             document.head.appendChild(script);
-
-            // Give it a tiny moment to execute
-            await new Promise(resolve => setTimeout(resolve, 30));
-
-            // Remove the script
+            await new Promise(r => setTimeout(r, 30));
             script.remove();
-
-        } catch (err) {
-            console.error(`Error loading ${file}:`, err);
+        } catch (e) {
+            console.warn(`Failed to load ${file}`);
         }
     }
 
-    // After all files are loaded, copy the data
-    if (window.carData && Array.isArray(window.carData) && window.carData.length > 0) {
+    if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
-        console.log(`✅ Loaded ${modelsData.length} cars successfully.`);
-    } else {
-        console.warn("⚠️ No cars were loaded. Check that each file uses window.carData.push()");
+        console.log(`✅ Loaded ${modelsData.length} cars total.`);
     }
-
-    renderModels(modelsData);
 }
 
-// ==================== RENDER & SEARCH ====================
-const grid = document.getElementById('modelsGrid');
-const searchInput = document.getElementById('searchInput');
+// Get only destacats
+window.getCotxesDestacats = function () {
+    return modelsData.filter(m => m.destacat === true);
+};
 
+// Render function for catalog page
 function renderModels(filteredModels) {
+    const grid = document.getElementById('modelsGrid');
+    if (!grid) return;
+
     grid.innerHTML = '';
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
-            Cap model trobat.
-        </p>`;
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">Cap model trobat.</p>`;
         return;
     }
 
@@ -92,7 +80,7 @@ function renderModels(filteredModels) {
 }
 
 function filterModels() {
-    const term = searchInput.value.toLowerCase().trim();
+    const term = document.getElementById('searchInput')?.value.toLowerCase().trim() || '';
     const filtered = modelsData.filter(m =>
         m.brand.toLowerCase().includes(term) ||
         m.model.toLowerCase().includes(term) ||
