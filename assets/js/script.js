@@ -22,7 +22,10 @@ const carFiles = [
     "assets/data/cars/R30.js",
     "assets/data/cars/S88.js",
     "assets/data/cars/S109.js",
-    "assets/data/cars/SLi.js"
+    "assets/data/cars/SLi.js",
+    "assets/data/cars/S2000.js",
+    "assets/data/cars/S2500.js",
+    "assets/data/cars/SCazorla.js",
 ];
 
 // Load all car files
