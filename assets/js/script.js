@@ -22,45 +22,57 @@ const carFiles = [
     "assets/data/cars/R30.js"
 ];
 
-// Load all cars once
+// Load all car files one by one
 async function loadAllCars() {
     modelsData = [];
 
     for (const file of carFiles) {
         try {
             const res = await fetch(file);
-            if (!res.ok) continue;
+            if (!res.ok) {
+                console.warn(`⚠️ Failed to load: ${file}`);
+                continue;
+            }
 
             const text = await res.text();
-            const script = document.createElement('script');
+
+            // Create a temporary script to execute the car file
+            const script = document.createElement("script");
             script.textContent = text;
             document.head.appendChild(script);
-            await new Promise(r => setTimeout(r, 30));
+
+            // Give it a tiny moment to execute
+            await new Promise(resolve => setTimeout(resolve, 30));
+
+            // Remove the script
             script.remove();
-        } catch (e) {
-            console.warn(`Failed to load ${file}`);
+
+        } catch (err) {
+            console.error(`Error loading ${file}:`, err);
         }
     }
 
-    if (window.carData && Array.isArray(window.carData)) {
+    // After all files are loaded, copy the data
+    if (window.carData && Array.isArray(window.carData) && window.carData.length > 0) {
         modelsData = [...window.carData];
-        console.log(`✅ Loaded ${modelsData.length} cars total.`);
+        console.log(`✅ Loaded ${modelsData.length} cars successfully.`);
+    } else {
+        console.warn("⚠️ No cars were loaded. Check that each file uses window.carData.push()");
     }
+
+    renderModels(modelsData);
 }
 
-// Get only destacats
-window.getCotxesDestacats = function () {
-    return modelsData.filter(m => m.destacat === true);
-};
+// ==================== RENDER & SEARCH ====================
+const grid = document.getElementById('modelsGrid');
+const searchInput = document.getElementById('searchInput');
 
-// Render function for catalog page
 function renderModels(filteredModels) {
-    const grid = document.getElementById('modelsGrid');
-    if (!grid) return;
-
     grid.innerHTML = '';
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">Cap model trobat.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
         return;
     }
 
@@ -80,7 +92,7 @@ function renderModels(filteredModels) {
 }
 
 function filterModels() {
-    const term = document.getElementById('searchInput')?.value.toLowerCase().trim() || '';
+    const term = searchInput.value.toLowerCase().trim();
     const filtered = modelsData.filter(m =>
         m.brand.toLowerCase().includes(term) ||
         m.model.toLowerCase().includes(term) ||
@@ -182,11 +194,6 @@ window.showModel = function (id) {
 
 window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
-};
-
-// ==================== GET DESTACATS (for cotxes.html) ====================
-window.getCotxesDestacats = function() {
-    return modelsData.filter(m => m.destacat === true);
 };
 
 // ==================== INITIALIZE ====================
