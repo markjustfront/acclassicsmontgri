@@ -7,8 +7,8 @@ window.carData.push(
         model: "8 (R8 + Gordini)",
         years: "1962-1973",
         description: "El Renault 8 és una berlina amb motor posterior que va donar lloc al mític R8 Gordini, icona esportiva de Renault.",
-
         image: "images/R8-main.jpg",
+        destacat: false,
 
         generalCharacteristics: `
     <strong>Període de producció:</strong> 1962-1973<br>

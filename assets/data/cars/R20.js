@@ -7,8 +7,8 @@ window.carData.push(
         model: "20 (R20)",
         years: "1975-1984",
         description: "Berlina gran i confortable, pensada per substituir el R16 en gamma alta.",
-
         image: "images/R20-main.jpg",
+        destacat: false,
 
         generalCharacteristics: `
     <strong>Període de producció:</strong> 1975-1984<br>

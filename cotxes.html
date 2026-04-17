@@ -5,58 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Els Nostres Cotxes - AC Classics Montgrí</title>
-    <link rel="icon" type="image/x-icon" href="/images/logo.ico">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- This is the ONLY place where the section lives -->
-    <section id="cotxes" style="padding-top: 120px;">
-        <h2>Els Nostres Cotxes Destacats</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="images/renault4.jpg" alt="Renault 4">
-                <div class="card-content">
-                    <h3>Renault 4</h3>
-                    <p>El nostre clàssic preferit. Pràctic, simpàtic i ple de caràcter francès.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/citroen2cv.jpg" alt="Citroën 2CV">
-                <div class="card-content">
-                    <h3>Citroën 2CV</h3>
-                    <p>La llegendària "Deudeuche". Simbol de senzillesa i diversió sobre rodes.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/seat600.jpg" alt="SEAT 600">
-                <div class="card-content">
-                    <h3>SEAT 600</h3>
-                    <p>El cotxe que va motoritzar Espanya. Un clàssic nacional imprescindible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Shared Navigation -->
     <script>
         fetch('assets/components/nav.html')
             .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('afterbegin', data);
-            })
+            .then(data => document.body.insertAdjacentHTML('afterbegin', data))
             .catch(err => console.error('Error loading nav:', err));
     </script>
 
-    <!-- Footer -->
+    <section id="cotxes" style="padding-top: 120px;">
+        <h2>Els Nostres Cotxes Destacats</h2>
+        <div class="grid" id="cotxes-grid">
+            <!-- This will be filled automatically with cars where destacat: true -->
+        </div>
+    </section>
+
+    <!-- Shared Footer -->
     <script>
         fetch('assets/components/footer.html')
             .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
-            })
+            .then(data => document.body.insertAdjacentHTML('beforeend', data))
             .catch(err => console.error('Error loading footer:', err));
     </script>
+
+    <script src="assets/js/script.js"></script>
+
+    <script>
+        // Load only the highlighted cars for this page
+        async function loadDestacats() {
+            // Wait until script.js has loaded the modelsData
+            await new Promise(resolve => setTimeout(resolve, 300));
+
+            const destacats = window.modelsData ?
+                window.modelsData.filter(m => m.destacat === true) : [];
+
+            const container = document.getElementById('cotxes-grid');
+            container.innerHTML = '';
+
+            if (destacats.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px;">Encara no hi ha cotxes destacats.</p>`;
+                return;
+            }
+
+            destacats.forEach(model => {
+                const cardHTML = `
+                    <div class="card" onclick="showModel(${model.id})">
+                        <img src="${model.image}" alt="${model.brand} ${model.model}">
+                        <div class="card-content">
+                            <h3>${model.brand} ${model.model}</h3>
+                            <p><strong>${model.years}</strong></p>
+                            <p>${model.description}</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        loadDestacats();
+    </script>
+
 </body>
 
 </html>

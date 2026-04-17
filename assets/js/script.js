@@ -19,7 +19,7 @@ const carFiles = [
     "assets/data/cars/R20.js",
     "assets/data/cars/R21.js",
     "assets/data/cars/R25.js",
-    "assets/data/cars/R30.js",
+    "assets/data/cars/R30.js"
     // Add new car files here
 ];
 
@@ -100,6 +100,11 @@ function filterModels() {
     renderModels(filtered);
 }
 
+// ==================== GET DESTACATS (for homepage teaser) ====================
+function getCotxesDestacats() {
+    return modelsData.filter(model => model.destacat === true);
+}
+
 // ==================== MODAL FUNCTIONALITY WITH RESPONSIVE TABLE ====================
 
 window.showModel = function (id) {
@@ -148,8 +153,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ?
-                `<div class="accessory-images">
+                    ${acc.images && acc.images.length ? 
+                        `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}

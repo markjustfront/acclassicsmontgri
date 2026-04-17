@@ -8,6 +8,7 @@ window.carData.push(
         years: "1984-1996",
         description: "La segona generació del Renault 5, coneguda com a Super Cinq. Disseny modernitzat, millor equipament i versions esportives icòniques com el GT Turbo.",
         image: "images/R5P2-main.jpg",
+        destacat: false,
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1984-1996<br>

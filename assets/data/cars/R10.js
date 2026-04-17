@@ -5,8 +5,8 @@ window.carData.push(
     model: "10 (R10)",
     years: "1965-1971",
     description: "Berlina compacta derivada del Renault 8 amb més confort i millor acabat interior.",
-
     image: "images/R10-main.jpg",
+    destacat: true,
 
     generalCharacteristics: `
     <strong>Període de producció:</strong> 1965-1971<br>

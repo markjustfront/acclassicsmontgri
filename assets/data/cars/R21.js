@@ -5,8 +5,8 @@ window.carData.push(
     model: "21 (R21)",
     years: "1986-1994",
     description: "Berlina mitjana molt popular amb gran varietat de motors i versions, incloent esportives Turbo.",
-
     image: "images/R21-main.jpg",
+    destacat: false,
 
     generalCharacteristics: `
     <strong>Període de producció:</strong> 1986-1994<br>

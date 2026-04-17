@@ -7,8 +7,8 @@ window.carData.push(
         model: "7 (R7 / Siete)",
         years: "1974-1984",
         description: "El Renault 7 és una versió sedan del R5, creada especialment per al mercat espanyol amb un enfoc més elegant.",
-
         image: "images/R7-main.jpg",
+        destacat: true,
 
         generalCharacteristics: `
     <strong>Període de producció:</strong> 1974-1984<br>

@@ -8,6 +8,7 @@ window.carData.push(
         years: "1961-1992",
         description: "El Renault 4 és un dels cotxes més versàtils i icònics de Renault. Simple, robust i extremadament pràctic.",
         image: "images/R4-main.jpg",
+        destacat: true,
 
         generalCharacteristics: `
         <strong>Període de producció:</strong> 1961-1992<br>

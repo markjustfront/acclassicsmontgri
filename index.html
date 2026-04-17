@@ -52,25 +52,42 @@
             <p><strong>Localització:</strong> Montgrí / L’Estartit • Girona, Catalunya</p>
         </div>
     </section>
-
+    <!-- Teaser - Els Nostres Cotxes -->
+    <section id="cotxes-teaser" style="padding-top: 80px;">
+        <h2>Els Nostres Cotxes Destacats</h2>
+        <div class="grid" id="cotxes-teaser-grid">
+            <!-- Will be filled automatically -->
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="cotxes.html" class="btn">Veure tots els cotxes →</a>
+        </div>
+    </section>
     <script>
-        // Load the "Els Nostres Cotxes" section from cotxes.html
-        fetch('cotxes.html')
-            .then(response => response.text())
-            .then(data => {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = data;
+        // Load only destacats for homepage teaser
+        async function loadTeaser() {
+            await new Promise(resolve => setTimeout(resolve, 300));
+            const destacats = window.modelsData ?
+                window.modelsData.filter(m => m.destacat === true) : [];
 
-                const originalSection = tempDiv.querySelector('#cotxes');
+            const container = document.getElementById('cotxes-teaser-grid');
+            container.innerHTML = '';
 
-                if (originalSection) {
-                    document.getElementById('cotxes-content').innerHTML = originalSection.innerHTML;
-                }
-            })
-            .catch(() => {
-                document.getElementById('cotxes-content').innerHTML =
-                    '<p style="color:red; text-align:center;">Error carregant la secció. Torna a intentar-ho.</p>';
+            destacats.forEach(model => {
+                const cardHTML = `
+                    <div class="card" onclick="showModel(${model.id})">
+                        <img src="${model.image}" alt="${model.brand} ${model.model}">
+                        <div class="card-content">
+                            <h3>${model.brand} ${model.model}</h3>
+                            <p><strong>${model.years}</strong></p>
+                            <p>${model.description}</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
             });
+        }
+
+        loadTeaser();
     </script>
     <!-- Shared Navigation -->
     <script>

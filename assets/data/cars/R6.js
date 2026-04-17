@@ -7,8 +7,8 @@ window.carData.push(
         model: "6 (R6)",
         years: "1968-1986",
         description: "El Renault 6 és la versió més còmoda i evolucionada del R4, amb millor suspensió i enfoc familiar més refinat.",
-
         image: "images/R6-main.jpg",
+        destacat: false,
 
         generalCharacteristics: `
     <strong>Període de producció:</strong> 1968-1986<br>
