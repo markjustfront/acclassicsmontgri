@@ -11,19 +11,20 @@
 <body>
 
     <!-- Shared Navigation -->
+    <section id="cotxes" style="padding-top: 120px;">
+        <h2>Els Nostres Cotxes Destacats</h2>
+        <div class="grid" id="cotxes-grid">
+            <!-- Highlighted cars will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Shared Navigation -->
     <script>
         fetch('assets/components/nav.html')
             .then(response => response.text())
             .then(data => document.body.insertAdjacentHTML('afterbegin', data))
             .catch(err => console.error('Error loading nav:', err));
     </script>
-
-    <section id="cotxes" style="padding-top: 120px;">
-        <h2>Els Nostres Cotxes Destacats</h2>
-        <div class="grid" id="cotxes-grid">
-            <!-- Cars with destacat: true will be loaded here automatically -->
-        </div>
-    </section>
 
     <!-- Shared Footer -->
     <script>
@@ -36,38 +37,43 @@
     <script src="assets/js/script.js"></script>
 
     <script>
-        async function loadDestacats() {
-            // Wait for cars to load
-            await new Promise(r => setTimeout(r, 400));
+        // Wait until cars are loaded, then show only destacats
+        async function showDestacats() {
+            // Give time for script.js to finish loading all cars
+            await new Promise(resolve => setTimeout(resolve, 600));
 
-            const destacats = window.getCotxesDestacats ? window.getCotxesDestacats() : [];
+            const destacats = window.getCotxesDestacats ?
+                window.getCotxesDestacats() : [];
 
             const container = document.getElementById('cotxes-grid');
             container.innerHTML = '';
 
             if (destacats.length === 0) {
-                container.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
-                Encara no hi ha cotxes destacats definits.
-            </p>`;
+                container.innerHTML = `
+                    <p style="grid-column: 1 / -1; text-align:center; padding:60px; color:#777; font-size:1.1rem;">
+                        Encara no hi ha cotxes destacats.<br>
+                        Afegeix <code>destacat: true</code> en algun fitxer de cotxe.
+                    </p>`;
                 return;
             }
 
             destacats.forEach(model => {
-                const html = `
-                <div class="card" onclick="showModel(${model.id})">
-                    <img src="${model.image}" alt="${model.brand} ${model.model}">
-                    <div class="card-content">
-                        <h3>${model.brand} ${model.model}</h3>
-                        <p><strong>${model.years}</strong></p>
-                        <p>${model.description}</p>
+                const cardHTML = `
+                    <div class="card" onclick="showModel(${model.id})">
+                        <img src="${model.image}" alt="${model.brand} ${model.model}">
+                        <div class="card-content">
+                            <h3>${model.brand} ${model.model}</h3>
+                            <p><strong>${model.years}</strong></p>
+                            <p>${model.description}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-                container.innerHTML += html;
+                `;
+                container.innerHTML += cardHTML;
             });
         }
 
-        loadDestacats();
+        // Run when page is ready
+        window.addEventListener('load', showDestacats);
     </script>
 
 </body>

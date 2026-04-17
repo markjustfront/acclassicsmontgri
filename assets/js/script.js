@@ -184,6 +184,11 @@ window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
 };
 
+// ==================== GET DESTACATS (for cotxes.html) ====================
+window.getCotxesDestacats = function() {
+    return modelsData.filter(m => m.destacat === true);
+};
+
 // ==================== INITIALIZE ====================
 if (searchInput && grid) {
     searchInput.addEventListener('keyup', filterModels);
