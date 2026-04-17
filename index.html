@@ -62,33 +62,6 @@
             <a href="cotxes.html" class="btn">Veure tots els cotxes →</a>
         </div>
     </section>
-    <script>
-        // Load only destacats for homepage teaser
-        async function loadTeaser() {
-            await new Promise(resolve => setTimeout(resolve, 300));
-            const destacats = window.modelsData ?
-                window.modelsData.filter(m => m.destacat === true) : [];
-
-            const container = document.getElementById('cotxes-teaser-grid');
-            container.innerHTML = '';
-
-            destacats.forEach(model => {
-                const cardHTML = `
-                    <div class="card" onclick="showModel(${model.id})">
-                        <img src="${model.image}" alt="${model.brand} ${model.model}">
-                        <div class="card-content">
-                            <h3>${model.brand} ${model.model}</h3>
-                            <p><strong>${model.years}</strong></p>
-                            <p>${model.description}</p>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += cardHTML;
-            });
-        }
-
-        loadTeaser();
-    </script>
     <!-- Shared Navigation -->
     <script>
         fetch('assets/components/nav.html')
