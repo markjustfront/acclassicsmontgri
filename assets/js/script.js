@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Safe for all pages) ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Final Fixed) ====================
 
 let modelsData = [];
 
@@ -29,73 +29,76 @@ async function loadAllCars() {
     for (const file of carFiles) {
         try {
             const res = await fetch(file);
-            if (!res.ok) continue;
-
+            if (!res.ok) {
+                console.warn(`Failed to load: ${file}`);
+                continue;
+            }
             const text = await res.text();
+
             const script = document.createElement('script');
             script.textContent = text;
             document.head.appendChild(script);
-            await new Promise(r => setTimeout(r, 30));
+            await new Promise(r => setTimeout(r, 40));
             script.remove();
         } catch (e) {
-            console.warn(`Failed to load ${file}`);
+            console.warn(`Error loading ${file}`);
         }
     }
 
     if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
         console.log(`✅ Loaded ${modelsData.length} cars total.`);
+    } else {
+        console.warn("⚠️ window.carData is empty or not an array.");
     }
 }
 
-// ==================== RENDER & SEARCH (Safe - only if elements exist) ====================
-function initCatalog() {
+// ==================== RENDER FUNCTION ====================
+function renderModels(filteredModels) {
     const grid = document.getElementById('modelsGrid');
-    const searchInput = document.getElementById('searchInput');
+    if (!grid) return;   // Not on cataleg page
 
-    if (!grid) return;   // Not on cataleg.html → do nothing
+    grid.innerHTML = '';
 
-    function renderModels(filteredModels) {
-        grid.innerHTML = '';
-        if (filteredModels.length === 0) {
-            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
-                Cap model trobat.
-            </p>`;
-            return;
-        }
+    if (filteredModels.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.1rem; color:#777;">
+            Cap model trobat.
+        </p>`;
+        return;
+    }
 
-        filteredModels.forEach(model => {
-            const cardHTML = `
-                <div class="card" onclick="showModel(${model.id})">
-                    <img src="${model.image}" alt="${model.brand} ${model.model}">
-                    <div class="card-content">
-                        <h3>${model.brand} ${model.model}</h3>
-                        <p><strong>${model.years}</strong></p>
-                        <p>${model.description}</p>
-                    </div>
+    filteredModels.forEach(model => {
+        const cardHTML = `
+            <div class="card" onclick="showModel(${model.id})">
+                <img src="${model.image}" alt="${model.brand} ${model.model}">
+                <div class="card-content">
+                    <h3>${model.brand} ${model.model}</h3>
+                    <p><strong>${model.years}</strong></p>
+                    <p>${model.description}</p>
                 </div>
-            `;
-            grid.innerHTML += cardHTML;
-        });
-    }
-
-    function filterModels() {
-        const term = searchInput.value.toLowerCase().trim();
-        const filtered = modelsData.filter(m =>
-            m.brand.toLowerCase().includes(term) ||
-            m.model.toLowerCase().includes(term) ||
-            m.years.includes(term) ||
-            m.description.toLowerCase().includes(term)
-        );
-        renderModels(filtered);
-    }
-
-    searchInput.addEventListener('keyup', filterModels);
-    renderModels(modelsData);
+            </div>
+        `;
+        grid.innerHTML += cardHTML;
+    });
 }
 
-// ==================== GET DESTACATS (for cotxes.html) ====================
-window.getCotxesDestacats = function() {
+// Search function
+function filterModels() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    const term = searchInput.value.toLowerCase().trim();
+    const filtered = modelsData.filter(m =>
+        m.brand.toLowerCase().includes(term) ||
+        m.model.toLowerCase().includes(term) ||
+        m.years.includes(term) ||
+        m.description.toLowerCase().includes(term)
+    );
+    renderModels(filtered);
+}
+
+// Get destacats for cotxes.html
+window.getCotxesDestacats = function () {
     return modelsData.filter(m => m.destacat === true);
 };
 
@@ -195,23 +198,43 @@ window.closeModal = function () {
 };
 
 // ==================== INITIALIZE ====================
-document.addEventListener('DOMContentLoaded', () => {
-    loadAllCars();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadAllCars();
 
-    // Only initialize catalog features if we are on cataleg.html
+    // Catalog page specific
     if (document.getElementById('modelsGrid')) {
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
-            searchInput.addEventListener('keyup', () => {
-                const term = searchInput.value.toLowerCase().trim();
-                const filtered = modelsData.filter(m =>
-                    m.brand.toLowerCase().includes(term) ||
-                    m.model.toLowerCase().includes(term) ||
-                    m.years.includes(term) ||
-                    m.description.toLowerCase().includes(term)
-                );
-                renderModels(filtered);
-            });
+            searchInput.addEventListener('keyup', filterModels);
         }
+        renderModels(modelsData);
+    }
+
+    // cotxes.html specific - show destacats
+    if (document.getElementById('cotxes-grid')) {
+        const destacats = window.getCotxesDestacats();
+        const container = document.getElementById('cotxes-grid');
+        container.innerHTML = '';
+
+        if (destacats.length === 0) {
+            container.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
+                Encara no hi ha cotxes destacats.
+            </p>`;
+            return;
+        }
+
+        destacats.forEach(model => {
+            const cardHTML = `
+                <div class="card" onclick="showModel(${model.id})">
+                    <img src="${model.image}" alt="${model.brand} ${model.model}">
+                    <div class="card-content">
+                        <h3>${model.brand} ${model.model}</h3>
+                        <p><strong>${model.years}</strong></p>
+                        <p>${model.description}</p>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
     }
 });
