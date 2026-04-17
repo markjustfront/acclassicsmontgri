@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING ====================
 
 let modelsData = [];
 
@@ -22,52 +22,39 @@ const carFiles = [
     "assets/data/cars/R30.js"
 ];
 
-// Load all car files one by one
+// Load all car files
 async function loadAllCars() {
     modelsData = [];
 
     for (const file of carFiles) {
         try {
             const res = await fetch(file);
-            if (!res.ok) {
-                console.warn(`⚠️ Failed to load: ${file}`);
-                continue;
-            }
+            if (!res.ok) continue;
 
             const text = await res.text();
-
-            // Create a temporary script to execute the car file
-            const script = document.createElement("script");
+            const script = document.createElement('script');
             script.textContent = text;
             document.head.appendChild(script);
-
-            // Give it a tiny moment to execute
-            await new Promise(resolve => setTimeout(resolve, 30));
-
-            // Remove the script
+            await new Promise(r => setTimeout(r, 30));
             script.remove();
-
-        } catch (err) {
-            console.error(`Error loading ${file}:`, err);
+        } catch (e) {
+            console.warn(`Failed to load ${file}`);
         }
     }
 
-    // After all files are loaded, copy the data
-    if (window.carData && Array.isArray(window.carData) && window.carData.length > 0) {
+    if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
-        console.log(`✅ Loaded ${modelsData.length} cars successfully.`);
-    } else {
-        console.warn("⚠️ No cars were loaded. Check that each file uses window.carData.push()");
+        console.log(`✅ Loaded ${modelsData.length} cars total.`);
     }
-
-    renderModels(modelsData);
 }
 
-// ==================== RENDER & SEARCH ====================
+// ==================== RENDER & SEARCH (only run if elements exist) ====================
 const grid = document.getElementById('modelsGrid');
 const searchInput = document.getElementById('searchInput');
 
 function renderModels(filteredModels) {
+    if (!grid) return;   // Prevent error on other pages
+
     grid.innerHTML = '';
     if (filteredModels.length === 0) {
         grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
@@ -92,6 +79,7 @@ function renderModels(filteredModels) {
 }
 
 function filterModels() {
+    if (!searchInput) return;
     const term = searchInput.value.toLowerCase().trim();
     const filtered = modelsData.filter(m =>
         m.brand.toLowerCase().includes(term) ||
@@ -102,7 +90,13 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== MODAL (unchanged) ====================
+// ==================== GET DESTACATS (for cotxes.html) ====================
+window.getCotxesDestacats = function () {
+    return modelsData.filter(m => m.destacat === true);
+};
+
+// ==================== MODAL FUNCTIONALITY ====================
+
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
@@ -196,8 +190,11 @@ window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
 };
 
-// ==================== INITIALIZE ====================
-if (searchInput && grid) {
-    searchInput.addEventListener('keyup', filterModels);
-    loadAllCars();
-}
+// // ==================== INITIALIZE - Only run on pages that need it ====================
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Only run catalog logic if we are on cataleg.html
+//     if (document.getElementById('modelsGrid')) {
+//         searchInput?.addEventListener('keyup', filterModels);
+//         loadAllCars();
+//     }
+// });
