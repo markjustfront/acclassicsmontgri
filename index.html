@@ -54,14 +54,6 @@
     </section>
 
     <script>
-        fetch('assets/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
-            })
-            .catch(err => console.error('Error loading footer:', err));
-    </script>
-    <script>
         // Load the "Els Nostres Cotxes" section from cotxes.html
         fetch('cotxes.html')
             .then(response => response.text())
@@ -88,6 +80,16 @@
                 document.body.insertAdjacentHTML('afterbegin', data);
             })
             .catch(err => console.error('Error loading nav:', err));
+    </script>
+
+    <!-- Footer -->
+    <script>
+        fetch('assets/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(err => console.error('Error loading footer:', err));
     </script>
 </body>
 

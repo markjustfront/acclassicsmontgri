@@ -34,15 +34,6 @@
         <div id="map" style="height: 420px; margin-top: 60px; border-radius: 16px;"></div>
     </section>
 
-    <script>
-        fetch('assets/components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
-            })
-            .catch(err => console.error('Error loading footer:', err));
-    </script>
-
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         const events = [ /* your events array stays the same */
@@ -88,6 +79,16 @@
         events.forEach(e => {
             L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}`);
         });
+    </script>
+
+    <!-- Footer -->
+    <script>
+        fetch('assets/components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('beforeend', data);
+            })
+            .catch(err => console.error('Error loading footer:', err));
     </script>
 </body>
 
