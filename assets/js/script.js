@@ -22,6 +22,7 @@ const carFiles = [
     "assets/data/cars/R30.js",
     "assets/data/cars/S88.js",
     "assets/data/cars/S109.js",
+    "assets/data/cars/SLi.js"
 ];
 
 // Load all car files
