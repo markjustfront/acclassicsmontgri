@@ -348,3 +348,68 @@ details[open] summary {
 .logo:hover {
     transform: scale(1.08);
 }
+
+/* ==================== IMPROVED EVENTS PAGE ==================== */
+.events .card {
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.events .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.events .badge.trobada { background: #ffe082; color: #1a1a1a; }
+.events .badge.exposicio { background: #81d4fa; color: #1a1a1a; }
+.events .badge.rally { background: #ef9a9a; color: #1a1a1a; }
+
+.events h3 {
+    margin: 12px 0 8px;
+    font-size: 1.35rem;
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+    section {
+        padding: 80px 20px;
+    }
+    
+    .nav-links {
+        gap: 12px;
+    }
+    
+    .nav-links a {
+        margin-left: 12px;
+        font-size: 1rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    #map {
+        height: 320px !important;
+    }
+    
+    .filter button {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Footer icons fix */
+.footer .social a svg {
+    fill: var(--gold);
+    transition: fill 0.3s;
+}
+
+.footer .social a:hover svg {
+    fill: white;
+}

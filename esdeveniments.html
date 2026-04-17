@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esdeveniments - AC Classics Montgrí</title>
-    
-    <!-- Your main stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- Leaflet for the map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
+
 <body>
 
     <!-- Shared Navigation -->
     <script>
         fetch('assets/components/nav.html')
             .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('afterbegin', data);
-            })
+            .then(data => document.body.insertAdjacentHTML('afterbegin', data))
             .catch(err => console.error('Error loading nav:', err));
     </script>
 
@@ -42,24 +38,24 @@
         <p>&copy; 2026 AC Classics Montgrí • Club de Cotxes Clàssics</p>
         <div class="social" style="margin: 25px 0;">
             <a href="https://www.instagram.com/acclassicsmontgri/" target="_blank" style="margin: 0 15px;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#1a1a1a" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.645.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.645-.07-4.849 0-3.204.012-3.584.07-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.849-.07zM12 0C8.741 0 8.333.014 7.053.072 3.198.306 1.306 2.198 1.072 6.053.014 7.333 0 7.741 0 12s.014 4.667.072 5.947c.234 3.855 2.126 5.747 6.053 5.981 1.28.058 1.688.072 4.947.072 3.259 0 3.667-.014 4.947-.072 3.927-.234 5.819-2.126 6.053-5.981.058-1.28.072-1.688.072-5.947s-.014-4.667-.072-5.947c-.234-3.855-2.126-5.747-6.053-5.981C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
+                <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.645.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.645-.07-4.849 0-3.204.012-3.584.07-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.849-.07zM12 0C8.741 0 8.333.014 7.053.072 3.198.306 1.306 2.198 1.072 6.053.014 7.333 0 7.741 0 12s.014 4.667.072 5.947c.234 3.855 2.126 5.747 6.053 5.981 1.28.058 1.688.072 4.947.072 3.259 0 3.667-.014 4.947-.072 3.927-.234 5.819-2.126 6.053-5.981.058-1.28.072-1.688.072-5.947s-.014-4.667-.072-5.947c-.234-3.855-2.126-5.747-6.053-5.981C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
                 </svg>
             </a>
             <a href="https://www.youtube.com/@ACClassicsMontgri" target="_blank" style="margin: 0 15px;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#1a1a1a" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.058 0 12 0 12s0 3.942.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.942 24 12 24 12s0-3.942-.502-5.814zM9.75 15.5V8.5l6 3.5-6 3.5z"/>
+                <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.058 0 12 0 12s0 3.942.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.942 24 12 24 12s0-3.942-.502-5.814zM9.75 15.5V8.5l6 3.5-6 3.5z" />
                 </svg>
             </a>
         </div>
         <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
     </footer>
 
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
     <script>
-        const events = [
+        const events = [ /* your events array stays the same */
             { title: "Fira Sant Andreu", desc: "Exposició de vehicles clàssics i tractors", location: "Torroella de Montgrí", type: "exposicio", status: "Anual", coords: [42.043, 3.127] },
             { title: "Trobada Serra de Daró", desc: "Esmorzar i concentració de clàssics", location: "Serra de Daró", type: "trobada", status: "Mensual", coords: [42.025, 3.071] },
             { title: "Clàssics Verges", desc: "Ruta i exposició al poble", location: "Verges", type: "trobada", status: "Primavera", coords: [42.062, 3.045] },
@@ -73,19 +69,16 @@
 
         function renderEvents(filter = 'all') {
             container.innerHTML = "";
-
             events
                 .filter(e => filter === 'all' || e.type === filter)
                 .forEach(e => {
                     container.innerHTML += `
                         <div class="card">
-                            <span class="badge ${e.type}" style="display:inline-block; padding:4px 12px; border-radius:9999px; font-size:0.8rem; margin-bottom:12px;">
-                                ${e.type}
-                            </span>
+                            <span class="badge ${e.type}">${e.type}</span>
                             <h3>${e.title}</h3>
                             <p>${e.desc}</p>
                             <p><strong>${e.location}</strong></p>
-                            <p class="status" style="font-size:0.85rem; opacity:0.7;">${e.status}</p>
+                            <p class="status">${e.status}</p>
                         </div>`;
                 });
         }
@@ -94,21 +87,18 @@
             renderEvents(type);
         }
 
-        // Initial render
         renderEvents();
 
-        // Leaflet Map
+        // Map
         const map = L.map('map').setView([42.05, 3.05], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
         events.forEach(e => {
-            L.marker(e.coords)
-                .addTo(map)
-                .bindPopup(`<b>${e.title}</b><br>${e.location}`);
+            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}`);
         });
     </script>
-
 </body>
+
 </html>
