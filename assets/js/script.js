@@ -2,7 +2,7 @@
 
 let modelsData = [];
 
-// List of all your car files (add new ones here)
+// List of all your car files
 const carFiles = [
     "assets/data/cars/R4.js",
     "assets/data/cars/R5.js",
@@ -17,12 +17,12 @@ const carFiles = [
     "assets/data/cars/R17.js",
     "assets/data/cars/R20.js",
     "assets/data/cars/R25.js"
-    // Add new car files here when you create them
+    // Add new car files here
 ];
 
 // Load all car files dynamically
 async function loadAllCars() {
-    modelsData = []; 
+    modelsData = [];
 
     try {
         const promises = carFiles.map(async (file) => {
@@ -33,30 +33,28 @@ async function loadAllCars() {
             }
             const text = await res.text();
 
-            // Execute the car file (it should push to window.carData)
             const script = document.createElement('script');
             script.textContent = text;
             document.body.appendChild(script);
-
-            // Clean up temporary script
             setTimeout(() => script.remove(), 50);
         });
 
         await Promise.all(promises);
 
-        // Copy loaded data
         if (window.carData && window.carData.length > 0) {
             modelsData = [...window.carData];
-            window.carData = []; // reset for next load
+            window.carData = [];
         }
 
         renderModels(modelsData);
 
     } catch (error) {
         console.error("Error loading car data:", error);
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; color:red;">
-            Error carregant els cotxes. Si us plau, recarrega la pàgina.
-        </p>`;
+        if (grid) {
+            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; color:red;">
+                Error carregant els cotxes. Recarrega la pàgina.
+            </p>`;
+        }
     }
 }
 
@@ -99,7 +97,7 @@ function filterModels() {
     renderModels(filtered);
 }
 
-// ==================== MODAL FUNCTIONALITY ====================
+// ==================== MODAL FUNCTIONALITY WITH RESPONSIVE TABLE ====================
 
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
@@ -108,6 +106,7 @@ window.showModel = function (id) {
     document.getElementById('modalTitle').innerHTML =
         `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
+    // Responsive Variants Table
     let variantsHTML = '';
     if (model.variants && model.variants.length > 0) {
         variantsHTML = `
@@ -123,16 +122,19 @@ window.showModel = function (id) {
                 </thead>
                 <tbody>
                     ${model.variants.map(v => `
-                        <tr>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.engine}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.power}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.fuel}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.traction}</td>
-                            <td style="padding:12px; border:1px solid #ddd;">${v.notes}</td>
+                        <tr onclick="this.classList.toggle('expanded')" style="cursor:pointer;">
+                            <td data-label="Motor">${v.engine}</td>
+                            <td data-label="Potència">${v.power}</td>
+                            <td data-label="Combustible">${v.fuel}</td>
+                            <td data-label="Tracció">${v.traction}</td>
+                            <td data-label="Notes">${v.notes}</td>
                         </tr>
                     `).join('')}
                 </tbody>
             </table>
+            <p style="font-size:0.85rem; color:#777; text-align:center; margin-top:8px;">
+                <em>Toca una fila per veure més detalls (només en mòbil)</em>
+            </p>
         `;
     }
 
@@ -143,8 +145,8 @@ window.showModel = function (id) {
                 <summary>${acc.name}</summary>
                 <div class="details-content">
                     <p>${acc.description}</p>
-                    ${acc.images && acc.images.length ? 
-                        `<div class="accessory-images">
+                    ${acc.images && acc.images.length ?
+                `<div class="accessory-images">
                             ${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}
                          </div>` : ''}
                     ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
@@ -208,5 +210,5 @@ window.closeModal = function () {
 // ==================== INITIALIZE ====================
 if (searchInput && grid) {
     searchInput.addEventListener('keyup', filterModels);
-    loadAllCars();        // Load all modular car files
+    loadAllCars();
 }
