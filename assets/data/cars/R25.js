@@ -7,7 +7,7 @@ window.carData.push({
     model: "25 (R25)",
     years: "1983-1992",
     description: "Berlina de luxe de Renault, enfocada a confort, tecnologia i representació.",
-    image: "images/R25-main.jpg",
+    image: "images/cars/R25-main.jpg",
     destacat: false,
 
     generalCharacteristics: `

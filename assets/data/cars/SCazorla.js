@@ -1,6 +1,3 @@
-// ==================== SCazorla.js ====================
-// Land Rover Santana Cazorla (versió alta de gamma 6 cil.)
-
 window.carData = window.carData || [];
 
 window.carData.push(

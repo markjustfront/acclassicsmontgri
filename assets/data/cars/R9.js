@@ -7,7 +7,7 @@ window.carData.push(
         model: "9 (R9)",
         years: "1981-1989",
         description: "El Renault 9 és una berlina compacta molt fiable, dissenyada per ser econòmica i global, guanyadora del premi Cotxe de l’Any 1982.",
-        image: "images/R9-main.jpg",
+        image: "images/cars/R9-main.jpg",
         destacat: false
         ,
 

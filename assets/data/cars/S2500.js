@@ -1,6 +1,3 @@
-// ==================== S2500.js ====================
-// Land Rover Santana 2500 (Series IV)
-
 window.carData = window.carData || [];
 
 window.carData.push(
@@ -10,7 +7,7 @@ window.carData.push(
         model: "2500",
         years: "1983 - 1994",
         description: "El Santana 2500 (també conegut com Series IV) és l’evolució final i més independent del clàssic Land Rover fabricat a Linares. Després de la fi de l’acord amb Land Rover, Santana va desenvolupar un vehicle amb morro més modern (estil Defender), finestra posterior més alta, millores estètiques i mecàniques pròpies. Molt robust i popular a Espanya durant els 80 i 90.",
-        image: "images/S2500-main.jpg",
+        image: "images/cars/S2500-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -5,7 +5,7 @@ window.carData.push(
     model: "30 (R30)",
     years: "1975-1984",
     description: "Gran berlina de gamma alta amb motor V6, enfocada al confort i representació.",
-    image: "images/R30-main.jpg",
+    image: "images/cars/R30-main.jpg",
     destacat: false,
 
     generalCharacteristics: `

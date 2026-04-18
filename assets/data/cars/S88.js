@@ -7,7 +7,7 @@ window.carData.push(
         model: "88",
         years: "1958 - 1991",
         description: "El Land Rover Santana 88 és el clàssic tot terreny curt fabricat a Linares (Jaén) sota llicència de Land Rover. Robust, versàtil i llegendari pel seu ús rural, militar i professional. Versió espanyola del Series III amb evolucions pròpies de Santana Motor, incloent motors de 6 cilindres i versions turbo.",
-        image: "images/S88-main.jpg",
+        image: "images/cars/S88-main.jpg",
         destacat: true,
 
         generalCharacteristics: `

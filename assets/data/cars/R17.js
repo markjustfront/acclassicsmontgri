@@ -7,7 +7,7 @@ window.carData.push(
         model: "17 (R17)",
         years: "1971-1980",
         description: "Versió esportiva del R15 amb motor més potent i opcions més refinades.",
-        image: "images/R17-main.jpg",
+        image: "images/cars/R17-main.jpg",
         destacat: false
         ,
 

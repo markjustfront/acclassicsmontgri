@@ -7,7 +7,7 @@ window.carData.push(
         model: "12 (R12)",
         years: "1969-1980",
         description: "El Renault 12 és una berlina robusta i global, molt utilitzada a Europa i Amèrica del Sud.",
-        image: "images/R12-main.jpg",
+        image: "images/cars/R12-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
