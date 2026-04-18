@@ -7,7 +7,7 @@ window.carData.push(
         model: "Ligero",
         years: "1980 - 1986",
         description: "El Santana Ligero és la versió lleugera i simplificada del Santana 88. Inspirat en el Lightweight militar, té carrosseria reduïda, aletes retallades i menor pes per millorar l’agilitat en terreny difícil. Va néixer com a vehicle militar però també es va comercialitzar en versió civil. Molt àgil, robust i amb les característiques pròpies de Santana.",
-        image: "images/SLi-main.jpg",
+        image: "images/cars/SLi-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

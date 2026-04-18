@@ -10,7 +10,7 @@ window.carData.push(
         model: "Cazorla",
         years: "1982 - 1988",
         description: "El Santana Cazorla és la versió més equipada i potent del 109. Destaca pels motors exclusius de 6 cilindres (gasolina i dièsel), estètica diferenciada (fars quadrats en algunes, capó llarg, reixeta especial) i millor acabat interior. Considerat el “top de gamma” dels Santana clàssics.",
-        image: "images/SCazorla-main.jpg",
+        image: "images/cars/SCazorla-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
