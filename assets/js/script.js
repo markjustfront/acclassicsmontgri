@@ -32,7 +32,6 @@ const carFiles = [
     "assets/data/cars/Dauphine.js", // ID 33
     "assets/data/cars/Floride.js",  // ID 34
 
-
     // Alpine:
     "assets/data/cars/A610.js",     // ID 22
     "assets/data/cars/A110.js",     // ID 23
