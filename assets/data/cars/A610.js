@@ -2,7 +2,7 @@ window.carData = window.carData || [];
 
 window.carData.push(
     {
-        id: 26,
+        id: 22,
         brand: "Renault Alpine",
         model: "A610",
         years: "1991 - 1995",

@@ -5,16 +5,16 @@ window.carData.push(
         id: 2,
         brand: "Renault",
         model: "5 (R5) - Primera Generació (Phase 1)",
-        years: "1972-1984",
-        description: "El mític Renault 5 original. Un dels cotxes urbans més icònics dels anys 70 i principis dels 80.",
+        years: "1972 - 1984",
+        description: "El mític Renault 5 original. Un dels cotxes urbans més icònics dels anys 70 i principis dels 80. Versàtil, lleuger i amb versions esportives molt apreciades avui dia, incloent-hi l'Alpine/Gordini i el radical R5 Turbo de motor central.",
         image: "images/cars/R5-main.jpg",
-        destacat: false,
+        destacat: true,
 
         generalCharacteristics: `
-        <strong>Període de producció:</strong> 1972-1984<br>
+        <strong>Període de producció:</strong> 1972 - 1984<br>
         <strong>Desplaçament:</strong> 0.8L - 1.4L<br>
         <strong>Potència:</strong> 34 - 160 CV<br>
-        <strong>Tracció:</strong> Davantera (excepte Turbo: RWD)<br>
+        <strong>Tracció:</strong> Davantera (FWD) excepte Turbo (RWD motor central)<br>
         <strong>Carrosseries:</strong> Hatchback 3 portes (5 portes a partir de 1979)
     `,
 
@@ -62,18 +62,18 @@ window.carData.push(
                 notes: "TS / TX"
             },
             {
-                engine: "1.4L Alpine",
+                engine: "1.4L (1397 cc) Alpine / Gordini",
                 power: "90 - 93 CV",
                 fuel: "Gasolina",
                 traction: "Davantera",
-                notes: "Versió esportiva (Alpine / Gordini)"
+                notes: "Versió esportiva naturalment aspirada amb culata de flux creuat i major rendiment."
             },
             {
-                engine: "1.4L Turbo",
+                engine: "1.4L (1397 cc) Turbo (R5 Turbo / Turbo 2)",
                 power: "110 - 160 CV",
                 fuel: "Gasolina",
-                traction: "Posterior",
-                notes: "Motor central, homologació rally (R5 Turbo)"
+                traction: "Posterior (RWD - motor central)",
+                notes: "Icona de ral·lis. Motor Cléon-Fonte turboalimentat. El Turbo 2 és més refinat i accessible que el primer Turbo."
             }
         ],
 
