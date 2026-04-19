@@ -5,6 +5,7 @@ let modelsData = [];
 // List of all your car files
 const carFiles = [
     //Renault:
+    "assets/data/cars/R3.js",       // ID 35
     "assets/data/cars/R4.js",       // ID 1
     "assets/data/cars/R5.js",       // ID 2
     "assets/data/cars/R5P2.js",     // ID 3
@@ -21,20 +22,23 @@ const carFiles = [
     "assets/data/cars/R17.js",      // ID 14
     "assets/data/cars/R18.js",      // ID 15
     "assets/data/cars/R19.js",      // ID 16
-
     "assets/data/cars/R20.js",      // ID 17
     "assets/data/cars/R21.js",      // ID 18
     "assets/data/cars/R25.js",      // ID 19
     "assets/data/cars/R30.js",      // ID 20
+
     "assets/data/cars/Fuego.js",    // ID 21
     "assets/data/cars/R4CV.js",     // ID 32
-    
+    "assets/data/cars/Dauphine.js", // ID 33
+    "assets/data/cars/Floride.js",  // ID 34
+
+
     // Alpine:
     "assets/data/cars/A610.js",     // ID 22
     "assets/data/cars/A110.js",     // ID 23
     "assets/data/cars/A310.js",     // ID 24
     "assets/data/cars/GTA.js",      // ID 25  
-    
+
     // Land Rover Santana:
     "assets/data/cars/S88.js",      // ID 26
     "assets/data/cars/S109.js",     // ID 27
