@@ -27,6 +27,7 @@ const carFiles = [
     "assets/data/cars/R25.js",      // ID 19
     "assets/data/cars/R30.js",      // ID 20
     "assets/data/cars/Fuego.js",    // ID 21
+    "assets/data/cars/R4CV.js",     // ID 32
     
     // Alpine:
     "assets/data/cars/A610.js",     // ID 22
