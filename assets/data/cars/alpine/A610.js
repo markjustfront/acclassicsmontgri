@@ -7,7 +7,7 @@ window.carData.push(
         model: "A610",
         years: "1991 - 1995",
         description: "L'Alpine A610 és l'últim model de la saga clàssica Alpine abans de la desaparició temporal de la marca. Evolució directa del GTA amb un disseny més arrodonit, fars escamotejables i un motor V6 Turbo de 3 litres més potent i refinat. Més gran, còmode i equipat (ABS de sèrie, aire condicionat opcional), però manté l'essència rear-engine i lleugera de fibra de vidre. Una gran tourer esportiva exclusiva i poc produïda (només ~800 unitats).",
-        image: "images/cars/A610-main.jpg",
+        image: "images/cars/alpine/A610-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

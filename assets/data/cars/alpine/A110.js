@@ -7,7 +7,7 @@ window.carData.push(
         model: "A110",
         years: "1963 - 1977",
         description: "La icònica Alpine A110 és el model més famós de la marca, campió de ral·lis (Monte Carlo 1971-1973). Disseny lleuger amb carrosseria de fibra de vidre, motor posterior i xassís tubular. Una llegenda del motorsport francès amb excel·lent relació pes/potència.",
-        image: "images/cars/A110-main.jpg",
+        image: "images/cars/alpine/A110-main.jpg",
         destacat: true,
 
         generalCharacteristics: `

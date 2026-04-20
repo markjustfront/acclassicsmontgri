@@ -7,7 +7,7 @@ window.carData.push(
         model: "GT4",
         years: "1962-1969",
         description: "L'Alpine GT4 (o A110 GT4) és la versió 2+2 places de l'A110. Un cotxe esportiu familiar però amb esperit de competició, produït en edició limitada. Combina esportivitat i practicitat.",
-        image: "images/cars/GT4-main.jpg",
+        image: "images/cars/alpine/GT4-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -7,7 +7,7 @@ window.carData.push(
         model: "GTA",
         years: "1984 - 1991",
         description: "Evolució gran turisme de l'A310 amb disseny més aerodinàmic i refinat. Disponible en versió atmosfèrica i Turbo. Més còmoda per llargs viatges però manté el caràcter esportiu Alpine.",
-        image: "images/cars/GTA-main.jpg",
+        image: "images/cars/alpine/GTA-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

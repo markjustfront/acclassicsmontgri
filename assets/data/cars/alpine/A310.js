@@ -7,7 +7,7 @@ window.carData.push(
         model: "A310",
         years: "1971 - 1985",
         description: "Successora espiritual de l'A110 amb disseny més modern i angular (wedge). Més còmoda i refinada, però manté l'esperit esportiu amb motor posterior. Va passar de 4 cilindres a V6 PRV.",
-        image: "images/cars/A310-main.jpg",
+        image: "images/cars/alpine/A310-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

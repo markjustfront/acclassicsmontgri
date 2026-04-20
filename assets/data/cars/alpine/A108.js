@@ -7,7 +7,7 @@ window.carData.push(
         model: "A108",
         years: "1958-1965",
         description: "L'Alpine A108 és l'evolució directa de l'A106. Més refinada i potent, amb carrosseria de fibra de vidre i opcions de 2+2 places. Un clàssic esportiu que va preparar el terreny per a l'A110.",
-        image: "images/cars/A108-main.jpg",
+        image: "images/cars/alpine/A108-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
