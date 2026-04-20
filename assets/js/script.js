@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
+// ==================== CATALOG SCRIPT - LOAD MORE + DEEP SEARCH ====================
 
 let modelsData = [];
 let filteredData = [];
@@ -48,8 +48,8 @@ const carFiles = [
     "assets/data/cars/S2000.js",    // ID 29
     "assets/data/cars/S2500.js",    // ID 30
     "assets/data/cars/SCazorla.js", // ID 31
-
 ];
+
 /**
  * Load all car data files
  */
@@ -87,22 +87,17 @@ function deepSearch(term) {
     term = term.toLowerCase().trim();
 
     return modelsData.filter(model => {
-        // Basic fields
         const basicText = `${model.brand} ${model.model} ${model.years} ${model.description}`.toLowerCase();
         if (basicText.includes(term)) return true;
 
-        // Variants
-        if (model.variants && model.variants.length) {
+        if (model.variants?.length) {
             const variantMatch = model.variants.some(v =>
-                Object.values(v).some(val =>
-                    val && val.toString().toLowerCase().includes(term)
-                )
+                Object.values(v).some(val => val && val.toString().toLowerCase().includes(term))
             );
             if (variantMatch) return true;
         }
 
-        // Accessories (name, description, extra)
-        if (model.accessories && model.accessories.length) {
+        if (model.accessories?.length) {
             const accessoryMatch = model.accessories.some(acc => {
                 const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
                 return accText.includes(term);
@@ -115,7 +110,7 @@ function deepSearch(term) {
 }
 
 /**
- * Render a batch of cars (using DocumentFragment for performance)
+ * Render a batch of cars
  */
 function renderBatch(modelsToShow) {
     const grid = document.getElementById('modelsGrid');
@@ -156,7 +151,6 @@ function renderModels(searchTerm = '') {
 
     filteredData = searchTerm ? deepSearch(searchTerm) : [...modelsData];
 
-    // Update results count
     resultsInfo.textContent = searchTerm
         ? `${filteredData.length} resultats per "${searchTerm}"`
         : `${modelsData.length} models disponibles`;
@@ -169,12 +163,10 @@ function renderModels(searchTerm = '') {
         return;
     }
 
-    // Initial batch
     const initialBatch = filteredData.slice(0, BATCH_SIZE);
     renderBatch(initialBatch);
     displayedCount = initialBatch.length;
 
-    // Show/hide Load More
     loadMoreBtn.style.display = (filteredData.length > displayedCount) ? 'inline-block' : 'none';
 }
 
@@ -182,7 +174,6 @@ function renderModels(searchTerm = '') {
  * Load next batch
  */
 function loadMore() {
-    const grid = document.getElementById('modelsGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
 
     const nextBatch = filteredData.slice(displayedCount, displayedCount + BATCH_SIZE);
@@ -197,165 +188,13 @@ function loadMore() {
 }
 
 /**
- * Show modal (kept mostly the same, but using event delegation)
+ * Show modal
  */
 function showModel(id) {
     const model = modelsData.find(m => m.id === id);
-    if (!model) return;/**
- * Load all car data files
- */
-    async function loadAllCars() {
-        modelsData = [];
-
-        for (const file of carFiles) {
-            try {
-                const res = await fetch(file);
-                if (!res.ok) continue;
-
-                const text = await res.text();
-                const script = document.createElement('script');
-                script.textContent = text;
-                document.head.appendChild(script);
-                await new Promise(r => setTimeout(r, 30));
-                script.remove();
-            } catch (e) {
-                console.warn(`Failed to load ${file}`);
-            }
-        }
-
-        if (window.carData && Array.isArray(window.carData)) {
-            modelsData = [...window.carData];
-            console.log(`✅ Loaded ${modelsData.length} cars total.`);
-        }
-    }
-
-    /**
-     * Deep search that includes variants and accessories
-     */
-    function deepSearch(term) {
-        if (!term) return modelsData;
-
-        term = term.toLowerCase().trim();
-
-        return modelsData.filter(model => {
-            // Basic fields
-            const basicText = `${model.brand} ${model.model} ${model.years} ${model.description}`.toLowerCase();
-            if (basicText.includes(term)) return true;
-
-            // Variants
-            if (model.variants && model.variants.length) {
-                const variantMatch = model.variants.some(v =>
-                    Object.values(v).some(val =>
-                        val && val.toString().toLowerCase().includes(term)
-                    )
-                );
-                if (variantMatch) return true;
-            }
-
-            // Accessories (name, description, extra)
-            if (model.accessories && model.accessories.length) {
-                const accessoryMatch = model.accessories.some(acc => {
-                    const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
-                    return accText.includes(term);
-                });
-                if (accessoryMatch) return true;
-            }
-
-            return false;
-        });
-    }
-
-    /**
-     * Render a batch of cars (using DocumentFragment for performance)
-     */
-    function renderBatch(modelsToShow) {
-        const grid = document.getElementById('modelsGrid');
-        if (!grid) return;
-
-        const fragment = document.createDocumentFragment();
-
-        modelsToShow.forEach(model => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.dataset.id = model.id;
-
-            card.innerHTML = `
-            <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
-            <div class="card-content">
-                <h3>${model.brand} ${model.model}</h3>
-                <p><strong>${model.years}</strong></p>
-                <p>${model.description}</p>
-            </div>
-        `;
-
-            fragment.appendChild(card);
-        });
-
-        grid.appendChild(fragment);
-    }
-
-    /**
-     * Main render function with Load More logic
-     */
-    function renderModels(searchTerm = '') {
-        const grid = document.getElementById('modelsGrid');
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        const resultsInfo = document.getElementById('resultsInfo');
-
-        grid.innerHTML = '';
-        displayedCount = 0;
-
-        filteredData = searchTerm ? deepSearch(searchTerm) : [...modelsData];
-
-        // Update results count
-        resultsInfo.textContent = searchTerm
-            ? `${filteredData.length} resultats per "${searchTerm}"`
-            : `${modelsData.length} models disponibles`;
-
-        if (filteredData.length === 0) {
-            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.2rem; color:#777;">
-            Cap model trobat.
-        </p>`;
-            loadMoreBtn.style.display = 'none';
-            return;
-        }
-
-        // Initial batch
-        const initialBatch = filteredData.slice(0, BATCH_SIZE);
-        renderBatch(initialBatch);
-        displayedCount = initialBatch.length;
-
-        // Show/hide Load More
-        loadMoreBtn.style.display = (filteredData.length > displayedCount) ? 'inline-block' : 'none';
-    }
-
-    /**
-     * Load next batch
-     */
-    function loadMore() {
-        const grid = document.getElementById('modelsGrid');
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-
-        const nextBatch = filteredData.slice(displayedCount, displayedCount + BATCH_SIZE);
-        if (nextBatch.length === 0) return;
-
-        renderBatch(nextBatch);
-        displayedCount += nextBatch.length;
-
-        if (displayedCount >= filteredData.length) {
-            loadMoreBtn.style.display = 'none';
-        }
-    }
-
-    /**
-     * Show modal (kept mostly the same, but using event delegation)
-     */
-    function showModel(id) {
-        const model = modelsData.find(m => m.id === id);
-        if (!model) {
-            console.warn(`Model with id ${id} not found`);
-            return;
-        }
+    if (!model) {
+        console.warn(`Model with id ${id} not found`);
+        return;
     }
 
     // Title
@@ -456,15 +295,22 @@ function showModel(id) {
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 
-    // Close when clicking outside the content
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+
+    // Close when clicking outside
     modal.onclick = (e) => {
         if (e.target === modal) closeModal();
     };
 }
 
-// Close modal
+/**
+ * Close modal and restore scrolling
+ */
 window.closeModal = function () {
-    document.getElementById('modal').style.display = 'none';
+    const modal = document.getElementById('modal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = 'visible';
 };
 
 /**
@@ -476,7 +322,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('searchInput');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-    // Search with debounce for smoothness
+    // Search with debounce
     let timeout;
     searchInput.addEventListener('input', () => {
         clearTimeout(timeout);
@@ -491,7 +337,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initial render
     renderModels();
 
-    // Event delegation for cards (better than inline onclick)
+    // Event delegation for cards
     document.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card && card.dataset.id) {
