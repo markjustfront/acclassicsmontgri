@@ -1,6 +1,9 @@
-// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
+// ==================== CATALOG SCRIPT - IMPROVED VERSION ====================
 
 let modelsData = [];
+let filteredData = [];
+let displayedCount = 0;
+const BATCH_SIZE = 9;
 
 // List of all your car files
 const carFiles = [
@@ -45,7 +48,6 @@ const carFiles = [
     "assets/data/cars/S2000.js",    // ID 29
     "assets/data/cars/S2500.js",    // ID 30
     "assets/data/cars/SCazorla.js", // ID 31
-
 ];
 
 // Load all car files
@@ -74,20 +76,70 @@ async function loadAllCars() {
     }
 }
 
-// ==================== RENDER & SEARCH ====================
-function renderModels(filteredModels) {
+/**
+ * Deep search including variants AND accessories
+ */
+function deepSearch(term) {
+    if (!term) return modelsData;
+
+    term = term.toLowerCase().trim().replace(/l$|cv$|hp$/i, '');
+
+    return modelsData.filter(model => {
+        // Basic fields
+        if (
+            model.brand.toLowerCase().includes(term) ||
+            model.model.toLowerCase().includes(term) ||
+            model.years.toLowerCase().includes(term) ||
+            model.description.toLowerCase().includes(term)
+        ) {
+            return true;
+        }
+
+        // Search in variants
+        if (model.variants?.length) {
+            if (model.variants.some(variant =>
+                Object.values(variant).some(value =>
+                    value?.toString().toLowerCase().includes(term)
+                )
+            )) return true;
+        }
+
+        // Search in accessories
+        if (model.accessories?.length) {
+            if (model.accessories.some(acc => {
+                const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
+                return accText.includes(term);
+            })) return true;
+        }
+
+        return false;
+    });
+}
+
+/**
+ * Render models (supports load more)
+ */
+function renderModels(filteredModels, append = false) {
     const grid = document.getElementById('modelsGrid');
     if (!grid) return;
 
-    grid.innerHTML = '';
-    if (filteredModels.length === 0) {
+    if (!append) {
+        grid.innerHTML = '';
+        displayedCount = 0;
+    }
+
+    if (filteredModels.length === 0 && !append) {
         grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
             Cap model trobat.
         </p>`;
         return;
     }
 
-    filteredModels.forEach(model => {
+    const start = append ? displayedCount : 0;
+    const end = Math.min(start + BATCH_SIZE, filteredModels.length);
+
+    for (let i = start; i < end; i++) {
+        const model = filteredModels[i];
         const cardHTML = `
             <div class="card" onclick="showModel(${model.id})">
                 <img src="${model.image}" alt="${model.brand} ${model.model}">
@@ -99,48 +151,32 @@ function renderModels(filteredModels) {
             </div>
         `;
         grid.innerHTML += cardHTML;
-    });
+    }
+
+    displayedCount = end;
 }
 
+/**
+ * Filter models with deep search
+ */
 function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
     let term = searchInput.value.toLowerCase().trim();
+
     if (!term) {
-        renderModels(modelsData);
+        filteredData = modelsData;
+        displayedCount = 0;
+        renderModels(filteredData);
         return;
     }
 
-    // Optional: remove common units to improve matching
-    term = term.replace(/l$|cv$|hp$/i, '').trim();
-
-    const filtered = modelsData.filter(model => {
-        // Basic fields
-        if (
-            model.brand.toLowerCase().includes(term) ||
-            model.model.toLowerCase().includes(term) ||
-            model.years.toLowerCase().includes(term) ||
-            model.description.toLowerCase().includes(term)
-        ) {
-            return true;
-        }
-
-        // Deep search in variants
-        if (model.variants && model.variants.length > 0) {
-            return model.variants.some(variant => {
-                return Object.values(variant).some(value => {
-                    if (!value) return false;
-                    return value.toString().toLowerCase().includes(term);
-                });
-            });
-        }
-
-        return false;
-    });
-
-    renderModels(filtered);
+    filteredData = deepSearch(term);
+    displayedCount = 0;
+    renderModels(filteredData);
 }
+
 // ==================== GET DESTACATS (for cotxes.html) ====================
 window.getCotxesDestacats = function () {
     return modelsData.filter(m => m.destacat === true);
@@ -232,6 +268,9 @@ window.showModel = function (id) {
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 
+    // Prevent scrolling behind modal
+    document.body.style.overflow = 'hidden';
+
     modal.onclick = (e) => {
         if (e.target === modal) closeModal();
     };
@@ -239,6 +278,7 @@ window.showModel = function (id) {
 
 window.closeModal = function () {
     document.getElementById('modal').style.display = 'none';
+    document.body.style.overflow = 'visible';
 };
 
 // ==================== INITIALIZE ====================
@@ -248,10 +288,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Catalog page (cataleg.html)
     if (document.getElementById('modelsGrid')) {
         const searchInput = document.getElementById('searchInput');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
         if (searchInput) {
-            searchInput.addEventListener('keyup', filterModels);
+            searchInput.addEventListener('input', filterModels);   // Changed to 'input' + debounce removed for simplicity
         }
-        renderModels(modelsData);   // Show all cars initially
+
+        // Initial render - only first 9 cars
+        filteredData = modelsData;
+        displayedCount = 0;
+        renderModels(filteredData);
+
+        // Load More button
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                renderModels(filteredData, true);
+            });
+        }
     }
 
     // Cotxes page (cotxes.html)
