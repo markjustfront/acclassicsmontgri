@@ -11,13 +11,11 @@
 
 <body>
 
-    <!-- Shared Navigation (loaded automatically) -->
+    <!-- Shared Navigation -->
     <script>
         fetch('assets/components/nav.html')
             .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('afterbegin', data);
-            })
+            .then(data => document.body.insertAdjacentHTML('afterbegin', data))
             .catch(err => console.error('Error loading nav:', err));
     </script>
 
@@ -29,14 +27,25 @@
 
         <!-- Search Bar -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Cerca per model, marca o any (ex: R5, Renault, 1985...)">
+            <input type="text" id="searchInput"
+                placeholder="Cerca per model, marca, any, motor, accessori... (ex: R5, Gordini, xassís)">
         </div>
+
+        <!-- Results info -->
+        <div id="resultsInfo" style="text-align:center; margin-bottom: 20px; font-size: 1.05rem; color: #555;"></div>
 
         <!-- Grid of cars -->
         <div class="grid" id="modelsGrid"></div>
+
+        <!-- Load More Button -->
+        <div style="text-align: center; margin: 40px 0 20px;">
+            <button id="loadMoreBtn" class="btn" style="display: none;">
+                Carrega més models
+            </button>
+        </div>
     </section>
 
-    <!-- MODAL -->
+    <!-- MODAL (unchanged) -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -47,20 +56,14 @@
         </div>
     </div>
 
-    <!-- Main Catalog Script -->
+    <!-- Scripts -->
     <script src="assets/js/script.js"></script>
-
-    <!-- Footer -->
     <script>
         fetch('assets/components/footer.html')
             .then(response => response.text())
-            .then(data => {
-                document.body.insertAdjacentHTML('beforeend', data);
-            })
+            .then(data => document.body.insertAdjacentHTML('beforeend', data))
             .catch(err => console.error('Error loading footer:', err));
     </script>
-
-    <!-- Shared Mobile Menu Script -->
     <script src="assets/js/menu.js"></script>
 </body>
 

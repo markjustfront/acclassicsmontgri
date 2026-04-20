@@ -1,6 +1,9 @@
 // ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
 
 let modelsData = [];
+let filteredData = [];
+let displayedCount = 0;
+const BATCH_SIZE = 9;
 
 // List of all your car files
 const carFiles = [
@@ -48,62 +51,79 @@ const carFiles = [
 
 ];
 /**
- * Dynamically load all car data files
+ * Load all car data files
  */
 async function loadAllCars() {
     modelsData = [];
 
     for (const file of carFiles) {
         try {
-            const response = await fetch(file);
-            if (!response.ok) {
-                console.warn(`⚠️ Failed to fetch: ${file} (status ${response.status})`);
-                continue;
-            }
+            const res = await fetch(file);
+            if (!res.ok) continue;
 
-            const scriptText = await response.text();
+            const text = await res.text();
             const script = document.createElement('script');
-            script.textContent = scriptText;
+            script.textContent = text;
             document.head.appendChild(script);
-
-            // Small delay to allow the script to execute
-            await new Promise(resolve => setTimeout(resolve, 30));
-
+            await new Promise(r => setTimeout(r, 30));
             script.remove();
-        } catch (error) {
-            console.warn(`❌ Error loading ${file}:`, error);
+        } catch (e) {
+            console.warn(`Failed to load ${file}`);
         }
     }
 
-    // Merge data from the global window.carData populated by the loaded scripts
     if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
-        console.log(`✅ Successfully loaded ${modelsData.length} car models.`);
-    } else {
-        console.warn("⚠️ No carData found on window object after loading files.");
+        console.log(`✅ Loaded ${modelsData.length} cars total.`);
     }
 }
 
 /**
- * Render car cards using DocumentFragment for better performance
+ * Deep search that includes variants and accessories
  */
-function renderModels(filteredModels) {
+function deepSearch(term) {
+    if (!term) return modelsData;
+
+    term = term.toLowerCase().trim();
+
+    return modelsData.filter(model => {
+        // Basic fields
+        const basicText = `${model.brand} ${model.model} ${model.years} ${model.description}`.toLowerCase();
+        if (basicText.includes(term)) return true;
+
+        // Variants
+        if (model.variants && model.variants.length) {
+            const variantMatch = model.variants.some(v =>
+                Object.values(v).some(val =>
+                    val && val.toString().toLowerCase().includes(term)
+                )
+            );
+            if (variantMatch) return true;
+        }
+
+        // Accessories (name, description, extra)
+        if (model.accessories && model.accessories.length) {
+            const accessoryMatch = model.accessories.some(acc => {
+                const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
+                return accText.includes(term);
+            });
+            if (accessoryMatch) return true;
+        }
+
+        return false;
+    });
+}
+
+/**
+ * Render a batch of cars (using DocumentFragment for performance)
+ */
+function renderBatch(modelsToShow) {
     const grid = document.getElementById('modelsGrid');
     if (!grid) return;
 
-    grid.innerHTML = '';
-
-    if (filteredModels.length === 0) {
-        grid.innerHTML = `
-            <p style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; font-size: 1.2rem; color: #777;">
-                Cap model trobat.
-            </p>`;
-        return;
-    }
-
     const fragment = document.createDocumentFragment();
 
-    filteredModels.forEach(model => {
+    modelsToShow.forEach(model => {
         const card = document.createElement('div');
         card.className = 'card';
         card.dataset.id = model.id;
@@ -124,62 +144,218 @@ function renderModels(filteredModels) {
 }
 
 /**
- * Filter models based on search term
+ * Main render function with Load More logic
  */
-function filterModels() {
-    const searchInput = document.getElementById('searchInput');
-    if (!searchInput) return;
+function renderModels(searchTerm = '') {
+    const grid = document.getElementById('modelsGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const resultsInfo = document.getElementById('resultsInfo');
 
-    let term = searchInput.value.toLowerCase().trim();
+    grid.innerHTML = '';
+    displayedCount = 0;
 
-    if (!term) {
-        renderModels(modelsData);
+    filteredData = searchTerm ? deepSearch(searchTerm) : [...modelsData];
+
+    // Update results count
+    resultsInfo.textContent = searchTerm
+        ? `${filteredData.length} resultats per "${searchTerm}"`
+        : `${modelsData.length} models disponibles`;
+
+    if (filteredData.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
+        loadMoreBtn.style.display = 'none';
         return;
     }
 
-    // Clean common units for better matching
-    term = term.replace(/l$|cv$|hp$/i, '').trim();
+    // Initial batch
+    const initialBatch = filteredData.slice(0, BATCH_SIZE);
+    renderBatch(initialBatch);
+    displayedCount = initialBatch.length;
 
-    const filtered = modelsData.filter(model => {
-        const searchableFields = [
-            model.brand,
-            model.model,
-            model.years,
-            model.description
-        ].join(' ').toLowerCase();
-
-        if (searchableFields.includes(term)) return true;
-
-        // Deep search in variants
-        if (model.variants?.length) {
-            return model.variants.some(variant =>
-                Object.values(variant).some(value =>
-                    value?.toString().toLowerCase().includes(term)
-                )
-            );
-        }
-
-        return false;
-    });
-
-    renderModels(filtered);
+    // Show/hide Load More
+    loadMoreBtn.style.display = (filteredData.length > displayedCount) ? 'inline-block' : 'none';
 }
 
 /**
- * Get highlighted cars (used on cotxes.html)
+ * Load next batch
  */
-function getCotxesDestacats() {
-    return modelsData.filter(m => m.destacat === true);
+function loadMore() {
+    const grid = document.getElementById('modelsGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    const nextBatch = filteredData.slice(displayedCount, displayedCount + BATCH_SIZE);
+    if (nextBatch.length === 0) return;
+
+    renderBatch(nextBatch);
+    displayedCount += nextBatch.length;
+
+    if (displayedCount >= filteredData.length) {
+        loadMoreBtn.style.display = 'none';
+    }
 }
 
 /**
- * Show detailed modal for a specific car
+ * Show modal (kept mostly the same, but using event delegation)
  */
 function showModel(id) {
     const model = modelsData.find(m => m.id === id);
-    if (!model) {
-        console.warn(`Model with id ${id} not found`);
-        return;
+    if (!model) return;/**
+ * Load all car data files
+ */
+    async function loadAllCars() {
+        modelsData = [];
+
+        for (const file of carFiles) {
+            try {
+                const res = await fetch(file);
+                if (!res.ok) continue;
+
+                const text = await res.text();
+                const script = document.createElement('script');
+                script.textContent = text;
+                document.head.appendChild(script);
+                await new Promise(r => setTimeout(r, 30));
+                script.remove();
+            } catch (e) {
+                console.warn(`Failed to load ${file}`);
+            }
+        }
+
+        if (window.carData && Array.isArray(window.carData)) {
+            modelsData = [...window.carData];
+            console.log(`✅ Loaded ${modelsData.length} cars total.`);
+        }
+    }
+
+    /**
+     * Deep search that includes variants and accessories
+     */
+    function deepSearch(term) {
+        if (!term) return modelsData;
+
+        term = term.toLowerCase().trim();
+
+        return modelsData.filter(model => {
+            // Basic fields
+            const basicText = `${model.brand} ${model.model} ${model.years} ${model.description}`.toLowerCase();
+            if (basicText.includes(term)) return true;
+
+            // Variants
+            if (model.variants && model.variants.length) {
+                const variantMatch = model.variants.some(v =>
+                    Object.values(v).some(val =>
+                        val && val.toString().toLowerCase().includes(term)
+                    )
+                );
+                if (variantMatch) return true;
+            }
+
+            // Accessories (name, description, extra)
+            if (model.accessories && model.accessories.length) {
+                const accessoryMatch = model.accessories.some(acc => {
+                    const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
+                    return accText.includes(term);
+                });
+                if (accessoryMatch) return true;
+            }
+
+            return false;
+        });
+    }
+
+    /**
+     * Render a batch of cars (using DocumentFragment for performance)
+     */
+    function renderBatch(modelsToShow) {
+        const grid = document.getElementById('modelsGrid');
+        if (!grid) return;
+
+        const fragment = document.createDocumentFragment();
+
+        modelsToShow.forEach(model => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.id = model.id;
+
+            card.innerHTML = `
+            <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
+            <div class="card-content">
+                <h3>${model.brand} ${model.model}</h3>
+                <p><strong>${model.years}</strong></p>
+                <p>${model.description}</p>
+            </div>
+        `;
+
+            fragment.appendChild(card);
+        });
+
+        grid.appendChild(fragment);
+    }
+
+    /**
+     * Main render function with Load More logic
+     */
+    function renderModels(searchTerm = '') {
+        const grid = document.getElementById('modelsGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const resultsInfo = document.getElementById('resultsInfo');
+
+        grid.innerHTML = '';
+        displayedCount = 0;
+
+        filteredData = searchTerm ? deepSearch(searchTerm) : [...modelsData];
+
+        // Update results count
+        resultsInfo.textContent = searchTerm
+            ? `${filteredData.length} resultats per "${searchTerm}"`
+            : `${modelsData.length} models disponibles`;
+
+        if (filteredData.length === 0) {
+            grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
+            loadMoreBtn.style.display = 'none';
+            return;
+        }
+
+        // Initial batch
+        const initialBatch = filteredData.slice(0, BATCH_SIZE);
+        renderBatch(initialBatch);
+        displayedCount = initialBatch.length;
+
+        // Show/hide Load More
+        loadMoreBtn.style.display = (filteredData.length > displayedCount) ? 'inline-block' : 'none';
+    }
+
+    /**
+     * Load next batch
+     */
+    function loadMore() {
+        const grid = document.getElementById('modelsGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        const nextBatch = filteredData.slice(displayedCount, displayedCount + BATCH_SIZE);
+        if (nextBatch.length === 0) return;
+
+        renderBatch(nextBatch);
+        displayedCount += nextBatch.length;
+
+        if (displayedCount >= filteredData.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+    /**
+     * Show modal (kept mostly the same, but using event delegation)
+     */
+    function showModel(id) {
+        const model = modelsData.find(m => m.id === id);
+        if (!model) {
+            console.warn(`Model with id ${id} not found`);
+            return;
+        }
     }
 
     // Title
@@ -286,63 +462,36 @@ function showModel(id) {
     };
 }
 
-function closeModal() {
-    const modal = document.getElementById('modal');
-    if (modal) modal.style.display = 'none';
-}
+// Close modal
+window.closeModal = function () {
+    document.getElementById('modal').style.display = 'none';
+};
 
 /**
- * Initialize everything
+ * Initialize
  */
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCars();
 
-    // === Catalog page (cataleg.html) ===
-    const modelsGrid = document.getElementById('modelsGrid');
-    if (modelsGrid) {
-        const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-        if (searchInput) {
-            searchInput.addEventListener('input', filterModels); // 'input' is better than 'keyup'
-        }
+    // Search with debounce for smoothness
+    let timeout;
+    searchInput.addEventListener('input', () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            renderModels(searchInput.value.trim());
+        }, 250);
+    });
 
-        renderModels(modelsData);
-    }
+    // Load More button
+    loadMoreBtn.addEventListener('click', loadMore);
 
-    // === Highlighted cars page (cotxes.html) ===
-    const cotxesGrid = document.getElementById('cotxes-grid');
-    if (cotxesGrid) {
-        const destacats = getCotxesDestacats();
+    // Initial render
+    renderModels();
 
-        if (destacats.length === 0) {
-            cotxesGrid.innerHTML = `
-                <p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
-                    Encara no hi ha cotxes destacats.
-                </p>`;
-            return;
-        }
-
-        const fragment = document.createDocumentFragment();
-
-        destacats.forEach(model => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.dataset.id = model.id;
-            card.innerHTML = `
-                <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
-                <div class="card-content">
-                    <h3>${model.brand} ${model.model}</h3>
-                    <p><strong>${model.years}</strong></p>
-                    <p>${model.description}</p>
-                </div>
-            `;
-            fragment.appendChild(card);
-        });
-
-        cotxesGrid.appendChild(fragment);
-    }
-
-    // Event delegation for all cards (much better than inline onclick)
+    // Event delegation for cards (better than inline onclick)
     document.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card && card.dataset.id) {
