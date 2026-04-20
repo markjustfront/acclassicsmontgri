@@ -239,7 +239,7 @@ window.showModel = function (id) {
         <h3>Variants de Motor</h3>
         ${variantsHTML}
         
-        <h3>Accessoris originals</h3>
+        <h3>Punts Destacats i Accessoris</h3>
         ${accessoriesHTML}
         
         <h3>Vídeos Relacionats</h3>
