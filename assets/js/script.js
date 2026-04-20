@@ -47,93 +47,116 @@ const carFiles = [
     "assets/data/cars/SCazorla.js", // ID 31
 
 ];
-
-// Load all car files
+/**
+ * Dynamically load all car data files
+ */
 async function loadAllCars() {
     modelsData = [];
 
     for (const file of carFiles) {
         try {
-            const res = await fetch(file);
-            if (!res.ok) continue;
+            const response = await fetch(file);
+            if (!response.ok) {
+                console.warn(`⚠️ Failed to fetch: ${file} (status ${response.status})`);
+                continue;
+            }
 
-            const text = await res.text();
+            const scriptText = await response.text();
             const script = document.createElement('script');
-            script.textContent = text;
+            script.textContent = scriptText;
             document.head.appendChild(script);
-            await new Promise(r => setTimeout(r, 40));
+
+            // Small delay to allow the script to execute
+            await new Promise(resolve => setTimeout(resolve, 30));
+
             script.remove();
-        } catch (e) {
-            console.warn(`Failed to load ${file}`);
+        } catch (error) {
+            console.warn(`❌ Error loading ${file}:`, error);
         }
     }
 
+    // Merge data from the global window.carData populated by the loaded scripts
     if (window.carData && Array.isArray(window.carData)) {
         modelsData = [...window.carData];
-        console.log(`✅ Loaded ${modelsData.length} cars total.`);
+        console.log(`✅ Successfully loaded ${modelsData.length} car models.`);
+    } else {
+        console.warn("⚠️ No carData found on window object after loading files.");
     }
 }
 
-// ==================== RENDER & SEARCH ====================
+/**
+ * Render car cards using DocumentFragment for better performance
+ */
 function renderModels(filteredModels) {
     const grid = document.getElementById('modelsGrid');
     if (!grid) return;
 
     grid.innerHTML = '';
+
     if (filteredModels.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
-            Cap model trobat.
-        </p>`;
+        grid.innerHTML = `
+            <p style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; font-size: 1.2rem; color: #777;">
+                Cap model trobat.
+            </p>`;
         return;
     }
 
+    const fragment = document.createDocumentFragment();
+
     filteredModels.forEach(model => {
-        const cardHTML = `
-            <div class="card" onclick="showModel(${model.id})">
-                <img src="${model.image}" alt="${model.brand} ${model.model}">
-                <div class="card-content">
-                    <h3>${model.brand} ${model.model}</h3>
-                    <p><strong>${model.years}</strong></p>
-                    <p>${model.description}</p>
-                </div>
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.id = model.id;
+
+        card.innerHTML = `
+            <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
+            <div class="card-content">
+                <h3>${model.brand} ${model.model}</h3>
+                <p><strong>${model.years}</strong></p>
+                <p>${model.description}</p>
             </div>
         `;
-        grid.innerHTML += cardHTML;
+
+        fragment.appendChild(card);
     });
+
+    grid.appendChild(fragment);
 }
 
+/**
+ * Filter models based on search term
+ */
 function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
     let term = searchInput.value.toLowerCase().trim();
+
     if (!term) {
         renderModels(modelsData);
         return;
     }
 
-    // Optional: remove common units to improve matching
+    // Clean common units for better matching
     term = term.replace(/l$|cv$|hp$/i, '').trim();
 
     const filtered = modelsData.filter(model => {
-        // Basic fields
-        if (
-            model.brand.toLowerCase().includes(term) ||
-            model.model.toLowerCase().includes(term) ||
-            model.years.toLowerCase().includes(term) ||
-            model.description.toLowerCase().includes(term)
-        ) {
-            return true;
-        }
+        const searchableFields = [
+            model.brand,
+            model.model,
+            model.years,
+            model.description
+        ].join(' ').toLowerCase();
+
+        if (searchableFields.includes(term)) return true;
 
         // Deep search in variants
-        if (model.variants && model.variants.length > 0) {
-            return model.variants.some(variant => {
-                return Object.values(variant).some(value => {
-                    if (!value) return false;
-                    return value.toString().toLowerCase().includes(term);
-                });
-            });
+        if (model.variants?.length) {
+            return model.variants.some(variant =>
+                Object.values(variant).some(value =>
+                    value?.toString().toLowerCase().includes(term)
+                )
+            );
         }
 
         return false;
@@ -141,88 +164,113 @@ function filterModels() {
 
     renderModels(filtered);
 }
-// ==================== GET DESTACATS (for cotxes.html) ====================
-window.getCotxesDestacats = function () {
+
+/**
+ * Get highlighted cars (used on cotxes.html)
+ */
+function getCotxesDestacats() {
     return modelsData.filter(m => m.destacat === true);
-};
+}
 
-// ==================== MODAL FUNCTIONALITY ====================
-
-window.showModel = function (id) {
+/**
+ * Show detailed modal for a specific car
+ */
+function showModel(id) {
     const model = modelsData.find(m => m.id === id);
-    if (!model) return;
+    if (!model) {
+        console.warn(`Model with id ${id} not found`);
+        return;
+    }
 
-    document.getElementById('modalTitle').innerHTML =
-        `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
+    // Title
+    document.getElementById('modalTitle').innerHTML = `
+        ${model.brand} ${model.model}
+        <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>
+    `;
 
+    // Variants table
     let variantsHTML = '';
-    if (model.variants && model.variants.length > 0) {
+    if (model.variants?.length) {
         variantsHTML = `
-            <table style="width:100%; border-collapse:collapse; margin:15px 0 25px 0;">
+            <table class="variants-table">
                 <thead>
-                    <tr style="background:#f0e8d8;">
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Motor</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Potència</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Combustible</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Tracció</th>
-                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Notes</th>
+                    <tr>
+                        <th>Motor</th>
+                        <th>Potència</th>
+                        <th>Combustible</th>
+                        <th>Tracció</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     ${model.variants.map(v => `
                         <tr onclick="this.classList.toggle('expanded')" style="cursor:pointer;">
-                            <td data-label="Motor">${v.engine}</td>
-                            <td data-label="Potència">${v.power}</td>
-                            <td data-label="Combustible">${v.fuel}</td>
-                            <td data-label="Tracció">${v.traction}</td>
-                            <td data-label="Notes">${v.notes}</td>
+                            <td data-label="Motor">${v.engine || ''}</td>
+                            <td data-label="Potència">${v.power || ''}</td>
+                            <td data-label="Combustible">${v.fuel || ''}</td>
+                            <td data-label="Tracció">${v.traction || ''}</td>
+                            <td data-label="Notes">${v.notes || ''}</td>
                         </tr>
                     `).join('')}
                 </tbody>
             </table>
-            <p style="font-size:0.85rem; color:#777; text-align:center; margin-top:8px;">
-                <em>Toca una fila per veure més detalls (només en mòbil)</em>
+            <p class="table-hint">
+                <em>Toca una fila per veure més detalls (mòbil)</em>
             </p>
         `;
     }
 
-    let accessoriesHTML = model.accessories?.map(acc => `
-        <details>
-            <summary>${acc.name}</summary>
-            <div class="details-content">
-                <p>${acc.description}</p>
-                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
-                ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
-            </div>
-        </details>
-    `).join('') || '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
+    // Accessories
+    const accessoriesHTML = model.accessories?.length
+        ? model.accessories.map(acc => `
+            <details>
+                <summary>${acc.name}</summary>
+                <div class="details-content">
+                    <p>${acc.description}</p>
+                    ${acc.images?.length ? `
+                        <div class="accessory-images">
+                            ${acc.images.map(img => `<img src="${img}" alt="${acc.name}" loading="lazy">`).join('')}
+                        </div>
+                    ` : ''}
+                    ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
+                </div>
+            </details>
+        `).join('')
+        : '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
 
-    let videosHTML = model.videos?.map(video => `
-        <div>
-            <h4>${video.title}</h4>
-            <p style="margin-bottom:12px;">${video.description}</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
-                        title="${video.title}" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
+    // Videos
+    const videosHTML = model.videos?.length
+        ? model.videos.map(video => `
+            <div class="video-section">
+                <h4>${video.title}</h4>
+                <p>${video.description}</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/${video.youtubeId}"
+                            title="${video.title}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
-    `).join('') || '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
+        `).join('')
+        : '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
 
+    // Main modal content
     const bodyHTML = `
-        <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
-        <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
-        
+        <img src="${model.image}" alt="${model.brand} ${model.model}" class="modal-main-image" loading="lazy">
+        <p class="model-description">${model.description}</p>
+
         <h3>Característiques Generals</h3>
-        <p style="background:#f8f6f0; padding:15px; border-radius:8px; margin-bottom:25px;">${model.generalCharacteristics}</p>
-        
+        <div class="general-characteristics">
+            ${model.generalCharacteristics}
+        </div>
+
         <h3>Variants de Motor</h3>
         ${variantsHTML}
-        
+
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
-        
+
         <h3>Vídeos Relacionats</h3>
         ${videosHTML}
     `;
@@ -232,53 +280,73 @@ window.showModel = function (id) {
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 
+    // Close when clicking outside the content
     modal.onclick = (e) => {
         if (e.target === modal) closeModal();
     };
-};
+}
 
-window.closeModal = function () {
-    document.getElementById('modal').style.display = 'none';
-};
+function closeModal() {
+    const modal = document.getElementById('modal');
+    if (modal) modal.style.display = 'none';
+}
 
-// ==================== INITIALIZE ====================
+/**
+ * Initialize everything
+ */
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCars();
 
-    // Catalog page (cataleg.html)
-    if (document.getElementById('modelsGrid')) {
+    // === Catalog page (cataleg.html) ===
+    const modelsGrid = document.getElementById('modelsGrid');
+    if (modelsGrid) {
         const searchInput = document.getElementById('searchInput');
+
         if (searchInput) {
-            searchInput.addEventListener('keyup', filterModels);
+            searchInput.addEventListener('input', filterModels); // 'input' is better than 'keyup'
         }
-        renderModels(modelsData);   // Show all cars initially
+
+        renderModels(modelsData);
     }
 
-    // Cotxes page (cotxes.html)
-    if (document.getElementById('cotxes-grid')) {
-        const destacats = window.getCotxesDestacats ? window.getCotxesDestacats() : [];
-        const container = document.getElementById('cotxes-grid');
-        container.innerHTML = '';
+    // === Highlighted cars page (cotxes.html) ===
+    const cotxesGrid = document.getElementById('cotxes-grid');
+    if (cotxesGrid) {
+        const destacats = getCotxesDestacats();
 
         if (destacats.length === 0) {
-            container.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
-                Encara no hi ha cotxes destacats.
-            </p>`;
+            cotxesGrid.innerHTML = `
+                <p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
+                    Encara no hi ha cotxes destacats.
+                </p>`;
             return;
         }
 
+        const fragment = document.createDocumentFragment();
+
         destacats.forEach(model => {
-            const cardHTML = `
-                <div class="card" onclick="showModel(${model.id})">
-                    <img src="${model.image}" alt="${model.brand} ${model.model}">
-                    <div class="card-content">
-                        <h3>${model.brand} ${model.model}</h3>
-                        <p><strong>${model.years}</strong></p>
-                        <p>${model.description}</p>
-                    </div>
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.id = model.id;
+            card.innerHTML = `
+                <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
+                <div class="card-content">
+                    <h3>${model.brand} ${model.model}</h3>
+                    <p><strong>${model.years}</strong></p>
+                    <p>${model.description}</p>
                 </div>
             `;
-            container.innerHTML += cardHTML;
+            fragment.appendChild(card);
         });
+
+        cotxesGrid.appendChild(fragment);
     }
+
+    // Event delegation for all cards (much better than inline onclick)
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (card && card.dataset.id) {
+            showModel(Number(card.dataset.id));
+        }
+    });
 });
