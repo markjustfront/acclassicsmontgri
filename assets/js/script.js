@@ -1,9 +1,6 @@
-// ==================== CATALOG SCRIPT - LOAD MORE + DEEP SEARCH + DESTACATS ====================
+// ==================== CATALOG SCRIPT - MODULAR CAR LOADING (Fixed) ====================
 
 let modelsData = [];
-let filteredData = [];
-let displayedCount = 0;
-const BATCH_SIZE = 9;
 
 // List of all your car files
 const carFiles = [
@@ -48,11 +45,10 @@ const carFiles = [
     "assets/data/cars/S2000.js",    // ID 29
     "assets/data/cars/S2500.js",    // ID 30
     "assets/data/cars/SCazorla.js", // ID 31
+
 ];
 
-/**
- * Load all car data files
- */
+// Load all car files
 async function loadAllCars() {
     modelsData = [];
 
@@ -65,7 +61,7 @@ async function loadAllCars() {
             const script = document.createElement('script');
             script.textContent = text;
             document.head.appendChild(script);
-            await new Promise(r => setTimeout(r, 30));
+            await new Promise(r => setTimeout(r, 40));
             script.remove();
         } catch (e) {
             console.warn(`Failed to load ${file}`);
@@ -78,212 +74,155 @@ async function loadAllCars() {
     }
 }
 
-/**
- * Deep search (used only on cataleg.html)
- */
-function deepSearch(term) {
-    if (!term) return modelsData;
+// ==================== RENDER & SEARCH ====================
+function renderModels(filteredModels) {
+    const grid = document.getElementById('modelsGrid');
+    if (!grid) return;
 
-    term = term.toLowerCase().trim();
+    grid.innerHTML = '';
+    if (filteredModels.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
+            Cap model trobat.
+        </p>`;
+        return;
+    }
 
-    return modelsData.filter(model => {
-        const basicText = `${model.brand} ${model.model} ${model.years} ${model.description}`.toLowerCase();
-        if (basicText.includes(term)) return true;
+    filteredModels.forEach(model => {
+        const cardHTML = `
+            <div class="card" onclick="showModel(${model.id})">
+                <img src="${model.image}" alt="${model.brand} ${model.model}">
+                <div class="card-content">
+                    <h3>${model.brand} ${model.model}</h3>
+                    <p><strong>${model.years}</strong></p>
+                    <p>${model.description}</p>
+                </div>
+            </div>
+        `;
+        grid.innerHTML += cardHTML;
+    });
+}
 
-        if (model.variants?.length) {
-            if (model.variants.some(v => Object.values(v).some(val => val?.toString().toLowerCase().includes(term)))) return true;
+function filterModels() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    let term = searchInput.value.toLowerCase().trim();
+    if (!term) {
+        renderModels(modelsData);
+        return;
+    }
+
+    // Optional: remove common units to improve matching
+    term = term.replace(/l$|cv$|hp$/i, '').trim();
+
+    const filtered = modelsData.filter(model => {
+        // Basic fields
+        if (
+            model.brand.toLowerCase().includes(term) ||
+            model.model.toLowerCase().includes(term) ||
+            model.years.toLowerCase().includes(term) ||
+            model.description.toLowerCase().includes(term)
+        ) {
+            return true;
         }
 
-        if (model.accessories?.length) {
-            if (model.accessories.some(acc => {
-                const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
-                return accText.includes(term);
-            })) return true;
+        // Deep search in variants
+        if (model.variants && model.variants.length > 0) {
+            return model.variants.some(variant => {
+                return Object.values(variant).some(value => {
+                    if (!value) return false;
+                    return value.toString().toLowerCase().includes(term);
+                });
+            });
         }
 
         return false;
     });
+
+    renderModels(filtered);
 }
+// ==================== GET DESTACATS (for cotxes.html) ====================
+window.getCotxesDestacats = function () {
+    return modelsData.filter(m => m.destacat === true);
+};
 
-/**
- * Render cars (used by both pages)
- */
-function renderBatch(modelsToShow, containerId = 'modelsGrid') {
-    const grid = document.getElementById(containerId);
-    if (!grid) return;
+// ==================== MODAL FUNCTIONALITY ====================
 
-    grid.innerHTML = '';
-
-    if (modelsToShow.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.2rem; color:#777;">
-            No hi ha cotxes per mostrar.
-        </p>`;
-        return;
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    modelsToShow.forEach(model => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.dataset.id = model.id;
-
-        card.innerHTML = `
-            <img src="${model.image}" alt="${model.brand} ${model.model}" loading="lazy">
-            <div class="card-content">
-                <h3>${model.brand} ${model.model}</h3>
-                <p><strong>${model.years}</strong></p>
-                <p>${model.description}</p>
-            </div>
-        `;
-
-        fragment.appendChild(card);
-    });
-
-    grid.appendChild(fragment);
-}
-
-/**
- * Render with Load More (for cataleg.html)
- */
-function renderModels(searchTerm = '') {
-    const grid = document.getElementById('modelsGrid');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const resultsInfo = document.getElementById('resultsInfo');
-
-    if (!grid) return;
-
-    grid.innerHTML = '';
-    displayedCount = 0;
-
-    filteredData = searchTerm ? deepSearch(searchTerm) : [...modelsData];
-
-    if (resultsInfo) {
-        resultsInfo.textContent = searchTerm
-            ? `${filteredData.length} resultats per "${searchTerm}"`
-            : `${modelsData.length} models disponibles`;
-    }
-
-    if (filteredData.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:60px; font-size:1.2rem; color:#777;">
-            Cap model trobat.
-        </p>`;
-        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-        return;
-    }
-
-    const initialBatch = filteredData.slice(0, BATCH_SIZE);
-    renderBatch(initialBatch, 'modelsGrid');
-    displayedCount = initialBatch.length;
-
-    if (loadMoreBtn) {
-        loadMoreBtn.style.display = (filteredData.length > displayedCount) ? 'inline-block' : 'none';
-    }
-}
-
-/**
- * Load next batch (for cataleg.html)
- */
-function loadMore() {
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (!loadMoreBtn) return;
-
-    const nextBatch = filteredData.slice(displayedCount, displayedCount + BATCH_SIZE);
-    if (nextBatch.length === 0) return;
-
-    renderBatch(nextBatch, 'modelsGrid');
-    displayedCount += nextBatch.length;
-
-    if (displayedCount >= filteredData.length) {
-        loadMoreBtn.style.display = 'none';
-    }
-}
-
-/**
- * Show modal
- */
-function showModel(id) {
+window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
-    if (!model) {
-        console.warn(`Model with id ${id} not found`);
-        return;
-    }
+    if (!model) return;
 
-    document.getElementById('modalTitle').innerHTML = `
-        ${model.brand} ${model.model}
-        <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>
-    `;
+    document.getElementById('modalTitle').innerHTML =
+        `${model.brand} ${model.model} <small style="font-size:1rem; opacity:0.8;">(${model.years})</small>`;
 
     let variantsHTML = '';
-    if (model.variants?.length) {
+    if (model.variants && model.variants.length > 0) {
         variantsHTML = `
-            <table class="variants-table">
+            <table style="width:100%; border-collapse:collapse; margin:15px 0 25px 0;">
                 <thead>
-                    <tr>
-                        <th>Motor</th>
-                        <th>Potència</th>
-                        <th>Combustible</th>
-                        <th>Tracció</th>
-                        <th>Notes</th>
+                    <tr style="background:#f0e8d8;">
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Motor</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Potència</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Combustible</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Tracció</th>
+                        <th style="padding:12px; text-align:left; border:1px solid #ddd;">Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     ${model.variants.map(v => `
                         <tr onclick="this.classList.toggle('expanded')" style="cursor:pointer;">
-                            <td data-label="Motor">${v.engine || ''}</td>
-                            <td data-label="Potència">${v.power || ''}</td>
-                            <td data-label="Combustible">${v.fuel || ''}</td>
-                            <td data-label="Tracció">${v.traction || ''}</td>
-                            <td data-label="Notes">${v.notes || ''}</td>
+                            <td data-label="Motor">${v.engine}</td>
+                            <td data-label="Potència">${v.power}</td>
+                            <td data-label="Combustible">${v.fuel}</td>
+                            <td data-label="Tracció">${v.traction}</td>
+                            <td data-label="Notes">${v.notes}</td>
                         </tr>
                     `).join('')}
                 </tbody>
             </table>
-            <p class="table-hint"><em>Toca una fila per veure més detalls (mòbil)</em></p>
+            <p style="font-size:0.85rem; color:#777; text-align:center; margin-top:8px;">
+                <em>Toca una fila per veure més detalls (només en mòbil)</em>
+            </p>
         `;
     }
 
-    const accessoriesHTML = model.accessories?.length
-        ? model.accessories.map(acc => `
-            <details>
-                <summary>${acc.name}</summary>
-                <div class="details-content">
-                    <p>${acc.description}</p>
-                    ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img src="${img}" alt="${acc.name}" loading="lazy">`).join('')}</div>` : ''}
-                    ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
-                </div>
-            </details>
-        `).join('')
-        : '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
-
-    const videosHTML = model.videos?.length
-        ? model.videos.map(video => `
-            <div class="video-section">
-                <h4>${video.title}</h4>
-                <p>${video.description}</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
-                            title="${video.title}" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
+    let accessoriesHTML = model.accessories?.map(acc => `
+        <details>
+            <summary>${acc.name}</summary>
+            <div class="details-content">
+                <p>${acc.description}</p>
+                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
+                ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
             </div>
-        `).join('')
-        : '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
+        </details>
+    `).join('') || '<p style="opacity:0.6;">No hi ha accessoris definits encara.</p>';
+
+    let videosHTML = model.videos?.map(video => `
+        <div>
+            <h4>${video.title}</h4>
+            <p style="margin-bottom:12px;">${video.description}</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
+                        title="${video.title}" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    `).join('') || '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
 
     const bodyHTML = `
-        <img src="${model.image}" alt="${model.brand} ${model.model}" class="modal-main-image" loading="lazy">
-        <p class="model-description">${model.description}</p>
-
+        <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
+        <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
+        
         <h3>Característiques Generals</h3>
-        <div class="general-characteristics">${model.generalCharacteristics}</div>
-
+        <p style="background:#f8f6f0; padding:15px; border-radius:8px; margin-bottom:25px;">${model.generalCharacteristics}</p>
+        
         <h3>Variants de Motor</h3>
         ${variantsHTML}
-
+        
         <h3>Accessoris originals</h3>
         ${accessoriesHTML}
-
+        
         <h3>Vídeos Relacionats</h3>
         ${videosHTML}
     `;
@@ -292,58 +231,54 @@ function showModel(id) {
 
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
 
     modal.onclick = (e) => {
         if (e.target === modal) closeModal();
     };
-}
-
-window.closeModal = function () {
-    const modal = document.getElementById('modal');
-    if (modal) modal.style.display = 'none';
-    document.body.style.overflow = 'visible';
 };
 
-/**
- * Initialize - works for both cataleg.html and cotxes.html
- */
+window.closeModal = function () {
+    document.getElementById('modal').style.display = 'none';
+};
+
+// ==================== INITIALIZE ====================
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCars();
 
-    // === CATALEG PAGE (with search and load more) ===
+    // Catalog page (cataleg.html)
     if (document.getElementById('modelsGrid')) {
         const searchInput = document.getElementById('searchInput');
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-
         if (searchInput) {
-            let timeout;
-            searchInput.addEventListener('input', () => {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    renderModels(searchInput.value.trim());
-                }, 250);
-            });
+            searchInput.addEventListener('keyup', filterModels);
         }
-
-        if (loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', loadMore);
-        }
-
-        renderModels();   // Show first 9 cars
+        renderModels(modelsData);   // Show all cars initially
     }
 
-    // === COTXES PAGE (destacats / highlighted cars) ===
+    // Cotxes page (cotxes.html)
     if (document.getElementById('cotxes-grid')) {
-        const destacats = modelsData.filter(m => m.destacat === true);
-        renderBatch(destacats, 'cotxes-grid');
-    }
+        const destacats = window.getCotxesDestacats ? window.getCotxesDestacats() : [];
+        const container = document.getElementById('cotxes-grid');
+        container.innerHTML = '';
 
-    // Event delegation for all cards (works on both pages)
-    document.addEventListener('click', (e) => {
-        const card = e.target.closest('.card');
-        if (card && card.dataset.id) {
-            showModel(Number(card.dataset.id));
+        if (destacats.length === 0) {
+            container.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:60px; color:#777;">
+                Encara no hi ha cotxes destacats.
+            </p>`;
+            return;
         }
-    });
+
+        destacats.forEach(model => {
+            const cardHTML = `
+                <div class="card" onclick="showModel(${model.id})">
+                    <img src="${model.image}" alt="${model.brand} ${model.model}">
+                    <div class="card-content">
+                        <h3>${model.brand} ${model.model}</h3>
+                        <p><strong>${model.years}</strong></p>
+                        <p>${model.description}</p>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+    }
 });
