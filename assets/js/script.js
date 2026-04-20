@@ -1,4 +1,4 @@
-// ==================== CATALOG SCRIPT - IMPROVED VERSION ====================
+// ==================== CATALOG SCRIPT - WITH LOAD MORE & DEEP SEARCH ====================
 
 let modelsData = [];
 let filteredData = [];
@@ -76,39 +76,30 @@ async function loadAllCars() {
     }
 }
 
-/**
- * Deep search including variants AND accessories
- */
+/* Deep search including accessories */
 function deepSearch(term) {
     if (!term) return modelsData;
 
-    term = term.toLowerCase().trim().replace(/l$|cv$|hp$/i, '');
+    term = term.toLowerCase().trim();
 
     return modelsData.filter(model => {
-        // Basic fields
         if (
             model.brand.toLowerCase().includes(term) ||
             model.model.toLowerCase().includes(term) ||
             model.years.toLowerCase().includes(term) ||
             model.description.toLowerCase().includes(term)
-        ) {
-            return true;
-        }
+        ) return true;
 
-        // Search in variants
         if (model.variants?.length) {
-            if (model.variants.some(variant =>
-                Object.values(variant).some(value =>
-                    value?.toString().toLowerCase().includes(term)
-                )
+            if (model.variants.some(v =>
+                Object.values(v).some(val => val?.toString().toLowerCase().includes(term))
             )) return true;
         }
 
-        // Search in accessories
         if (model.accessories?.length) {
             if (model.accessories.some(acc => {
-                const accText = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
-                return accText.includes(term);
+                const text = `${acc.name} ${acc.description} ${acc.extra || ''}`.toLowerCase();
+                return text.includes(term);
             })) return true;
         }
 
@@ -116,17 +107,12 @@ function deepSearch(term) {
     });
 }
 
-/**
- * Render models (supports load more)
- */
+/* Render with Load More support */
 function renderModels(filteredModels, append = false) {
     const grid = document.getElementById('modelsGrid');
     if (!grid) return;
 
-    if (!append) {
-        grid.innerHTML = '';
-        displayedCount = 0;
-    }
+    if (!append) grid.innerHTML = '';
 
     if (filteredModels.length === 0 && !append) {
         grid.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; padding:40px; font-size:1.2rem; color:#777;">
@@ -156,9 +142,7 @@ function renderModels(filteredModels, append = false) {
     displayedCount = end;
 }
 
-/**
- * Filter models with deep search
- */
+/* Filter function */
 function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
@@ -177,13 +161,12 @@ function filterModels() {
     renderModels(filteredData);
 }
 
-// ==================== GET DESTACATS (for cotxes.html) ====================
+// ==================== GET DESTACATS ====================
 window.getCotxesDestacats = function () {
     return modelsData.filter(m => m.destacat === true);
 };
 
-// ==================== MODAL FUNCTIONALITY ====================
-
+// ==================== MODAL ====================
 window.showModel = function (id) {
     const model = modelsData.find(m => m.id === id);
     if (!model) return;
@@ -267,8 +250,6 @@ window.showModel = function (id) {
 
     const modal = document.getElementById('modal');
     modal.style.display = 'flex';
-
-    // Prevent scrolling behind modal
     document.body.style.overflow = 'hidden';
 
     modal.onclick = (e) => {
@@ -285,29 +266,30 @@ window.closeModal = function () {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadAllCars();
 
-    // Catalog page (cataleg.html)
+    // === CATALEG PAGE ===
     if (document.getElementById('modelsGrid')) {
         const searchInput = document.getElementById('searchInput');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
 
         if (searchInput) {
-            searchInput.addEventListener('input', filterModels);   // Changed to 'input' + debounce removed for simplicity
+            searchInput.addEventListener('input', filterModels);
         }
 
-        // Initial render - only first 9 cars
+        // Show only first 9 cars
         filteredData = modelsData;
         displayedCount = 0;
         renderModels(filteredData);
 
         // Load More button
         if (loadMoreBtn) {
+            loadMoreBtn.style.display = 'inline-block';
             loadMoreBtn.addEventListener('click', () => {
                 renderModels(filteredData, true);
             });
         }
     }
 
-    // Cotxes page (cotxes.html)
+    // === COTXES PAGE ===
     if (document.getElementById('cotxes-grid')) {
         const destacats = window.getCotxesDestacats ? window.getCotxesDestacats() : [];
         const container = document.getElementById('cotxes-grid');
