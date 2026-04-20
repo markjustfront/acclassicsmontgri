@@ -568,6 +568,15 @@ th {
     }
 }
 
+#resultsInfo {
+    font-weight: 400;
+}
+
+#loadMoreBtn {
+    padding: 14px 40px;
+    font-size: 1.05rem;
+}
+
 /* Reduced motion respect */
 @media (prefers-reduced-motion: reduce) {
     * {
