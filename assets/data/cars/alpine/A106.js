@@ -7,7 +7,7 @@ window.carData.push(
         model: "A106",
         years: "1955-1961",
         description: "L'Alpine A106 és el primer model de la història d'Alpine. Un cotxe esportiu lleuger amb carrosseria de fibra de vidre i motor posterior, basat en el Renault 4CV. Va marcar l'inici de la llegenda Alpine.",
-        image: "images/cars/A106-main.jpg",
+        image: "images/cars/alpine/A106-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
