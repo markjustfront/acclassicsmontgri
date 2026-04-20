@@ -7,7 +7,7 @@ window.carData.push(
         model: "Floride / Caravelle",
         years: "1959 - 1968",
         description: "La Renault Floride (anomenada Caravelle en molts mercats) és un cupè i cabriolet elegant basat en la Dauphine. Disseny bonic i juvenil, ideal per a l'oci. Va evolucionar amb motors més potents i suspensió millorada. Un clàssic romàntic i poc comú avui dia, perfecte per a qui busca estil francès dels anys 60.",
-        image: "images/cars/Floride-main.jpg",
+        image: "images/cars/renault/Floride-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -7,7 +7,7 @@ window.carData.push(
         model: "127",
         years: "1972-1982",
         description: "El SEAT 127 és el primer cotxe de tracció davantera de SEAT. Un supermini modern, pràctic i econòmic que va revolucionar la mobilitat urbana als anys 70.",
-        image: "images/cars/127-main.jpg",
+        image: "images/cars/seat/127-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -10,7 +10,7 @@ window.carData.push(
         model: "Fuego",
         years: "1980 - 1986 (Europa)",
         description: "El Renault Fuego és un cupè hatchback elegant i aerodinàmic basat en el R18. Disseny icònic dels anys 80 amb línies fluides. Va oferir versions tranquil·les i versions esportives Turbo molt apreciades avui dia. Pràctic (4 places + maleter) però amb caràcter esportiu.",
-        image: "images/cars/Fuego-main.jpg",
+        image: "images/cars/renault/Fuego-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

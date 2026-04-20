@@ -7,7 +7,7 @@ window.carData.push(
         model: "4CV",
         years: "1947 - 1961",
         description: "El Renault 4CV és un dels cotxes més importants de la història de Renault. Primer vehicle de gran producció després de la Segona Guerra Mundial, va ser el primer cotxe francès a superar el milió d'unitats. Disseny rear-engine amb tracció posterior, carrosseria monobloc de 4 portes (les davanteres tipus suïcida) i motor Billancourt. Simbolitza la reconstrucció i la motorització popular a França.",
-        image: "images/cars/R4CV-main.jpg",
+        image: "images/cars/renault/R4CV-main.jpg",
         destacat: true,
 
         generalCharacteristics: `

@@ -7,7 +7,7 @@ window.carData.push(
         model: "1430",
         years: "1969-1975",
         description: "El SEAT 1430 és la versió més esportiva i potent del 124. Amb motors més grans i equipament superior, va ser un dels cotxes preferits de la joventut espanyola dels 70.",
-        image: "images/cars/1430-main.jpg",
+        image: "images/cars/seat/1430-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

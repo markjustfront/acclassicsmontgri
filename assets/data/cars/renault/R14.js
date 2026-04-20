@@ -10,7 +10,7 @@ window.carData.push(
         model: "14",
         years: "1976 - 1983",
         description: "El Renault 14 va ser un hatchback compacte innovador amb motor transversal (primer en un Renault). Disseny atrevit (sovint anomenat \"la pera\"), utilitzava motors conjunts amb Peugeot (tipus X). Còmode, pràctic i amb bona suspensió independent. Va competir directament amb el Volkswagen Golf però amb un caràcter més francès.",
-        image: "images/cars/R14-main.jpg",
+        image: "images/cars/renault/R14-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -7,7 +7,7 @@ window.carData.push(
         model: "15 (R15)",
         years: "1971-1980",
         description: "Coupé derivat del R12 amb estil esportiu i disseny més baix i elegant.",
-        image: "images/cars/R15-main.jpg",
+        image: "images/cars/renault/R15-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

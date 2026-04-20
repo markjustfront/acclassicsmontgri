@@ -7,7 +7,7 @@ window.carData.push(
         model: "11 (R11)",
         years: "1983-1989",
         description: "El Renault 11 és la versió hatchback del R9, amb disseny més modern i orientació urbana.",
-        image: "images/cars/R11-main.jpg",
+        image: "images/cars/renault/R11-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

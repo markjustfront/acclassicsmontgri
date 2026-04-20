@@ -7,7 +7,7 @@ window.carData.push(
         model: "1500",
         years: "1963-1973",
         description: "El SEAT 1500 és un cotxe gran i còmode de la gamma mitjana-alta. Va ser molt usat com a taxi i cotxe oficial, oferint espai i confort.",
-        image: "images/cars/1500-main.jpg",
+        image: "images/cars/seat/1500-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

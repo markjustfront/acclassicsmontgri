@@ -7,7 +7,7 @@ window.carData.push(
         model: "1400",
         years: "1953-1963",
         description: "El SEAT 1400 és el primer cotxe fabricat per SEAT a Espanya. Un model de gamma mitjana elegant i robust, símbol dels inicis de la marca.",
-        image: "images/cars/1400-main.jpg",
+        image: "images/cars/seat/1400-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

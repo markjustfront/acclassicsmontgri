@@ -10,7 +10,7 @@ window.carData.push(
         model: "18",
         years: "1978 - 1989",
         description: "El Renault 18 va substituir els R12 i parcialment el R16. Una berlina familiar sòlida i fiable, disponible en versió berlina i break (combi). Va oferir motors gasolina, dièsel i versions Turbo esportives. Molt produït i popular a Europa i Amèrica del Sud.",
-        image: "images/cars/R18-main.jpg",
+        image: "images/cars/renault/R18-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

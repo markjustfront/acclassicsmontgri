@@ -7,7 +7,7 @@ window.carData.push(
         model: "Dauphine",
         years: "1956 - 1967",
         description: "La Renault Dauphine va ser un dels cotxes més venuts de la seva època, amb més de 2 milions d'unitats produïdes. Successora del 4CV, manté el disseny rear-engine però amb més espai, confort i potència. Versàtil, econòmica i disponible en versions Gordini esportives. Un clàssic popular a tot el món.",
-        image: "images/cars/Dauphine-main.jpg",
+        image: "images/cars/renault/Dauphine-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

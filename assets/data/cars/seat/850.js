@@ -7,7 +7,7 @@ window.carData.push(
         model: "850",
         years: "1966-1974",
         description: "El SEAT 850 és un supermini compacte i versàtil basat en el Fiat 850. Va oferir versions berlina, coupé i Spider, sent molt popular als anys 60-70.",
-        image: "images/cars/850-main.jpg",
+        image: "images/cars/seat/850-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

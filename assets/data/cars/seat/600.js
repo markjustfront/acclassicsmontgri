@@ -7,7 +7,7 @@ window.carData.push(
         model: "600",
         years: "1957-1973",
         description: "El SEAT 600 és el cotxe més icònic de la història d'Espanya. El 'cotxe del poble' que va motoritzar el país durant el desenvolupament econòmic dels anys 60 i 70.",
-        image: "images/cars/600-main.jpg",
+        image: "images/cars/seat/600-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

@@ -7,7 +7,7 @@ window.carData.push(
         model: "5 (R5) - Primera Generació (Phase 1)",
         years: "1972 - 1984",
         description: "El mític Renault 5 original. Un dels cotxes urbans més icònics dels anys 70 i principis dels 80. Versàtil, lleuger i amb versions esportives molt apreciades avui dia, incloent-hi l'Alpine/Gordini i el radical R5 Turbo de motor central.",
-        image: "images/cars/R5-main.jpg",
+        image: "images/cars/renault/R5-main.jpg",
         destacat: true,
 
         generalCharacteristics: `

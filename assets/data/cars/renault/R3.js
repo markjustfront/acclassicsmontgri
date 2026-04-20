@@ -7,7 +7,7 @@ window.carData.push(
         model: "3 (R3)",
         years: "1961 - 1962",
         description: "El Renault 3 és una versió extremadament bàsica i econòmica del R4, produïda només durant dos anys. Destinada a competir amb el Citroën 2CV en el segment més barat, tenia menys equipament (sense tercera finestra lateral, sense para-xocs cromats, etc.) i un motor més petit. Molt rar avui dia, amb només unes 2.500 unitats fabricades.",
-        image: "images/cars/R3-main.jpg",
+        image: "images/cars/renault/R3-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

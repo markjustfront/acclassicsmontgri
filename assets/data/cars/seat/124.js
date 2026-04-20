@@ -7,7 +7,7 @@ window.carData.push(
         model: "124",
         years: "1968-1980",
         description: "El SEAT 124 és un clàssic familiar espanyol basat en el Fiat 124. Fiable, espaiós i molt popular com a cotxe familiar durant més d'una dècada.",
-        image: "images/cars/124-main.jpg",
+        image: "images/cars/seat/124-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

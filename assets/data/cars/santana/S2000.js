@@ -7,7 +7,7 @@ window.carData.push(
         model: "2000",
         years: "1978 - ~1985",
         description: "El Santana 2000 és la versió de cabina avançada (Forward Control) dissenyada per a càrrega pesada. Successor del 1300, ofereix una capacitat de càrrega de fins a 2 tones. Ideal per ús comercial, agrícola o industrial. Disseny únic i pràctic amb motor de 6 cilindres en moltes unitats.",
-        image: "images/cars/S2000-main.jpg",
+        image: "images/cars/santana/S2000-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

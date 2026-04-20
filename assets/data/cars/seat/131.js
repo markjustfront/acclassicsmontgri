@@ -7,7 +7,7 @@ window.carData.push(
         model: "131",
         years: "1975-1984",
         description: "El SEAT 131 és un familiar mitjà robust i espaiós, successor del 124/1430. Va oferir versions benzina i dièsel, sent molt popular com a cotxe de flota i familiar.",
-        image: "images/cars/131-main.jpg",
+        image: "images/cars/seat/131-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

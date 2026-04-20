@@ -7,7 +7,7 @@ window.carData.push(
         model: "16",
         years: "1965 - 1980",
         description: "El Renault 16 és un dels cotxes més innovadors de la seva època. Considerat el primer hatchback modern del món, combina la comoditat d'una berlina amb la versatilitat d'un familiar gràcies al seu gran portell posterior i seients modulars. Va guanyar el títol de Cotxe Europeu de l'Any 1966 i va revolucionar el segment familiar amb tracció davantera, suspensió independent per barres de torsió i un motor d'aliatge lleuger. Més d'1.8 milions d'unitats produïdes.",
-        image: "images/cars/R16-main.jpg",
+        image: "images/cars/renault/R16-main.jpg",
         destacat: false,
 
         generalCharacteristics: `

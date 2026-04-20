@@ -10,7 +10,7 @@ window.carData.push(
         model: "19",
         years: "1988 - 1996",
         description: "El Renault 19 va substituir els R9/R11 amb un disseny modern i bones prestacions. Disponible en hatchback, berlina i cabrio. Versions 16v molt apreciades pels aficionats a la conducció. Fiable i còmode, representa el final de l'era clàssica Renault abans dels models més moderns.",
-        image: "images/cars/R19-main.jpg",
+        image: "images/cars/renault/R19-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
