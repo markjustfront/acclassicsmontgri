@@ -506,7 +506,7 @@ th, td {
     background: var(--gold);
 }
 
-/* ==================== MOBILE NAVIGATION ==================== */
+/* ==================== MOBILE NAVIGATION - SLIDES FROM RIGHT ==================== */
 
 .hamburger {
     display: none;
@@ -518,6 +518,7 @@ th, td {
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-left: auto;           /* Pushes hamburger to the right */
 }
 
 .hamburger span {
@@ -535,28 +536,29 @@ th, td {
     .nav-links {
         position: fixed;
         top: 80px;
-        left: -100%;
+        right: -100%;              
         width: 100%;
+        max-width: 320px;               
         height: calc(100vh - 80px);
         background: rgba(26, 26, 26, 0.98);
         flex-direction: column;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         padding-top: 40px;
-        transition: left 0.4s ease;
+        transition: right 0.4s ease;
         z-index: 999;
+        box-shadow: -10px 0 25px rgba(0, 0, 0, 0.4);  
     }
 
     .nav-links.active {
-        left: 0;
-    }
+        right: 0;                       
 
     .nav-links a {
         margin: 15px 0;
         font-size: 1.3rem;
     }
 
-    /* Hamburger animation */
+    /* Hamburger animation (X) */
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
     }
