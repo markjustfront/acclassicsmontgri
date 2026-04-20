@@ -416,7 +416,7 @@ details[open] summary {
 
 /* ==================== RESPONSIVE ENGINE TABLE ==================== */
 
-/* Desktop: full table (unchanged) */
+/* Desktop: full table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -429,50 +429,51 @@ th, td {
     border: 1px solid #ddd;
 }
 
-/* Mobile: simplified view */
+/* ====================== MOBILE TABLE - FIXED ====================== */
 @media (max-width: 768px) {
     table thead {
-        display: none; /* hide headers */
+        display: none;
     }
 
     table tr {
         display: block;
-        margin-bottom: 15px;
+        margin-bottom: 18px;
         border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 12px;
+        border-radius: 12px;
+        padding: 16px;
         background: white;
         cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     table td {
         display: block;
-        text-align: left;
-        padding: 8px 0;
+        padding: 12px 0 12px 58%;     /* More space for labels */
         border: none;
         position: relative;
-        padding-left: 50%;
+        min-height: 1.5em;
     }
 
     table td:before {
         content: attr(data-label);
         position: absolute;
-        left: 12px;
+        left: 16px;
         font-weight: 600;
-        color: var(--gol
-        d);
+        color: var(--gold);
+        width: 52%;
+        padding-right: 12px;
+        word-break: break-word;
     }
 
-    /* Hide extra columns by default on mobile */
-    table td:nth-child(3),
-    table td:nth-child(4),
-    table td:nth-child(5) {
-        display: none;
-    }
-
-    /* When row is "expanded" */
+    /* Expanded state - show ALL columns clearly */
     table tr.expanded td {
         display: block;
+        padding-left: 58%;
+    }
+
+    /* Better visual feedback when tapping */
+    table tr:active {
+        background: #f8f6f0;
     }
 }
 
