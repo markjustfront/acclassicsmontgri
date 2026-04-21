@@ -8,59 +8,56 @@ const BATCH_SIZE = 9;
 // List of all your car files
 const carFiles = [
     //Renault:
-    "assets/data/cars/renault/R3.js",       // ID 35
-    "assets/data/cars/renault/R4.js",       // ID 1
-    "assets/data/cars/renault/R5.js",       // ID 2
-    "assets/data/cars/renault/R5P2.js",     // ID 3
-    "assets/data/cars/renault/R6.js",       // ID 4
-    "assets/data/cars/renault/R7.js",       // ID 5
-    "assets/data/cars/renault/R8.js",       // ID 6
-    "assets/data/cars/renault/R9.js",       // ID 7
-    "assets/data/cars/renault/R10.js",      // ID 8
-    "assets/data/cars/renault/R11.js",      // ID 9
-    "assets/data/cars/renault/R12.js",      // ID 10
-    "assets/data/cars/renault/R14.js",      // ID 11
-    "assets/data/cars/renault/R15.js",      // ID 12
-    "assets/data/cars/renault/R16.js",      // ID 13
-    "assets/data/cars/renault/R17.js",      // ID 14
-    "assets/data/cars/renault/R18.js",      // ID 15
-    "assets/data/cars/renault/R19.js",      // ID 16
-    "assets/data/cars/renault/R20.js",      // ID 17
-    "assets/data/cars/renault/R21.js",      // ID 18
-    "assets/data/cars/renault/R25.js",      // ID 19
-    "assets/data/cars/renault/R30.js",      // ID 20
-
-    "assets/data/cars/renault/Fuego.js",    // ID 21
-    "assets/data/cars/renault/R4CV.js",     // ID 32
+    "assets/data/cars/renault/R3.js", // ID 35
+    "assets/data/cars/renault/R4.js", // ID 1
+    "assets/data/cars/renault/R5.js", // ID 2
+    "assets/data/cars/renault/R5P2.js", // ID 3
+    "assets/data/cars/renault/R6.js", // ID 4
+    "assets/data/cars/renault/R7.js", // ID 5
+    "assets/data/cars/renault/R8.js", // ID 6
+    "assets/data/cars/renault/R9.js", // ID 7
+    "assets/data/cars/renault/R10.js", // ID 8
+    "assets/data/cars/renault/R11.js", // ID 9
+    "assets/data/cars/renault/R12.js", // ID 10
+    "assets/data/cars/renault/R14.js", // ID 11
+    "assets/data/cars/renault/R15.js", // ID 12
+    "assets/data/cars/renault/R16.js", // ID 13
+    "assets/data/cars/renault/R17.js", // ID 14
+    "assets/data/cars/renault/R18.js", // ID 15
+    "assets/data/cars/renault/R19.js", // ID 16
+    "assets/data/cars/renault/R20.js", // ID 17
+    "assets/data/cars/renault/R21.js", // ID 18
+    "assets/data/cars/renault/R25.js", // ID 19
+    "assets/data/cars/renault/R30.js", // ID 20
+    "assets/data/cars/renault/Fuego.js", // ID 21
+    "assets/data/cars/renault/R4CV.js", // ID 32
     "assets/data/cars/renault/Dauphine.js", // ID 33
-    "assets/data/cars/renault/Floride.js",  // ID 34
-
+    "assets/data/cars/renault/Floride.js", // ID 34
     // Alpine:
-    "assets/data/cars/alpine/A610.js",      // ID 22
-    "assets/data/cars/alpine/A110.js",      // ID 23
-    "assets/data/cars/alpine/A310.js",      // ID 24
-    "assets/data/cars/alpine/GTA.js",       // ID 25  
-    "assets/data/cars/alpine/A106.js",      // ID 36
-    "assets/data/cars/alpine/A108.js",      // ID 37
-    "assets/data/cars/alpine/GT4.js",       // ID 38
-
+    "assets/data/cars/alpine/A610.js", // ID 22
+    "assets/data/cars/alpine/A110.js", // ID 23
+    "assets/data/cars/alpine/A310.js", // ID 24
+    "assets/data/cars/alpine/GTA.js", // ID 25
+    "assets/data/cars/alpine/A106.js", // ID 36
+    "assets/data/cars/alpine/A108.js", // ID 37
+    "assets/data/cars/alpine/GT4.js", // ID 38
     // Seat
-    "assets/data/cars/seat/600.js",         // ID 39
-    "assets/data/cars/seat/850.js",         // ID 40
-    "assets/data/cars/seat/124.js",         // ID 41
-    "assets/data/cars/seat/1430.js",        // ID 42
-    "assets/data/cars/seat/1500.js",        // ID 43
-    "assets/data/cars/seat/1400.js",        // ID 44
-    "assets/data/cars/seat/127.js",         // ID 45
-    "assets/data/cars/seat/131.js",         // ID 46
-
-    // Land Rover Santana:
-    "assets/data/cars/santana/S88.js",      // ID 26
-    "assets/data/cars/santana/S109.js",     // ID 27
-    "assets/data/cars/santana/SLi.js",      // ID 28  
-    "assets/data/cars/santana/S2000.js",    // ID 29
-    "assets/data/cars/santana/S2500.js",    // ID 30
-    "assets/data/cars/santana/SCazorla.js", // ID 31
+    "assets/data/cars/seat/600.js", // ID 39
+    "assets/data/cars/seat/850.js", // ID 40
+    "assets/data/cars/seat/124.js", // ID 41
+    "assets/data/cars/seat/1430.js", // ID 42
+    "assets/data/cars/seat/1500.js", // ID 43
+    "assets/data/cars/seat/1400.js", // ID 44
+    "assets/data/cars/seat/127.js", // ID 45
+    "assets/data/cars/seat/131.js", // ID 46
+    // Peugeot:
+    "assets/data/cars/peugeot/203.js", // ID 47
+    "assets/data/cars/peugeot/403.js", // ID 48
+    "assets/data/cars/peugeot/404.js", // ID 49
+    "assets/data/cars/peugeot/504.js", // ID 50
+    "assets/data/cars/peugeot/504-coupe.js", // ID 51
+    "assets/data/cars/peugeot/205-gti.js", // ID 52
+    "assets/data/cars/peugeot/405.js", // ID 53
 ];
 
 // Load all car files
