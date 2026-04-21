@@ -29,7 +29,6 @@ const carFiles = [
     "assets/data/cars/renault/R21.js",      // ID 18
     "assets/data/cars/renault/R25.js",      // ID 19
     "assets/data/cars/renault/R30.js",      // ID 20
-
     "assets/data/cars/renault/Fuego.js",    // ID 21
     "assets/data/cars/renault/R4CV.js",     // ID 32
     "assets/data/cars/renault/Dauphine.js", // ID 33
