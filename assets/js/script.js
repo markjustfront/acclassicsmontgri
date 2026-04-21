@@ -57,7 +57,7 @@ const carFiles = [
     "assets/data/cars/peugeot/504.js", // ID 50
     "assets/data/cars/peugeot/504-coupe.js", // ID 51
     "assets/data/cars/peugeot/205.js", // ID 52
-    "assets/data/cars/peugeot/405.js", // ID 53
+    "assets/data/cars/peugeot/405.js", // ID 54
 ];
 
 // Load all car files
