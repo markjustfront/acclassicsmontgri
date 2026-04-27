@@ -58,6 +58,14 @@ const carFiles = [
     "assets/data/cars/peugeot/504-coupe.js", // ID 51
     "assets/data/cars/peugeot/205.js", // ID 52
     "assets/data/cars/peugeot/405.js", // ID 54
+    // Citroën:
+    "assets/data/cars/citroen/2cv.js",           // ID 55
+    "assets/data/cars/citroen/traction-avant.js", // ID 56
+    "assets/data/cars/citroen/ds.js",            // ID 57
+    "assets/data/cars/citroen/gs.js",            // ID 58
+    "assets/data/cars/citroen/cx.js",            // ID 59
+    "assets/data/cars/citroen/bx.js",            // ID 60
+    "assets/data/cars/citroen/sm.js",             // ID 61
     // LM Sovra:
     "assets/data/cars/lm-sovra/lm-sovra.js", // ID 62
     "assets/data/cars/lm-sovra/lm1.js", // ID 63
