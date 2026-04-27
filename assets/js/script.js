@@ -58,6 +58,12 @@ const carFiles = [
     "assets/data/cars/peugeot/504-coupe.js", // ID 51
     "assets/data/cars/peugeot/205.js", // ID 52
     "assets/data/cars/peugeot/405.js", // ID 54
+    // LM Sovra:
+    "assets/data/cars/lm-sovra/lm-sovra.js", // ID 55
+    "assets/data/cars/lm-sovra/lm1.js", // ID 56
+    "assets/data/cars/lm-sovra/lm2.js", // ID 59
+    "assets/data/cars/lm-sovra/lm3.js", // ID 57
+    "assets/data/cars/lm-sovra/lm5.js", // ID 58
 ];
 
 // Load all car files
