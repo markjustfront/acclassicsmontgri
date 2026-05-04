@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 
 :root {
-    --gold: #c9a227;
-    --dark: #1a1a1a;
+    --gold: #a88953;
+    --dark: #1f1813;
 }
 
 * {
@@ -23,7 +23,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(26, 26, 26, 0.95);
+    background: rgba(31, 24, 19, 0.95);
     z-index: 1000;
     padding: 15px 0;
 }
