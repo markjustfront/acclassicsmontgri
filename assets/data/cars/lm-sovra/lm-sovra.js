@@ -7,7 +7,7 @@ window.carData.push(
         model: "LM4 (Renault 5 Cabrio)",
         years: "1980-1985",
         description: "LM Sovra és un petit fabricant francès conegut per les seves transformacions i buggies. El LM4 és una conversió cabriolet de la Renault 5 de tres portes, amb sostre de tela plegable. Una opció divertida i rara per donar un toc obert al clàssic R5.",
-        image: "images/cars/lm-sovra/lm4-main.jpg",
+        image: "images/cars/lm-sovra/lm-sovra-main.jpg",
         destacat: false,
 
         generalCharacteristics: `
