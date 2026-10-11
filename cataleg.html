@@ -103,6 +103,19 @@
     <p style="font-size: 0.9rem; opacity: 0.7;">Fet amb passió pels cotxes clàssics europeus</p>
     <p class="footer-credits"><a href="credits.html">Crèdits de les fotografies</a></p>
 </footer>
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Torna a dalt" title="Torna a dalt">&#8593;</button>
+    <script>
+        (function () {
+            const btn = document.getElementById('backToTop');
+            const toggle = () => btn.classList.toggle('visible', window.scrollY > 600);
+            window.addEventListener('scroll', toggle, { passive: true });
+            toggle();
+            btn.addEventListener('click', () => {
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+            });
+        })();
+    </script>
     <script src="assets/js/menu.js"></script>
 </body>
 
