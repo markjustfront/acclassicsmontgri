@@ -480,10 +480,26 @@ th, td {
         word-break: break-word;
     }
 
+    /* Collapsed by default: only Motor and Potència; tap to show the rest */
+    table tbody tr td:nth-child(n+3) {
+        display: none;
+    }
+    table tbody tr::after {
+        content: "Toca per veure més ▾";
+        display: block;
+        margin-top: 6px;
+        font-size: 0.85rem;
+        color: var(--gold);
+        text-align: right;
+    }
+
     /* Expanded state - show ALL columns clearly */
-    table tr.expanded td {
+    table tbody tr.expanded td {
         display: block;
         padding-left: 58%;
+    }
+    table tbody tr.expanded::after {
+        content: "Amaga detalls ▴";
     }
 
     /* Better visual feedback when tapping */
@@ -785,3 +801,34 @@ header { position: relative; }
     .credits-page { padding-left: 15px; padding-right: 15px; }
 }
 
+
+/* ==================== BOTÓ TORNA A DALT ==================== */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--dark);
+    color: var(--gold);
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background 0.3s, color 0.3s;
+    z-index: 900; /* sota el menú mòbil (999) i el modal */
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: none; }
+.back-to-top:hover, .back-to-top:focus-visible { background: var(--gold); color: var(--dark); outline: none; }
+body.menu-open .back-to-top { opacity: 0; visibility: hidden; }
+@media (max-width: 768px) {
+    .back-to-top { right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: 46px; height: 46px; font-size: 1.3rem; }
+}
