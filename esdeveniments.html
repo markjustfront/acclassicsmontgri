@@ -51,6 +51,7 @@
 
     <section class="events" style="padding-top: 120px;">
         <h2>Esdeveniments de Clàssics (≤70 km)</h2>
+        <p style="text-align:center; max-width:700px; margin:-30px auto 30px; color:#555;">Trobades, exposicions i ral·lis de cotxes clàssics del 2026 a menys de 70 km de Torroella de Montgrí. Confirmeu sempre la data amb l’organització.</p>
 
         <div class="filter" style="text-align: center; margin-bottom: 40px;">
             <button onclick="filterEvents('all')" class="btn">Tots</button>
@@ -66,32 +67,40 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        const events = [ /* your events array stays the same */
-            { title: "Fira Sant Andreu", desc: "Exposició de vehicles clàssics i tractors", location: "Torroella de Montgrí", type: "exposicio", status: "Anual", coords: [42.043, 3.127] },
-            { title: "Trobada Serra de Daró", desc: "Esmorzar i concentració de clàssics", location: "Serra de Daró", type: "trobada", status: "Mensual", coords: [42.025, 3.071] },
-            { title: "Clàssics Verges", desc: "Ruta i exposició al poble", location: "Verges", type: "trobada", status: "Primavera", coords: [42.062, 3.045] },
-            { title: "La Bisbal Clàssics", desc: "Gran trobada amb esmorzar", location: "La Bisbal", type: "trobada", status: "Diverses dates", coords: [41.960, 3.041] },
-            { title: "Palamós Clàssics", desc: "Exposició al port", location: "Palamós", type: "exposicio", status: "Estiu", coords: [41.848, 3.129] },
-            { title: "Figueres Clàssics", desc: "Gran concentració", location: "Figueres", type: "trobada", status: "Diverses dates", coords: [42.267, 2.961] },
-            { title: "Rally Costa Brava Històric", desc: "Rally internacional", location: "Girona", type: "rally", status: "Març", coords: [41.979, 2.821] }
+        // Public classic car events in 2026 within ~70 km of Torroella de Montgrí.
+        // Each one is confirmed by the linked source. date = first day (YYYY-MM-DD).
+        const events = [
+            { title: "X Clàssic Pla de l'Estany", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Cornellà del Terri", type: "rally", date: "2026-01-31", dateText: "31 de gener", coords: [42.085, 2.817], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
+            { title: "74 Rally KH-7 Costa Brava", desc: "Ral·li històric internacional, obre el Campionat d'Europa FIA de Ral·lis Històrics", location: "Girona i Fornells de la Selva", type: "rally", date: "2026-03-05", dateText: "5 - 7 de març", coords: [41.979, 2.821], url: "https://rallyclassics.club/74-rally-costa-brava-2026/" },
+            { title: "II Clàssic Vila de Llançà", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Llançà", type: "rally", date: "2026-03-21", dateText: "21 de març", coords: [42.366, 3.152], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
+            { title: "IV Trobada de Vehicles Clàssics i Esportius", desc: "Exposició de clàssics, esportius i americans, amb espai especial pels 50 anys del VW Golf. Cal inscripció prèvia.", location: "La Bisbal d'Empordà (Passeig Marimon Asprer)", type: "trobada", date: "2026-09-11", dateText: "11 de setembre, des de les 9 h", coords: [41.960, 3.041], url: "https://www.classicsrentservices.com/ca/trobades/iv-trobada-de-vehicles-classics-i-esportius-la-bisbal-d-emporda/" },
+            { title: "3a Trobada de Cotxes i Motos Clàssics", desc: "Exposició de cotxes i motos clàssics amb esmorzar per als participants", location: "Sant Julià de Ramis (Pavelló)", type: "trobada", date: "2026-09-19", dateText: "19 de setembre, de 9 a 12 h", coords: [42.024, 2.849], url: "https://www.fcvh.cat/ca/automocio/fcvh/sortides-concentracions/3a-trobada-de-cotxes-i-motos-classics/323066.html" },
+            { title: "XIV Rallye Platja d'Aro Històric", desc: "Prova final de la Copa Gironina de Regularitat", location: "Platja d'Aro", type: "rally", date: "2026-11-28", dateText: "28 de novembre", coords: [41.817, 3.067], url: "https://allevents.in/org/copa-gironina-de-regularitat/21668751" }
         ];
 
         const container = document.getElementById("eventsContainer");
+        const today = new Date().toISOString().slice(0, 10);
 
         function renderEvents(filter = 'all') {
             container.innerHTML = "";
-            events
-                .filter(e => filter === 'all' || e.type === filter)
-                .forEach(e => {
-                    container.innerHTML += `
-                        <div class="card">
-                            <span class="badge ${e.type}">${e.type}</span>
-                            <h3>${e.title}</h3>
-                            <p>${e.desc}</p>
-                            <p><strong>${e.location}</strong></p>
-                            <p class="status">${e.status}</p>
-                        </div>`;
-                });
+            const list = events.filter(e => filter === 'all' || e.type === filter);
+            // Upcoming first (soonest first), then past events (most recent first)
+            const upcoming = list.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+            const past = list.filter(e => e.date < today).sort((a, b) => b.date.localeCompare(a.date));
+            [...upcoming, ...past].forEach(e => {
+                const isPast = e.date < today;
+                container.innerHTML += `
+                    <div class="card${isPast ? ' past' : ''}">
+                        <span class="badge ${e.type}">${e.type}</span>
+                        ${isPast ? '<span class="badge done">Celebrat</span>' : '<span class="badge soon">Properament</span>'}
+                        <h3>${e.title}</h3>
+                        <p>${e.desc}</p>
+                        <p><strong>${e.location}</strong></p>
+                        <p class="status">📅 ${e.dateText} 2026</p>
+                        <p><a href="${e.url}" target="_blank" rel="noopener" class="event-link">Més informació →</a></p>
+                    </div>`;
+            });
+            if (!list.length) container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#777;">Cap esdeveniment en aquesta categoria.</p>';
         }
 
         function filterEvents(type) {
@@ -107,7 +116,7 @@
         }).addTo(map);
 
         events.forEach(e => {
-            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}`);
+            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}<br>${e.dateText} 2026`);
         });
     </script>
 
