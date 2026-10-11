@@ -567,7 +567,8 @@ th, td {
     }
 
     .nav-links.active {
-        right: 0;                       
+        right: 0;
+    }
 
     .nav-links a {
         margin: 15px 0;
