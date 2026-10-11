@@ -105,6 +105,90 @@ window.imageCredits = {
     "source": "https://commons.wikimedia.org/wiki/File:1989_Alpine_GTA_V6_Turbo.jpg",
     "file": "1989 Alpine GTA V6 Turbo.jpg"
   },
+  "images/cars/bmw/2002-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_2002_tii_Sachs_Franken_Classic_2018_P5201226.jpg",
+    "file": "BMW 2002 tii Sachs Franken Classic 2018 P5201226.jpg"
+  },
+  "images/cars/bmw/e12-main.jpg": {
+    "author": "Christian A. Schröder (ChristianSchd)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_E12_520_Facelift_01.jpg",
+    "file": "BMW E12 520 Facelift 01.jpg"
+  },
+  "images/cars/bmw/e21-main.jpg": {
+    "author": "Jiří Sedláček",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_320_E21_at_Legendy_2018_in_Prague.jpg",
+    "file": "BMW 320 E21 at Legendy 2018 in Prague.jpg"
+  },
+  "images/cars/bmw/e24-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_635_CSi_(E24)_6170176.jpg",
+    "file": "BMW 635 CSi (E24) 6170176.jpg"
+  },
+  "images/cars/bmw/e28-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_E28_535i_(1986)_1X7A0268.jpg",
+    "file": "BMW E28 535i (1986) 1X7A0268.jpg"
+  },
+  "images/cars/bmw/e30-main.jpg": {
+    "author": "Bull-Doser",
+    "license": "Domini públic",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:BMW_325i_Coupe_E30.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_325i_Coupe_E30.JPG",
+    "file": "BMW 325i Coupe E30.JPG"
+  },
+  "images/cars/bmw/e34-main.jpg": {
+    "author": "Jeremy from Sydney, Australia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1989_BMW_535i_(E34)_sedan_(21565668074).jpg",
+    "file": "1989 BMW 535i (E34) sedan (21565668074).jpg"
+  },
+  "images/cars/bmw/e36-main.jpg": {
+    "author": "nakhon100",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_328i_Coup%C3%A9_E36_(6179339390).jpg",
+    "file": "BMW 328i Coupé E36 (6179339390).jpg"
+  },
+  "images/cars/bmw/e9-main.jpg": {
+    "author": "Alexander-93",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_3.0_CSL_1X7A7215.jpg",
+    "file": "BMW 3.0 CSL 1X7A7215.jpg"
+  },
+  "images/cars/bmw/isetta-main.jpg": {
+    "author": "Damian B Oh",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_Isetta_250_Savanna_Yellow_(1).jpg",
+    "file": "BMW Isetta 250 Savanna Yellow (1).jpg"
+  },
+  "images/cars/bmw/m1-main.jpg": {
+    "author": "Matti Blume",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_M1,_Techno-Classica_2018,_Essen_(IMG_0063).jpg",
+    "file": "BMW M1, Techno-Classica 2018, Essen (IMG 0063).jpg"
+  },
+  "images/cars/bmw/z1-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMW_Z1_Classic-Gala_2022_1X7A0369.jpg",
+    "file": "BMW Z1 Classic-Gala 2022 1X7A0369.jpg"
+  },
   "images/cars/citroen/2cv-main.jpg": {
     "author": "Krzysztof Golik",
     "license": "CC BY-SA 4.0",
