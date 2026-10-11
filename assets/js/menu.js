@@ -39,3 +39,15 @@ document.addEventListener('click', (e) => {
 // Close with the Escape key, and if the screen is resized to desktop
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 window.addEventListener('resize', () => { if (window.innerWidth > 768) setMenu(false); });
+
+// Highlight the selected event filter button
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter .btn');
+    if (!btn) return;
+    btn.parentElement.querySelectorAll('.btn').forEach(b => b.classList.toggle('active', b === btn));
+});
+document.addEventListener('DOMContentLoaded', () => {
+    markCurrentPage();
+    const first = document.querySelector('.events .filter .btn');
+    if (first) first.classList.add('active');
+});
