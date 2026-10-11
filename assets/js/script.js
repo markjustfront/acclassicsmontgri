@@ -78,20 +78,19 @@ const carFiles = [
 async function loadAllCars() {
     modelsData = [];
 
-    for (const file of carFiles) {
-        try {
-            const res = await fetch(file);
-            if (!res.ok) continue;
+    // Download all car files in parallel, then run them in the original order
+    const texts = await Promise.all(carFiles.map(file =>
+        fetch(file)
+            .then(res => (res.ok ? res.text() : ''))
+            .catch(() => { console.warn(`Failed to load ${file}`); return ''; })
+    ));
 
-            const text = await res.text();
-            const script = document.createElement('script');
-            script.textContent = text;
-            document.head.appendChild(script);
-            await new Promise(r => setTimeout(r, 40));
-            script.remove();
-        } catch (e) {
-            console.warn(`Failed to load ${file}`);
-        }
+    for (const text of texts) {
+        if (!text) continue;
+        const script = document.createElement('script');
+        script.textContent = text;
+        document.head.appendChild(script);
+        script.remove();
     }
 
     if (window.carData && Array.isArray(window.carData)) {
@@ -152,7 +151,7 @@ function renderModels(filteredModels, append = false) {
         const model = filteredModels[i];
         const cardHTML = `
             <div class="card" onclick="showModel(${model.id})">
-                <img src="${model.image}" alt="${model.brand} ${model.model}">
+                <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}">
                 <div class="card-content">
                     <h3>${model.brand} ${model.model}</h3>
                     <p><strong>${model.years}</strong></p>
@@ -234,7 +233,7 @@ window.showModel = function (id) {
             <summary>${acc.name}</summary>
             <div class="details-content">
                 <p>${acc.description}</p>
-                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
+                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img loading="lazy" decoding="async" src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
                 ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
             </div>
         </details>
@@ -254,7 +253,7 @@ window.showModel = function (id) {
     `).join('') || '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
 
     const bodyHTML = `
-        <img src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
+        <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
         <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
         
         <h3>Característiques Generals</h3>
@@ -329,7 +328,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         destacats.forEach(model => {
             const cardHTML = `
                 <div class="card" onclick="showModel(${model.id})">
-                    <img src="${model.image}" alt="${model.brand} ${model.model}">
+                    <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}">
                     <div class="card-content">
                         <h3>${model.brand} ${model.model}</h3>
                         <p><strong>${model.years}</strong></p>
