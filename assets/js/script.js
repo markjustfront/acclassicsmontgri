@@ -72,6 +72,19 @@ const carFiles = [
     "assets/data/cars/lm-sovra/lm2.js", // ID 64
     "assets/data/cars/lm-sovra/lm3.js", // ID 65
     "assets/data/cars/lm-sovra/lm5.js", // ID 66
+    // BMW:
+    "assets/data/cars/bmw/isetta.js", // ID 67
+    "assets/data/cars/bmw/2002.js", // ID 68
+    "assets/data/cars/bmw/e9.js", // ID 69
+    "assets/data/cars/bmw/e21.js", // ID 70
+    "assets/data/cars/bmw/e30.js", // ID 71
+    "assets/data/cars/bmw/e12.js", // ID 72
+    "assets/data/cars/bmw/e28.js", // ID 73
+    "assets/data/cars/bmw/e34.js", // ID 74
+    "assets/data/cars/bmw/e24.js", // ID 75
+    "assets/data/cars/bmw/m1.js", // ID 76
+    "assets/data/cars/bmw/z1.js", // ID 77
+    "assets/data/cars/bmw/e36.js", // ID 78
 ];
 
 // Load all car files
