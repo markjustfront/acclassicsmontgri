@@ -784,3 +784,20 @@ header { position: relative; }
     .hero-credit { font-size: 0.62rem; text-align: center; padding: 0; }
     .credits-page { padding-left: 15px; padding-right: 15px; }
 }
+
+/* Enllaços: targetes de text en lloc de logotips */
+.link-card-name {
+    height: 240px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--dark), #3a2d22);
+    padding: 25px; text-align: center;
+    border-bottom: 3px solid var(--gold);
+}
+.link-card-name span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; line-height: 1.2; color: var(--gold);
+}
+@media (max-width: 768px) {
+    .link-card-name { height: 160px; }
+    .link-card-name span { font-size: 1.6rem; }
+}
