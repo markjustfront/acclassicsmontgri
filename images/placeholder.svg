@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Imatge no disponible">
+  <rect width="1200" height="800" fill="#f0e8d8"/>
+  <rect x="24" y="24" width="1152" height="752" fill="none" stroke="#a88953" stroke-width="4" rx="18"/>
+  <g fill="none" stroke="#a88953" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" transform="translate(440 250)">
+    <path d="M20 170 L60 90 Q75 60 110 60 L210 60 Q245 60 262 90 L300 170"/>
+    <rect x="0" y="170" width="320" height="80" rx="24"/>
+    <circle cx="70" cy="262" r="30" fill="#f0e8d8"/>
+    <circle cx="250" cy="262" r="30" fill="#f0e8d8"/>
+  </g>
+  <text x="600" y="640" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="56" fill="#a88953">Imatge no disponible</text>
+</svg>

@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#1f1813">
     <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
@@ -65,7 +65,7 @@
         <div id="map" style="height: 420px; margin-top: 60px; border-radius: 16px;"></div>
     </section>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // Public classic car events in 2026 within ~70 km of Torroella de Montgrí.
         // Each one is confirmed by the linked source. date = first day (YYYY-MM-DD).
@@ -112,7 +112,7 @@
         // Map
         const map = L.map('map').setView([42.05, 3.05], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         events.forEach(e => {

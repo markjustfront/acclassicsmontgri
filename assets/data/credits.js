@@ -15,7 +15,7 @@ window.imageCredits = {
     "file": "Renault 4 TL interior DSC 2182.jpg"
   },
   "images/accessories/R4/tapisseria.jpg": {
-    "author": "Tennen-Gas",
+    "author": "天然ガス (Tennen-Gas)",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Renault_4_011.jpg",
@@ -168,6 +168,14 @@ window.imageCredits = {
     "source": "https://commons.wikimedia.org/wiki/File:Sovra_LM_1,_yellow.jpg",
     "file": "Sovra LM 1, yellow.jpg"
   },
+  "images/cars/lm-sovra/lm2-main.jpg": {
+    "author": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "https://www.flickr.com/photos/83468718@N06/52366382110",
+    "file": "1978 Sovra LM2 (Flickr)",
+    "via": "Flickr"
+  },
   "images/cars/peugeot/203-main.jpg": {
     "author": "JoachimKohler-HB",
     "license": "CC BY-SA 4.0",
@@ -302,7 +310,7 @@ window.imageCredits = {
     "file": "1989 Renault 19 1.4 Cat in Silver, front right.jpg"
   },
   "images/cars/renault/R20-main.jpg": {
-    "author": "Yann (talk)",
+    "author": "© Yann Forget / Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Renault_20_TL.jpg",
@@ -399,6 +407,13 @@ window.imageCredits = {
     "source": "https://commons.wikimedia.org/wiki/File:Santana_109.jpg",
     "file": "Santana 109.jpg"
   },
+  "images/cars/santana/S2000-main.jpg": {
+    "author": "Schumi4ever",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Santana_2000.jpg",
+    "file": "Santana 2000.jpg"
+  },
   "images/cars/santana/S88-main.jpg": {
     "author": "Schumi4ever",
     "license": "CC BY-SA 4.0",
@@ -492,5 +507,16 @@ window.creditHTML = function (path, cls) {
     const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     return `<p class="img-credit${cls ? ' ' + cls : ''}" onclick="event.stopPropagation()">Foto: ${esc(c.author)}, ` +
         `<a href="${esc(c.licenseUrl)}" target="_blank" rel="noopener">${esc(c.license)}</a>, ` +
-        `via <a href="${esc(c.source)}" target="_blank" rel="noopener">Wikimedia Commons</a></p>`;
+        `via <a href="${esc(c.source)}" target="_blank" rel="noopener">${esc(c.via || 'Wikimedia Commons')}</a></p>`;
 };
+
+// Imatge neutra per a fotos sense llicència o inexistents
+window.PLACEHOLDER_IMG = 'images/placeholder.svg';
+document.addEventListener('error', function (e) {
+    const img = e.target;
+    if (img && img.tagName === 'IMG' && !img.dataset.placeholder) {
+        img.dataset.placeholder = '1';
+        img.src = window.PLACEHOLDER_IMG;
+        img.alt = (img.alt ? img.alt + ' – ' : '') + 'Imatge no disponible';
+    }
+}, true);
