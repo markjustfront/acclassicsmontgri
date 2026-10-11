@@ -152,6 +152,7 @@ function renderModels(filteredModels, append = false) {
         const cardHTML = `
             <div class="card" onclick="showModel(${model.id})">
                 <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}">
+                ${window.creditHTML ? creditHTML(model.image) : ''}
                 <div class="card-content">
                     <h3>${model.brand} ${model.model}</h3>
                     <p><strong>${model.years}</strong></p>
@@ -233,7 +234,7 @@ window.showModel = function (id) {
             <summary>${acc.name}</summary>
             <div class="details-content">
                 <p>${acc.description}</p>
-                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<img loading="lazy" decoding="async" src="${img}" alt="${acc.name}">`).join('')}</div>` : ''}
+                ${acc.images?.length ? `<div class="accessory-images">${acc.images.map(img => `<figure class="accessory-figure"><img loading="lazy" decoding="async" src="${img}" alt="${acc.name}">${window.creditHTML ? creditHTML(img) : ''}</figure>`).join('')}</div>` : ''}
                 ${acc.extra ? `<p><strong>Extra:</strong> ${acc.extra}</p>` : ''}
             </div>
         </details>
@@ -253,7 +254,8 @@ window.showModel = function (id) {
     `).join('') || '<p style="opacity:0.6;">Encara no hi ha vídeos relacionats.</p>';
 
     const bodyHTML = `
-        <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:25px;">
+        <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}" style="width:100%; border-radius:12px; margin-bottom:${window.imageCredits && window.imageCredits[model.image] ? '4px' : '25px'};">
+        ${window.creditHTML ? creditHTML(model.image, 'modal-credit') : ''}
         <p style="font-size:1.15rem; margin-bottom:25px;">${model.description}</p>
         
         <h3>Característiques Generals</h3>
@@ -329,6 +331,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const cardHTML = `
                 <div class="card" onclick="showModel(${model.id})">
                     <img loading="lazy" decoding="async" src="${model.image}" alt="${model.brand} ${model.model}">
+                    ${window.creditHTML ? creditHTML(model.image) : ''}
                     <div class="card-content">
                         <h3>${model.brand} ${model.model}</h3>
                         <p><strong>${model.years}</strong></p>
