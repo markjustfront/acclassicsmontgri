@@ -586,3 +586,84 @@ th, td {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 }
+/* ==================== MOBILE MENU - STYLED ROWS ==================== */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        top: 92px;                       /* sits right under the nav bar */
+        height: calc(100vh - 92px);
+        max-width: 300px;
+        padding: 10px 0 30px;
+        background: var(--dark);
+        border-left: 3px solid var(--gold);
+        overflow-y: auto;
+        visibility: hidden;
+        transition: right 0.4s ease, visibility 0.4s;
+    }
+
+    .nav-links.active {
+        visibility: visible;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 0;
+        padding: 16px 28px;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        color: #f1ece2;
+        border-bottom: 1px solid rgba(168, 137, 83, 0.25);
+        transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+    }
+
+    /* Stagger the rows as the menu opens */
+    .nav-links.active a:nth-child(1) { transition-delay: 0.10s; }
+    .nav-links.active a:nth-child(2) { transition-delay: 0.15s; }
+    .nav-links.active a:nth-child(3) { transition-delay: 0.20s; }
+    .nav-links.active a:nth-child(4) { transition-delay: 0.25s; }
+    .nav-links.active a:nth-child(5) { transition-delay: 0.30s; }
+    .nav-links.active a:nth-child(6) { transition-delay: 0.35s; }
+
+    .nav-links a:hover,
+    .nav-links a:active {
+        background: rgba(168, 137, 83, 0.15);
+        color: var(--gold);
+        padding-left: 36px;
+    }
+
+    /* Current page */
+    .nav-links a.current {
+        color: var(--gold);
+        background: rgba(168, 137, 83, 0.10);
+        border-left: 4px solid var(--gold);
+        padding-left: 24px;
+    }
+
+    /* Dim the page behind the open menu */
+    body.menu-open::after {
+        content: '';
+        position: fixed;
+        inset: 92px 0 0 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 998;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
