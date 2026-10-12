@@ -1165,3 +1165,31 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-suggest .cta-outline:hover { background: #c9a25f; color: var(--dark); }
 .pod-suggest .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .pod-suggest-note { margin: 14px 0 0; font-size: .88rem; color: #d9c9a8; }
+
+/* Disc de la setmana: cleaner layout */
+.pod-two { grid-template-columns: 1fr; gap: 8px; }
+.pod-disc.has-player { grid-template-columns: 1fr 1.1fr; gap: 32px; padding: 28px; align-items: center; }
+.pod-disc .weekly-tag { display: inline-block; margin-bottom: 10px; }
+.pod-disc h4 { font-size: 1.35rem; margin: 6px 0 6px; }
+.pod-disc-meta { margin: 0 0 12px; }
+.pod-disc p { line-height: 1.55; margin: 0 0 16px; }
+.pod-disc-player { grid-column: auto; }
+.cta-sm { min-height: 44px; padding: 0 18px; font-size: .95rem; display: inline-flex; align-items: center; }
+.pod-disc a.pod-car-btn { color: var(--dark); border-color: #c9a25f; margin-top: 0; text-decoration: none; }
+.pod-disc a.pod-car-btn:hover { background: #c9a25f; }
+@media (max-width: 760px) {
+  .pod-disc.has-player { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+  .pod-disc a.pod-car-btn { width: 100%; justify-content: center; box-sizing: border-box; }
+}
+@media (min-width: 761px) {
+  .pod-disc.has-player { background: transparent; box-shadow: none; padding: 8px 0; border-top: 1px solid rgba(122,97,54,.25); border-bottom: 1px solid rgba(122,97,54,.25); border-radius: 0; }
+}
+/* Disc: big player polish */
+@media (min-width: 761px) {
+  .pod-disc.has-player { grid-template-columns: 1fr 1.25fr; gap: 48px; padding: 28px 0; }
+}
+.pod-disc.has-player h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; line-height: 1.15; margin: 14px 0 8px; }
+.pod-disc.has-player .pod-disc-meta { font-size: 1.05rem; letter-spacing: .02em; margin-bottom: 18px; }
+.pod-disc.has-player p:not(.pod-disc-meta) { font-style: italic; color: #5a4c3f; border-left: 3px solid #c9a25f; padding-left: 14px; margin-bottom: 22px; }
+.pod-disc-player iframe { box-shadow: 0 14px 34px rgba(31,24,19,.18); }
+@media (max-width: 760px) { .pod-disc-player iframe { height: 80px !important; } }
