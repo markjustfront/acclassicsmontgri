@@ -1165,3 +1165,19 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-suggest .cta-outline:hover { background: #c9a25f; color: var(--dark); }
 .pod-suggest .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .pod-suggest-note { margin: 14px 0 0; font-size: .88rem; color: #d9c9a8; }
+
+/* Disc de la setmana: cleaner layout */
+.pod-two { grid-template-columns: 1fr; gap: 8px; }
+.pod-disc.has-player { grid-template-columns: 1fr 1.1fr; gap: 32px; padding: 28px; align-items: center; }
+.pod-disc .weekly-tag { display: inline-block; margin-bottom: 10px; }
+.pod-disc h4 { font-size: 1.35rem; margin: 6px 0 6px; }
+.pod-disc-meta { margin: 0 0 12px; }
+.pod-disc p { line-height: 1.55; margin: 0 0 16px; }
+.pod-disc-player { grid-column: auto; }
+.cta-sm { min-height: 44px; padding: 0 18px; font-size: .95rem; display: inline-flex; align-items: center; }
+.pod-disc a.pod-car-btn { color: var(--dark); border-color: #c9a25f; margin-top: 0; text-decoration: none; }
+.pod-disc a.pod-car-btn:hover { background: #c9a25f; }
+@media (max-width: 760px) {
+  .pod-disc.has-player { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+  .pod-disc a.pod-car-btn { width: 100%; justify-content: center; box-sizing: border-box; }
+}

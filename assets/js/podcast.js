@@ -15,7 +15,7 @@
     latest.hidden = false; if (soon) soon.hidden = true;
     latest.querySelector('.pod-latest-title').textContent = 'Episodi ' + e.num + ': ' + e.title;
     var pl = latest.querySelector('.pod-player');
-    pl.innerHTML = src ? '<iframe title="Reproductor de l\u2019episodi ' + esc(e.num) + '" src="' + src + '" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe>' : '<p>' + esc(e.summary) + '</p>';
+    pl.innerHTML = src ? '<iframe title="Reproductor de l\u2019episodi ' + esc(e.num) + '" src="' + src + '" width="100%" height="80" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe>' : '<p>' + esc(e.summary) + '</p>';
   } else if (soon && P.launchDate) {
     soon.querySelector('.pod-launch').textContent = 'Primer episodi: ' + fmt(P.launchDate) + '.';
   }
@@ -32,7 +32,7 @@
   // Disc de la setmana
   var d = P.discDelMes, box = document.getElementById('podDisc');
   if (box && d) {
-    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="pod-text-link" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
+    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="cta cta-outline cta-sm pod-car-btn" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="80" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
     if (embed(d.spotify)) box.classList.add('has-player');
   }
 })();
