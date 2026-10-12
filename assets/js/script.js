@@ -362,12 +362,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (searchInput) {
             searchInput.addEventListener('input', filterModels);
+            // Prefill from ?q= (e.g. brand links on the home page)
+            const q = new URLSearchParams(location.search).get('q');
+            if (q) searchInput.value = q;
         }
 
         // Show only first 9 cars
         filteredData = modelsData;
         displayedCount = 0;
         renderModels(filteredData);
+        if (searchInput && searchInput.value) filterModels();
 
         // Load More button
         if (loadMoreBtn) {

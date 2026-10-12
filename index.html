@@ -12,7 +12,9 @@
     <meta property="og:image" content="https://acclassicsmontgri.es/images/hero.jpg">
     <meta name="theme-color" content="#1f1813">
     <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+    <link rel="preload" as="image" href="images/hero.jpg">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>document.documentElement.classList.add('js');</script>
 
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
@@ -24,45 +26,79 @@
 </head>
 
 <body>
-    <header>
+    <header class="home-hero">
         <div class="hero-content">
+            <p class="hero-eyebrow">Torroella de Montgrí · Costa Brava</p>
             <h1>AC Classics Montgrí</h1>
             <p class="subtitle">Passió pels cotxes clàssics europeus a la Costa Brava</p>
-            <a href="#sobre" class="btn">Descobreix el nostre club</a>
+            <div class="hero-actions">
+                <a href="cataleg.html" class="btn">Explora el catàleg</a>
+                <a href="esdeveniments.html" class="btn btn-outline">Esdeveniments</a>
+            </div>
         </div>
+        <a href="#sobre" class="hero-scroll" aria-label="Descobreix el nostre club">Descobreix el nostre club <span aria-hidden="true">↓</span></a>
         <p class="img-credit hero-credit">Foto: Jiří Sedláček, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Renault_Alpine_A310_V6_at_Legendy_2019_in_Prague.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></p>
     </header>
 
-    <section id="sobre" class="about">
+    <main>
+    <section id="sobre" class="home-about reveal">
         <h2>Sobre Nosaltres</h2>
-        <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.15rem;">
-            AC Classics Montgrí és un club d’entusiastes dedicat als cotxes clàssics europeus, amb especial afició als
-            models espanyols i francesos.
-        </p>
-        <p style="max-width: 700px; margin: 0 auto; font-size: 1.15rem;">
-            Ens apassiona especialment els Renault clàssics. Organitzem rutes, trobades i participem en concentracions
-            per la Costa Brava i l’Empordà.
-        </p>
-    </section>
-
-    <section id="contacte">
-        <h2>Uneix-te al Club</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">
-            Si tens un cotxe clàssic o simplement t’apassiona el món dels clàssics, contacta’ns!
-        </p>
-        <div style="text-align: center;">
-            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/acclassicsmontgri/" target="_blank"
-                    style="color: #c9a227;">@acclassicsmontgri</a></p>
-            <p><strong>Email:</strong> <a href="mailto:acclassicsmontgri@gmail.com"
-                    style="color: #c9a227;">acclassicsmontgri@gmail.com</a></p>
-            <p><strong>Localització:</strong> Torroella de Montgrí / L’Estartit • Girona, Catalunya</p>
+        <div class="home-about-grid">
+            <p>
+                AC Classics Montgrí és un club d’entusiastes dedicat als cotxes clàssics europeus, amb especial afició als
+                models espanyols i francesos.
+            </p>
+            <p>
+                Ens apassiona especialment els Renault clàssics. Organitzem rutes, trobades i participem en concentracions
+                per la Costa Brava i l’Empordà.
+            </p>
         </div>
     </section>
+
+    <section id="trobades" class="home-events reveal" aria-labelledby="trobades-title">
+        <h2 id="trobades-title">Properes trobades</h2>
+        <p class="section-intro">Trobades, exposicions i ral·lis de cotxes clàssics a menys de 70 km de Torroella de Montgrí. Confirmeu sempre la data amb l’organització.</p>
+        <div id="homeEvents" class="home-events-grid"></div>
+        <div class="section-cta"><a href="esdeveniments.html" class="btn">Tots els esdeveniments</a></div>
+    </section>
+
+    <section id="marques" class="home-brands reveal" aria-labelledby="marques-title">
+        <h2 id="marques-title">Marques del catàleg</h2>
+        <ul class="brand-grid">
+            <li><a href="cataleg.html?q=Renault">Renault</a></li>
+            <li><a href="cataleg.html?q=Citro%C3%ABn">Citroën</a></li>
+            <li><a href="cataleg.html?q=Peugeot">Peugeot</a></li>
+            <li><a href="cataleg.html?q=SEAT">SEAT</a></li>
+            <li><a href="cataleg.html?q=Alpine">Alpine</a></li>
+            <li><a href="cataleg.html?q=LM%20Sovra">LM Sovra</a></li>
+            <li><a href="cataleg.html?q=BMW">BMW</a></li>
+            <li><a href="cataleg.html?q=Mercedes">Mercedes-Benz</a></li>
+        </ul>
+    </section>
+
+    <section id="contacte" class="home-contact reveal">
+        <h2>Uneix-te al Club</h2>
+        <p class="section-intro">
+            Si tens un cotxe clàssic o simplement t’apassiona el món dels clàssics, contacta’ns!
+        </p>
+        <div class="contact-cards">
+            <a class="contact-card" href="https://www.instagram.com/acclassicsmontgri/" target="_blank" rel="noopener">
+                <strong>Instagram</strong><span>@acclassicsmontgri</span>
+            </a>
+            <a class="contact-card" href="mailto:acclassicsmontgri@gmail.com">
+                <strong>Email</strong><span>acclassicsmontgri@gmail.com</span>
+            </a>
+            <div class="contact-card">
+                <strong>Localització</strong><span>Torroella de Montgrí / L’Estartit • Girona, Catalunya</span>
+            </div>
+        </div>
+    </section>
+    </main>
 
     <nav>
     <div class="nav-container">
         <a href="index.html" class="logo-link">
-            <img src="images/logo.png" alt="AC Classics Montgrí" class="logo">
+            <img src="images/logo.png" alt="AC Classics Montgrí" class="logo" width="62" height="62" decoding="async">
         </a>
 
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -103,6 +139,8 @@
 
     <!-- Shared Mobile Menu Script -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/data/events.js"></script>
+    <script src="assets/js/home.js"></script>
 </body>
 
 </html>
