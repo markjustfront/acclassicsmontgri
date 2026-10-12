@@ -1196,3 +1196,5 @@ a.contact-card:hover { transform: translateY(-3px); }
 
 .club-car { margin: 36px auto 0; max-width: 820px; padding: 0 16px; }
 .club-car img { width: 100%; height: auto; display: block; }
+.club-car { margin: 0 auto 28px; }
+.club-car { margin-top: 28px; }
