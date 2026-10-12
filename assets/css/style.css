@@ -1151,3 +1151,6 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-disc a { color: #7a6136; font-weight: 600; }
 .pod-ep-empty .radio-disc { max-width: 120px; }
 .pod-episodes { margin-top: 0; }
+.pod-disc-player { grid-column: 1 / -1; }
+.pod-disc.has-player .pod-disc-art { display: none; }
+.pod-disc.has-player { grid-template-columns: 1fr; }

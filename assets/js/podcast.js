@@ -1,7 +1,7 @@
 (function () {
   var P = window.PODCAST || {}; var eps = P.episodes || [];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function embed(url) { var m = /open\.spotify\.com\/(episode|show)\/([A-Za-z0-9]+)/.exec(url || ''); return m ? 'https://open.spotify.com/embed/' + m[1] + '/' + m[2] : ''; }
+  function embed(url) { var m = /open\.spotify\.com\/(episode|show|album)\/([A-Za-z0-9]+)/.exec(url || ''); return m ? 'https://open.spotify.com/embed/' + m[1] + '/' + m[2] + '?theme=0' : ''; }
   function fmt(d) { try { return new Date(d + 'T12:00:00').toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return d; } }
   // Subscribe buttons
   var subs = document.getElementById('podSubs'), h = '';
@@ -32,6 +32,7 @@
   // Disc de la setmana
   var d = P.discDelMes, box = document.getElementById('podDisc');
   if (box && d) {
-    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="pod-text-link" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>';
+    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="pod-text-link" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
+    if (embed(d.spotify)) box.classList.add('has-player');
   }
 })();
