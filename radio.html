@@ -30,17 +30,41 @@
         <h2>Revolucions FM</h2>
         <p class="section-intro">El pòdcast del club sobre vinils i música de tota la vida. Perquè les revolucions del motor i les dels discos van de la mà: un bon disc, la carretera de la Costa Brava i un clàssic d’època.</p>
 
-        <div class="coming-soon" role="status">
+        <div class="pod-subs" id="podSubs"></div>
+
+        <div class="coming-soon" id="podSoon" role="status">
             <span class="weekly-tag">Properament</span>
-            <p>El pòdcast arriba properament. Aquí hi trobareu els episodis: discos, cançons i records que ens acompanyen als nostres clàssics.</p>
+            <p>El pòdcast arriba properament. Aquí hi trobareu els episodis: discos, cançons i records que ens acompanyen als nostres clàssics. <span class="pod-launch"></span></p>
         </div>
 
-        <!-- Future podcast episodes. Each card: cover image, title, short text. No content yet. -->
-        <div class="grid radio-grid" aria-label="Episodis del pòdcast (properament)">
-            <div class="card radio-placeholder" aria-hidden="true"><div class="radio-disc"></div><div class="card-content"><h3>Properament</h3></div></div>
-            <div class="card radio-placeholder" aria-hidden="true"><div class="radio-disc"></div><div class="card-content"><h3>Properament</h3></div></div>
-            <div class="card radio-placeholder" aria-hidden="true"><div class="radio-disc"></div><div class="card-content"><h3>Properament</h3></div></div>
+        <div class="pod-latest" id="podLatest" hidden>
+            <h3 class="pod-h">Últim episodi</h3>
+            <p class="pod-latest-title"></p>
+            <div class="pod-player"></div>
         </div>
+
+        <div class="pod-two">
+            <div>
+                <h3 class="pod-h" id="podDiscTitle">Disc del mes</h3>
+                <div class="pod-disc" id="podDisc" aria-labelledby="podDiscTitle">
+                    <div class="pod-disc-art"><div class="radio-disc"></div></div>
+                    <div><span class="weekly-tag">Properament</span><h4>Un disc i un cotxe de la mateixa època</h4><p>Cada mes triarem un vinil que faci parella amb el <a href="cotxes.html">cotxe del mes</a>.</p></div>
+                </div>
+            </div>
+            <div>
+                <h3 class="pod-h">Suggereix una cançó</h3>
+                <div class="pod-suggest">
+                    <p>Tens un disc que sempre sona al teu clàssic? Una història per explicar? Fes-nos-ho saber i potser surt en un episodi.</p>
+                    <p class="pod-suggest-actions">
+                        <a class="cta cta-primary cta-md" href="https://www.instagram.com/acclassicsmontgri/" target="_blank" rel="noopener">Per Instagram<span class="sr-only"> (s’obre en una pestanya nova)</span></a>
+                        <a class="cta cta-outline cta-md" href="mailto:acclassicsmontgri@gmail.com?subject=Revolucions%20FM%3A%20suggeriment">Per correu</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="pod-h" id="podEpTitle">Episodis</h3>
+        <ul class="pod-episodes" id="podEpisodes" aria-labelledby="podEpTitle"></ul>
     </section>
     </main>
 
@@ -109,6 +133,8 @@
 
     <!-- Shared Mobile Menu Script -->
     <script src="assets/js/menu.js"></script>
+    <script src="assets/data/podcast.js"></script>
+    <script src="assets/js/podcast.js"></script>
 </body>
 
 </html>
