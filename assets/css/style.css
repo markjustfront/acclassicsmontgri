@@ -1184,3 +1184,10 @@ a.contact-card:hover { transform: translateY(-3px); }
 @media (min-width: 761px) {
   .pod-disc.has-player { background: transparent; box-shadow: none; padding: 8px 0; border-top: 1px solid rgba(122,97,54,.25); border-bottom: 1px solid rgba(122,97,54,.25); border-radius: 0; }
 }
+/* Disc: dark warm card so the Spotify player blends in */
+.pod-disc.has-player { background: var(--dark) !important; color: #f3ead9; border: 0 !important; border-radius: 12px !important; padding: 24px !important; box-shadow: 0 6px 24px rgba(31,24,19,0.08) !important; }
+.pod-disc.has-player h4 { color: #fff; }
+.pod-disc.has-player .pod-disc-meta { color: #c9a25f; }
+.pod-disc.has-player .weekly-tag { background: #c9a25f; color: var(--dark); }
+.pod-disc.has-player a.pod-car-btn { color: #f3ead9; }
+.pod-disc.has-player a.pod-car-btn:hover { color: var(--dark); }
