@@ -13,6 +13,7 @@ window.PODCAST = {
     album: "The Dark Side of the Moon",
     year: 1973,
     cover: "",
+    spotify: "https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv",
     note: "El disc que sonava a tots els cotxes dels setanta. Del 1973, just quan el Fiat X1/9, el nostre cotxe del mes, acabava de sortir al carrer."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
