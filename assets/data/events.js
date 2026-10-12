@@ -1,8 +1,18 @@
-// Public classic car events within ~70 km of Torroella de Montgrí.
-// Shared by esdeveniments.html and index.html. Each one is confirmed by the linked source.
+// Classic car events: public events within ~70 km of Torroella de Montgrí, plus past events the club attended (some farther away).
+// Shared by esdeveniments.html and index.html. Each one is confirmed by the linked source (url) when present.
 // date = first day (YYYY-MM-DD).
+// dateText = shown date (the year is appended from date); empty = date not confirmed, only the year is shown.
+// img (optional) = cover photo; url (optional) = source link.
 // type = rally (ral·li / regularitat), trobada (trobada / concentració), fira (fira / saló) or altres.
 window.ACC_EVENTS = [
+    // Past events the club attended (cover photos from the club's Instagram highlights)
+    { title: "Salon Rétro Mécanic Perpinyà", desc: "Hi vam anar amb el club.", location: "Perpinyà (Parc des Expositions)", type: "fira", date: "2025-12-06", dateText: "6 - 7 de desembre", coords: [42.699, 2.895], img: "images/events/retro-mecanic-perpignan-2025.webp", url: "https://www.pieces-auto-collection.fr/Agenda,RETRO-MECANIC-2025,06-12-2025,6227.htm" },
+    { title: "Fira de les 2 i 4 Rodes", desc: "Hi vam anar amb el club.", location: "Fontcoberta (Melianta)", type: "fira", date: "2026-02-07", dateText: "7 de febrer", coords: [42.137, 2.787], img: "images/events/fira-2-4-rodes-fontcoberta-2026.webp", url: "https://www.miclasico.com/calendario/ferias/32-fira-de-les-2-i-4-rodes-fontcoberta" },
+    { title: "Motor Passion Avinyó", desc: "Hi vam anar amb el club.", location: "Avinyó (Parc des Expositions)", type: "fira", date: "2026-03-20", dateText: "20 - 22 de març", coords: [43.909, 4.888], img: "images/events/motor-passion-avignon-2026.webp", url: "https://motor-passion.com/edition-2026/programme/" },
+    { title: "Trobada de Vehicles Clàssics de Serra de Daró", desc: "Hi vam anar amb el club.", location: "Serra de Daró", type: "trobada", date: "2026-04-06", dateText: "6 d'abril", coords: [42.028, 3.071], img: "images/events/serra-de-daro-classics-2026.webp", url: "https://serradedaro.cat/16a-trobada-de-vehicles-classics/" },
+    { title: "Trobada de Vehicles Clàssics de Mont-ras", desc: "Hi vam anar amb el club.", location: "Mont-ras", type: "trobada", date: "2026-01-01", dateText: "", coords: [41.903, 3.143], img: "images/events/mont-ras-classics-2026.webp" },
+    { title: "Concentració de Clàssics Volkswagen Aircooled", desc: "Hi vam anar amb el club.", location: "Tossa de Mar", type: "trobada", date: "2026-09-25", dateText: "25 - 27 de setembre", coords: [41.720, 2.932], img: "images/events/tossa-vw-aircooled-2026.webp", url: "https://visittossa.com/agenda_anual/xxviii-concentracio-de-classics-volkswagen-aircooled-tossa-de-mar/" },
+    { title: "RetroMotor Platja d'Aro", desc: "Hi vam anar amb el club.", location: "Platja d'Aro (Aparcament Masia Bas)", type: "fira", date: "2026-09-26", dateText: "26 de setembre", coords: [41.818, 3.064], img: "images/events/retromotor-platja-daro-2026.webp", url: "https://www.visitplatjadaro.com/ca/activitats-interes/286/retromotor" },
     { title: "X Clàssic Pla de l'Estany", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Cornellà del Terri", type: "rally", date: "2026-01-31", dateText: "31 de gener", coords: [42.085, 2.817], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
     { title: "74 Rally KH-7 Costa Brava", desc: "Ral·li històric internacional, obre el Campionat d'Europa FIA de Ral·lis Històrics", location: "Girona i Fornells de la Selva", type: "rally", date: "2026-03-05", dateText: "5 - 7 de març", coords: [41.979, 2.821], url: "https://rallyclassics.club/74-rally-costa-brava-2026/" },
     { title: "II Clàssic Vila de Llançà", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Llançà", type: "rally", date: "2026-03-21", dateText: "21 de març", coords: [42.366, 3.152], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },

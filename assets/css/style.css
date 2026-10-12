@@ -411,6 +411,15 @@ details[open] summary {
 .events .badge.exposicio { background: #81d4fa; color: #1a1a1a; }
 .events .badge.rally { background: #ef9a9a; color: #1a1a1a; }
 
+.events .card .event-img {
+    display: block;
+    width: calc(100% + 48px);
+    height: 260px;
+    margin: -24px -24px 16px;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
 .events h3 {
     margin: 12px 0 8px;
     font-size: 1.35rem;
