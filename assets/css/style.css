@@ -986,6 +986,48 @@ a.contact-card:hover { transform: translateY(-3px); }
 .home-weekly { text-align: center; }
 .home-weekly .weekly-teaser { text-align: left; }
 
+/* Cotxe del mes CTAs */
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 26px;
+    border-radius: 9999px; font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em;
+    text-decoration: none; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease; }
+.cta .cta-arrow { flex: none; transition: transform .25s ease; }
+.cta:hover .cta-arrow, .cta:focus-visible .cta-arrow { transform: translateX(5px); }
+.cta:focus-visible { outline: 3px solid var(--dark); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(201, 162, 95, 0.45); }
+.cta-primary { background: #c9a25f; color: var(--dark); border: 2px solid #c9a25f; box-shadow: 0 4px 14px rgba(31, 24, 19, 0.18); }
+.cta-primary:hover { background: #d4b06f; border-color: #d4b06f; color: var(--dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31, 24, 19, 0.24); }
+.cta-primary:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(31, 24, 19, 0.2); }
+.cta-outline { background: transparent; color: var(--dark); border: 2px solid var(--dark); margin-top: 6px; }
+.cta-outline:hover { background: var(--dark); color: #e6d5b3; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(31, 24, 19, 0.2); }
+.cta-garatge { margin: -10px 0 30px; }
+.cta-md { min-height: 48px; padding: 0 24px; font-size: 1rem; }
+#historial { scroll-margin-top: 110px; }
+.teaser-body .weekly-tag { align-self: flex-start; }
+.home-weekly .weekly-teaser { grid-template-columns: 55fr 45fr; gap: 36px; max-width: 1080px; padding: 22px; }
+.teaser-body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 8px 18px 8px 0; }
+.home-weekly .weekly-teaser h3 { font-family: 'Playfair Display', serif; font-size: 2.1rem; line-height: 1.15; margin: 14px 0 4px; }
+.teaser-years { color: var(--gold); font-weight: 600; margin: 0 0 14px; }
+.teaser-specs { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.teaser-specs li { background: #f7f2e8; border-radius: 8px; padding: 6px 10px; font-size: 0.88rem; color: var(--dark); }
+.teaser-specs li span { color: #6b5a3e; font-weight: 600; margin-right: 2px; }
+.teaser-desc { margin: 0 0 20px; line-height: 1.55; color: #4a4038; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.teaser-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.teaser-link { display: inline-flex; align-items: center; min-height: 44px; gap: 6px; color: var(--dark); font-weight: 500; text-decoration: underline;
+    text-decoration-color: rgba(168, 137, 83, 0.6); text-underline-offset: 4px; }
+.teaser-link:hover { text-decoration-color: var(--dark); }
+.teaser-link:focus-visible { outline: 3px solid var(--dark); outline-offset: 3px; border-radius: 4px; }
+@media (max-width: 768px) {
+    .home-weekly .weekly-teaser { grid-template-columns: 1fr; gap: 16px; padding: 14px; }
+    .teaser-body { padding: 0 4px 6px; align-items: stretch; }
+    .home-weekly .weekly-teaser h3 { font-size: 1.7rem; }
+    .teaser-actions { flex-direction: column; align-items: stretch; gap: 6px; }
+    .teaser-actions .cta { width: 100%; }
+    .teaser-link { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cta, .cta .cta-arrow { transition: none; }
+    .cta:hover, .cta:active, .cta:hover .cta-arrow, .cta:focus-visible .cta-arrow { transform: none; }
+}
+
 .coming-soon { max-width: 680px; margin: 0 auto 36px; text-align: center; padding: 24px; border: 2px dashed var(--gold); border-radius: 14px; background: #fff; }
 .coming-soon p { margin-top: 10px; color: #555; }
 .radio-placeholder { opacity: 0.55; cursor: default; }
