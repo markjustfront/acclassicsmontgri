@@ -260,6 +260,97 @@ window.imageCredits = {
     "file": "1978 Sovra LM2 (Flickr)",
     "via": "Flickr"
   },
+  "images/cars/mercedes/300sl-w198-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_300_SL_Roadster_(W_198_II)-_6280066.jpg",
+    "file": "Mercedes-Benz 300 SL Roadster (W 198 II)- 6280066.jpg"
+  },
+  "images/cars/mercedes/fintail-w111-main.jpg": {
+    "author": "Steve Glover",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes_Benz_220SE_(1965).jpg",
+    "file": "Mercedes Benz 220SE (1965).jpg"
+  },
+  "images/cars/mercedes/g-w460-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_W460_Classic-Gala_2021_1X7A0301.jpg",
+    "file": "Mercedes-Benz W460 Classic-Gala 2021 1X7A0301.jpg"
+  },
+  "images/cars/mercedes/pagoda-w113-main.jpg": {
+    "author": "diba",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Diba_mb_W113.jpg",
+    "file": "Diba mb W113.jpg"
+  },
+  "images/cars/mercedes/ponton-main.jpg": {
+    "author": "Albank1973",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ponton-Mercedes.jpg",
+    "file": "Ponton-Mercedes.jpg"
+  },
+  "images/cars/mercedes/r107-main.jpg": {
+    "author": "Granada",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20181208_Retro_Classic_Bavaria_Mercedes_Benz_300SL_R107_850_3316.jpg",
+    "file": "20181208 Retro Classic Bavaria Mercedes Benz 300SL R107 850 3316.jpg"
+  },
+  "images/cars/mercedes/r129-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_R129_500_SL_1X7A0335.jpg",
+    "file": "Mercedes-Benz R129 500 SL 1X7A0335.jpg"
+  },
+  "images/cars/mercedes/w108-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes_Benz_280SE_3.5_1971_Castle_Hedingham_2008.JPG",
+    "file": "Mercedes Benz 280SE 3.5 1971 Castle Hedingham 2008.JPG"
+  },
+  "images/cars/mercedes/w116-main.jpg": {
+    "author": "Rudolf Stricker",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_W116_front_20080424.jpg",
+    "file": "Mercedes-Benz W116 front 20080424.jpg"
+  },
+  "images/cars/mercedes/w123-main.jpg": {
+    "author": "VBTC (Viquipèdia en alemany)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:123_280E_0477110307_(14wik).JPG",
+    "file": "123 280E 0477110307 (14wik).JPG"
+  },
+  "images/cars/mercedes/w124-main.jpg": {
+    "author": "OSX",
+    "license": "Domini públic",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:1986-1989_Mercedes-Benz_300_E_(W124)_sedan_01.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:1986-1989_Mercedes-Benz_300_E_(W124)_sedan_01.jpg",
+    "file": "1986-1989 Mercedes-Benz 300 E (W124) sedan 01.jpg"
+  },
+  "images/cars/mercedes/w126-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercedes_W126.jpg",
+    "file": "Mercedes W126.jpg"
+  },
+  "images/cars/mercedes/w201-main.jpg": {
+    "author": "Jeremy from Sydney, Australia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1987_Mercedes_Benz_190_E_(W201)_2.6_sedan_(24084486981).jpg",
+    "file": "1987 Mercedes Benz 190 E (W201) 2.6 sedan (24084486981).jpg"
+  },
   "images/cars/peugeot/203-main.jpg": {
     "author": "JoachimKohler-HB",
     "license": "CC BY-SA 4.0",
