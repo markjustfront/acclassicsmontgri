@@ -85,6 +85,20 @@ const carFiles = [
     "assets/data/cars/bmw/m1.js", // ID 76
     "assets/data/cars/bmw/z1.js", // ID 77
     "assets/data/cars/bmw/e36.js", // ID 78
+    // Mercedes-Benz:
+    "assets/data/cars/mercedes/300sl-w198.js", // ID 79
+    "assets/data/cars/mercedes/ponton.js", // ID 80
+    "assets/data/cars/mercedes/fintail-w111.js", // ID 81
+    "assets/data/cars/mercedes/pagoda-w113.js", // ID 82
+    "assets/data/cars/mercedes/w108.js", // ID 83
+    "assets/data/cars/mercedes/r107.js", // ID 84
+    "assets/data/cars/mercedes/w116.js", // ID 85
+    "assets/data/cars/mercedes/w123.js", // ID 86
+    "assets/data/cars/mercedes/w126.js", // ID 87
+    "assets/data/cars/mercedes/w201.js", // ID 88
+    "assets/data/cars/mercedes/w124.js", // ID 89
+    "assets/data/cars/mercedes/g-w460.js", // ID 90
+    "assets/data/cars/mercedes/r129.js", // ID 91
 ];
 
 // Load all car files
