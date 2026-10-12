@@ -6,7 +6,7 @@ window.PODCAST = {
   youtube: "",
   // First episode date, "YYYY-MM-DD", or "" if not decided
   launchDate: "",
-  // Disc del mes: { month: "Octubre 2026", artist: "", album: "", year: 1975, cover: "images/...", note: "", carYear: "" } or null
+  // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, cover: "images/...", note: "", carYear: "" } or null
   discDelMes: null,
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
