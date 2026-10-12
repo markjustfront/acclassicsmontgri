@@ -1198,13 +1198,3 @@ a.contact-card:hover { transform: translateY(-3px); }
 .club-car img { width: 100%; height: auto; display: block; }
 .club-car { margin: 0 auto 28px; }
 .club-car { margin-top: 28px; }
-/* Club R5 drive-in */
-@media (prefers-reduced-motion: no-preference) {
-  .club-car img { animation: clubCarIn 1.4s cubic-bezier(.22,.8,.25,1) .15s both; }
-  @keyframes clubCarIn {
-    0%   { opacity: 0; transform: translateX(-60px); }
-    75%  { opacity: 1; transform: translateX(4px); }
-    100% { opacity: 1; transform: translateX(0); }
-  }
-}
-.club-car { overflow: hidden; }
