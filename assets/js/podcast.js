@@ -1,7 +1,7 @@
 (function () {
   var P = window.PODCAST || {}; var eps = P.episodes || [];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function embed(url) { var m = /open\.spotify\.com\/(episode|show|album)\/([A-Za-z0-9]+)/.exec(url || ''); return m ? 'https://open.spotify.com/embed/' + m[1] + '/' + m[2] : ''; }
+  function embed(url) { var m = /open\.spotify\.com\/(episode|show|album)\/([A-Za-z0-9]+)/.exec(url || ''); return m ? 'https://open.spotify.com/embed/' + m[1] + '/' + m[2] + '?theme=0' : ''; }
   function fmt(d) { try { return new Date(d + 'T12:00:00').toLocaleDateString('ca-ES', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return d; } }
   // Subscribe buttons
   var subs = document.getElementById('podSubs'), h = '';
