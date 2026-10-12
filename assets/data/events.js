@@ -6,7 +6,6 @@
 // type = rally (ral·li / regularitat), trobada (trobada / concentració), fira (fira / saló) or altres.
 window.ACC_EVENTS = [
     // Past events the club attended (cover photos from the club's Instagram highlights)
-    { title: "Salon Rétro Mécanic Perpinyà", desc: "Hi vam anar amb el club.", location: "Perpinyà (Parc des Expositions)", type: "fira", date: "2025-12-06", dateText: "6 - 7 de desembre", coords: [42.699, 2.895], img: "images/events/retro-mecanic-perpignan-2025.webp", url: "https://www.pieces-auto-collection.fr/Agenda,RETRO-MECANIC-2025,06-12-2025,6227.htm" },
     { title: "Fira de les 2 i 4 Rodes", desc: "Hi vam anar amb el club.", location: "Fontcoberta (Melianta)", type: "fira", date: "2026-02-07", dateText: "7 de febrer", coords: [42.137, 2.787], img: "images/events/fira-2-4-rodes-fontcoberta-2026.webp", url: "https://www.miclasico.com/calendario/ferias/32-fira-de-les-2-i-4-rodes-fontcoberta" },
     { title: "Motor Passion Avinyó", desc: "Hi vam anar amb el club.", location: "Avinyó (Parc des Expositions)", type: "fira", date: "2026-03-20", dateText: "20 - 22 de març", coords: [43.909, 4.888], img: "images/events/motor-passion-avignon-2026.webp", url: "https://motor-passion.com/edition-2026/programme/" },
     { title: "Trobada de Vehicles Clàssics de Serra de Daró", desc: "Hi vam anar amb el club.", location: "Serra de Daró", type: "trobada", date: "2026-04-06", dateText: "6 d'abril", coords: [42.028, 3.071], img: "images/events/serra-de-daro-classics-2026.webp", url: "https://serradedaro.cat/16a-trobada-de-vehicles-classics/" },
