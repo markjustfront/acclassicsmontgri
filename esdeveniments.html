@@ -40,24 +40,25 @@
 
         <div class="nav-links" id="nav-links">
             <a href="index.html">Inici</a>
-            <a href="cotxes.html">Els Nostres Cotxes</a>
-            <a href="cataleg.html">Catàleg</a>
+            <a href="cataleg.html">Garatge</a>
             <a href="esdeveniments.html">Esdeveniments</a>
-            <a href="enllaços.html">Enllaços d'Interès</a>
-            <a href="index.html#contacte">Contacte</a>
+            <a href="radio.html">Ràdio</a>
+            <a href="club.html">Club</a>
+            <a href="enllaços.html">Enllaços</a>
         </div>
     </div>
 </nav>
 
     <section class="events" style="padding-top: 120px;">
         <h2>Esdeveniments de Clàssics (≤70 km)</h2>
-        <p style="text-align:center; max-width:700px; margin:-30px auto 30px; color:#555;">Trobades, exposicions i ral·lis de cotxes clàssics del 2026 a menys de 70 km de Torroella de Montgrí. Confirmeu sempre la data amb l’organització.</p>
+        <p style="text-align:center; max-width:700px; margin:-30px auto 30px; color:#555;">Ral·lis, trobades, fires i altres esdeveniments de cotxes clàssics del 2026 a menys de 70 km de Torroella de Montgrí. Confirmeu sempre la data amb l’organització.</p>
 
         <div class="filter" style="text-align: center; margin-bottom: 40px;">
             <button onclick="filterEvents('all')" class="btn">Tots</button>
+            <button onclick="filterEvents('rally')" class="btn">Ral·lis</button>
             <button onclick="filterEvents('trobada')" class="btn">Trobades</button>
-            <button onclick="filterEvents('exposicio')" class="btn">Exposicions</button>
-            <button onclick="filterEvents('rally')" class="btn">Rallys</button>
+            <button onclick="filterEvents('fira')" class="btn">Fires</button>
+            <button onclick="filterEvents('altres')" class="btn">Altres</button>
         </div>
 
         <div id="eventsContainer" class="grid"></div>
@@ -69,6 +70,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         const events = window.ACC_EVENTS || [];
+        // Event types (type field in assets/data/events.js)
+        const typeLabels = { rally: 'Ral·li', trobada: 'Trobada', fira: 'Fira', altres: 'Altres' };
 
         const container = document.getElementById("eventsContainer");
         const today = new Date().toISOString().slice(0, 10);
@@ -83,7 +86,7 @@
                 const isPast = e.date < today;
                 container.innerHTML += `
                     <div class="card${isPast ? ' past' : ''}">
-                        <span class="badge ${e.type}">${e.type}</span>
+                        <span class="badge ${e.type}">${typeLabels[e.type] || e.type}</span>
                         ${isPast ? '<span class="badge done">Celebrat</span>' : '<span class="badge soon">Properament</span>'}
                         <h3>${e.title}</h3>
                         <p>${e.desc}</p>

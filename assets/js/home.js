@@ -3,7 +3,7 @@
     const box = document.getElementById('homeEvents');
     if (box) {
         const today = new Date().toISOString().slice(0, 10);
-        const labels = { trobada: 'Trobada', exposicio: 'Exposició', rally: 'Ral·li' };
+        const labels = { rally: 'Ral·li', trobada: 'Trobada', fira: 'Fira', altres: 'Altres', exposicio: 'Exposició' };
         const next = (window.ACC_EVENTS || [])
             .filter(e => e.date >= today)
             .sort((a, b) => a.date.localeCompare(b.date))
