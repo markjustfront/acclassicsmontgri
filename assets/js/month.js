@@ -73,6 +73,19 @@
     }
 
     const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    // Pick 2-3 key specs ("<strong>Label:</strong> value") from generalCharacteristics
+    const SPEC_ORDER = [['Potència', 'Potència'], ['Motor', 'Motor'], ['Desplaçament', 'Motor'], ['Velocitat', 'Velocitat màx.'], ['Tracció', 'Tracció'], ['Unitats', 'Unitats']];
+    function keySpecs(html) {
+        const found = {};
+        String(html || '').replace(/<strong>([^<:]+):?<\/strong>:?\s*([^<]+)/g, (_, k, v) => { found[k.trim()] = v.trim(); });
+        const out = [], used = new Set();
+        SPEC_ORDER.forEach(([key, label]) => {
+            if (out.length >= 3 || used.has(label)) return;
+            const k = Object.keys(found).find(x => x.startsWith(key));
+            if (k && found[k]) { out.push({ label, value: found[k] }); used.add(label); }
+        });
+        return out;
+    }
     const credit = p => (window.creditHTML ? window.creditHTML(p) : '');
 
     // Month list (newest first): the current month plus every month back to April 2026
@@ -93,14 +106,20 @@
         window.getCarsOfMonth(1).then(([m]) => {
             if (!m) { teaser.closest('section').hidden = true; return; }
             const c = m.car;
+            const specs = keySpecs(c.generalCharacteristics);
             teaser.innerHTML = `
                 <div class="weekly-teaser">
                     <figure><img loading="lazy" src="${esc(c.image)}" alt="${esc(c.brand + ' ' + c.model)}">${credit(c.image)}</figure>
-                    <div>
+                    <div class="teaser-body">
                         <span class="weekly-tag">${esc(m.label)}</span>
                         <h3>${esc(c.brand)} ${esc(c.model)}</h3>
-                        <p><strong>${esc(c.years)}</strong></p>
-                        <a class="cta cta-outline" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        ${c.years ? `<p class="teaser-years">${esc(c.years)}</p>` : ''}
+                        ${specs.length ? `<ul class="teaser-specs">${specs.map(x => `<li><span>${esc(x.label)}</span> ${esc(x.value)}</li>`).join('')}</ul>` : ''}
+                        ${c.description ? `<p class="teaser-desc">${esc(c.description)}</p>` : ''}
+                        <div class="teaser-actions">
+                            <a class="cta cta-primary cta-md" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a class="teaser-link" href="cotxes.html#historial">Mesos anteriors <span aria-hidden="true">→</span></a>
+                        </div>
                     </div>
                 </div>`;
         });
@@ -126,7 +145,7 @@
                     </div>
                 </article>`;
             const grid = document.getElementById('monthHistory');
-            const title = document.getElementById('monthHistoryTitle');
+            const title = document.getElementById('historial');
             if (title) title.hidden = !prev.length;
             if (grid) grid.innerHTML = prev.map(p => `
                 <li class="month-card">
@@ -140,6 +159,7 @@
                     </button>
                     ${credit(p.car.image)}
                 </li>`).join('');
+            if (location.hash === '#historial' && title) requestAnimationFrame(() => title.scrollIntoView());
         });
     }
 })();
