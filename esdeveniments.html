@@ -76,6 +76,9 @@
         const container = document.getElementById("eventsContainer");
         const today = new Date().toISOString().slice(0, 10);
 
+        // dateText + year from date; only the year when the exact date is not confirmed
+        const dateLabel = e => (e.dateText ? e.dateText + ' ' : '') + e.date.slice(0, 4);
+
         function renderEvents(filter = 'all') {
             container.innerHTML = "";
             const list = events.filter(e => filter === 'all' || e.type === filter);
@@ -86,13 +89,14 @@
                 const isPast = e.date < today;
                 container.innerHTML += `
                     <div class="card${isPast ? ' past' : ''}">
+                        ${e.img ? `<img src="${e.img}" alt="${e.title}" class="event-img" loading="lazy" decoding="async">` : ''}
                         <span class="badge ${e.type}">${typeLabels[e.type] || e.type}</span>
                         ${isPast ? '<span class="badge done">Celebrat</span>' : '<span class="badge soon">Properament</span>'}
                         <h3>${e.title}</h3>
                         <p>${e.desc}</p>
                         <p><strong>${e.location}</strong></p>
-                        <p class="status">📅 ${e.dateText} 2026</p>
-                        <p><a href="${e.url}" target="_blank" rel="noopener" class="event-link">Més informació →</a></p>
+                        <p class="status">📅 ${dateLabel(e)}</p>
+                        ${e.url ? `<p><a href="${e.url}" target="_blank" rel="noopener" class="event-link">Més informació →</a></p>` : ''}
                     </div>`;
             });
             if (!list.length) container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#777;">Cap esdeveniment en aquesta categoria.</p>';
@@ -111,7 +115,7 @@
         }).addTo(map);
 
         events.forEach(e => {
-            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}<br>${e.dateText} 2026`);
+            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}<br>${dateLabel(e)}`);
         });
     </script>
 
