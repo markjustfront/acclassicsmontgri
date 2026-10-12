@@ -226,7 +226,7 @@ window.showModel = function (id) {
                 </thead>
                 <tbody>
                     ${model.variants.map(v => `
-                        <tr onclick="this.classList.toggle('expanded')" style="cursor:pointer;">
+                        <tr class="variant-row" onclick="toggleVariant(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleVariant(this);}" tabindex="0" aria-expanded="false" style="cursor:pointer;">
                             <td data-label="Motor">${v.engine}</td>
                             <td data-label="Potència">${v.power}</td>
                             <td data-label="Combustible">${v.fuel}</td>
@@ -236,9 +236,6 @@ window.showModel = function (id) {
                     `).join('')}
                 </tbody>
             </table>
-            <p style="font-size:0.85rem; color:#777; text-align:center; margin-top:8px;">
-                <em>Toca una fila per veure més detalls (només en mòbil)</em>
-            </p>
         `;
     }
 
@@ -286,19 +283,59 @@ window.showModel = function (id) {
 
     document.getElementById('modalBody').innerHTML = bodyHTML;
 
-    const modal = document.getElementById('modal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    modal.onclick = (e) => {
-        if (e.target === modal) closeModal();
-    };
+    openModal();
 };
+
+window.toggleVariant = function (row) {
+    const open = row.classList.toggle('expanded');
+    row.setAttribute('aria-expanded', open ? 'true' : 'false');
+};
+
+// Modal open/close: scroll lock, history (back button closes), Escape, backdrop
+let modalOpen = false;
+let savedScrollY = 0;
+
+function openModal() {
+    const modal = document.getElementById('modal');
+    if (!modalOpen) {
+        savedScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
+        history.pushState({ modal: true }, '');
+        modalOpen = true;
+    }
+    modal.style.display = 'flex';
+    const content = modal.querySelector('.modal-content');
+    if (content) content.scrollTop = 0;
+    const btn = modal.querySelector('.close');
+    if (btn) btn.focus({ preventScroll: true });
+    modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+}
+
+function hideModal() {
+    if (!modalOpen) return;
+    modalOpen = false;
+    document.getElementById('modal').style.display = 'none';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, savedScrollY);
+}
 
 window.closeModal = function () {
-    document.getElementById('modal').style.display = 'none';
-    document.body.style.overflow = 'visible';
+    if (!modalOpen) return;
+    // Pop our history entry; popstate handler hides the modal
+    if (history.state && history.state.modal) history.back();
+    else hideModal();
 };
+
+window.addEventListener('popstate', () => { if (modalOpen) hideModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOpen) closeModal(); });
 
 // ==================== INITIALIZE ====================
 document.addEventListener('DOMContentLoaded', async () => {
