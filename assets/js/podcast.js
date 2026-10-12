@@ -29,9 +29,9 @@
       return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + recs + (links ? '<p class="pod-ep-links">' + links + '</p>' : '') + '</li>';
     }).join('');
   }
-  // Disc del mes
+  // Disc de la setmana
   var d = P.discDelMes, box = document.getElementById('podDisc');
   if (box && d) {
-    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc del mes') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="pod-text-link" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>';
+    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="pod-text-link" href="cotxes.html">Amb el cotxe del mes \u2192</a></div>';
   }
 })();
