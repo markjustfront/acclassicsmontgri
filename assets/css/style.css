@@ -973,6 +973,16 @@ a.contact-card:hover { transform: translateY(-3px); }
 .weekly-teaser figure { margin: 0; }
 .weekly-teaser img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; display: block; }
 .weekly-teaser h3 { font-size: 1.6rem; margin: 10px 0 4px; color: var(--dark); }
+.month-history { list-style: none; margin: 0 auto 40px; padding: 0; max-width: 1150px; display: grid; gap: 22px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.month-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(31,24,19,0.08); position: relative; }
+.month-card-btn { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.month-card-btn img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform .3s; }
+.month-card-btn:hover img { transform: scale(1.03); }
+.month-card-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+.month-card-body { display: block; padding: 14px 16px 16px; }
+.month-card-name { display: block; font-size: 1.15rem; font-weight: 600; margin: 8px 0 2px; color: var(--dark); }
+.month-card-years { display: block; color: var(--gold); font-weight: 600; font-size: 0.9rem; }
 .home-weekly { text-align: center; }
 .home-weekly .weekly-teaser { text-align: left; }
 
