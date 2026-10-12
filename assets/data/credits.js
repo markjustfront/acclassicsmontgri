@@ -672,6 +672,342 @@ window.imageCredits = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Renault_Alpine_A310_V6_at_Legendy_2019_in_Prague.jpg",
     "file": "Renault Alpine A310 V6 at Legendy 2019 in Prague.jpg"
+  },
+  "images/cars/simca/aronde-main.jpg": {
+    "author": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Simca_Aronde_BW_2016-07-17_13-40-39.jpg",
+    "file": "Simca Aronde BW 2016-07-17 13-40-39.jpg"
+  },
+  "images/cars/simca/1000-main.jpg": {
+    "author": "Anthony Levrot",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thonon-les-Bains_-_74200_-_2024.09.07_-_Simca_1000_%C2%A9_Anthony_Levrot.jpg",
+    "file": "Thonon-les-Bains - 74200 - 2024.09.07 - Simca 1000 © Anthony Levrot.jpg"
+  },
+  "images/cars/simca/1100-main.jpg": {
+    "author": "Brinkie",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Simca_1100_Special.jpg",
+    "file": "Simca 1100 Special.jpg"
+  },
+  "images/cars/simca/1300-1500-main.jpg": {
+    "author": "Takmocsekretovanej",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Simca_1300_1500.jpg",
+    "file": "Simca 1300 1500.jpg"
+  },
+  "images/cars/simca/1200s-main.jpg": {
+    "author": "Přispívatel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Simca_1200_S.jpg",
+    "file": "Simca 1200 S.jpg"
+  },
+  "images/cars/simca/1307-1308-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chrysler-Simca_1308_GT_2.jpg",
+    "file": "Chrysler-Simca 1308 GT 2.jpg"
+  },
+  "images/cars/barreiros/dodge-dart-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dodge_Dart_Barreiros_familiar.jpg",
+    "file": "Dodge Dart Barreiros familiar.jpg"
+  },
+  "images/cars/barreiros/dodge-3700-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1972_Dodge_3700_GT_(6126400909).jpg",
+    "file": "1972 Dodge 3700 GT (6126400909).jpg"
+  },
+  "images/cars/barreiros/chrysler-180-main.jpg": {
+    "author": "Antramir",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chrysler_180_Barreiros_870.jpg",
+    "file": "Chrysler 180 Barreiros 870.jpg"
+  },
+  "images/cars/talbot/sunbeam-lotus-main.jpg": {
+    "author": "Kierant",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Talbot_sunbeam_lotus.jpg",
+    "file": "Talbot sunbeam lotus.jpg"
+  },
+  "images/cars/talbot/horizon-main.jpg": {
+    "author": "Gwafton",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Talbot_Horizon_Lahti5.JPG",
+    "file": "Talbot Horizon Lahti5.JPG"
+  },
+  "images/cars/talbot/solara-main.jpg": {
+    "author": "Gwafton",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Talbot_Solara_Lahti.JPG",
+    "file": "Talbot Solara Lahti.JPG"
+  },
+  "images/cars/talbot/tagora-main.jpg": {
+    "author": "Arnold.p",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Talbot_Tagora_SX.jpg",
+    "file": "Talbot Tagora SX.jpg"
+  },
+  "images/cars/talbot/samba-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Talbot_Samba_Madrid_1982.jpg",
+    "file": "Talbot Samba Madrid 1982.jpg"
+  },
+  "images/cars/authi/mini-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1972_Authi_Mini_(4646576143).jpg",
+    "file": "1972 Authi Mini (4646576143).jpg"
+  },
+  "images/cars/authi/morris-1300-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1971_Authi_Morris_1100_(ADO16)_(4812927129).jpg",
+    "file": "1971 Authi Morris 1100 (ADO16) (4812927129).jpg"
+  },
+  "images/cars/authi/victoria-main.jpg": {
+    "author": "andreboeni",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Austin_(Authi)_Victoria_Mk.II_(1973).jpg",
+    "file": "Austin (Authi) Victoria Mk.II (1973).jpg"
+  },
+  "images/cars/ford/mustang-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Mustang_GT_BJ_1965_4290435.jpg",
+    "file": "Ford Mustang GT BJ 1965 4290435.jpg"
+  },
+  "images/cars/ford/taunus-main.jpg": {
+    "author": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Taunus_TC_XL_BW_2016-07-17_14-41-59.jpg",
+    "file": "Ford Taunus TC XL BW 2016-07-17 14-41-59.jpg"
+  },
+  "images/cars/ford/escort-mk1-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Escort_MK1.jpg",
+    "file": "Ford Escort MK1.jpg"
+  },
+  "images/cars/ford/escort-mk2-main.jpg": {
+    "author": "FotoSleuth",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Escort_Mk2.jpg",
+    "file": "Ford Escort Mk2.jpg"
+  },
+  "images/cars/ford/capri-main.jpg": {
+    "author": "Anthony Parkes",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Capri_(Mk1)_-_geograph.org.uk_-_7920738.jpg",
+    "file": "Ford Capri (Mk1) - geograph.org.uk - 7920738.jpg"
+  },
+  "images/cars/ford/fiesta-mk1-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Fiesta_MK_I,_Bj._1981,_getunt_mit_MK-II-Teilen.JPG",
+    "file": "Ford Fiesta MK I, Bj. 1981, getunt mit MK-II-Teilen.JPG"
+  },
+  "images/cars/ford/sierra-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ford_Sierra_Bj._ca_1985_photo_Schaffen_Diest_2017.jpg",
+    "file": "Ford Sierra Bj. ca 1985 photo Schaffen Diest 2017.jpg"
+  },
+  "images/cars/volkswagen/beetle-main.jpg": {
+    "author": "Greg Gjerdingen from Willmar, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:63_Volkswagen_Beetle_(6252393976).jpg",
+    "file": "63 Volkswagen Beetle (6252393976).jpg"
+  },
+  "images/cars/volkswagen/t1-main.jpg": {
+    "author": "Mike Peel",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:At_Brighton_2025_072_-_Volkswagen_T1.jpg",
+    "file": "At Brighton 2025 072 - Volkswagen T1.jpg"
+  },
+  "images/cars/volkswagen/t2-main.jpg": {
+    "author": "Daniel L. Lu (user:dllu)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_T2_minibus_in_Los_Angeles_dllu.jpg",
+    "file": "Volkswagen T2 minibus in Los Angeles dllu.jpg"
+  },
+  "images/cars/volkswagen/karmann-ghia-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Karmann_Ghia_P6170456.jpg",
+    "file": "Karmann Ghia P6170456.jpg"
+  },
+  "images/cars/volkswagen/golf-mk1-main.jpg": {
+    "author": "Riley from Christchurch, New Zealand",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1982_Volkswagen_Golf_GTi_(Mk1)_(14072934454).jpg",
+    "file": "1982 Volkswagen Golf GTi (Mk1) (14072934454).jpg"
+  },
+  "images/cars/volkswagen/scirocco-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Scirocco_Mk1_1974_one_of_the_very_early_ones_at_North_Weald_in_2010.JPG",
+    "file": "Volkswagen Scirocco Mk1 1974 one of the very early ones at North Weald in 2010.JPG"
+  },
+  "images/cars/volkswagen/golf-mk2-main.jpg": {
+    "author": "TKOIII",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Golf_MK2_5-door_Italy.jpg",
+    "file": "Volkswagen Golf MK2 5-door Italy.jpg"
+  },
+  "images/cars/pegaso/z102-main.jpg": {
+    "author": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1954_Pegaso_Z-102_Series_II_Saoutchik_Cabriolet_at_Grand_Basel_2018_(Ank_kumar)_01.jpg",
+    "file": "1954 Pegaso Z-102 Series II Saoutchik Cabriolet at Grand Basel 2018 (Ank kumar) 01.jpg"
+  },
+  "images/cars/fiat/500-main.jpg": {
+    "author": "DILIN",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_500_yellow.jpg",
+    "file": "Fiat 500 yellow.jpg"
+  },
+  "images/cars/fiat/600-main.jpg": {
+    "author": "Staffan Andersson",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_600_D_1966.jpg",
+    "file": "Fiat 600 D 1966.jpg"
+  },
+  "images/cars/fiat/dino-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_Dino_5311498.jpg",
+    "file": "Fiat Dino 5311498.jpg"
+  },
+  "images/cars/fiat/124-main.jpg": {
+    "author": "Erremm",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_124_Berlina.jpg",
+    "file": "Fiat 124 Berlina.jpg"
+  },
+  "images/cars/fiat/124-spider-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_124_Sport_Spider_6170054.jpg",
+    "file": "Fiat 124 Sport Spider 6170054.jpg"
+  },
+  "images/cars/fiat/128-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1977_Fiat_128_CL_1.jpg",
+    "file": "1977 Fiat 128 CL 1.jpg"
+  },
+  "images/cars/fiat/127-main.jpg": {
+    "author": "nakhon100",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_127_(cropped).jpg",
+    "file": "Fiat 127 (cropped).jpg"
+  },
+  "images/cars/fiat/x19-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Fiat_X1-9,_Bj._1977_(2018-06-03_Sp_r).JPG",
+    "file": "Fiat X1-9, Bj. 1977 (2018-06-03 Sp r).JPG"
+  },
+  "images/cars/fiat/131-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1982_Fiat_131.jpg",
+    "file": "1982 Fiat 131.jpg"
+  },
+  "images/cars/lancia/aurelia-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lancia_Aurelia_B20_1954.jpg",
+    "file": "Lancia Aurelia B20 1954.jpg"
+  },
+  "images/cars/lancia/fulvia-main.jpg": {
+    "author": "Mr.choppers",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1968_Lancia_Fulvia_Series_I_Coup%C3%A9,_front_right_-_in_Greenwich.jpg",
+    "file": "1968 Lancia Fulvia Series I Coupé, front right - in Greenwich.jpg"
+  },
+  "images/cars/lancia/stratos-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lancia_Stratos_HF_Classic-Gala_2022_1X7A0377.jpg",
+    "file": "Lancia Stratos HF Classic-Gala 2022 1X7A0377.jpg"
+  },
+  "images/cars/lancia/montecarlo-main.jpg": {
+    "author": "Marco 56",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lancia_Montecarlo_(24750084830).jpg",
+    "file": "Lancia Montecarlo (24750084830).jpg"
+  },
+  "images/cars/lancia/037-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lancia_037_Rally_5.jpg",
+    "file": "Lancia 037 Rally 5.jpg"
+  },
+  "images/cars/lancia/delta-integrale-main.jpg": {
+    "author": "Alexander-93",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lancia_Delta_HF_Integrale_Evoluzione_(Group_A)_1X7A7246.jpg",
+    "file": "Lancia Delta HF Integrale Evoluzione (Group A) 1X7A7246.jpg"
+  },
+  "images/cars/santana/S2500-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1988_Santana_110%27_(4576133975).jpg",
+    "file": "1988 Santana 110' (4576133975).jpg"
   }
 };
 

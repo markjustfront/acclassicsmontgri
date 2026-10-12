@@ -92,4 +92,69 @@ const carFiles = [
     "assets/data/cars/mercedes/w124.js", // ID 89
     "assets/data/cars/mercedes/g-w460.js", // ID 90
     "assets/data/cars/mercedes/r129.js", // ID 91
+    // Land Rover Santana:
+    "assets/data/cars/santana/S88.js", // ID 26
+    "assets/data/cars/santana/S109.js", // ID 27
+    "assets/data/cars/santana/SLi.js", // ID 28
+    "assets/data/cars/santana/S2000.js", // ID 29
+    "assets/data/cars/santana/S2500.js", // ID 30
+    "assets/data/cars/santana/SCazorla.js", // ID 31
+    // Simca:
+    "assets/data/cars/simca/aronde.js", // ID 92
+    "assets/data/cars/simca/1000.js", // ID 93
+    "assets/data/cars/simca/1100.js", // ID 94
+    "assets/data/cars/simca/1300-1500.js", // ID 95
+    "assets/data/cars/simca/1200s.js", // ID 96
+    "assets/data/cars/simca/1307-1308.js", // ID 97
+    // Barreiros (Chrysler España):
+    "assets/data/cars/barreiros/dodge-dart.js", // ID 98
+    "assets/data/cars/barreiros/dodge-3700.js", // ID 99
+    "assets/data/cars/barreiros/chrysler-180.js", // ID 100
+    // Talbot:
+    "assets/data/cars/talbot/sunbeam-lotus.js", // ID 101
+    "assets/data/cars/talbot/horizon.js", // ID 102
+    "assets/data/cars/talbot/solara.js", // ID 103
+    "assets/data/cars/talbot/tagora.js", // ID 104
+    "assets/data/cars/talbot/samba.js", // ID 105
+    // Authi:
+    "assets/data/cars/authi/mini.js", // ID 106
+    "assets/data/cars/authi/morris-1300.js", // ID 107
+    "assets/data/cars/authi/mg-1300.js", // ID 108
+    "assets/data/cars/authi/victoria.js", // ID 109
+    // Ford:
+    "assets/data/cars/ford/mustang.js", // ID 110
+    "assets/data/cars/ford/taunus.js", // ID 111
+    "assets/data/cars/ford/escort-mk1.js", // ID 112
+    "assets/data/cars/ford/escort-mk2.js", // ID 113
+    "assets/data/cars/ford/capri.js", // ID 114
+    "assets/data/cars/ford/fiesta-mk1.js", // ID 115
+    "assets/data/cars/ford/sierra.js", // ID 116
+    // Volkswagen:
+    "assets/data/cars/volkswagen/beetle.js", // ID 117
+    "assets/data/cars/volkswagen/t1.js", // ID 118
+    "assets/data/cars/volkswagen/t2.js", // ID 119
+    "assets/data/cars/volkswagen/karmann-ghia.js", // ID 120
+    "assets/data/cars/volkswagen/golf-mk1.js", // ID 121
+    "assets/data/cars/volkswagen/scirocco.js", // ID 122
+    "assets/data/cars/volkswagen/golf-mk2.js", // ID 123
+    // Pegaso:
+    "assets/data/cars/pegaso/z102.js", // ID 124
+    "assets/data/cars/pegaso/z103.js", // ID 125
+    // Fiat:
+    "assets/data/cars/fiat/500.js", // ID 126
+    "assets/data/cars/fiat/600.js", // ID 127
+    "assets/data/cars/fiat/dino.js", // ID 128
+    "assets/data/cars/fiat/124.js", // ID 129
+    "assets/data/cars/fiat/124-spider.js", // ID 130
+    "assets/data/cars/fiat/128.js", // ID 131
+    "assets/data/cars/fiat/127.js", // ID 132
+    "assets/data/cars/fiat/x19.js", // ID 133
+    "assets/data/cars/fiat/131.js", // ID 134
+    // Lancia:
+    "assets/data/cars/lancia/aurelia.js", // ID 135
+    "assets/data/cars/lancia/fulvia.js", // ID 136
+    "assets/data/cars/lancia/stratos.js", // ID 137
+    "assets/data/cars/lancia/montecarlo.js", // ID 138
+    "assets/data/cars/lancia/037.js", // ID 139
+    "assets/data/cars/lancia/delta-integrale.js", // ID 140
 ];
