@@ -1,0 +1,11 @@
+// Public classic car events within ~70 km of Torroella de Montgrí.
+// Shared by esdeveniments.html and index.html. Each one is confirmed by the linked source.
+// date = first day (YYYY-MM-DD).
+window.ACC_EVENTS = [
+    { title: "X Clàssic Pla de l'Estany", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Cornellà del Terri", type: "rally", date: "2026-01-31", dateText: "31 de gener", coords: [42.085, 2.817], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
+    { title: "74 Rally KH-7 Costa Brava", desc: "Ral·li històric internacional, obre el Campionat d'Europa FIA de Ral·lis Històrics", location: "Girona i Fornells de la Selva", type: "rally", date: "2026-03-05", dateText: "5 - 7 de març", coords: [41.979, 2.821], url: "https://rallyclassics.club/74-rally-costa-brava-2026/" },
+    { title: "II Clàssic Vila de Llançà", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Llançà", type: "rally", date: "2026-03-21", dateText: "21 de març", coords: [42.366, 3.152], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
+    { title: "IV Trobada de Vehicles Clàssics i Esportius", desc: "Exposició de clàssics, esportius i americans, amb espai especial pels 50 anys del VW Golf. Cal inscripció prèvia.", location: "La Bisbal d'Empordà (Passeig Marimon Asprer)", type: "trobada", date: "2026-09-11", dateText: "11 de setembre, des de les 9 h", coords: [41.960, 3.041], url: "https://www.classicsrentservices.com/ca/trobades/iv-trobada-de-vehicles-classics-i-esportius-la-bisbal-d-emporda/" },
+    { title: "3a Trobada de Cotxes i Motos Clàssics", desc: "Exposició de cotxes i motos clàssics amb esmorzar per als participants", location: "Sant Julià de Ramis (Pavelló)", type: "trobada", date: "2026-09-19", dateText: "19 de setembre, de 9 a 12 h", coords: [42.024, 2.849], url: "https://www.fcvh.cat/ca/automocio/fcvh/sortides-concentracions/3a-trobada-de-cotxes-i-motos-classics/323066.html" },
+    { title: "XIV Rallye Platja d'Aro Històric", desc: "Prova final de la Copa Gironina de Regularitat", location: "Platja d'Aro", type: "rally", date: "2026-11-28", dateText: "28 de novembre", coords: [41.817, 3.067], url: "https://allevents.in/org/copa-gironina-de-regularitat/21668751" }
+];
