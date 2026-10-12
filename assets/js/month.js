@@ -100,7 +100,7 @@
                         <span class="weekly-tag">${esc(m.label)}</span>
                         <h3>${esc(c.brand)} ${esc(c.model)}</h3>
                         <p><strong>${esc(c.years)}</strong></p>
-                        <a class="event-link" href="cotxes.html">Descobreix-lo →</a>
+                        <a class="cta cta-outline" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                     </div>
                 </div>`;
         });

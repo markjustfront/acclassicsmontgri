@@ -986,6 +986,25 @@ a.contact-card:hover { transform: translateY(-3px); }
 .home-weekly { text-align: center; }
 .home-weekly .weekly-teaser { text-align: left; }
 
+/* Cotxe del mes CTAs */
+.cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 26px;
+    border-radius: 9999px; font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em;
+    text-decoration: none; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease; }
+.cta .cta-arrow { flex: none; transition: transform .25s ease; }
+.cta:hover .cta-arrow, .cta:focus-visible .cta-arrow { transform: translateX(5px); }
+.cta:focus-visible { outline: 3px solid var(--dark); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(201, 162, 95, 0.45); }
+.cta-primary { background: #c9a25f; color: var(--dark); border: 2px solid #c9a25f; box-shadow: 0 4px 14px rgba(31, 24, 19, 0.18); }
+.cta-primary:hover { background: #d4b06f; border-color: #d4b06f; color: var(--dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31, 24, 19, 0.24); }
+.cta-primary:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(31, 24, 19, 0.2); }
+.cta-outline { background: transparent; color: var(--dark); border: 2px solid var(--dark); margin-top: 6px; }
+.cta-outline:hover { background: var(--dark); color: #e6d5b3; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(31, 24, 19, 0.2); }
+.cta-garatge { margin: -10px 0 30px; }
+@media (max-width: 768px) { .weekly-teaser .cta-outline { display: flex; width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+    .cta, .cta .cta-arrow { transition: none; }
+    .cta:hover, .cta:active, .cta:hover .cta-arrow, .cta:focus-visible .cta-arrow { transform: none; }
+}
+
 .coming-soon { max-width: 680px; margin: 0 auto 36px; text-align: center; padding: 24px; border: 2px dashed var(--gold); border-radius: 14px; background: #fff; }
 .coming-soon p { margin-top: 10px; color: #555; }
 .radio-placeholder { opacity: 0.55; cursor: default; }
