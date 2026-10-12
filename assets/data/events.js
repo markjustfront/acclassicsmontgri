@@ -1,6 +1,7 @@
 // Public classic car events within ~70 km of Torroella de Montgrí.
 // Shared by esdeveniments.html and index.html. Each one is confirmed by the linked source.
 // date = first day (YYYY-MM-DD).
+// type = rally (ral·li / regularitat), trobada (trobada / concentració), fira (fira / saló) or altres.
 window.ACC_EVENTS = [
     { title: "X Clàssic Pla de l'Estany", desc: "Prova de regularitat de la Copa Gironina de Regularitat", location: "Cornellà del Terri", type: "rally", date: "2026-01-31", dateText: "31 de gener", coords: [42.085, 2.817], url: "https://www.miclasico.com/etiquetas/copa-gironina-de-regularidad" },
     { title: "74 Rally KH-7 Costa Brava", desc: "Ral·li històric internacional, obre el Campionat d'Europa FIA de Ral·lis Històrics", location: "Girona i Fornells de la Selva", type: "rally", date: "2026-03-05", dateText: "5 - 7 de març", coords: [41.979, 2.821], url: "https://rallyclassics.club/74-rally-costa-brava-2026/" },
