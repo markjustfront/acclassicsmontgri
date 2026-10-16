@@ -995,7 +995,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .home-weekly { text-align: center; }
 .home-weekly .weekly-teaser { text-align: left; }
 
-/* Cotxe del mes CTAs */
+/* Cotxe de la setmana CTAs */
 .cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 26px;
     border-radius: 9999px; font-family: 'Roboto', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em;
     text-decoration: none; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease; }
