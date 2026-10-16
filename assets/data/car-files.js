@@ -1,4 +1,4 @@
-// List of all car files (shared by script.js and month.js). Add new cars here.
+// List of all car files (shared by script.js and month.js, which schedules the cotxe de la setmana). Add new cars here.
 const carFiles = [
     //Renault:
     "assets/data/cars/renault/R3.js", // ID 35

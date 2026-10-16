@@ -1,21 +1,23 @@
-// Cotxe del mes: one car per calendar month (Europe/Madrid), the same for every visitor.
-// Uses the car list from car-files.js (carFiles). History starts in April 2026.
+// Cotxe de la setmana: one car per week (Monday to Sunday, Europe/Madrid), the same for every visitor.
+// Uses the car list from car-files.js (carFiles). History starts the week of 12 October 2026 (Fiat X1/9).
 (function () {
-    const START = { year: 2026, month: 3 }; // April 2026 (month is 0-based)
-    const SEED = 20260401;
-    const MONTHS = ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'];
+    const START = Date.UTC(2026, 9, 12); // Monday 12 October 2026
+    const WEEK = 7 * 864e5;
+    const FIRST = 'assets/data/cars/fiat/x19.js'; // first car of the week, pairs with the first Disc de la setmana
+    const SEED = 20261012;
+    const MONTHS = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
     // Cars that still use images/placeholder.svg: they go last within their brand.
     const NO_PHOTO = ['assets/data/cars/authi/mg-1300.js', 'assets/data/cars/pegaso/z103.js'];
 
-    // Current year/month in Europe/Madrid, whatever the visitor's timezone
+    // Today's date in Europe/Madrid, whatever the visitor's timezone
     function madridNow() {
-        const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid', year: 'numeric', month: 'numeric' }).formatToParts(new Date());
+        const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid', year: 'numeric', month: 'numeric', day: 'numeric' }).formatToParts(new Date());
         const get = t => Number(parts.find(p => p.type === t).value);
-        return { year: get('year'), month: get('month') - 1 };
+        return { year: get('year'), month: get('month') - 1, day: get('day') };
     }
-    const monthIndex = ym => (ym.year - START.year) * 12 + (ym.month - START.month);
-    const monthFromIndex = i => { const t = START.month + i; return { year: START.year + Math.floor(t / 12), month: ((t % 12) + 12) % 12 }; };
-    const monthLabel = ym => `${MONTHS[ym.month]} ${ym.year}`;
+    const weekIndex = d => Math.floor((Date.UTC(d.year, d.month, d.day) - START) / WEEK);
+    const weekFromIndex = i => { const t = new Date(START + i * WEEK); return { year: t.getUTCFullYear(), month: t.getUTCMonth(), day: t.getUTCDate() }; };
+    const weekLabel = w => { const m = MONTHS[w.month]; return `Setmana del ${w.day} ${/^[aeiou]/.test(m) ? "d'" : 'de '}${m}`; };
 
     // Small seeded PRNG (mulberry32) + Fisher-Yates shuffle
     function rng(seed) {
@@ -34,7 +36,7 @@
     // Build the schedule: each cycle uses every car once (seeded order within each brand,
     // photo-less cars last). Every brand's cars are spread evenly over the cycle (car k of a
     // brand with n cars sits near position (k + jitter) / n), so big brands don't cluster;
-    // then any two consecutive months of the same brand are separated by pulling a later car forward.
+    // then any two consecutive weeks of the same brand are separated by pulling a later car forward.
     const schedule = [];
     function extend(upTo) {
         let cycle = Math.floor(schedule.length / Math.max(files.length, 1));
@@ -50,6 +52,7 @@
                 ordered.forEach((f, k) => slots.push({ f, key: (k + jitter) / ordered.length }));
             });
             const seq = slots.sort((a, b) => a.key - b.key).map(s => s.f);
+            if (cycle === 0 && seq.includes(FIRST)) seq.unshift(seq.splice(seq.indexOf(FIRST), 1)[0]);
             for (let i = 0; i < seq.length; i++) {
                 const prev = i ? seq[i - 1] : schedule[schedule.length - 1];
                 if (prev && brandOf(seq[i]) === brandOf(prev)) {
@@ -61,7 +64,7 @@
             cycle++;
         }
     }
-    const fileForMonth = i => { extend(i); return schedule[i]; };
+    const fileForWeek = i => { extend(i); return schedule[i]; };
 
     // Run one car file in isolation and return its car object
     function loadCar(file) {
@@ -88,22 +91,22 @@
     }
     const credit = p => (window.creditHTML ? window.creditHTML(p) : '');
 
-    // Month list (newest first): the current month plus every month back to April 2026
-    window.monthSchedule = { fileForMonth, monthFromIndex, monthLabel, madridNow, monthIndex };
-    window.getCarsOfMonth = function (count) {
+    // Week list (newest first): the current week plus every week back to 12 October 2026
+    window.weekSchedule = { fileForWeek, weekFromIndex, weekLabel, madridNow, weekIndex };
+    window.getCarsOfWeek = function (count) {
         if (!files.length) return Promise.resolve([]);
-        const cur = Math.max(0, monthIndex(madridNow()));
+        const cur = Math.max(0, weekIndex(madridNow()));
         const n = Math.min(count == null ? Infinity : count, cur + 1);
         return Promise.all(Array.from({ length: n }, (_, k) => {
-            const i = cur - k, ym = monthFromIndex(i);
-            return loadCar(fileForMonth(i)).then(car => car && { car, ym, label: monthLabel(ym) });
+            const i = cur - k, wk = weekFromIndex(i);
+            return loadCar(fileForWeek(i)).then(car => car && { car, wk, label: weekLabel(wk) });
         })).then(list => list.filter(Boolean));
     };
 
     // Home page teaser
     const teaser = document.getElementById('monthTeaser');
     if (teaser) {
-        window.getCarsOfMonth(1).then(([m]) => {
+        window.getCarsOfWeek(1).then(([m]) => {
             if (!m) { teaser.closest('section').hidden = true; return; }
             const c = m.car;
             const specs = keySpecs(c.generalCharacteristics);
@@ -118,17 +121,17 @@
                         ${c.description ? `<p class="teaser-desc">${esc(c.description)}</p>` : ''}
                         <div class="teaser-actions">
                             <a class="cta cta-primary cta-md" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-                            <a class="teaser-link" href="cotxes.html#historial">Mesos anteriors <span aria-hidden="true">→</span></a>
+                            <a class="teaser-link" href="cotxes.html#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>`;
         });
     }
 
-    // Cotxe del mes page
+    // Cotxe de la setmana page
     const main = document.getElementById('monthCar');
     if (main) {
-        window.getCarsOfMonth().then(list => {
+        window.getCarsOfWeek().then(list => {
             if (!list.length) { main.innerHTML = '<p class="home-events-empty">Ara mateix no hi ha cap cotxe disponible.</p>'; return; }
             const [m, ...prev] = list;
             const c = m.car;
