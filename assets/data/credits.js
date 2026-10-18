@@ -1008,6 +1008,328 @@ window.imageCredits = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "source": "https://commons.wikimedia.org/wiki/File:1988_Santana_110%27_(4576133975).jpg",
     "file": "1988 Santana 110' (4576133975).jpg"
+  },
+  "images/cars/austin/a35-main.jpg": {
+    "author": "SG2012",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Austin_A35_Saloon_(1959)_-_10275926453.jpg",
+    "file": "Austin A35 Saloon (1959) - 10275926453.jpg"
+  },
+  "images/cars/austin/a40-farina-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Austin_A40_(Farina)_Mk_I_reg_ca_1960.JPG",
+    "file": "Austin A40 (Farina) Mk I reg ca 1960.JPG"
+  },
+  "images/cars/morris/minor-main.jpg": {
+    "author": "Sicnag",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1959_Morris_Minor_1000_Saloon_(13672674873).jpg",
+    "file": "1959 Morris Minor 1000 Saloon (13672674873).jpg"
+  },
+  "images/cars/morris/1100-main.jpg": {
+    "author": "Sicnag",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1965_Morris_1100_Mk_I_Saloon_(16648805231).jpg",
+    "file": "1965 Morris 1100 Mk I Saloon (16648805231).jpg"
+  },
+  "images/cars/mini/mk1-main.jpg": {
+    "author": "DeFacto",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Morris_Mini-Minor_1959_(621_AOK).jpg",
+    "file": "Morris Mini-Minor 1959 (621 AOK).jpg"
+  },
+  "images/cars/mini/cooper-s-main.jpg": {
+    "author": "DeFacto",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Mini_Cooper_S_1964_3.jpg",
+    "file": "Mini Cooper S 1964 3.jpg"
+  },
+  "images/cars/mini/moke-main.jpg": {
+    "author": "DeFacto",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Mini-Moke_1984.jpg",
+    "file": "Mini-Moke 1984.jpg"
+  },
+  "images/cars/austin-healey/sprite-main.jpg": {
+    "author": "Hajotthu",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Austin_Healey_MK1_(3).JPG",
+    "file": "Austin Healey MK1 (3).JPG"
+  },
+  "images/cars/austin-healey/3000-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BMC_Austin_Healey_3000_P5201007.jpg",
+    "file": "BMC Austin Healey 3000 P5201007.jpg"
+  },
+  "images/cars/porsche/356-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porsche_356_B_Classic-Gala_2021_1X7A0119.jpg",
+    "file": "Porsche 356 B Classic-Gala 2021 1X7A0119.jpg"
+  },
+  "images/cars/porsche/911-main.jpg": {
+    "author": "MrWalkr",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1967_Porsche_911_S_black.jpg",
+    "file": "1967 Porsche 911 S black.jpg"
+  },
+  "images/cars/porsche/912-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Porsche_912,_Bj._1968_(2015-07-04_C_r).JPG",
+    "file": "Porsche 912, Bj. 1968 (2015-07-04 C r).JPG"
+  },
+  "images/cars/porsche/914-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:VW-Porsche_914-_P5201050.jpg",
+    "file": "VW-Porsche 914- P5201050.jpg"
+  },
+  "images/cars/porsche/924-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Porsche_924_5311576.jpg",
+    "file": "Porsche 924 5311576.jpg"
+  },
+  "images/cars/alfa-romeo/giulia-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Giulia_1300_Super_Kulmbach_2018_6170124.jpg",
+    "file": "Alfa Romeo Giulia 1300 Super Kulmbach 2018 6170124.jpg"
+  },
+  "images/cars/alfa-romeo/giulia-gt-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Giulia_GT_1300_Junior_(2008-06-28_Sp_r).JPG",
+    "file": "Alfa Romeo Giulia GT 1300 Junior (2008-06-28 Sp r).JPG"
+  },
+  "images/cars/alfa-romeo/spider-main.jpg": {
+    "author": "Handelsgeselschaft",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Spider_Duetto,_Pau_2015.jpg",
+    "file": "Alfa Romeo Spider Duetto, Pau 2015.jpg"
+  },
+  "images/cars/alfa-romeo/alfasud-main.jpg": {
+    "author": "OSX",
+    "license": "Domini públic",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:1974_Alfa_Romeo_Alfasud_4-door_sedan_(2015-07-15)_01.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:1974_Alfa_Romeo_Alfasud_4-door_sedan_(2015-07-15)_01.jpg",
+    "file": "1974 Alfa Romeo Alfasud 4-door sedan (2015-07-15) 01.jpg"
+  },
+  "images/cars/alfa-romeo/alfetta-main.jpg": {
+    "author": "Alexander-93",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_Alfetta_Berlina_1X7A2523.jpg",
+    "file": "Alfa Romeo Alfetta Berlina 1X7A2523.jpg"
+  },
+  "images/cars/opel/kadett-b-main.jpg": {
+    "author": "Berthold Werner",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_Kadett_B_BW_2016-07-17_14-54-23.jpg",
+    "file": "Opel Kadett B BW 2016-07-17 14-54-23.jpg"
+  },
+  "images/cars/opel/kadett-c-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_Kadett_C_GTE_(Foto_Sp_2016-06-05).JPG",
+    "file": "Opel Kadett C GTE (Foto Sp 2016-06-05).JPG"
+  },
+  "images/cars/opel/rekord-c-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_Rekord_C,_Coup%C3%A9_1900_S,_Bj._1971_(Sp).JPG",
+    "file": "Opel Rekord C, Coupé 1900 S, Bj. 1971 (Sp).JPG"
+  },
+  "images/cars/opel/gt-main.jpg": {
+    "author": "Lothar Spurzem",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_GT_1900_(2016-07-02_Sp).JPG",
+    "file": "Opel GT 1900 (2016-07-02 Sp).JPG"
+  },
+  "images/cars/opel/manta-a-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_Manta_A_(1975)_Solitude_Revival_2022_1X7A0301.jpg",
+    "file": "Opel Manta A (1975) Solitude Revival 2022 1X7A0301.jpg"
+  },
+  "images/cars/opel/ascona-a-main.jpg": {
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Opel_Ascona_A_Retro_Classics_2020_IMG_0166.jpg",
+    "file": "Opel Ascona A Retro Classics 2020 IMG 0166.jpg"
+  },
+  "images/cars/innocenti/950-spider-main.jpg": {
+    "author": "Brian Snelson",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1962_Innocenti_Spider.jpg",
+    "file": "1962 Innocenti Spider.jpg"
+  },
+  "images/cars/innocenti/mini-main.jpg": {
+    "author": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1974_Innocenti_Mini_Cooper_1300.jpg",
+    "file": "1974 Innocenti Mini Cooper 1300.jpg"
+  },
+  "images/cars/innocenti/mini-bertone-main.jpg": {
+    "author": "Corvettec6r",
+    "license": "Domini públic",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Innocenti_Mini_90_white.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Innocenti_Mini_90_white.jpg",
+    "file": "Innocenti Mini 90 white.jpg"
+  },
+  "images/cars/triumph/herald-main.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triumph_Herald_1200_first_registered_April_1964_1147cc.jpg",
+    "file": "Triumph Herald 1200 first registered April 1964 1147cc.jpg"
+  },
+  "images/cars/triumph/spitfire-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triumph_Spitfire_Mk3_Kulmbach17RM0450.jpg",
+    "file": "Triumph Spitfire Mk3 Kulmbach17RM0450.jpg"
+  },
+  "images/cars/triumph/gt6-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triumph_GT6_MK_II_Kulmbach_22-20220626-RM-122011-2.jpg",
+    "file": "Triumph GT6 MK II Kulmbach 22-20220626-RM-122011-2.jpg"
+  },
+  "images/cars/triumph/tr6-main.jpg": {
+    "author": "Ermell",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Triumph_TR6_ADAC_Deutschland_Klassik_2018_6280274.jpg",
+    "file": "Triumph TR6 ADAC Deutschland Klassik 2018 6280274.jpg"
+  },
+  "images/cars/mg/mga-main.jpg": {
+    "author": "Thomas's Pics",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MGA_Roadster_(9429497633).jpg",
+    "file": "MGA Roadster (9429497633).jpg"
+  },
+  "images/cars/mg/mgb-main.jpg": {
+    "author": "DeFacto",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MG_MGB_open_roadster_1969.jpg",
+    "file": "MG MGB open roadster 1969.jpg"
+  },
+  "images/cars/mg/midget-main.jpg": {
+    "author": "Handelsgeselschaft",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1963_MG_Midget_(3).jpg",
+    "file": "1963 MG Midget (3).jpg"
+  },
+  "images/cars/datsun/510-main.jpg": {
+    "author": "Shane K",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Datsun_510.jpg",
+    "file": "Datsun 510.jpg"
+  },
+  "images/cars/datsun/240z-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1973_Datsun_240Z_white.jpg",
+    "file": "1973 Datsun 240Z white.jpg"
+  },
+  "images/cars/toyota/2000gt-main.jpg": {
+    "author": "Calreyn88",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_2000GT_(58142).jpg",
+    "file": "Toyota 2000GT (58142).jpg"
+  },
+  "images/cars/toyota/celica-a20-main.jpg": {
+    "author": "Jeremy from Sydney, Australia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_Celica_TA22_(16200923139).jpg",
+    "file": "Toyota Celica TA22 (16200923139).jpg"
+  },
+  "images/cars/toyota/corolla-ae86-main.jpg": {
+    "author": "Tokumeigakarinoaoshima",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_COROLLA_LEVIN_GT_APEX_(E-AE86-ECMVF)_front.jpg",
+    "file": "Toyota COROLLA LEVIN GT APEX (E-AE86-ECMVF) front.jpg"
+  },
+  "images/cars/seat/800-main.jpg": {
+    "author": "El monty",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seat_800_(1).jpg",
+    "file": "Seat 800 (1).jpg"
+  },
+  "images/cars/seat/124-sport-main.jpg": {
+    "author": "Antramir",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seat_124_SC_1600_(1971)_20120818_090.jpg",
+    "file": "Seat 124 SC 1600 (1971) 20120818 090.jpg"
+  },
+  "images/cars/seat/133-main.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1976_Seat_133_Especial_(5065972166).jpg",
+    "file": "1976 Seat 133 Especial (5065972166).jpg"
+  },
+  "images/cars/seat/132-main.jpg": {
+    "author": "Carlosseat",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SEAT_132_L_3-4_Frontal.jpg",
+    "file": "SEAT 132 L 3-4 Frontal.jpg"
+  },
+  "images/cars/seat/fura-main.jpg": {
+    "author": "Schumi4ever",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:SEAT_Fura_Dos_01.jpg",
+    "file": "SEAT Fura Dos 01.jpg"
+  },
+  "images/cars/seat/ritmo-ronda-main.jpg": {
+    "author": "Pandalia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Seat_Ronda_Front.jpg",
+    "file": "Seat Ronda Front.jpg"
   }
 };
 

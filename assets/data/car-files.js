@@ -43,6 +43,12 @@ const carFiles = [
     "assets/data/cars/seat/1400.js", // ID 44
     "assets/data/cars/seat/127.js", // ID 45
     "assets/data/cars/seat/131.js", // ID 46
+    "assets/data/cars/seat/800.js", // ID 181
+    "assets/data/cars/seat/124-sport.js", // ID 182
+    "assets/data/cars/seat/133.js", // ID 183
+    "assets/data/cars/seat/132.js", // ID 184
+    "assets/data/cars/seat/fura.js", // ID 185
+    "assets/data/cars/seat/ritmo-ronda.js", // ID 186
     // Peugeot:
     "assets/data/cars/peugeot/203.js", // ID 47
     "assets/data/cars/peugeot/403.js", // ID 48
@@ -157,4 +163,56 @@ const carFiles = [
     "assets/data/cars/lancia/montecarlo.js", // ID 138
     "assets/data/cars/lancia/037.js", // ID 139
     "assets/data/cars/lancia/delta-integrale.js", // ID 140
+    // Austin:
+    "assets/data/cars/austin/a35.js", // ID 141
+    "assets/data/cars/austin/a40-farina.js", // ID 142
+    // Morris:
+    "assets/data/cars/morris/minor.js", // ID 143
+    "assets/data/cars/morris/1100.js", // ID 144
+    // Mini:
+    "assets/data/cars/mini/mk1.js", // ID 145
+    "assets/data/cars/mini/cooper-s.js", // ID 146
+    "assets/data/cars/mini/moke.js", // ID 147
+    // Austin-Healey:
+    "assets/data/cars/austin-healey/sprite.js", // ID 148
+    "assets/data/cars/austin-healey/3000.js", // ID 149
+    // Porsche:
+    "assets/data/cars/porsche/356.js", // ID 150
+    "assets/data/cars/porsche/911.js", // ID 151
+    "assets/data/cars/porsche/912.js", // ID 152
+    "assets/data/cars/porsche/914.js", // ID 153
+    "assets/data/cars/porsche/924.js", // ID 154
+    // Alfa Romeo:
+    "assets/data/cars/alfa-romeo/giulia.js", // ID 155
+    "assets/data/cars/alfa-romeo/giulia-gt.js", // ID 156
+    "assets/data/cars/alfa-romeo/spider.js", // ID 157
+    "assets/data/cars/alfa-romeo/alfasud.js", // ID 158
+    "assets/data/cars/alfa-romeo/alfetta.js", // ID 159
+    // Opel:
+    "assets/data/cars/opel/kadett-b.js", // ID 160
+    "assets/data/cars/opel/kadett-c.js", // ID 161
+    "assets/data/cars/opel/rekord-c.js", // ID 162
+    "assets/data/cars/opel/gt.js", // ID 163
+    "assets/data/cars/opel/manta-a.js", // ID 164
+    "assets/data/cars/opel/ascona-a.js", // ID 165
+    // Innocenti:
+    "assets/data/cars/innocenti/950-spider.js", // ID 166
+    "assets/data/cars/innocenti/mini.js", // ID 167
+    "assets/data/cars/innocenti/mini-bertone.js", // ID 168
+    // Triumph:
+    "assets/data/cars/triumph/herald.js", // ID 169
+    "assets/data/cars/triumph/spitfire.js", // ID 170
+    "assets/data/cars/triumph/gt6.js", // ID 171
+    "assets/data/cars/triumph/tr6.js", // ID 172
+    // MG:
+    "assets/data/cars/mg/mga.js", // ID 173
+    "assets/data/cars/mg/mgb.js", // ID 174
+    "assets/data/cars/mg/midget.js", // ID 175
+    // Datsun:
+    "assets/data/cars/datsun/510.js", // ID 176
+    "assets/data/cars/datsun/240z.js", // ID 177
+    // Toyota:
+    "assets/data/cars/toyota/2000gt.js", // ID 178
+    "assets/data/cars/toyota/celica-a20.js", // ID 179
+    "assets/data/cars/toyota/corolla-ae86.js", // ID 180
 ];
