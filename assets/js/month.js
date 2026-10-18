@@ -3,7 +3,15 @@
 (function () {
     const START = Date.UTC(2026, 9, 12); // Monday 12 October 2026
     const WEEK = 7 * 864e5;
-    const FIRST = 'assets/data/cars/fiat/x19.js'; // first car of the week, pairs with the first Disc de la setmana
+    // Weeks already published (past, current and next ones) are pinned, so adding cars to car-files.js
+    // never changes them: week 0 = 12 Oct 2026 (Fiat X1/9, pairs with the first Disc de la setmana).
+    // Taken from the schedule of the 139-car list. Only append to this list, never edit or reorder it.
+    const PINNED = [
+        'assets/data/cars/fiat/x19.js',        // 12 d'octubre 2026
+        'assets/data/cars/lancia/fulvia.js',   // 19 d'octubre 2026
+        'assets/data/cars/ford/fiesta-mk1.js', // 26 d'octubre 2026
+        'assets/data/cars/bmw/2002.js',        // 2 de novembre 2026
+    ];
     const SEED = 20261012;
     const MONTHS = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
     // Cars that still use images/placeholder.svg: they go last within their brand.
@@ -34,7 +42,8 @@
     const brandOf = f => f.split('/')[3] || f;
 
     // Build the schedule: each cycle uses every car once (seeded order within each brand,
-    // photo-less cars last). Every brand's cars are spread evenly over the cycle (car k of a
+    // photo-less cars last). The first cycle starts with the PINNED weeks and shuffles the rest.
+    // Every brand's cars are spread evenly over the cycle (car k of a
     // brand with n cars sits near position (k + jitter) / n), so big brands don't cluster;
     // then any two consecutive weeks of the same brand are separated by pulling a later car forward.
     const schedule = [];
@@ -42,8 +51,10 @@
         let cycle = Math.floor(schedule.length / Math.max(files.length, 1));
         while (schedule.length <= upTo && files.length) {
             const rand = rng(SEED + cycle * 7919);
+            const pinned = cycle === 0 ? PINNED.filter(f => files.includes(f)) : [];
+            if (cycle === 0) schedule.push(...pinned);
             const queues = {};
-            files.forEach(f => (queues[brandOf(f)] = queues[brandOf(f)] || []).push(f));
+            files.filter(f => !pinned.includes(f)).forEach(f => (queues[brandOf(f)] = queues[brandOf(f)] || []).push(f));
             const slots = [];
             Object.keys(queues).sort().forEach(b => {
                 const q = shuffle(queues[b], rand);
@@ -52,7 +63,6 @@
                 ordered.forEach((f, k) => slots.push({ f, key: (k + jitter) / ordered.length }));
             });
             const seq = slots.sort((a, b) => a.key - b.key).map(s => s.f);
-            if (cycle === 0 && seq.includes(FIRST)) seq.unshift(seq.splice(seq.indexOf(FIRST), 1)[0]);
             for (let i = 0; i < seq.length; i++) {
                 const prev = i ? seq[i - 1] : schedule[schedule.length - 1];
                 if (prev && brandOf(seq[i]) === brandOf(prev)) {
