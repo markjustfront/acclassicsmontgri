@@ -8,13 +8,13 @@ window.PODCAST = {
   launchDate: "2026-10-12",
   // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, cover: "images/...", note: "", carYear: "" } or null
   discDelMes: {
-    month: "Setmana del 12 d'octubre",
-    artist: "Pink Floyd",
-    album: "The Dark Side of the Moon",
-    year: 1973,
+    month: "Setmana del 19 d'octubre",
+    artist: "Lucio Battisti",
+    album: "Il mio canto libero",
+    year: 1972,
     cover: "",
-    spotify: "https://open.spotify.com/album/4LH4d3cOWNNsVw41Gqt2kv",
-    note: "Del 1973, com el nostre cotxe de la setmana: el Fiat X1/9."
+    spotify: "https://open.spotify.com/album/640jM4slSZl91IHfX0CiWH",
+    note: "Del 1972, l'any que el nostre cotxe de la setmana, el Lancia Fulvia, va guanyar el Ral·li de Montecarlo."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
