@@ -8,13 +8,13 @@ window.PODCAST = {
   launchDate: "2026-10-12",
   // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, cover: "images/...", note: "", carYear: "" } or null
   discDelMes: {
-    month: "Setmana del 19 d'octubre",
-    artist: "Lucio Battisti",
-    album: "Il mio canto libero",
-    year: 1972,
+    month: "Setmana del 26 d'octubre",
+    artist: "Bad Boys Blue",
+    album: "Hot Girls, Bad Boys",
+    year: 1985,
     cover: "",
-    spotify: "https://open.spotify.com/album/640jM4slSZl91IHfX0CiWH",
-    note: "Del 1972, l'any que el nostre cotxe de la setmana, el Lancia Fulvia, va guanyar el Ral·li de Montecarlo."
+    spotify: "https://open.spotify.com/album/20Al9Br3ICD73ni3WuhA9Y",
+    note: "Eurodisco del 1985 nascut a Colònia, una de les ciutats on es va gestar el nostre cotxe de la setmana: el Ford Fiesta, que fa 50 anys va sortir per primer cop de la fàbrica d'Almussafes."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
