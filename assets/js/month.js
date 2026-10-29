@@ -11,6 +11,10 @@
         'assets/data/cars/lancia/fulvia.js',   // 19 d'octubre 2026
         'assets/data/cars/ford/fiesta-mk1.js', // 26 d'octubre 2026
         'assets/data/cars/bmw/2002.js',        // 2 de novembre 2026
+        'assets/data/cars/fiat/124.js',        // 9 de novembre 2026
+        'assets/data/cars/peugeot/404.js',     // 16 de novembre 2026
+        'assets/data/cars/renault/R18.js',     // 23 de novembre 2026
+        'assets/data/cars/opel/kadett-b.js',   // 30 de novembre 2026
     ];
     const SEED = 20261012;
     const MONTHS = ['gener', 'febrer', 'març', 'abril', 'maig', 'juny', 'juliol', 'agost', 'setembre', 'octubre', 'novembre', 'desembre'];
