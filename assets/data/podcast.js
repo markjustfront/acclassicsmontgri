@@ -16,7 +16,6 @@ window.PODCAST = {
     spotify: "https://open.spotify.com/album/0lIGBQj12ehBETiO01zUZx",
     note: "Un disc que va contra el seu temps, com el nostre cotxe de la setmana: el BMW 2002, que va néixer perquè dos enginyers de BMW es van posar un motor de dos litres al seu propi cotxe."
   },
-
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
   episodes: [
