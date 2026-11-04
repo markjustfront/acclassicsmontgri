@@ -31,7 +31,7 @@
       var rec = (e.records || [])[0] || '';
       var art = '<div class="pod-ep-art">' + (e.albumArt ? '<img src="' + esc(e.albumArt) + '" alt="Portada del disc ' + esc(rec) + '" loading="lazy" width="64" height="64" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<div class=&quot;radio-disc&quot;></div>\'">' : '<div class="radio-disc"></div>') + '</div>';
       var recs = rec ? '<div class="pod-ep-disc">' + art + '<div><p class="pod-ep-disc-label">Disc de l\u2019episodi</p>' + (e.albumSpotify ? '<a href="' + esc(e.albumSpotify) + '" target="_blank" rel="noopener">' + esc(rec) + '</a>' : '<p>' + esc(rec) + '</p>') + '</div></div>' : '';
-      return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + recs + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + '<p class="pod-ep-links">' + links + '</p></li>';
+      return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + '<div class="pod-ep-foot">' + recs + '<p class="pod-ep-links">' + links + '</p></div></li>';
     }).join('');
   }
   // Disc de la setmana

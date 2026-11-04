@@ -1217,3 +1217,8 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-ep-links { flex-wrap: wrap; }
 .pod-ep-links a.pod-ep-btn { color: inherit; }
 .pod-ep-btn.is-disabled { background: #e4ded5; color: #8a8178; border: 0; cursor: not-allowed; pointer-events: none; box-shadow: none; }
+.pod-ep { display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+.pod-ep-foot { margin-top: auto; display: flex; flex-direction: column; }
+.pod-ep .weekly-tag { align-self: flex-start; }
+.pod-ep-foot .pod-ep-links { margin: 0; flex-direction: column; gap: 8px; }
+.pod-ep-foot .pod-ep-btn { width: 100%; justify-content: center; box-sizing: border-box; margin-top: 0; }
