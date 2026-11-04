@@ -1150,6 +1150,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-ep time { color: #6b5d50; font-size: 0.9rem; }
 .pod-ep details summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
 .pod-ep-links { display: flex; gap: 16px; } .pod-ep-links a { color: #7a6136; font-weight: 600; }
+.pod-audio-soon { font-style: italic; color: #7a6136; font-weight: 600; }
 .pod-ep-empty { opacity: 0.55; text-align: center; } .pod-ep-empty .radio-disc { width: 50%; margin: 6px auto 10px; }
 @media (max-width: 760px) {
   .pod-two { grid-template-columns: 1fr; }

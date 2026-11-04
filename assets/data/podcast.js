@@ -17,8 +17,28 @@ window.PODCAST = {
     note: "Un disc que va contra el seu temps, com el nostre cotxe de la setmana: el BMW 2002, que va néixer perquè dos enginyers de BMW es van posar un motor de dos litres al seu propi cotxe."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
+  // Leave spotifyEpisode "" while an episode is not on Spotify yet: no player is shown,
+  // only the note "Àudio aviat disponible". Paste the link later to turn the player back on.
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
   episodes: [
+    {
+      num: 4,
+      title: "El 2002 i el blues del pescador",
+      date: "2026-11-01",
+      summary: "Quart episodi de Revolucions FM, el pòdcast d'AC Classics Montgrí sobre motor i vinil! En Marc ens presenta el BMW 2002, la berlina petita que va néixer perquè dos enginyers de la marca es van posar un motor de dos litres al seu propi cotxe, i el 2002 turbo que va anar contra el seu temps. I el junta amb Fisherman's Blues, el disc del 1988 en què els Waterboys canvien el rock d'estadi pel violí i la costa d'Irlanda.",
+      spotifyEpisode: "",
+      youtube: "",
+      records: ["The Waterboys - Fisherman's Blues (1988)"]
+    },
+    {
+      num: 3,
+      title: "Fiesta a tot volum",
+      date: "2026-10-25",
+      summary: "Tercer episodi de Revolucions FM, el pòdcast d'AC Classics Montgrí sobre motor i vinil! En Marc celebra els 50 anys del primer Ford Fiesta, l'utilitari que l'octubre del 1976 va començar a sortir de la fàbrica d'Almussafes, i el junta amb l'Eurodisco de Colònia: Hot Girls, Bad Boys, el primer disc dels Bad Boys Blue, el de «You're a Woman». Fiesta a tot volum!",
+      spotifyEpisode: "",
+      youtube: "",
+      records: ["Bad Boys Blue - Hot Girls, Bad Boys (1985)"]
+    },
     {
       num: 2,
       title: "El Lancia Fulvia i Il mio canto libero",
