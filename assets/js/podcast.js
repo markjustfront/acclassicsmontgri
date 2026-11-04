@@ -24,9 +24,14 @@
   if (list) {
     if (!eps.length) { list.innerHTML = '<li class="pod-ep pod-ep-empty" aria-hidden="true"><div class="radio-disc"></div><p>Properament</p></li>'.repeat(3); }
     else list.innerHTML = eps.map(function (e) {
-      var links = (e.spotifyEpisode ? '<a href="' + esc(e.spotifyEpisode) + '" target="_blank" rel="noopener">Spotify</a>' : '') + (e.youtube ? '<a href="' + esc(e.youtube) + '" target="_blank" rel="noopener">YouTube</a>' : '');
-      var recs = (e.records || []).length ? '<details><summary>Discos de l\u2019episodi</summary><ul>' + e.records.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></details>' : '';
-      return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + recs + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + (links ? '<p class="pod-ep-links">' + links + '</p>' : '') + '</li>';
+      var btn = e.spotifyEpisode
+        ? '<a class="cta cta-primary cta-sm pod-ep-btn" href="' + esc(e.spotifyEpisode) + '" target="_blank" rel="noopener">Escolta a Spotify<span class="sr-only"> (s\u2019obre en una pestanya nova)</span></a>'
+        : '<span class="cta cta-sm pod-ep-btn is-disabled" role="link" aria-disabled="true">Aviat a Spotify</span>';
+      var links = btn + (e.youtube ? '<a class="cta cta-outline cta-sm pod-ep-btn" href="' + esc(e.youtube) + '" target="_blank" rel="noopener">YouTube</a>' : '');
+      var rec = (e.records || [])[0] || '';
+      var art = '<div class="pod-ep-art">' + (e.albumArt ? '<img src="' + esc(e.albumArt) + '" alt="Portada del disc ' + esc(rec) + '" loading="lazy" width="64" height="64" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<div class=&quot;radio-disc&quot;></div>\'">' : '<div class="radio-disc"></div>') + '</div>';
+      var recs = rec ? '<div class="pod-ep-disc">' + art + '<div><p class="pod-ep-disc-label">Disc de l\u2019episodi</p>' + (e.albumSpotify ? '<a href="' + esc(e.albumSpotify) + '" target="_blank" rel="noopener">' + esc(rec) + '</a>' : '<p>' + esc(rec) + '</p>') + '</div></div>' : '';
+      return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + recs + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + '<p class="pod-ep-links">' + links + '</p></li>';
     }).join('');
   }
   // Disc de la setmana

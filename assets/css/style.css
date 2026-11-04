@@ -1208,3 +1208,12 @@ a.contact-card:hover { transform: translateY(-3px); }
 .club-car img { width: 100%; height: auto; display: block; }
 .club-car { margin: 0 auto 28px; }
 .club-car { margin-top: 28px; }
+.pod-ep-disc { display: flex; gap: 12px; align-items: center; margin: 12px 0; padding: 10px; background: #f7f2ea; border-radius: 10px; }
+.pod-ep-art { flex: 0 0 64px; width: 64px; height: 64px; }
+.pod-ep-art img { width: 64px; height: 64px; border-radius: 6px; object-fit: cover; display: block; }
+.pod-ep-art .radio-disc { width: 64px; height: 64px; }
+.pod-ep-disc-label { margin: 0; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: #6b5d50; }
+.pod-ep-disc a { color: #7a6136; font-weight: 600; }
+.pod-ep-links { flex-wrap: wrap; }
+.pod-ep-links a.pod-ep-btn { color: inherit; }
+.pod-ep-btn.is-disabled { background: #e4ded5; color: #8a8178; border: 0; cursor: not-allowed; pointer-events: none; box-shadow: none; }
