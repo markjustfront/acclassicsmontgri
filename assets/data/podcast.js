@@ -8,13 +8,13 @@ window.PODCAST = {
   launchDate: "2026-10-12",
   // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, cover: "images/...", note: "", carYear: "" } or null
   discDelMes: {
-    month: "Setmana del 19 d'octubre",
-    artist: "Lucio Battisti",
-    album: "Il mio canto libero",
-    year: 1972,
+    month: "Setmana del 2 de novembre",
+    artist: "The Waterboys",
+    album: "Fisherman's Blues",
+    year: 1988,
     cover: "",
-    spotify: "https://open.spotify.com/album/640jM4slSZl91IHfX0CiWH",
-    note: "Del 1972, l'any que el nostre cotxe de la setmana, el Lancia Fulvia, va guanyar el Ral·li de Montecarlo."
+    spotify: "https://open.spotify.com/album/0lIGBQj12ehBETiO01zUZx",
+    note: "Un disc que va contra el seu temps, com el nostre cotxe de la setmana: el BMW 2002, que va néixer perquè dos enginyers de BMW es van posar un motor de dos litres al seu propi cotxe."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"] }
