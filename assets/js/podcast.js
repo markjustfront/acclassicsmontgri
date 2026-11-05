@@ -19,11 +19,11 @@
   } else if (soon && P.launchDate) {
     soon.querySelector('.pod-launch').textContent = 'Primer episodi: ' + fmt(P.launchDate) + '.';
   }
-  // Episode list — latest stays fully expanded; older episodes are collapsible
+  // Episode list — every episode is collapsible (details/summary)
   var list = document.getElementById('podEpisodes');
   if (list) {
     if (!eps.length) { list.innerHTML = '<li class="pod-ep pod-ep-empty" aria-hidden="true"><div class="radio-disc"></div><p>Properament</p></li>'.repeat(3); }
-    else list.innerHTML = eps.map(function (e, i) {
+    else list.innerHTML = eps.map(function (e) {
       var btn = e.spotifyEpisode
         ? '<a class="cta cta-primary cta-sm pod-ep-btn" href="' + esc(e.spotifyEpisode) + '" target="_blank" rel="noopener">Escolta a Spotify<span class="sr-only"> (s\u2019obre en una pestanya nova)</span></a>'
         : '<span class="cta cta-sm pod-ep-btn is-disabled" role="link" aria-disabled="true">Aviat a Spotify</span>';
@@ -34,9 +34,6 @@
       var head = '<span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '');
       var blurb = '<p class="pod-ep-blurb">' + esc(e.summary) + '</p>';
       var audio = e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>';
-      if (i === 0) {
-        return '<li class="pod-ep pod-ep-latest">' + head + blurb + audio + '<div class="pod-ep-foot">' + recs + '<p class="pod-ep-links">' + links + '</p></div></li>';
-      }
       return '<li class="pod-ep pod-ep-collapse"><details>' +
         '<summary>' +
           '<div class="pod-ep-sum">' + head + blurb + recs +
