@@ -151,10 +151,15 @@
                 return;
             }
             const pairTag = document.getElementById('pairWeekTag');
-            const omitTag = !!pairTag;
+            const homeWeek = document.getElementById('homeWeekLabel');
+            const omitTag = !!(pairTag || homeWeek);
             if (pairTag) {
                 pairTag.textContent = m.label;
                 pairTag.hidden = false;
+            }
+            if (homeWeek) {
+                homeWeek.textContent = m.label;
+                homeWeek.hidden = false;
             }
             teaser.innerHTML = renderWeekTeaser(m, { omitTag });
         });
