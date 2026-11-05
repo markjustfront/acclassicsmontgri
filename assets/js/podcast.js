@@ -111,16 +111,23 @@
   var P = window.PODCAST || {}, d = P.discDelMes;
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   if (!d || !d.album) {
-    box.innerHTML = '<div class="home-disc-card"><div class="pod-disc-art"><div class="radio-disc"></div></div><div><span class="weekly-tag">Properament</span><h4>Disc de la setmana</h4><p>Cada setmana un vinil amb el cotxe de la setmana.</p><a class="cta cta-outline cta-sm" href="radio.html">Ves a Revolucions FM</a></div></div>';
+    box.innerHTML = '<div class="home-disc-card">' +
+      '<div class="home-disc-vinyl" aria-hidden="true"><div class="radio-disc"></div></div>' +
+      '<div class="home-disc-body">' +
+        '<p class="home-disc-kind">Properament</p>' +
+        '<h4>Disc de la setmana</h4>' +
+        '<p class="home-disc-note">Cada setmana un vinil amb el cotxe de la setmana.</p>' +
+        '<a class="cta cta-outline cta-sm" href="radio.html">Ves a Revolucions FM</a>' +
+      '</div></div>';
     return;
   }
   box.innerHTML = '<div class="home-disc-card">' +
-    '<div class="pod-disc-art"><div class="radio-disc" aria-hidden="true"></div></div>' +
-    '<div>' +
-      '<span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span>' +
+    '<div class="home-disc-vinyl" aria-hidden="true"><div class="radio-disc"></div></div>' +
+    '<div class="home-disc-body">' +
+      '<p class="home-disc-kind">Vinil de la setmana</p>' +
       '<h4>' + esc(d.album) + '</h4>' +
       '<p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' +
       (d.note ? '<p class="home-disc-note">' + esc(d.note) + '</p>' : '') +
-      '<a class="cta cta-primary cta-sm" href="radio.html#podDiscTitle"><span>Escolta a Revolucions FM</span></a>' +
+      '<a class="cta cta-outline cta-sm" href="radio.html#podDiscTitle"><span>Escolta a Revolucions FM</span></a>' +
     '</div></div>';
 })();

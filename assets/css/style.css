@@ -1365,48 +1365,266 @@ a.contact-card:hover { transform: translateY(-3px); }
 .events .map-legend li { display: flex; align-items: center; gap: 8px; }
 
 
-/* ===== Nov 2026 UX polish ===== */
-.home-week-pair {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.home-week-label {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.35rem;
-  margin: 0 0 14px;
-  color: var(--dark);
+/* ===== Home «De la setmana» magazine band ===== */
+.home-setmana {
   text-align: center;
+  padding: 72px 20px 80px;
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 0%, rgba(201, 162, 95, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(31, 24, 19, 0.06), transparent 50%),
+    linear-gradient(180deg, #f3eee4 0%, #f8f6f0 45%, #f8f6f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+.home-setmana::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, transparent, var(--gold) 18%, var(--gold) 82%, transparent);
+  opacity: 0.85;
+  pointer-events: none;
+}
+.home-setmana-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.home-setmana-head {
+  max-width: 640px;
+  margin: 0 auto 36px;
+}
+.home-setmana-kicker {
+  margin: 0 0 14px;
+  min-height: 1.6em;
+}
+.home-setmana-week {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: var(--dark);
+  color: #e6d5b3;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(31, 24, 19, 0.18);
+}
+.home-setmana-head h2 {
+  margin: 0 0 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+}
+.home-setmana-head h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: 16px auto 0;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.home-setmana-lede {
+  margin: 0 auto;
+  max-width: 460px;
+  color: #5a5046;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 300;
+}
+.home-setmana-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 0;
+  align-items: stretch;
+  text-align: left;
+}
+.home-setmana-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #7a6136;
+}
+.home-setmana-car {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 22px 26px;
+  box-shadow:
+    0 18px 50px rgba(31, 24, 19, 0.1),
+    0 2px 0 rgba(168, 137, 83, 0.35) inset;
+  position: relative;
+  z-index: 1;
+}
+.home-setmana .weekly-teaser {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 26px;
+  align-items: center;
+}
+.home-setmana .weekly-teaser img {
+  border-radius: 14px;
+  aspect-ratio: 5 / 4;
+  box-shadow: 0 10px 28px rgba(31, 24, 19, 0.14);
+}
+.home-setmana .weekly-teaser h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+  line-height: 1.12;
+  margin: 0 0 6px;
+}
+.home-setmana .teaser-body {
+  padding: 4px 6px 0 0;
+}
+.home-setmana .teaser-desc {
+  -webkit-line-clamp: 3;
+  margin-bottom: 18px;
+}
+.home-setmana-disc {
+  position: relative;
+  z-index: 2;
+  margin: 48px 0 18px -42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .home-disc-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 24px rgba(31,24,19,0.08);
-  padding: 22px;
+  background: linear-gradient(165deg, #2a211b 0%, #1f1813 55%, #17120e 100%);
+  color: #f3ead9;
+  border-radius: 18px;
+  padding: 26px 24px 24px;
+  box-shadow:
+    0 22px 48px rgba(31, 24, 19, 0.28),
+    0 0 0 1px rgba(201, 162, 95, 0.28);
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 92px 1fr;
   gap: 18px;
   align-items: center;
   text-align: left;
+  transform: rotate(-1.25deg);
 }
-.home-disc-card .pod-disc-art .radio-disc { width: 96px; margin: 0; }
-.home-disc-card h4 { margin: 8px 0 4px; font-size: 1.2rem; }
-.home-disc-note {
-  margin: 8px 0 14px;
-  color: #4a4038;
-  line-height: 1.5;
+.home-setmana-disc .home-setmana-eyebrow {
+  color: #c9a25f;
+  margin-left: 10px;
+}
+.home-disc-vinyl {
+  width: 92px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+}
+.home-disc-vinyl .radio-disc {
+  width: 92px;
+  height: 92px;
+  margin: 0;
+  box-shadow: 0 0 0 6px rgba(201, 162, 95, 0.18), 0 8px 18px rgba(0,0,0,0.35);
+}
+.home-disc-body { min-width: 0; }
+.home-disc-kind {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a25f;
+  font-weight: 600;
+}
+.home-disc-card h4 {
+  margin: 0 0 4px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #f7efe0;
+}
+.home-disc-card .pod-disc-meta {
+  margin: 0 0 10px;
+  color: #d4b06f;
+  font-weight: 600;
   font-size: 0.95rem;
+}
+.home-disc-note {
+  margin: 0 0 16px;
+  color: rgba(243, 234, 217, 0.78);
+  line-height: 1.5;
+  font-size: 0.92rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.home-disc-card .cta { margin-top: 4px; }
-@media (max-width: 900px) {
-  .home-week-pair { grid-template-columns: 1fr; gap: 20px; }
+.home-disc-card .cta {
+  margin-top: 0;
+}
+.home-disc-card .cta-outline {
+  color: #e6d5b3;
+  border-color: rgba(201, 162, 95, 0.7);
+  background: transparent;
+}
+.home-disc-card .cta-outline:hover {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+}
+@media (max-width: 980px) {
+  .home-setmana-stage {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .home-setmana-disc {
+    margin: -28px 16px 0;
+  }
+  .home-disc-card {
+    transform: none;
+  }
+  .home-setmana .weekly-teaser {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .home-setmana {
+    padding: 56px 16px 64px;
+  }
+  .home-setmana-car {
+    padding: 16px 14px 20px;
+    border-radius: 16px;
+  }
+  .home-setmana-disc {
+    margin: -20px 8px 0;
+  }
+  .home-disc-card {
+    grid-template-columns: 72px 1fr;
+    gap: 14px;
+    padding: 20px 16px;
+  }
+  .home-disc-vinyl,
+  .home-disc-vinyl .radio-disc {
+    width: 72px;
+    height: 72px;
+  }
+  .home-setmana .teaser-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .home-setmana .teaser-actions .cta {
+    width: 100%;
+  }
+  .home-setmana .teaser-link {
+    justify-content: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-disc-card { transform: none; }
 }
 
 .contact-form {
