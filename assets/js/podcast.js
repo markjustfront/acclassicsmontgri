@@ -19,11 +19,11 @@
   } else if (soon && P.launchDate) {
     soon.querySelector('.pod-launch').textContent = 'Primer episodi: ' + fmt(P.launchDate) + '.';
   }
-  // Episode list
+  // Episode list — latest stays fully expanded; older episodes are collapsible
   var list = document.getElementById('podEpisodes');
   if (list) {
     if (!eps.length) { list.innerHTML = '<li class="pod-ep pod-ep-empty" aria-hidden="true"><div class="radio-disc"></div><p>Properament</p></li>'.repeat(3); }
-    else list.innerHTML = eps.map(function (e) {
+    else list.innerHTML = eps.map(function (e, i) {
       var btn = e.spotifyEpisode
         ? '<a class="cta cta-primary cta-sm pod-ep-btn" href="' + esc(e.spotifyEpisode) + '" target="_blank" rel="noopener">Escolta a Spotify<span class="sr-only"> (s\u2019obre en una pestanya nova)</span></a>'
         : '<span class="cta cta-sm pod-ep-btn is-disabled" role="link" aria-disabled="true">Aviat a Spotify</span>';
@@ -31,9 +31,23 @@
       var rec = (e.records || [])[0] || '';
       var art = '<div class="pod-ep-art">' + (e.albumArt ? '<img src="' + esc(e.albumArt) + '" alt="Portada del disc ' + esc(rec) + '" loading="lazy" width="64" height="64" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<div class=&quot;radio-disc&quot;></div>\'">' : '<div class="radio-disc"></div>') + '</div>';
       var recs = rec ? '<div class="pod-ep-disc">' + art + '<div><p class="pod-ep-disc-label">Disc de l\u2019episodi</p>' + (e.albumSpotify ? '<a href="' + esc(e.albumSpotify) + '" target="_blank" rel="noopener">' + esc(rec) + '</a>' : '<p>' + esc(rec) + '</p>') + '</div></div>' : '';
-      return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + '<div class="pod-ep-foot">' + recs + '<p class="pod-ep-links">' + links + '</p></div></li>';
+      var head = '<span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '');
+      var blurb = '<p class="pod-ep-blurb">' + esc(e.summary) + '</p>';
+      var audio = e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>';
+      if (i === 0) {
+        return '<li class="pod-ep pod-ep-latest">' + head + blurb + audio + '<div class="pod-ep-foot">' + recs + '<p class="pod-ep-links">' + links + '</p></div></li>';
+      }
+      return '<li class="pod-ep pod-ep-collapse"><details>' +
+        '<summary>' +
+          '<div class="pod-ep-sum">' + head + blurb + recs +
+          '<span class="pod-ep-toggle"><span class="pod-ep-toggle-closed">Mostra m\u00e9s</span><span class="pod-ep-toggle-open">Mostra menys</span></span>' +
+          '</div>' +
+        '</summary>' +
+        '<div class="pod-ep-extra">' + audio + '<div class="pod-ep-foot"><p class="pod-ep-links">' + links + '</p></div></div>' +
+      '</details></li>';
     }).join('');
   }
+
   // Disc de la setmana (on radio.html the week pill + car CTA live on the shared pair above)
   var d = P.discDelMes, box = document.getElementById('podDisc');
   if (box && d) {

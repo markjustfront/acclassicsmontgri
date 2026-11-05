@@ -1148,7 +1148,75 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-episodes { list-style: none; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 .pod-ep { background: #fff; border-radius: 12px; box-shadow: 0 6px 24px rgba(31,24,19,0.08); padding: 18px; }
 .pod-ep time { color: #6b5d50; font-size: 0.9rem; }
-.pod-ep details summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+/* Collapsible previous episodes (scoped; do not inherit accessories accordion look) */
+.pod-ep details {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pod-ep details summary {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  list-style: none;
+  display: block;
+  min-height: 44px;
+}
+.pod-ep details summary::-webkit-details-marker,
+.pod-ep details summary::marker { display: none; content: ''; }
+.pod-ep details[open] summary {
+  background: transparent;
+  color: inherit;
+}
+.pod-ep details summary:focus-visible {
+  outline: 3px solid #7a6136;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.pod-ep-sum { display: flex; flex-direction: column; }
+.pod-ep-blurb { margin: 8px 0 0; line-height: 1.55; color: #4a4038; }
+.pod-ep-collapse details:not([open]) .pod-ep-blurb {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pod-ep-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: #7a6136;
+  font-weight: 600;
+  font-size: 0.92rem;
+  min-height: 44px;
+}
+.pod-ep-toggle::after {
+  content: '';
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.15em;
+  transition: transform .15s ease;
+}
+.pod-ep details[open] .pod-ep-toggle::after {
+  transform: rotate(-135deg);
+  margin-top: 0.2em;
+}
+.pod-ep details:not([open]) .pod-ep-toggle-open { display: none; }
+.pod-ep details[open] .pod-ep-toggle-closed { display: none; }
+.pod-ep-extra { margin-top: 8px; }
+.pod-ep-collapse .pod-ep-disc { margin-top: 12px; }
+.pod-ep-collapse .pod-ep-extra .pod-ep-foot { margin-top: 0; }
+.pod-ep-latest .pod-ep-blurb { display: block; }
 .pod-ep-links { display: flex; gap: 16px; } .pod-ep-links a { color: #7a6136; font-weight: 600; }
 .pod-audio-soon { font-style: italic; color: #7a6136; font-weight: 600; }
 .pod-ep-empty { opacity: 0.55; text-align: center; } .pod-ep-empty .radio-disc { width: 50%; margin: 6px auto 10px; }
