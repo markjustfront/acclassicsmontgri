@@ -1613,8 +1613,7 @@ a.contact-card:hover { transform: translateY(-3px); }
     padding: 56px 16px 64px;
   }
   .home-setmana-car {
-    padding: 16px 14px 20px;
-    border-radius: 16px;
+    padding: 0;
   }
   .home-setmana-disc {
     margin: -20px 8px 0;
