@@ -117,14 +117,11 @@
         })).then(list => list.filter(Boolean));
     };
 
-    // Home page teaser
-    const teaser = document.getElementById('monthTeaser');
-    if (teaser) {
-        window.getCarsOfWeek(1).then(([m]) => {
-            if (!m) { teaser.closest('section').hidden = true; return; }
-            const c = m.car;
-            const specs = keySpecs(c.generalCharacteristics);
-            teaser.innerHTML = `
+    // Shared teaser markup (home + Revolucions FM). Same data and links on every page.
+    function renderWeekTeaser(m) {
+        const c = m.car;
+        const specs = keySpecs(c.generalCharacteristics);
+        return `
                 <div class="weekly-teaser">
                     <figure><img loading="lazy" src="${esc(c.image)}" alt="${esc(c.brand + ' ' + c.model)}">${credit(c.image)}</figure>
                     <div class="teaser-body">
@@ -139,6 +136,19 @@
                         </div>
                     </div>
                 </div>`;
+    }
+    window.renderWeekTeaser = renderWeekTeaser;
+
+    // Fill #monthTeaser wherever it appears (index.html and radio.html)
+    const teaser = document.getElementById('monthTeaser');
+    if (teaser) {
+        window.getCarsOfWeek(1).then(([m]) => {
+            if (!m) {
+                const wrap = teaser.closest('section, .radio-weekly') || teaser;
+                wrap.hidden = true;
+                return;
+            }
+            teaser.innerHTML = renderWeekTeaser(m);
         });
     }
 
