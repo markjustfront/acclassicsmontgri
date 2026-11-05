@@ -1311,3 +1311,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-ep .weekly-tag { align-self: flex-start; }
 .pod-ep-foot .pod-ep-links { margin: 0; flex-direction: column; gap: 8px; }
 .pod-ep-foot .pod-ep-btn { width: 100%; justify-content: center; box-sizing: border-box; margin-top: 0; }
+
+.pod-pair-hook { max-width: 640px; margin: 8px auto 0; text-align: center; font-style: italic; line-height: 1.45; opacity: .85; }
+.pod-follow { text-align: center; margin: 20px 0 0; }
+@media (max-width: 600px) { .pod-pair-hook { font-size: .95rem; padding: 0 12px; } }
