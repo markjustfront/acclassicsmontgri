@@ -136,10 +136,9 @@
         const TAG_PUBLIC = { all: null, rally: 'ral·lis', trobada: 'trobades', fira: 'fires', altres: 'altres' };
 
         function setActiveFilter(type) {
-            document.querySelectorAll('#eventFilters .btn').forEach(btn => {
+            document.querySelectorAll('#eventFilters button[data-tag]').forEach(btn => {
                 const on = btn.getAttribute('data-tag') === type;
-                if (on) btn.classList.add('active');
-                else btn.classList.remove('active');
+                btn.className = on ? 'btn active' : 'btn';
                 btn.setAttribute('aria-pressed', on ? 'true' : 'false');
             });
         }
