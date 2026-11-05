@@ -34,10 +34,13 @@
       return '<li class="pod-ep"><span class="weekly-tag">Ep. ' + esc(e.num) + '</span><h4>' + esc(e.title) + '</h4>' + (e.date ? '<time datetime="' + esc(e.date) + '">' + fmt(e.date) + '</time>' : '') + '<p>' + esc(e.summary) + '</p>' + (e.spotifyEpisode ? '' : '<p class="pod-audio-soon">\u00c0udio aviat disponible</p>') + '<div class="pod-ep-foot">' + recs + '<p class="pod-ep-links">' + links + '</p></div></li>';
     }).join('');
   }
-  // Disc de la setmana
+  // Disc de la setmana (on radio.html the week pill + car CTA live on the shared pair above)
   var d = P.discDelMes, box = document.getElementById('podDisc');
   if (box && d) {
-    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div><span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span><h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + '<a class="cta cta-outline cta-sm pod-car-btn" href="cotxes.html">Amb el cotxe de la setmana \u2192</a></div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
+    var paired = !!document.getElementById('radio-cotxe');
+    var tag = paired ? '' : '<span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span>';
+    var carBtn = paired ? '' : '<a class="cta cta-outline cta-sm pod-car-btn" href="cotxes.html">Amb el cotxe de la setmana \u2192</a>';
+    box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div>' + tag + '<h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + (d.note ? '<p>' + esc(d.note) + '</p>' : '') + carBtn + '</div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
     if (embed(d.spotify)) box.classList.add('has-player');
   }
 })();
