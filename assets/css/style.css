@@ -1153,18 +1153,16 @@ a.contact-card:hover { transform: translateY(-3px); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .radio-page { max-width: 1100px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .pod-subs { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 0 28px; }
-.pod-subs .cta-outline, .pod-suggest-actions .cta-outline { margin-top: 0; }
+.pod-subs .cta-outline { margin-top: 0; }
 .pod-h { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; margin: 40px 0 14px; color: var(--dark); }
 .pod-latest-title { font-weight: 600; margin: 0 0 10px; }
-.pod-two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.pod-disc, .pod-suggest { background: #fff; border-radius: 12px; box-shadow: 0 6px 24px rgba(31,24,19,0.08); padding: 20px; box-sizing: border-box; flex: 1; }
+.pod-disc { background: #fff; border-radius: 12px; box-shadow: 0 6px 24px rgba(31,24,19,0.08); padding: 20px; box-sizing: border-box; flex: 1; }
 .pod-disc { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; }
 .pod-disc-art img { width: 120px; height: 120px; object-fit: cover; border-radius: 6px; display: block; }
 .pod-disc-art .radio-disc { width: 120px; margin: 0; }
 .pod-disc h4, .pod-ep h4 { margin: 8px 0 4px; font-size: 1.1rem; }
 .pod-disc-meta { color: #7a6136; font-weight: 600; margin: 0 0 6px; }
 .pod-text-link { color: #7a6136; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.pod-suggest-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 0; }
 .pod-episodes { list-style: none; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; align-items: start; }
 .pod-ep { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(31,24,19,0.08); padding: 26px 24px 22px; }
 .pod-ep time { color: #6b5d50; font-size: 0.9rem; }
@@ -1258,29 +1256,15 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-audio-soon { font-style: italic; color: #7a6136; font-weight: 600; }
 .pod-ep-empty { opacity: 0.55; text-align: center; } .pod-ep-empty .radio-disc { width: 50%; margin: 6px auto 10px; }
 @media (max-width: 760px) {
-  .pod-two { grid-template-columns: 1fr; }
   .pod-disc { grid-template-columns: 88px 1fr; } .pod-disc-art img, .pod-disc-art .radio-disc { width: 88px; height: 88px; }
-  .pod-subs .cta, .pod-suggest-actions .cta { width: 100%; }
+  .pod-subs .cta { width: 100%; }
 }
-.pod-two > div { display: flex; flex-direction: column; }
 .pod-disc a { color: #7a6136; font-weight: 600; }
 .pod-ep-empty .radio-disc { max-width: 120px; }
 .pod-episodes { margin-top: 0; }
 .pod-disc-player { grid-column: 1 / -1; }
 .pod-disc.has-player .pod-disc-art { display: none; }
 .pod-disc.has-player { grid-template-columns: 1fr; }
-.pod-suggest { position: relative; overflow: hidden; background: var(--dark); color: #f3ead9; }
-.pod-suggest::after { content: ""; position: absolute; right: -60px; bottom: -60px; width: 180px; height: 180px; border-radius: 50%;
-  background: radial-gradient(circle, #c9a25f 0 9%, #2c231c 10% 100%); box-shadow: inset 0 0 0 18px #241c16, inset 0 0 0 20px #3a2f26, inset 0 0 0 38px #241c16, inset 0 0 0 40px #3a2f26; opacity: .9; pointer-events: none; }
-.pod-suggest > * { position: relative; z-index: 1; }
-.pod-suggest-lead { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; margin: 0 0 12px; color: #fff; }
-.pod-suggest-ideas { list-style: none; padding: 0; margin: 0 0 6px; display: grid; gap: 8px; }
-.pod-suggest-ideas li { display: flex; gap: 10px; align-items: center; font-size: .97rem; }
-.pod-suggest .cta-outline { color: #f3ead9; border-color: #c9a25f; }
-.pod-suggest .cta-outline:hover { background: #c9a25f; color: var(--dark); }
-.pod-suggest .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-.pod-suggest-note { margin: 14px 0 0; font-size: .88rem; color: #d9c9a8; }
-
 /* Cotxe + disc de la setmana pair on Revolucions FM */
 .pod-pair { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
 .pod-pair-week { text-align: center; margin: 28px 0 0; }
@@ -1299,7 +1283,6 @@ a.contact-card:hover { transform: translateY(-3px); }
 }
 
 /* Disc de la setmana: cleaner layout */
-.pod-two { grid-template-columns: 1fr; gap: 8px; }
 .pod-disc.has-player { grid-template-columns: 1fr 1.1fr; gap: 32px; padding: 28px; align-items: center; }
 .pod-disc .weekly-tag { display: inline-block; margin-bottom: 10px; }
 .pod-disc h4 { font-size: 1.35rem; margin: 6px 0 6px; }
@@ -1445,23 +1428,37 @@ a.contact-card:hover { transform: translateY(-3px); }
   color: #4a4038;
   opacity: 1;
 }
+.mag-feature-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+/* Photo full-width on top, then copy | disc — fills the cream void */
 .mag-feature-spread {
   display: grid;
   grid-template-columns: 1.35fr 0.9fr;
-  gap: 28px 32px;
+  grid-template-areas:
+    "hero hero"
+    "copy disc";
+  gap: 22px 32px;
   align-items: start;
 }
 .mag-feature-car,
+.mag-feature-car #monthTeaser,
+.mag-feature-spread .mag-car {
+  display: contents !important;
+}
+.mag-car-hero { grid-area: hero; }
+.mag-car-copy { grid-area: copy; min-width: 0; }
 .mag-feature-aside {
+  grid-area: disc;
   min-width: 0;
   margin: 0;
   transform: none;
+  align-self: start;
 }
-/* Car feature: stacked hero photo + copy — photo never covered */
+/* Car feature: hero + copy participate in parent spread grid */
 .mag-car {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 18px !important;
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
@@ -1606,10 +1603,48 @@ a.contact-card:hover { transform: translateY(-3px); }
 .mag-feature .pod-pair-week { margin: 0; }
 .mag-feature.mag-pair { margin: 28px auto 48px; padding: 8px 20px 12px; }
 
+/* Podcast-native pair: keep useful cotxe+disc, drop heavy feature masthead */
+.mag-feature.mag-pair.mag-pair--pod {
+  background: transparent;
+  padding: 8px 0 20px;
+  margin: 20px auto 36px;
+}
+.mag-feature.mag-pair.mag-pair--pod .pod-pair-week {
+  text-align: center;
+  margin: 8px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.mag-pair--pod .pod-pair-hook {
+  margin: 0;
+  max-width: 560px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: #4a4038;
+}
+.mag-pair--pod .mag-feature-stage,
+.mag-pair--pod .mag-disc-player {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+
 @media (max-width: 900px) {
   .mag-feature-spread {
     grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-areas:
+      "hero"
+      "copy"
+      "disc";
+    gap: 22px;
   }
   .mag-feature {
     padding: 48px 16px 56px;
