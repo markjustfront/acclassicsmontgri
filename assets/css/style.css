@@ -1394,6 +1394,11 @@ a.contact-card:hover { transform: translateY(-3px); }
 .home-setmana-head {
   max-width: 640px;
   margin: 0 auto 36px;
+  background: none;
+  height: auto;
+  display: block;
+  color: inherit;
+  position: static;
 }
 .home-setmana-kicker {
   margin: 0 0 14px;
