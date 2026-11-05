@@ -407,6 +407,13 @@ window.imageCredits = {
     "source": "https://commons.wikimedia.org/wiki/File:Renault_Dauphine_BW_2023-07-16_12-46-36.jpg",
     "file": "Renault Dauphine BW 2023-07-16 12-46-36.jpg"
   },
+  "images/cars/renault/Rodeo-main.jpg": {
+    "author": "Robotriot",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_Rodeo_4.jpg",
+    "file": "Renault Rodeo 4.jpg"
+  },
   "images/cars/renault/Floride-main.jpg": {
     "author": "Lothar Spurzem",
     "license": "CC BY-SA 2.0 de",
