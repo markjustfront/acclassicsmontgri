@@ -55,3 +55,12 @@
     if (embed(d.spotify)) box.classList.add('has-player');
   }
 })();
+
+(function () {
+  var P = window.PODCAST || {}, d = P.discDelMes, e = (P.episodes || [])[0];
+  var h = document.getElementById('pairHook');
+  var t = (d && d.note) || (e && e.summary ? e.summary.split(/(?<=[.!?])\s/)[0] : '');
+  if (h && t) { h.textContent = t; h.hidden = false; }
+  var f = document.getElementById('podFollow');
+  if (f && P.spotifyShow) { f.querySelector('a').href = P.spotifyShow; f.hidden = false; }
+})();
