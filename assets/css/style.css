@@ -799,7 +799,24 @@ html { scroll-behavior: smooth; }
 /* Events: upcoming / past markers and source link */
 .events .badge.soon { background: #2e5e3a; color: white; margin-left: 6px; }
 .events .badge.done { background: #ddd; color: #555; margin-left: 6px; }
-.events .card.past { opacity: 0.72; }
+.events .card { position: relative; }
+.events .card.past {
+    background: #efede9;
+    border-left: 4px solid #9a948c;
+}
+.events .card.past h3 { color: #4a4540; }
+.events .card.past p { color: #555; }
+.events .card.past .event-img { filter: grayscale(1) brightness(0.85); }
+.events .card.past .badge:not(.done) { filter: grayscale(0.8); }
+.events .past-flag {
+    position: absolute; top: 14px; right: 14px; z-index: 2;
+    background: rgba(30, 28, 26, 0.88); color: #fff;
+    font-weight: 700; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.6);
+    pointer-events: none;
+}
+.events .card.past.has-img .past-flag { top: 24px; right: 24px; font-size: 1rem; padding: 8px 18px; }
+.leaflet-marker-icon.marker-past { filter: grayscale(1); }
 .events .event-link { color: var(--gold); font-weight: 500; text-decoration: none; }
 .events .event-link:hover { text-decoration: underline; }
 

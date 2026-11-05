@@ -88,10 +88,11 @@
             [...upcoming, ...past].forEach(e => {
                 const isPast = e.date < today;
                 container.innerHTML += `
-                    <div class="card${isPast ? ' past' : ''}">
+                    <div class="card${isPast ? ' past' : ''}${e.img ? ' has-img' : ''}">
+                        ${isPast ? '<span class="past-flag">Passat</span>' : ''}
                         ${e.img ? `<img src="${e.img}" alt="${e.title}" class="event-img" loading="lazy" decoding="async">` : ''}
                         <span class="badge ${e.type}">${typeLabels[e.type] || e.type}</span>
-                        ${isPast ? '<span class="badge done">Celebrat</span>' : '<span class="badge soon">Properament</span>'}
+                        ${isPast ? '<span class="badge done">Celebrat</span><span class="visually-hidden"> (esdeveniment passat)</span>' : '<span class="badge soon">Properament</span>'}
                         <h3>${e.title}</h3>
                         <p>${e.desc}</p>
                         <p><strong>${e.location}</strong></p>
@@ -115,7 +116,11 @@
         }).addTo(map);
 
         events.forEach(e => {
-            L.marker(e.coords).addTo(map).bindPopup(`<b>${e.title}</b><br>${e.location}<br>${dateLabel(e)}`);
+            const isPast = e.date < today;
+            L.marker(e.coords, { opacity: isPast ? 0.55 : 1, zIndexOffset: isPast ? 0 : 1000, title: isPast ? e.title + ' (passat)' : e.title })
+                .addTo(map)
+                .bindPopup(`<b>${e.title}</b><br>${e.location}<br>${dateLabel(e)}${isPast ? '<br><em>Passat</em>' : ''}`)
+                .on('add', function () { if (isPast) this.getElement().classList.add('marker-past'); });
         });
     </script>
 
