@@ -100,6 +100,18 @@ function renderModels(filteredModels, append = false) {
 }
 
 /* Filter function */
+function updateResultsInfo(count, term) {
+    const info = document.getElementById('resultsInfo');
+    if (!info) return;
+    if (!term) {
+        info.textContent = count ? (count + ' models al garatge') : '';
+        return;
+    }
+    info.textContent = count
+        ? (count === 1 ? '1 model trobat' : count + ' models trobats')
+        : 'Cap model trobat per «' + term + '»';
+}
+
 function filterModels() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
@@ -110,12 +122,14 @@ function filterModels() {
         filteredData = modelsData;
         displayedCount = 0;
         renderModels(filteredData);
+        updateResultsInfo(filteredData.length, '');
         return;
     }
 
     filteredData = deepSearch(term);
     displayedCount = 0;
     renderModels(filteredData);
+    updateResultsInfo(filteredData.length, searchInput.value.trim());
 }
 
 // ==================== GET DESTACATS ====================
@@ -277,6 +291,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         filteredData = modelsData;
         displayedCount = 0;
         renderModels(filteredData);
+        updateResultsInfo(filteredData.length, '');
         if (searchInput && searchInput.value) filterModels();
 
         // Load More button
