@@ -118,11 +118,37 @@
     };
 
     // Shared teaser markup (home + Revolucions FM). Same data and links on every page.
-    // opts.omitTag: hide the week pill when a shared pair label is shown instead (radio.html).
+    // opts.omitTag: hide the week pill when a shared pair label is shown instead (radio.html / home).
+    // opts.magazine: Car-and-Driver feature layout (full hero photo, facts bar, punchy dek).
     function renderWeekTeaser(m, opts) {
         const c = m.car;
         const specs = keySpecs(c.generalCharacteristics);
         const tag = (opts && opts.omitTag) ? '' : `<span class="weekly-tag">${esc(m.label)}</span>`;
+        const power = specs.find(s => s.label === 'Potència');
+        const facts = [];
+        if (c.years) facts.push({ label: 'Anys', value: c.years });
+        if (power) facts.push({ label: 'Potència', value: power.value });
+        for (const s of specs) {
+            if (facts.length >= 3) break;
+            if (s.label === 'Potència') continue;
+            if (!facts.some(f => f.label === s.label)) facts.push(s);
+        }
+        if (opts && opts.magazine) {
+            return `
+                <div class="weekly-teaser mag-car">
+                    <figure class="mag-car-hero"><img loading="lazy" src="${esc(c.image)}" alt="${esc(c.brand + ' ' + c.model)}">${credit(c.image)}</figure>
+                    <div class="teaser-body mag-car-copy">
+                        <p class="mag-kicker">Cotxe de la setmana</p>
+                        <h3 class="mag-headline">${esc(c.brand)} ${esc(c.model)}</h3>
+                        ${facts.length ? `<ul class="mag-facts">${facts.map(x => `<li><span>${esc(x.label)}</span>${esc(x.value)}</li>`).join('')}</ul>` : ''}
+                        ${c.description ? `<p class="teaser-desc mag-dek">${esc(c.description)}</p>` : ''}
+                        <div class="teaser-actions">
+                            <a class="cta cta-primary cta-md" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a class="teaser-link" href="cotxes.html#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>`;
+        }
         return `
                 <div class="weekly-teaser">
                     <figure><img loading="lazy" src="${esc(c.image)}" alt="${esc(c.brand + ' ' + c.model)}">${credit(c.image)}</figure>
@@ -161,7 +187,8 @@
                 homeWeek.textContent = m.label;
                 homeWeek.hidden = false;
             }
-            teaser.innerHTML = renderWeekTeaser(m, { omitTag });
+            const magazine = !!teaser.closest('.mag-feature, .home-setmana, .mag-pair');
+            teaser.innerHTML = renderWeekTeaser(m, { omitTag, magazine });
         });
     }
 
