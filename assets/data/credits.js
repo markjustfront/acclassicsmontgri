@@ -1,5 +1,47 @@
 // Crèdits de les fotografies (Wikimedia Commons). Generat a partir de l'API de Commons.
 window.imageCredits = {
+  "images/events/retro-car-meeting-roncana-2026.webp": {
+    "author": "Aymamivx",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Santa_Eul%C3%A0lia_de_Ron%C3%A7ana.jpg",
+    "file": "Santa Eulàlia de Ronçana.jpg"
+  },
+  "images/events/macanet-cabrenys-classics-2026.webp": {
+    "author": "Bertrand Grondin",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ma%C3%A7anet_de_Cabrenys_2011_33.jpg",
+    "file": "Maçanet de Cabrenys 2011 33.jpg"
+  },
+  "images/events/montmelo-classics-2026.webp": {
+    "author": "Wilnel José Verdú Guerrero",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Curvas_1-6_de_Circuit_de_Barcelona-Catalunya_Montmel%C3%B3_(2023).jpg",
+    "file": "Curvas 1-6 de Circuit de Barcelona-Catalunya Montmeló (2023).jpg"
+  },
+  "images/events/cerdanyola-street-motor-show-2026.webp": {
+    "author": "Jordiferrer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_de_Sant_Ramon_(Cerdanyola_del_Vall%C3%A8s)_01.jpg",
+    "file": "Plaça de Sant Ramon (Cerdanyola del Vallès) 01.jpg"
+  },
+  "images/events/rallyclassics-santa-susanna-2026.webp": {
+    "author": "Araceli Merino",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Santa-Susanna.jpg",
+    "file": "Santa-Susanna.jpg"
+  },
+  "images/events/motor-classic-sabadell-2026.webp": {
+    "author": "Zarateman",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Sabadell_-_Fira_Sabadell_1.JPG",
+    "file": "Sabadell - Fira Sabadell 1.JPG"
+  },
   "images/accessories/R4/motllures.jpg": {
     "author": "DeFacto",
     "license": "CC BY-SA 4.0",
