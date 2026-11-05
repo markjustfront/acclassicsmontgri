@@ -816,7 +816,6 @@ html { scroll-behavior: smooth; }
     pointer-events: none;
 }
 .events .card.past.has-img .past-flag { top: 24px; right: 24px; font-size: 1rem; padding: 8px 18px; }
-.leaflet-marker-icon.marker-past { filter: grayscale(1); }
 .events .event-link { color: var(--gold); font-weight: 500; text-decoration: none; }
 .events .event-link:hover { text-decoration: underline; }
 
@@ -1338,3 +1337,9 @@ a.contact-card:hover { transform: translateY(-3px); }
 .events .past-toggle-wrap[hidden], .events .past-grid[hidden] { display: none; }
 .events .past-toggle { background: transparent; border: 2px solid #5a544d; color: #3a3530; }
 .events .past-toggle[aria-expanded="true"] { background: #5a544d; color: #fff; }
+
+/* Events map: custom pins + legend */
+.acc-pin { background: none; border: none; }
+.acc-pin svg { display: block; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45)); }
+.events .map-legend { list-style: none; display: flex; justify-content: center; gap: 28px; padding: 0; margin: 14px 0 0; color: #3a3530; font-size: 0.95rem; }
+.events .map-legend li { display: flex; align-items: center; gap: 8px; }
