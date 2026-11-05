@@ -1458,48 +1458,64 @@ a.contact-card:hover { transform: translateY(-3px); }
   color: #7a6136;
 }
 .home-setmana-car {
-  background: #fff;
-  border-radius: 20px;
-  padding: 22px 22px 26px;
-  box-shadow:
-    0 18px 50px rgba(31, 24, 19, 0.1),
-    0 2px 0 rgba(168, 137, 83, 0.35) inset;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
   position: relative;
   z-index: 1;
 }
-.home-setmana .weekly-teaser {
+.home-setmana .weekly-teaser,
+.mag-pair .weekly-teaser {
   max-width: none;
   margin: 0;
   padding: 0;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 26px;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 32px;
   align-items: center;
 }
-.home-setmana .weekly-teaser img {
-  border-radius: 14px;
+.home-setmana .weekly-teaser img,
+.mag-pair .weekly-teaser img {
+  border-radius: 4px;
   aspect-ratio: 5 / 4;
-  box-shadow: 0 10px 28px rgba(31, 24, 19, 0.14);
+  box-shadow: 0 16px 40px rgba(31, 24, 19, 0.16);
 }
-.home-setmana .weekly-teaser h3 {
+.home-setmana .weekly-teaser h3,
+.mag-pair .weekly-teaser h3 {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.7rem, 2.4vw, 2.25rem);
-  line-height: 1.12;
-  margin: 0 0 6px;
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+  line-height: 1.08;
+  margin: 0 0 8px;
+  letter-spacing: -0.015em;
 }
-.home-setmana .teaser-body {
+.home-setmana .teaser-body,
+.mag-pair .teaser-body {
   padding: 4px 6px 0 0;
 }
-.home-setmana .teaser-desc {
-  -webkit-line-clamp: 3;
-  margin-bottom: 18px;
+.home-setmana .teaser-years,
+.mag-pair .teaser-years {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
 }
-.home-setmana-disc {
+.home-setmana .teaser-desc,
+.mag-pair .teaser-desc {
+  -webkit-line-clamp: 3;
+  margin-bottom: 22px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+.home-setmana .teaser-specs,
+.mag-pair .teaser-specs {
+  margin-bottom: 16px;
+}
+.home-setmana-disc,
+.mag-pair-disc {
   position: relative;
   z-index: 2;
-  margin: 48px 0 18px -42px;
+  margin: 56px 0 12px -48px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1507,21 +1523,17 @@ a.contact-card:hover { transform: translateY(-3px); }
 .home-disc-card {
   background: linear-gradient(165deg, #2a211b 0%, #1f1813 55%, #17120e 100%);
   color: #f3ead9;
-  border-radius: 18px;
-  padding: 26px 24px 24px;
+  border-radius: 6px;
+  padding: 28px 26px 26px;
   box-shadow:
-    0 22px 48px rgba(31, 24, 19, 0.28),
-    0 0 0 1px rgba(201, 162, 95, 0.28);
+    0 26px 54px rgba(31, 24, 19, 0.3),
+    0 0 0 1px rgba(201, 162, 95, 0.35);
   display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 18px;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
   align-items: center;
   text-align: left;
-  transform: rotate(-1.25deg);
-}
-.home-setmana-disc .home-setmana-eyebrow {
-  color: #c9a25f;
-  margin-left: 10px;
+  transform: rotate(-1deg);
 }
 .home-disc-vinyl {
   width: 92px;
@@ -1630,6 +1642,118 @@ a.contact-card:hover { transform: translateY(-3px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .home-disc-card { transform: none; }
+}
+
+
+/* Shared magazine pair (home + Revolucions FM) */
+.mag-week,
+.pod-pair .mag-week {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: var(--dark);
+  color: #e6d5b3;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(31, 24, 19, 0.18);
+}
+.mag-pair {
+  margin: 28px 0 48px;
+  padding: 8px 0 12px;
+}
+.mag-pair-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+.mag-pair .pod-pair-week {
+  margin: 0 0 12px;
+}
+.mag-pair .pod-pair-hook {
+  margin: 0 auto;
+  max-width: 520px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: #4a4038;
+  opacity: 1;
+}
+.mag-pair-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 0;
+  align-items: stretch;
+  text-align: left;
+}
+.mag-pair-car {
+  position: relative;
+  z-index: 1;
+}
+.mag-pair .pod-disc {
+  background: linear-gradient(165deg, #2a211b 0%, #1f1813 58%, #17120e 100%);
+  color: #f3ead9;
+  border-radius: 6px;
+  padding: 26px 24px;
+  box-shadow: 0 26px 54px rgba(31, 24, 19, 0.3), 0 0 0 1px rgba(201, 162, 95, 0.35);
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
+  transform: rotate(-1deg);
+}
+.mag-pair .pod-disc h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  color: #f7efe0;
+  margin: 6px 0 4px;
+}
+.mag-pair .pod-disc-meta,
+.mag-pair .pod-disc p {
+  color: rgba(243, 234, 217, 0.82);
+}
+.mag-pair .pod-disc a { color: #d4b06f; }
+.mag-pair .pod-disc .weekly-tag {
+  background: rgba(201, 162, 95, 0.18);
+  color: #e6d5b3;
+}
+.mag-pair .pod-disc-art .radio-disc {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  box-shadow: 0 0 0 6px rgba(201, 162, 95, 0.18), 0 8px 18px rgba(0,0,0,0.35);
+}
+.mag-pair .pod-disc.has-player {
+  grid-template-columns: 1fr;
+  transform: none;
+}
+.mag-pair .pod-disc.has-player .pod-disc-art { display: none; }
+.home-disc-card h4 {
+  font-size: 1.45rem;
+}
+.home-disc-vinyl,
+.home-disc-vinyl .radio-disc {
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 980px) {
+  .mag-pair-stage {
+    grid-template-columns: 1fr;
+  }
+  .mag-pair-disc,
+  .home-setmana-disc {
+    margin: -24px 12px 0;
+  }
+  .mag-pair .pod-disc,
+  .home-disc-card {
+    transform: none;
+  }
+  .home-setmana .weekly-teaser,
+  .mag-pair .weekly-teaser {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 }
 
 .contact-form {
