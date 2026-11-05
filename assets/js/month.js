@@ -118,14 +118,16 @@
     };
 
     // Shared teaser markup (home + Revolucions FM). Same data and links on every page.
-    function renderWeekTeaser(m) {
+    // opts.omitTag: hide the week pill when a shared pair label is shown instead (radio.html).
+    function renderWeekTeaser(m, opts) {
         const c = m.car;
         const specs = keySpecs(c.generalCharacteristics);
+        const tag = (opts && opts.omitTag) ? '' : `<span class="weekly-tag">${esc(m.label)}</span>`;
         return `
                 <div class="weekly-teaser">
                     <figure><img loading="lazy" src="${esc(c.image)}" alt="${esc(c.brand + ' ' + c.model)}">${credit(c.image)}</figure>
                     <div class="teaser-body">
-                        <span class="weekly-tag">${esc(m.label)}</span>
+                        ${tag}
                         <h3>${esc(c.brand)} ${esc(c.model)}</h3>
                         ${c.years ? `<p class="teaser-years">${esc(c.years)}</p>` : ''}
                         ${specs.length ? `<ul class="teaser-specs">${specs.map(x => `<li><span>${esc(x.label)}</span> ${esc(x.value)}</li>`).join('')}</ul>` : ''}
@@ -144,11 +146,17 @@
     if (teaser) {
         window.getCarsOfWeek(1).then(([m]) => {
             if (!m) {
-                const wrap = teaser.closest('section, .radio-weekly') || teaser;
+                const wrap = teaser.closest('section, .radio-weekly, .pod-pair') || teaser;
                 wrap.hidden = true;
                 return;
             }
-            teaser.innerHTML = renderWeekTeaser(m);
+            const pairTag = document.getElementById('pairWeekTag');
+            const omitTag = !!pairTag;
+            if (pairTag) {
+                pairTag.textContent = m.label;
+                pairTag.hidden = false;
+            }
+            teaser.innerHTML = renderWeekTeaser(m, { omitTag });
         });
     }
 

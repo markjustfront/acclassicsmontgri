@@ -1178,8 +1178,10 @@ a.contact-card:hover { transform: translateY(-3px); }
 
 /* Cotxe + disc de la setmana pair on Revolucions FM */
 .pod-pair { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
+.pod-pair-week { text-align: center; margin: 28px 0 0; }
+.pod-pair-week .weekly-tag { font-size: 0.8rem; }
+.radio-weekly .pod-h { margin-top: 14px; }
 .radio-weekly { text-align: center; max-width: 1080px; margin: 0 auto; width: 100%; }
-.radio-weekly .pod-h { margin-top: 28px; }
 .radio-weekly .weekly-teaser { text-align: left; max-width: 1080px; }
 #radio-cotxe { scroll-margin-top: 110px; }
 .radio-disc-week { max-width: 1080px; margin: 0 auto; width: 100%; }
