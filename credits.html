@@ -63,31 +63,65 @@
             fotos pendents de substituir per imatges amb llicència o fotos pròpies dels socis.
             Les previsualitzacions de la pàgina «Enllaços d'Interès» són captures de pantalla fetes per Marc del web de cada club o recurs enllaçat.
         </p>
-        <ul class="credits-list" id="creditsList"></ul>
+        <div class="credits-list" id="creditsList"></div>
     </section>
 
     <script src="assets/data/credits.js"></script>
     <script>
         (function () {
             const names = {
-                'images/hero.jpg': "Imatge de capçalera (pàgina d'inici)"
+                'images/hero.jpg': "Imatge de capçalera (pàgina d'inici)",
+                'images/club-r5.webp': 'Renault 5 Alpine Turbo (pàgina del Club)'
             };
             function label(path) {
                 if (names[path]) return names[path];
-                const parts = path.replace(/\.jpg$/, '').split('/');
+                const parts = path.replace(/\.(jpg|webp|png|svg)$/i, '').split('/');
                 if (parts[1] === 'cars') return 'Cotxe: ' + parts[2] + ' ' + parts[3].replace(/-main$/, '');
-                return 'Accessori: ' + parts[2] + ' – ' + parts[3].replace(/-/g, ' ');
+                if (parts[1] === 'accessories') return 'Accessori: ' + parts[2] + ' – ' + parts[3].replace(/-/g, ' ');
+                if (parts[1] === 'events') return 'Esdeveniment: ' + parts[2].replace(/-/g, ' ');
+                if (parts[1] === 'enllacos') return 'Enllaç: ' + parts.slice(2).join(' / ');
+                return parts.slice(1).join(' / ') || path;
             }
-            const list = document.getElementById('creditsList');
+            function groupOf(path) {
+                if (path.indexOf('images/events/') === 0) return 'events';
+                if (path.indexOf('images/cars/') === 0 || path.indexOf('images/accessories/') === 0) return 'cars';
+                if (path.indexOf('images/podcast/') === 0 || /radio|radio|revolucions/i.test(path)) return 'podcast';
+                return 'other';
+            }
+            const GROUPS = [
+                { id: 'events', title: 'Esdeveniments' },
+                { id: 'cars', title: 'Cotxes i catàleg' },
+                { id: 'podcast', title: 'Pòdcast / Revolucions FM' },
+                { id: 'other', title: 'Altres (inici, club, enllaços…)' }
+            ];
+            const root = document.getElementById('creditsList');
+            root.outerHTML = '<div class="credits-groups" id="creditsGroups"></div>';
+            const wrap = document.getElementById('creditsGroups');
+            const buckets = { events: [], cars: [], podcast: [], other: [] };
             Object.keys(window.imageCredits).forEach(path => {
-                const li = document.createElement('li');
-                li.innerHTML = `<img loading="lazy" decoding="async" src="${path}" alt="${label(path)}">
-                    <p class="credit-name">${label(path)}</p>${creditHTML(path)}`;
-                list.appendChild(li);
+                buckets[groupOf(path)].push(path);
+            });
+            GROUPS.forEach(g => {
+                const paths = buckets[g.id];
+                if (!paths.length) return;
+                const section = document.createElement('section');
+                section.className = 'credits-group';
+                section.setAttribute('aria-labelledby', 'credits-' + g.id);
+                section.innerHTML = '<h3 class="credits-group-title" id="credits-' + g.id + '">' + g.title +
+                    ' <span class="credits-count">(' + paths.length + ')</span></h3>';
+                const ul = document.createElement('ul');
+                ul.className = 'credits-list';
+                paths.forEach(path => {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<img loading="lazy" decoding="async" src="' + path + '" alt="' + label(path) + '">' +
+                        '<p class="credit-name">' + label(path) + '</p>' + creditHTML(path);
+                    ul.appendChild(li);
+                });
+                section.appendChild(ul);
+                wrap.appendChild(section);
             });
         })();
     </script>
-
     <footer class="footer">
     <div class="footer-inner">
         <div class="footer-col footer-brand">
