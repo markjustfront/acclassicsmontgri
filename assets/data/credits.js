@@ -1,5 +1,47 @@
 // Crèdits de les fotografies (Wikimedia Commons). Generat a partir de l'API de Commons.
 window.imageCredits = {
+  "images/events/cornella-terri-classic-2026.webp": {
+    "author": "Josep Maria Viñolas Esteva",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cornell%C3%A0_del_Terri_-_Campanar_entre_flors_de_colza.jpg",
+    "file": "Cornellà del Terri - Campanar entre flors de colza.jpg"
+  },
+  "images/events/rally-costa-brava-girona-2026.webp": {
+    "author": "Aktron",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Girona_Rambla_de_la_Llibertat.jpg",
+    "file": "Girona Rambla de la Llibertat.jpg"
+  },
+  "images/events/classic-llanca-2026.webp": {
+    "author": "dl91m",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Llan%C3%A7%C3%A0.JPG",
+    "file": "Llançà.JPG"
+  },
+  "images/events/bisbal-classics-esportius-2026.webp": {
+    "author": "Kritzolina",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pont_Vell_(the_old_bridge)_in_La_Bisbal_d%27Empord%C3%A0_05.jpg",
+    "file": "Pont Vell (the old bridge) in La Bisbal d'Empordà 05.jpg"
+  },
+  "images/events/sant-julia-ramis-classics-2026.webp": {
+    "author": "Marionaaragay",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Campanar_de_l%27ermita_dels_Sants_Metges_(Sant_Juli%C3%A0_de_Ramis).jpg",
+    "file": "Campanar de l'ermita dels Sants Metges (Sant Julià de Ramis).jpg"
+  },
+  "images/events/rallye-platja-daro-historic-2026.webp": {
+    "author": "flamenc",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Platja_d%27Aro_Casa_de_la_Vila.jpg",
+    "file": "Platja d'Aro Casa de la Vila.jpg"
+  },
   "images/events/retro-car-meeting-roncana-2026.webp": {
     "author": "Aymamivx",
     "license": "CC BY-SA 4.0",
