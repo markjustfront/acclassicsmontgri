@@ -69,6 +69,10 @@
         <div id="pastContainer" class="grid past-grid" hidden></div>
 
         <div id="map" style="height: 420px; margin-top: 60px; border-radius: 16px;"></div>
+        <ul class="map-legend" aria-label="Llegenda del mapa">
+            <li><svg viewBox="0 0 32 44" width="18" height="25" aria-hidden="true"><path d="M16 1C7.7 1 1 7.7 1 16c0 11 15 27 15 27s15-16 15-27C31 7.7 24.3 1 16 1z" fill="#a88953" stroke="#2b2420" stroke-width="2"/><path d="M16 8.5l2.3 4.8 5.2.7-3.8 3.6.9 5.2-4.6-2.5-4.6 2.5.9-5.2-3.8-3.6 5.2-.7z" fill="#fff"/></svg> Properament</li>
+            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#fff" stroke="#4a4540" stroke-width="3"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#4a4540" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Passat</li>
+        </ul>
     </section>
 
     <script src="assets/data/events.js"></script>
@@ -133,12 +137,17 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        // Upcoming = filled gold teardrop pin with a white star; past = small hollow dark-grey square with a check (shape + fill + symbol, not only colour)
+        const upcomingIcon = L.divIcon({ className: 'acc-pin acc-pin-up', iconSize: [32, 44], iconAnchor: [16, 43], popupAnchor: [0, -38],
+            html: '<svg viewBox="0 0 32 44" width="32" height="44" aria-hidden="true"><path d="M16 1C7.7 1 1 7.7 1 16c0 11 15 27 15 27s15-16 15-27C31 7.7 24.3 1 16 1z" fill="#a88953" stroke="#2b2420" stroke-width="2"/><path d="M16 8.5l2.3 4.8 5.2.7-3.8 3.6.9 5.2-4.6-2.5-4.6 2.5.9-5.2-3.8-3.6 5.2-.7z" fill="#fff"/></svg>' });
+        const pastIcon = L.divIcon({ className: 'acc-pin acc-pin-past', iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -12],
+            html: '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#fff" stroke="#4a4540" stroke-width="3"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#4a4540" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' });
+
         events.forEach(e => {
             const isPast = e.date < today;
-            L.marker(e.coords, { opacity: isPast ? 0.55 : 1, zIndexOffset: isPast ? 0 : 1000, title: isPast ? e.title + ' (passat)' : e.title })
+            L.marker(e.coords, { icon: isPast ? pastIcon : upcomingIcon, zIndexOffset: isPast ? 0 : 1000, title: isPast ? e.title + ' (passat)' : e.title + ' (properament)', alt: isPast ? 'Esdeveniment passat' : 'Proper esdeveniment' })
                 .addTo(map)
-                .bindPopup(`<b>${e.title}</b><br>${e.location}<br>${dateLabel(e)}${isPast ? '<br><em>Passat</em>' : ''}`)
-                .on('add', function () { if (isPast) this.getElement().classList.add('marker-past'); });
+                .bindPopup(`<b>${e.title}</b><br>${e.location}<br>${dateLabel(e)}${isPast ? '<br><em>Passat</em>' : '<br><em>Properament</em>'}`);
         });
     </script>
 
