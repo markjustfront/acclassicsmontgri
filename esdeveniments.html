@@ -63,6 +63,11 @@
 
         <div id="eventsContainer" class="grid"></div>
 
+        <div class="past-toggle-wrap">
+            <button id="pastToggle" class="btn past-toggle" type="button" aria-expanded="false" aria-controls="pastContainer">Mostra esdeveniments passats</button>
+        </div>
+        <div id="pastContainer" class="grid past-grid" hidden></div>
+
         <div id="map" style="height: 420px; margin-top: 60px; border-radius: 16px;"></div>
     </section>
 
@@ -79,15 +84,11 @@
         // dateText + year from date; only the year when the exact date is not confirmed
         const dateLabel = e => (e.dateText ? e.dateText + ' ' : '') + e.date.slice(0, 4);
 
-        function renderEvents(filter = 'all') {
-            container.innerHTML = "";
-            const list = events.filter(e => filter === 'all' || e.type === filter);
-            // Upcoming first (soonest first), then past events (most recent first)
-            const upcoming = list.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
-            const past = list.filter(e => e.date < today).sort((a, b) => b.date.localeCompare(a.date));
-            [...upcoming, ...past].forEach(e => {
-                const isPast = e.date < today;
-                container.innerHTML += `
+        const pastContainer = document.getElementById("pastContainer");
+        const pastToggle = document.getElementById("pastToggle");
+        const cardHTML = e => {
+            const isPast = e.date < today;
+            return `
                     <div class="card${isPast ? ' past' : ''}${e.img ? ' has-img' : ''}">
                         ${isPast ? '<span class="past-flag">Passat</span>' : ''}
                         ${e.img ? `<img src="${e.img}" alt="${e.title}" class="event-img" loading="lazy" decoding="async">` : ''}
@@ -99,9 +100,26 @@
                         <p class="status">📅 ${dateLabel(e)}</p>
                         ${e.url ? `<p><a href="${e.url}" target="_blank" rel="noopener" class="event-link">Més informació →</a></p>` : ''}
                     </div>`;
-            });
-            if (!list.length) container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#777;">Cap esdeveniment en aquesta categoria.</p>';
+        };
+
+        function renderEvents(filter = 'all') {
+            const list = events.filter(e => filter === 'all' || e.type === filter);
+            // Upcoming first (soonest first); past events (most recent first) hidden behind a button
+            const upcoming = list.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+            const past = list.filter(e => e.date < today).sort((a, b) => b.date.localeCompare(a.date));
+            container.innerHTML = upcoming.length ? upcoming.map(cardHTML).join('')
+                : '<p style="grid-column:1/-1;text-align:center;color:#777;">Cap esdeveniment proper en aquesta categoria.</p>';
+            pastContainer.innerHTML = past.map(cardHTML).join('');
+            pastToggle.parentElement.hidden = !past.length;
+            if (!past.length) setPast(false);
         }
+
+        function setPast(show) {
+            pastContainer.hidden = !show;
+            pastToggle.setAttribute('aria-expanded', String(show));
+            pastToggle.textContent = show ? 'Amaga esdeveniments passats' : 'Mostra esdeveniments passats';
+        }
+        pastToggle.addEventListener('click', () => setPast(pastContainer.hidden));
 
         function filterEvents(type) {
             renderEvents(type);
