@@ -1332,3 +1332,9 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-pair-hook { max-width: 640px; margin: 8px auto 0; text-align: center; font-style: italic; line-height: 1.45; opacity: .85; }
 .pod-follow { text-align: center; margin: 20px 0 0; }
 @media (max-width: 600px) { .pod-pair-hook { font-size: .95rem; padding: 0 12px; } }
+
+/* Events: past events toggle */
+.events .past-toggle-wrap { text-align: center; margin: 40px 0 30px; }
+.events .past-toggle-wrap[hidden], .events .past-grid[hidden] { display: none; }
+.events .past-toggle { background: transparent; border: 2px solid #5a544d; color: #3a3530; }
+.events .past-toggle[aria-expanded="true"] { background: #5a544d; color: #fff; }
