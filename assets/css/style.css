@@ -1509,3 +1509,5 @@ a.contact-card:hover { transform: translateY(-3px); }
   background: var(--dark);
   color: #e6d5b3;
 }
+.pod-ep-share-row { margin-top: 12px; }
+.pod-ep-share-row .pod-share { pointer-events: auto; }

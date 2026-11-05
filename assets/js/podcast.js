@@ -27,8 +27,8 @@
       var btn = e.spotifyEpisode
         ? '<a class="cta cta-primary cta-sm pod-ep-btn" href="' + esc(e.spotifyEpisode) + '" target="_blank" rel="noopener">Escolta a Spotify<span class="sr-only"> (s\u2019obre en una pestanya nova)</span></a>'
         : '<span class="cta cta-sm pod-ep-btn is-disabled" role="link" aria-disabled="true">Aviat a Spotify</span>';
-      var share = '<button type="button" class="cta cta-outline cta-sm pod-ep-btn pod-share" data-ep="' + esc(e.num) + '" aria-label="Copia l\u2019enlla\u00e7 de l\u2019episodi ' + esc(e.num) + '">Copia l\u2019enlla\u00e7</button>';
-      var links = btn + (e.youtube ? '<a class="cta cta-outline cta-sm pod-ep-btn" href="' + esc(e.youtube) + '" target="_blank" rel="noopener">YouTube</a>' : '') + share;
+      var share = '<button type="button" class="cta cta-outline cta-sm pod-ep-btn pod-share" onclick="event.preventDefault();event.stopPropagation();" data-ep="' + esc(e.num) + '" aria-label="Copia l\u2019enlla\u00e7 de l\u2019episodi ' + esc(e.num) + '">Copia l\u2019enlla\u00e7</button>';
+      var links = btn + (e.youtube ? '<a class="cta cta-outline cta-sm pod-ep-btn" href="' + esc(e.youtube) + '" target="_blank" rel="noopener">YouTube</a>' : '');
       var rec = (e.records || [])[0] || '';
       // Hotlinked album art only (never host covers in the repo)
       var art = '<div class="pod-ep-art">' + (e.albumArt ? '<img src="' + esc(e.albumArt) + '" alt="Portada del disc ' + esc(rec) + '" loading="lazy" width="64" height="64" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=\'<div class=&quot;radio-disc&quot;></div>\'">' : '<div class="radio-disc"></div>') + '</div>';
@@ -39,6 +39,7 @@
       return '<li class="pod-ep pod-ep-collapse" id="ep-' + esc(e.num) + '"><details>' +
         '<summary>' +
           '<div class="pod-ep-sum">' + head + blurb + recs +
+          '<div class="pod-ep-share-row">' + share + '</div>' +
           '<span class="pod-ep-toggle" aria-hidden="true"><span class="pod-ep-chevron"></span><span class="pod-ep-toggle-closed">Mostra m\u00e9s</span><span class="pod-ep-toggle-open">Mostra menys</span></span>' +
           '</div>' +
         '</summary>' +
@@ -50,6 +51,7 @@
       var b = ev.target.closest('.pod-share');
       if (!b) return;
       ev.preventDefault();
+      ev.stopPropagation();
       var n = b.getAttribute('data-ep');
       var url = location.origin + location.pathname.replace(/[^/]*$/, 'radio.html') + '#ep-' + n;
       // When already on radio.html, keep current path
