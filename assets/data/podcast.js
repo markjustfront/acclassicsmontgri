@@ -8,20 +8,32 @@ window.PODCAST = {
   launchDate: "2026-10-12",
   // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, song: "", cover: "", note: "", carYear: "" } or null
   discDelMes: {
-    month: "Setmana del 9 de novembre",
-    artist: "Gilbert O'Sullivan",
-    album: "Back to Front",
-    year: 1972,
-    song: "Alone Again (Naturally)",
+    month: "Setmana del 16 de novembre",
+    artist: "Status Quo",
+    album: "In the Army Now",
+    year: 1986,
+    song: "In the Army Now",
     cover: "",
-    spotify: "https://open.spotify.com/album/6LoUAyxzjVgwIIYBZOM6xQ",
-    note: "Un disc i una cançó que tothom sabia el 1972, com el nostre cotxe de la setmana: el Fiat 124, la berlina Cotxe de l'Any Europa 1967 que a Espanya va ser el SEAT 124."
+    spotify: "https://open.spotify.com/album/2LnKecYJddR6VJgk1vbTCY",
+    note: "Una cançó de soldats que marxen lluny de casa, com el nostre cotxe de la setmana: el Peugeot 404, la berlina de Pininfarina que va guanyar quatre vegades el Ral·li Safari i que a Kenya es va fabricar fins al 1991."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // Leave spotifyEpisode "" while an episode is not on Spotify yet: no player is shown,
   // only the note "Àudio aviat disponible". Paste the link later to turn the player back on.
   // { num: 1, title: "", date: "2026-11-01", summary: "", spotifyEpisode: "", youtube: "", records: ["Artista - Disc (1978)"], albumSpotify: "https://open.spotify.com/album/XXXX", albumArt: "https://i.scdn.co/image/..." }
   episodes: [
+    {
+      num: 6,
+      title: "Un lleó a l'exèrcit",
+      date: "2026-11-15",
+      summary: "Sisè episodi de Revolucions FM, el pòdcast d'AC Classics Montgrí sobre motor i vinil! En Marc ens porta el Peugeot 404, la berlina dibuixada per Pininfarina que va guanyar quatre vegades el Ral·li Safari i que a Kenya es va fabricar fins al 1991. I el junta amb In the Army Now, el disc del 1986 dels Status Quo, i amb la cançó del títol, la versió del tema dels germans Bolland que aquell any va ser número 1 a mitja Europa.",
+      spotifyEpisode: "",
+      youtube: "",
+      records: ["Status Quo - In the Army Now (1986)"],
+      albumSpotify: "https://open.spotify.com/album/2LnKecYJddR6VJgk1vbTCY",
+      // Hotlinked from Spotify (oEmbed thumbnail_url); never host cover art in the repo
+      albumArt: "https://i.scdn.co/image/ab67616d00001e02fcdfac03462a1348b31bcdd8"
+    },
     {
       num: 5,
       title: "El 124 i sol altra vegada",
