@@ -27,7 +27,12 @@
         const get = t => Number(parts.find(p => p.type === t).value);
         return { year: get('year'), month: get('month') - 1, day: get('day') };
     }
-    const weekIndex = d => Math.floor((Date.UTC(d.year, d.month, d.day) - START) / WEEK);
+    // Weeks switched early on request (date in Madrid -> show the following week's car). 14-15 Nov 2026: Peugeot 404 from Saturday.
+    const EARLY = ['2026-10-14', '2026-10-15'];
+    const weekIndex = d => {
+        const early = EARLY.includes(`${d.year}-${d.month}-${d.day}`) ? 2 : 0;
+        return Math.floor((Date.UTC(d.year, d.month, d.day + early) - START) / WEEK);
+    };
     const weekFromIndex = i => { const t = new Date(START + i * WEEK); return { year: t.getUTCFullYear(), month: t.getUTCMonth(), day: t.getUTCDate() }; };
     const weekLabel = w => { const m = MONTHS[w.month]; return `Setmana del ${w.day} ${/^[aeiou]/.test(m) ? "d'" : 'de '}${m}`; };
 
