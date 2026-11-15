@@ -2216,3 +2216,9 @@ html, body { overflow-x: clip; }
   .mag-car-hero img, .rev-figure.rev-hero img { height: 56vw; min-height: 240px; }
 }
 .revista-page { overflow-x: visible; }
+/* Home Revolucions section spans the full window; only its text stays in the container */
+.home-setmana.mag-feature, #cotxe-mes { max-width: none !important; width: 100%; overflow-x: visible; }
+#cotxe-mes .mag-feature-inner { max-width: var(--container, 1120px); margin-left: auto; margin-right: auto; }
+@media (min-width: 1600px) {
+  .mag-car-hero img, .rev-figure.rev-hero img { height: min(42vw, 900px); }
+}
