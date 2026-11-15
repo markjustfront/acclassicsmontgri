@@ -199,7 +199,7 @@
                 const actions = teaser.querySelector('.teaser-actions');
                 if (actions) {
                     const garage = actions.querySelector('a.cta-primary[href="cotxes.html"]');
-                    if (garage) garage.className = 'cta cta-outline cta-md';
+                    if (garage) garage.remove();
                     const a = document.createElement('a');
                     a.className = 'cta cta-primary cta-md';
                     a.href = 'revista.html?id=' + encodeURIComponent(art.id);

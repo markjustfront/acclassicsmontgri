@@ -1899,3 +1899,6 @@ header.rev-header {
 
 .revista-radio { margin: 48px auto 16px; max-width: 1080px; }
 .revista-radio .section-intro { margin-bottom: 24px; }
+.rev-specs-link { margin: 16px 0 0; padding-top: 12px; border-top: 1px solid #e0d6c0; font-weight: 600; }
+.rev-specs-link a { color: var(--gold); text-decoration: none; }
+.rev-specs-link a:hover, .rev-specs-link a:focus-visible { text-decoration: underline; }

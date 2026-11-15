@@ -45,7 +45,9 @@
       }).join('');
       return '<aside class="rev-specs" aria-label="' + esc(b.title || 'Fitxa tècnica') + '">' +
         '<h2>' + esc(b.title || 'Fitxa tècnica') + '</h2>' +
-        '<dl>' + rows + '</dl></aside>';
+        '<dl>' + rows + '</dl>' +
+        '<p class="rev-specs-link"><a href="' + esc(b.link || 'cotxes.html') + '">' + esc(b.linkText || 'Fitxa completa del cotxe') + ' <span aria-hidden="true">→</span></a></p>' +
+        '</aside>';
     }
     return '';
   }
