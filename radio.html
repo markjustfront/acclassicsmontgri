@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revolucions FM - AC Classics Montgrí</title>
-    <meta name="description" content="Revolucions FM: el pòdcast d'AC Classics Montgrí sobre vinils i música de tota la vida, on les revolucions del motor i les dels discos van de la mà.">
-    <meta property="og:title" content="Revolucions FM - AC Classics Montgrí">
-    <meta property="og:description" content="Revolucions FM: el pòdcast d'AC Classics Montgrí sobre vinils i música de tota la vida, on les revolucions del motor i les dels discos van de la mà.">
+    <title>Revolucions - AC Classics Montgrí</title>
+    <meta name="description" content="Revolucions: el pòdcast d'AC Classics Montgrí sobre vinils i música de tota la vida, on les revolucions del motor i les dels discos van de la mà.">
+    <meta property="og:title" content="Revolucions - AC Classics Montgrí">
+    <meta property="og:description" content="Revolucions: el pòdcast d'AC Classics Montgrí sobre vinils i música de tota la vida, on les revolucions del motor i les dels discos van de la mà.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://acclassicsmontgri.es/images/hero.jpg">
     <meta name="theme-color" content="#1f1813">
@@ -27,7 +27,7 @@
 
     <main>
     <section id="radio" class="radio-page" style="padding-top: 120px;">
-        <h2>Revolucions FM</h2>
+        <h2>Revolucions</h2>
         <p class="section-intro">El pòdcast del club sobre vinils i música de tota la vida. Perquè les revolucions del motor i les dels discos van de la mà: un bon disc, la carretera de la Costa Brava i un clàssic d’època.</p>
 
         <div class="pod-subs" id="podSubs"></div>
@@ -45,7 +45,7 @@
 
         <div class="pod-pair mag-feature mag-pair mag-pair--pod" aria-label="Cotxe i disc de la setmana">
             <div class="pod-pair-week mag-pair-head">
-                <span class="mag-week" id="pairWeekTag" hidden></span>
+                <h3 id="pairWeekTag" class="mag-issue-line" hidden></h3>
                 <p class="pod-pair-hook" id="pairHook" hidden></p>
             </div>
             <div class="mag-feature-stage mag-pair-stage">
@@ -61,6 +61,12 @@
                     </aside>
                 </div>
             </div>
+        </div>
+
+        <div class="revista-radio" aria-labelledby="revista-radio-title">
+            <h3 class="pod-h" id="revista-radio-title">La revista</h3>
+            <p class="section-intro">Cada setmana, un article sobre el cotxe de la setmana: història, fotos i el disc que hi fa parella.</p>
+            <div id="revistaListing" class="revista-index revista-index--compact"></div>
         </div>
 
         <h3 class="pod-h" id="podEpTitle">Episodis</h3>
@@ -85,7 +91,7 @@
             <a href="index.html">Inici</a>
             <a href="cataleg.html">Garatge</a>
             <a href="esdeveniments.html">Esdeveniments</a>
-            <a href="radio.html">Revolucions FM</a>
+            <a href="radio.html">Revolucions</a>
             <a href="club.html">Club</a>
             <a href="enllaços.html">Enllaços</a>
         </div>
@@ -108,7 +114,7 @@
                 <li><a href="index.html">Inici</a></li>
                 <li><a href="cataleg.html">Garatge</a></li>
                 <li><a href="esdeveniments.html">Esdeveniments</a></li>
-                <li><a href="radio.html">Revolucions FM</a></li>
+                <li><a href="radio.html">Revolucions</a></li>
                 <li><a href="club.html">Club</a></li>
                 <li><a href="enllaços.html">Enllaços</a></li>
             </ul>
@@ -138,6 +144,8 @@
     <script src="assets/js/podcast.js"></script>
     <script src="assets/data/credits.js"></script>
     <script src="assets/data/car-files.js"></script>
+    <script src="assets/data/revista.js"></script>
+    <script src="assets/js/revista.js"></script>
     <script src="assets/js/month.js"></script>
 </body>
 
