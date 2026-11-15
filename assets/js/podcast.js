@@ -53,9 +53,9 @@
       ev.preventDefault();
       ev.stopPropagation();
       var n = b.getAttribute('data-ep');
-      var url = location.origin + location.pathname.replace(/[^/]*$/, 'radio.html') + '#ep-' + n;
-      // When already on radio.html, keep current path
-      if (/radio\.html$/i.test(location.pathname) || location.pathname.endsWith('/radio') || /\/radio\/?$/.test(location.pathname)) {
+      var url = location.origin + location.pathname.replace(/[^/]*$/, 'revolucions') + '#ep-' + n;
+      // When already on the Revolucions page, keep current path
+      if (/\/(revolucions|radio)(\.html)?\/?$/i.test(location.pathname)) {
         url = location.origin + location.pathname + location.search + '#ep-' + n;
       }
       var done = function () {
@@ -92,7 +92,7 @@
     if (d.year) facts += '<li><span>Any</span>' + esc(d.year) + '</li>';
     if (song) facts += '<li><span>Tema</span>' + esc(song) + '</li>';
     var factsHtml = facts ? '<ul class="mag-facts">' + facts + '</ul>' : '';
-    var cta = opts.ctaHtml || '<a class="cta cta-outline cta-sm" href="radio.html#podDisc"><span>Escolta a Revolucions</span></a>';
+    var cta = opts.ctaHtml || '<a class="cta cta-outline cta-sm" href="revolucions#podDisc"><span>Escolta a Revolucions</span></a>';
     var note = d.note ? '<p class="mag-dek home-disc-note">' + esc(d.note) + '</p>' : '';
     return '<div class="mag-disc">' +
       '<p class="mag-kicker">' + esc(opts.kicker || 'Tamb\u00e9 aquesta setmana') + '</p>' +
@@ -129,7 +129,7 @@
       }
     } else {
       var tag = '<span class="weekly-tag">' + esc(d.month || 'Disc de la setmana') + '</span>';
-      var carBtn = '<a class="cta cta-outline cta-sm pod-car-btn" href="cotxes.html">Amb el cotxe de la setmana \u2192</a>';
+      var carBtn = '<a class="cta cta-outline cta-sm pod-car-btn" href="cotxes">Amb el cotxe de la setmana \u2192</a>';
       box.innerHTML = '<div class="pod-disc-art">' + (d.cover ? '<img src="' + esc(d.cover) + '" alt="Portada de ' + esc(d.album) + '" loading="lazy">' : '<div class="radio-disc"></div>') + '</div><div>' + tag + '<h4>' + esc(d.album) + '</h4><p class="pod-disc-meta">' + esc(d.artist) + (d.year ? ' \u00b7 ' + esc(d.year) : '') + '</p>' + carBtn + '</div>' + (embed(d.spotify) ? '<div class="pod-disc-player"><iframe title="Escolta ' + esc(d.album) + ' a Spotify" src="' + embed(d.spotify) + '" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border:0;border-radius:12px"></iframe></div>' : '');
       if (embed(d.spotify)) box.classList.add('has-player');
     }
@@ -157,7 +157,7 @@
       '<div class="mag-disc-row"><div class="mag-disc-vinyl" aria-hidden="true"><div class="radio-disc"></div></div>' +
       '<div class="mag-disc-titles"><h4 class="mag-disc-album">Disc de la setmana</h4><p class="mag-disc-by">Properament</p></div></div>' +
       '<p class="mag-dek">Cada setmana un vinil amb el cotxe de la setmana.</p>' +
-      '<a class="cta cta-outline cta-sm" href="radio.html">Ves a Revolucions</a></div>';
+      '<a class="cta cta-outline cta-sm" href="revolucions">Ves a Revolucions</a></div>';
     return;
   }
   var song = d.song || '';
@@ -175,6 +175,6 @@
     '</div>' +
     (facts ? '<ul class="mag-facts">' + facts + '</ul>' : '') +
     (d.note ? '<p class="mag-dek">' + esc(d.note) + '</p>' : '') +
-    '<a class="cta cta-outline cta-sm" href="radio.html#podDisc"><span>Escolta a Revolucions</span></a>' +
+    '<a class="cta cta-outline cta-sm" href="revolucions#podDisc"><span>Escolta a Revolucions</span></a>' +
   '</div>';
 })();

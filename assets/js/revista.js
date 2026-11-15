@@ -1,4 +1,4 @@
-// Revista de Revolucions: llistat i article (revista.html?id=...).
+// Revista de Revolucions: llistat i article (revista?id=...).
 (function () {
   var esc = function (s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
@@ -46,7 +46,7 @@
       return '<aside class="rev-specs" aria-label="' + esc(b.title || 'Fitxa tècnica') + '">' +
         '<h2>' + esc(b.title || 'Fitxa tècnica') + '</h2>' +
         '<dl>' + rows + '</dl>' +
-        '<p class="rev-specs-link"><a href="' + esc(b.link || 'cotxes.html') + '">' + esc(b.linkText || 'Fitxa completa del cotxe') + ' <span aria-hidden="true">→</span></a></p>' +
+        '<p class="rev-specs-link"><a href="' + esc(b.link || 'cotxes') + '">' + esc(b.linkText || 'Fitxa completa del cotxe') + ' <span aria-hidden="true">→</span></a></p>' +
         '</aside>';
     }
     return '';
@@ -90,11 +90,11 @@
     if (!root || !a) return;
     setMeta(a);
     var crumbs = '<nav class="rev-crumbs" aria-label="Fil d\u2019Ariadna">' +
-      '<a href="index.html">Inici</a>' +
+      '<a href="./">Inici</a>' +
       '<span aria-hidden="true"> / </span>' +
-      '<a href="radio.html">Revolucions</a>' +
+      '<a href="revolucions">Revolucions</a>' +
       '<span aria-hidden="true"> / </span>' +
-      '<a href="revista.html">Revista</a>' +
+      '<a href="revista">Revista</a>' +
       '</nav>';
     var hero = a.hero ? fig(a.hero, 'rev-hero') : '';
     var body = (a.body || []).map(renderBlock).join('');
@@ -120,7 +120,7 @@
 
   function card(a) {
     return '<article class="rev-card">' +
-      '<a href="revista.html?id=' + encodeURIComponent(a.id) + '">' +
+      '<a href="revista?id=' + encodeURIComponent(a.id) + '">' +
         (a.hero ? '<img src="' + esc(a.hero) + '" alt="" width="640" height="378" loading="eager" decoding="async">' : '') +
         '<div class="rev-card-body">' +
           '<p class="rev-kicker">Nº ' + String(a.num).padStart(2, '0') + ' · ' + esc(a.dateLabel || '') + '</p>' +
@@ -165,7 +165,7 @@
         if (a) renderArticle(a);
         else {
           articleRoot.hidden = false;
-          articleRoot.innerHTML = '<div class="rev-missing"><h1>No hem trobat aquest article</h1><p><a href="revista.html">Torna a la revista</a></p></div>';
+          articleRoot.innerHTML = '<div class="rev-missing"><h1>No hem trobat aquest article</h1><p><a href="revista">Torna a la revista</a></p></div>';
         }
       });
     } else {
