@@ -148,8 +148,8 @@
                         ${facts.length ? `<ul class="mag-facts">${facts.map(x => `<li><span>${esc(x.label)}</span>${esc(x.value)}</li>`).join('')}</ul>` : ''}
                         ${c.description ? `<p class="teaser-desc mag-dek">${esc(c.description)}</p>` : ''}
                         <div class="teaser-actions">
-                            <a class="cta cta-primary cta-md" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-                            <a class="teaser-link" href="cotxes.html#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
+                            <a class="cta cta-primary cta-md" href="cotxes"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a class="teaser-link" href="cotxes#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>`;
@@ -164,8 +164,8 @@
                         ${specs.length ? `<ul class="teaser-specs">${specs.map(x => `<li><span>${esc(x.label)}</span> ${esc(x.value)}</li>`).join('')}</ul>` : ''}
                         ${c.description ? `<p class="teaser-desc">${esc(c.description)}</p>` : ''}
                         <div class="teaser-actions">
-                            <a class="cta cta-primary cta-md" href="cotxes.html"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-                            <a class="teaser-link" href="cotxes.html#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
+                            <a class="cta cta-primary cta-md" href="cotxes"><span>Descobreix-lo</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <a class="teaser-link" href="cotxes#historial">Setmanes anteriors <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>`;
@@ -217,11 +217,11 @@
             if (art) {
                 const actions = teaser.querySelector('.teaser-actions');
                 if (actions) {
-                    const garage = actions.querySelector('a.cta-primary[href="cotxes.html"]');
+                    const garage = actions.querySelector('a.cta-primary[href="cotxes"]');
                     if (garage) garage.remove();
                     const a = document.createElement('a');
                     a.className = 'cta cta-primary cta-md';
-                    a.href = 'revista.html?id=' + encodeURIComponent(art.id);
+                    a.href = 'revista?id=' + encodeURIComponent(art.id);
                     a.innerHTML = '<span>Llegeix l’article</span><svg class="cta-arrow" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
                     actions.insertBefore(a, actions.firstChild);
                 }

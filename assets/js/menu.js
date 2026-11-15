@@ -12,8 +12,9 @@ function setMenu(open) {
 }
 
 function markCurrentPage() {
-    const page = decodeURIComponent(location.pathname.split('/').pop()) || 'index.html';
-    const current = page === 'revista.html' ? 'radio.html' : page;
+    let page = decodeURIComponent(location.pathname.split('/').pop()).replace(/\.html$/, '');
+    if (!page || page === 'index') page = './';
+    const current = page === 'revista' ? 'revolucions' : page;
     document.querySelectorAll('.nav-links a').forEach(a => {
         const target = decodeURIComponent(a.getAttribute('href') || '');
         a.classList.toggle('current', target === current);
