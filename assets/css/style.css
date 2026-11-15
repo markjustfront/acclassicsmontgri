@@ -2159,3 +2159,30 @@ section > h2::after { content: ""; flex: 1 1 auto; height: 1px; background: var(
 .search-container input { font-family: var(--font-serif); font-size: 1.05rem; border-radius: var(--r-btn); border: 1px solid var(--line); background: var(--surface); }
 .search-container input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(168,137,83,.2); }
 .cta-garatge { margin: 0 0 2rem; }
+
+/* Home: car of the week photo runs edge to edge, like the hero */
+#cotxe-mes { overflow-x: clip; }
+#cotxe-mes .mag-car-hero {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+#cotxe-mes .mag-car-hero img {
+  width: 100%;
+  height: clamp(320px, 62vh, 680px);
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: 0;
+  box-shadow: none;
+}
+#cotxe-mes .mag-car-hero .img-credit {
+  max-width: var(--container, 1120px);
+  margin: 0 auto;
+  padding: 6px 20px 0;
+  text-align: right;
+}
+@media (max-width: 900px) {
+  #cotxe-mes .mag-car-hero img { height: 56vw; min-height: 240px; aspect-ratio: auto; }
+}
