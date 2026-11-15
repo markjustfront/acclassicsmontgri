@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Roboto:wght@300;400;500&display=swap');
 
 :root {
     --gold: #a88953;
@@ -1772,3 +1772,130 @@ a.contact-card:hover { transform: translateY(-3px); }
 }
 .pod-ep-share-row { margin-top: 12px; }
 .pod-ep-share-row .pod-share { pointer-events: auto; }
+
+
+/* ===== Revolucions FM revista (article C&D-style) ===== */
+.revista-page { padding-top: 120px; padding-bottom: 72px; overflow-x: hidden; }
+.revista-page .rev-index-intro { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.revista-page .rev-index-intro h2 { margin-bottom: 12px; }
+.revista-page .rev-index-intro p { color: #555; font-size: 1.08rem; }
+
+.revista-index { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 800px) {
+  .revista-index { grid-template-columns: 1fr 1fr; }
+  .revista-index .rev-card:first-child { grid-column: 1 / -1; }
+}
+.revista-index--compact { grid-template-columns: 1fr; max-width: 720px; }
+.revista-index--compact .rev-card:first-child { grid-column: auto; }
+
+.rev-card a { display: block; text-decoration: none; color: inherit; background: #fff; border-radius: 4px; overflow: hidden;
+  box-shadow: 0 8px 28px rgba(31,24,19,.08); transition: transform .2s ease, box-shadow .2s ease; height: 100%; }
+.rev-card a:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(31,24,19,.14); }
+.rev-card a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.rev-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; background: #e8e2d4; }
+.rev-card-body { padding: 22px 24px 26px; }
+.rev-card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.55rem; line-height: 1.2; color: var(--dark); margin: 6px 0 10px; }
+.rev-card-body p { color: #555; margin: 0 0 14px; }
+.rev-card-cta { font-weight: 500; color: var(--gold); }
+
+.rev-kicker { font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
+.rev-article { color: #2a241c; }
+.rev-header,
+header.rev-header {
+  background: none;
+  height: auto;
+  min-height: 0;
+  display: block;
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
+  color: inherit;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 8px;
+  position: relative;
+}
+.rev-crumbs { font-size: 0.85rem; color: #6b5a3e; margin: 0 0 28px; }
+.rev-crumbs a { color: var(--dark); text-decoration: none; }
+.rev-crumbs a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.rev-header h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  line-height: 1.12; color: var(--dark); margin: 0 0 18px; text-align: left; }
+.rev-dek { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.45; color: #4a4038; margin: 0 0 18px; }
+.rev-byline { font-size: 0.92rem; color: #6b5a3e; letter-spacing: .04em; margin: 0 0 8px; }
+
+.rev-hero, .rev-gallery, .rev-figure--plan { max-width: 1080px; margin: 28px auto 8px; padding: 0 20px; }
+.rev-figure { margin: 0; }
+.rev-figure img { width: 100%; height: auto; display: block; background: #e8e2d4; }
+.rev-figure figcaption { font-size: 0.95rem; color: #4a4038; margin-top: 10px; line-height: 1.45; }
+.rev-figure .img-credit { text-align: left; padding: 2px 0 0; color: #6b5a3e; }
+
+.rev-body { max-width: 720px; margin: 8px auto 0; padding: 0 20px; font-size: 1.15rem; line-height: 1.7; }
+.rev-body p { margin: 0 0 1.15em; }
+.rev-body h2,
+.rev-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.2;
+  color: var(--dark);
+  margin: 1.6em 0 0.6em;
+  text-align: left;
+}
+.rev-article h2::after,
+.rev-body h2::after { margin: 12px 0 0; }
+.rev-body .rev-gallery, .rev-body .rev-figure--plan, .rev-body .rev-specs { }
+
+/* galleries break out of the narrow column */
+.rev-body .rev-gallery, .rev-body .rev-figure--plan {
+  width: min(1080px, calc(100vw - 40px));
+  max-width: 1080px;
+  margin-left: calc(50% - min(540px, calc(50vw - 20px)));
+  margin-right: calc(50% - min(540px, calc(50vw - 20px)));
+  margin-top: 2em; margin-bottom: 2em; padding: 0;
+}
+.rev-gallery { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 720px) {
+  .rev-gallery { grid-template-columns: 1fr 1fr; }
+  .rev-gallery:not(.rev-gallery--one):not(.rev-gallery--two) { grid-template-columns: 1fr 1fr 1fr; }
+  .rev-gallery--two { grid-template-columns: 1fr 1fr; }
+  .rev-gallery--one { grid-template-columns: 1fr; }
+}
+
+.rev-pull { margin: 2em 0; padding: 4px 0 4px 22px; border-left: 4px solid var(--gold); }
+.rev-pull p { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.3; color: var(--dark); margin: 0; }
+
+.rev-specs { background: #fff; border: 1px solid #e0d6c0; border-top: 4px solid var(--gold);
+  padding: 22px 24px 12px; margin: 2.2em 0; }
+.rev-specs h2 { margin: 0 0 14px; font-size: 1.5rem; }
+.rev-specs dl { display: grid; grid-template-columns: 1fr; margin: 0; }
+@media (min-width: 600px) {
+  .rev-specs dl { grid-template-columns: 1fr 1fr; }
+}
+.rev-spec { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 10px 12px 10px 0;
+  border-bottom: 1px solid #eee4d0; }
+.rev-spec dt { font-size: 0.75rem; letter-spacing: .12em; text-transform: uppercase; color: #7a2e22; font-weight: 500; }
+.rev-spec dd { margin: 0; color: var(--dark); }
+
+.rev-disc { max-width: 720px; margin: 48px auto 0; padding: 28px 20px 8px; border-top: 1px solid #e0d6c0; }
+.rev-disc h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 6px; color: var(--dark); }
+.rev-disc-meta { color: #6b5a3e; margin: 0 0 10px; letter-spacing: .04em; }
+.rev-disc-song { margin: 0 0 10px; }
+.rev-disc-note { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem;
+  line-height: 1.45; color: #4a4038; margin: 0 0 20px; }
+.rev-disc iframe { display: block; width: 100%; margin: 8px 0 12px; box-shadow: 0 14px 34px rgba(31,24,19,.14); }
+.rev-disc-link { margin: 0; }
+.rev-disc-link a { color: var(--gold); font-weight: 500; }
+.rev-missing { max-width: 640px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+.rev-missing h1 { font-family: 'Playfair Display', serif; }
+
+@media (max-width: 600px) {
+  .revista-page { padding-top: 100px; padding-bottom: 48px; }
+  .rev-body { font-size: 1.08rem; }
+  .rev-card-body h3 { font-size: 1.3rem; }
+  .rev-disc iframe { height: 152px; }
+}
+
+.revista-radio { margin: 48px auto 16px; max-width: 1080px; }
+.revista-radio .section-intro { margin-bottom: 24px; }

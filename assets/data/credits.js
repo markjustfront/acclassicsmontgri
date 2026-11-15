@@ -1421,6 +1421,41 @@ window.imageCredits = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Seat_Ronda_Front.jpg",
     "file": "Seat Ronda Front.jpg"
+  },
+  "images/revista/n06/hero.jpg": {
+    "author": "Jérémy Toma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_Champs.jpg",
+    "file": "Peugeot 404 Champs.jpg"
+  },
+  "images/revista/n06/berlina-prat.jpg": {
+    "author": "Jérémy Toma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_de_1966.jpg",
+    "file": "Peugeot 404 de 1966.jpg"
+  },
+  "images/revista/n06/cabriolet.jpg": {
+    "author": "Handelsgeselschaft",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_Injection_Cabriolet.jpg",
+    "file": "Peugeot 404 Injection Cabriolet.jpg"
+  },
+  "images/revista/n06/limousine.jpg": {
+    "author": "Rolf Kranz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_Limousine.jpg",
+    "file": "Peugeot 404 Limousine.jpg"
+  },
+  "images/revista/n06/harar.jpg": {
+    "author": "Qchasserieau",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_in_Harar.jpg",
+    "file": "Peugeot 404 in Harar.jpg"
   }
 };
 

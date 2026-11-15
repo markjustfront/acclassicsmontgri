@@ -13,9 +13,10 @@ function setMenu(open) {
 
 function markCurrentPage() {
     const page = decodeURIComponent(location.pathname.split('/').pop()) || 'index.html';
+    const current = page === 'revista.html' ? 'radio.html' : page;
     document.querySelectorAll('.nav-links a').forEach(a => {
         const target = decodeURIComponent(a.getAttribute('href') || '');
-        a.classList.toggle('current', target === page);
+        a.classList.toggle('current', target === current);
     });
 }
 
