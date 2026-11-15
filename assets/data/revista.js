@@ -1,4 +1,4 @@
-// Índex de la revista de Revolucions FM.
+// Índex de la revista de Revolucions.
 // Per afegir una setmana nova: crea assets/data/revista/<id>.js (mira n06-peugeot-404.js),
 // afegeix-hi una entrada en aquest array (la més nova, a dalt) i les fotos a images/revista/<id>/.
 window.revistaIndex = [

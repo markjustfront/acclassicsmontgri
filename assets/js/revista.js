@@ -1,4 +1,4 @@
-// Revista de Revolucions FM: llistat i article (revista.html?id=...).
+// Revista de Revolucions: llistat i article (revista.html?id=...).
 (function () {
   var esc = function (s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
@@ -71,7 +71,7 @@
 
   function setMeta(a) {
     if (!a) return;
-    document.title = a.title + ' - Revolucions FM | AC Classics Montgrí';
+    document.title = a.title + ' - Revolucions | AC Classics Montgrí';
     var desc = a.standfirst || '';
     var set = function (sel, attr, val) {
       var el = document.querySelector(sel);
@@ -92,7 +92,7 @@
     var crumbs = '<nav class="rev-crumbs" aria-label="Fil d\u2019Ariadna">' +
       '<a href="index.html">Inici</a>' +
       '<span aria-hidden="true"> / </span>' +
-      '<a href="radio.html">Revolucions FM</a>' +
+      '<a href="radio.html">Revolucions</a>' +
       '<span aria-hidden="true"> / </span>' +
       '<a href="revista.html">Revista</a>' +
       '</nav>';

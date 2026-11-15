@@ -122,7 +122,7 @@
         })).then(list => list.filter(Boolean));
     };
 
-    // Shared teaser markup (home + Revolucions FM). Same data and links on every page.
+    // Shared teaser markup (home + Revolucions). Same data and links on every page.
     // opts.omitTag: hide the week pill when a shared pair label is shown instead (radio.html / home).
     // opts.magazine: Car-and-Driver feature layout (full hero photo, facts bar, punchy dek).
     function renderWeekTeaser(m, opts) {
@@ -172,6 +172,27 @@
     }
     window.renderWeekTeaser = renderWeekTeaser;
 
+    // Issue line for the magazine masthead: "Nº 06 · Setmana del 16 de novembre",
+    // or just the week label when that car has no revista article yet.
+    function revistaForWeek(m) {
+        if (!m) return null;
+        if (window.revistaForCar && m.car) {
+            const art = window.revistaForCar(m.car);
+            if (art) return art;
+        }
+        const list = window.revistaIndex || [];
+        if (m.wk && list.length) {
+            const iso = m.wk.year + '-' + String(m.wk.month + 1).padStart(2, '0') + '-' + String(m.wk.day).padStart(2, '0');
+            return list.find(a => a.date === iso) || null;
+        }
+        return null;
+    }
+    function issueHeading(m, art) {
+        const week = (m && m.label) || '';
+        if (art && art.num != null) return 'Nº ' + String(art.num).padStart(2, '0') + ' · ' + week;
+        return week;
+    }
+
     // Fill #monthTeaser wherever it appears (index.html and radio.html)
     const teaser = document.getElementById('monthTeaser');
     if (teaser) {
@@ -181,20 +202,18 @@
                 wrap.hidden = true;
                 return;
             }
+            const art = revistaForWeek(m);
+            const line = issueHeading(m, art);
+            const title = document.getElementById('mes-title');
+            if (title && line) title.textContent = line;
             const pairTag = document.getElementById('pairWeekTag');
-            const homeWeek = document.getElementById('homeWeekLabel');
-            const omitTag = !!(pairTag || homeWeek);
-            if (pairTag) {
-                pairTag.textContent = m.label;
+            if (pairTag && line) {
+                pairTag.textContent = line;
                 pairTag.hidden = false;
             }
-            if (homeWeek) {
-                homeWeek.textContent = m.label;
-                homeWeek.hidden = false;
-            }
+            const omitTag = !!(pairTag || title);
             const magazine = !!teaser.closest('.mag-feature, .home-setmana, .mag-pair');
             teaser.innerHTML = renderWeekTeaser(m, { omitTag, magazine });
-            const art = window.revistaForCar && window.revistaForCar(m.car);
             if (art) {
                 const actions = teaser.querySelector('.teaser-actions');
                 if (actions) {

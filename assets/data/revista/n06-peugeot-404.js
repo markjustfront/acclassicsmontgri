@@ -1,12 +1,12 @@
-// Article complet de Revolucions FM Nº 06.
+// Article complet de Revolucions Nº 06.
 // El render (assets/js/revista.js) espera aquest objecte a window.revistaArticle.
 window.revistaArticle = {
   "id": "n06-peugeot-404",
   "num": 6,
-  "kicker": "Revolucions FM · Revista",
+  "kicker": "Revolucions · Revista",
   "title": "Peugeot 404: el lleó de Pininfarina que no es va jubilar mai",
-  "standfirst": "Va néixer el 1960 com una berlina de família, va guanyar quatre vegades el Ral·li Safari i a Kenya es va muntar fins al 1991. Aquesta setmana, el cotxe de Revolucions FM és un clàssic que no es cansa.",
-  "byline": "Revolucions FM · Nº 06 · Setmana del 16 de novembre de 2026",
+  "standfirst": "Va néixer el 1960 com una berlina de família, va guanyar quatre vegades el Ral·li Safari i a Kenya es va muntar fins al 1991. Aquesta setmana, el cotxe de Revolucions és un clàssic que no es cansa.",
+  "byline": "Revolucions · Nº 06 · Setmana del 16 de novembre de 2026",
   "hero": {
     "src": "images/revista/n06/hero.jpg",
     "alt": "Peugeot 404 berline grisa del 1966 en un camp de blat, a la tardor",

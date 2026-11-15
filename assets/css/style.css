@@ -1149,7 +1149,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 @media (max-width: 480px) { .join-actions { flex-direction: column; align-items: stretch; } }
 @media (prefers-reduced-motion: reduce) { .join-btn, .join-benefit { transition: none; } }
 
-/* Revolucions FM page */
+/* Revolucions page */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .radio-page { max-width: 1100px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .pod-subs { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 0 28px; }
@@ -1265,7 +1265,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-disc-player { grid-column: 1 / -1; }
 .pod-disc.has-player .pod-disc-art { display: none; }
 .pod-disc.has-player { grid-template-columns: 1fr; }
-/* Cotxe + disc de la setmana pair on Revolucions FM */
+/* Cotxe + disc de la setmana pair on Revolucions */
 .pod-pair { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
 .pod-pair-week { text-align: center; margin: 28px 0 0; }
 .pod-pair-week .weekly-tag { font-size: 0.8rem; }
@@ -1348,7 +1348,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .events .map-legend li { display: flex; align-items: center; gap: 8px; }
 
 
-/* ===== Car-magazine feature spread (home + Revolucions FM) ===== */
+/* ===== Car-magazine feature spread (home + Revolucions) ===== */
 .mag-feature {
   text-align: left;
   padding: 64px 20px 72px;
@@ -1358,6 +1358,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 }
 .home-setmana.mag-feature {
   text-align: left;
+  scroll-margin-top: 110px;
 }
 .mag-feature-inner,
 .mag-feature.mag-pair {
@@ -1375,46 +1376,39 @@ a.contact-card:hover { transform: translateY(-3px); }
   position: static;
   display: block;
 }
-.mag-masthead-issue {
-  margin: 0 0 10px;
-  min-height: 1.5em;
-}
-.mag-week {
-  display: inline-block;
-  padding: 7px 16px;
-  border: 2px solid var(--dark);
-  background: var(--dark);
-  color: #e6d5b3;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
 .mag-masthead-brand {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: #7a6136;
 }
+/* Magazine cover line: "Nº 06 · Setmana del 16 de novembre" */
 .mag-masthead-title,
-.mag-feature-masthead #mes-title {
+.mag-feature-masthead #mes-title,
+.mag-issue-line {
   margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  background: none;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.6rem, 6vw, 3.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  font-size: clamp(1.85rem, 4.4vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  text-wrap: balance;
   color: var(--dark);
 }
 .mag-masthead-title::after,
-.mag-feature-masthead #mes-title::after {
+.mag-feature-masthead #mes-title::after,
+.mag-issue-line::after {
   content: '';
   display: block;
-  width: 72px;
-  height: 3px;
-  margin: 14px auto 0;
+  width: 64px;
+  height: 2px;
+  margin: 16px auto 0;
   background: var(--gold);
 }
 .mag-masthead-dek,
@@ -1774,7 +1768,7 @@ a.contact-card:hover { transform: translateY(-3px); }
 .pod-ep-share-row .pod-share { pointer-events: auto; }
 
 
-/* ===== Revolucions FM revista (article C&D-style) ===== */
+/* ===== Revolucions revista (article C&D-style) ===== */
 .revista-page { padding-top: 120px; padding-bottom: 72px; overflow-x: hidden; }
 .revista-page .rev-index-intro { max-width: 720px; margin: 0 auto 36px; text-align: center; }
 .revista-page .rev-index-intro h2 { margin-bottom: 12px; }
