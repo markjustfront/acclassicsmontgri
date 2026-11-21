@@ -8,14 +8,14 @@ window.PODCAST = {
   launchDate: "2026-10-12",
   // Disc de la setmana: { month: "Setmana del 12 d'octubre", artist: "", album: "", year: 1975, song: "", cover: "", note: "", carYear: "" } or null
   discDelMes: {
-    month: "Setmana del 16 de novembre",
-    artist: "Status Quo",
-    album: "In the Army Now",
-    year: 1986,
-    song: "In the Army Now",
+    month: "Setmana del 23 de novembre",
+    artist: "The Cars",
+    album: "The Cars",
+    year: 1978,
+    song: "Just What I Needed",
     cover: "",
-    spotify: "https://open.spotify.com/album/2LnKecYJddR6VJgk1vbTCY",
-    note: "Una cançó de soldats que marxen lluny de casa, com el nostre cotxe de la setmana: el Peugeot 404, la berlina de Pininfarina que va guanyar quatre vegades el Ral·li Safari i que a Kenya es va fabricar fins al 1991."
+    spotify: "https://open.spotify.com/album/4tJPWT4r4FSKwy784Qs1Fq",
+    note: "El 1978, mentre el nostre cotxe de la setmana, el Renault 18, arribava als concessionaris, The Cars debutaven amb «Just What I Needed»: just el que necessitaven les famílies d'aquella època, que van trobar en el 18 una berlina ampla, assequible i pensada per a tot el món."
   },
   // Newest first. spotifyEpisode = "https://open.spotify.com/episode/XXXX"
   // Leave spotifyEpisode "" while an episode is not on Spotify yet: no player is shown,
