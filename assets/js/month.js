@@ -28,7 +28,8 @@
         return { year: get('year'), month: get('month') - 1, day: get('day') };
     }
     // Weeks switched early on request (date in Madrid -> show the following week's car). 14-15 Nov 2026: Peugeot 404 from Saturday.
-    const EARLY = ['2026-10-14', '2026-10-15'];
+    // 21-22 Nov 2026: Renault 18 (Revolucions Nº 07) from Saturday. Months are 0-based here (10 = November).
+    const EARLY = ['2026-10-14', '2026-10-15', '2026-10-21', '2026-10-22'];
     const weekIndex = d => {
         const early = EARLY.includes(`${d.year}-${d.month}-${d.day}`) ? 2 : 0;
         return Math.floor((Date.UTC(d.year, d.month, d.day + early) - START) / WEEK);

@@ -3,6 +3,19 @@
 // afegeix-hi una entrada en aquest array (la més nova, a dalt) i les fotos a images/revista/<id>/.
 window.revistaIndex = [
   {
+    id: 'n07-renault-18',
+    num: 7,
+    title: 'Renault 18: la berlina de Flins que va voler ser de tot el món',
+    standfirst: 'Es va dissenyar en divuit mesos, es va presentar a Ginebra el 1978 i es va fabricar de Flins a Valladolid i a l’Argentina.',
+    date: '2026-11-23',
+    dateLabel: 'Setmana del 23 de novembre de 2026',
+    car: 'Renault 18',
+    carId: 15,
+    carFile: 'assets/data/cars/renault/R18.js',
+    hero: 'images/revista/n07-renault-18/hero.jpg',
+    dataFile: 'assets/data/revista/n07-renault-18.js'
+  },
+  {
     id: 'n06-peugeot-404',
     num: 6,
     title: 'Peugeot 404: el lleó de Pininfarina que no es va jubilar mai',

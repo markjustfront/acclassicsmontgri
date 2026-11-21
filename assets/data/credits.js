@@ -1456,6 +1456,48 @@ window.imageCredits = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Peugeot_404_in_Harar.jpg",
     "file": "Peugeot 404 in Harar.jpg"
+  },
+  "images/revista/n07-renault-18/hero.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_18_arriving_Schaffen-Diest_in_2015.JPG",
+    "file": "Renault 18 arriving Schaffen-Diest in 2015.JPG"
+  },
+  "images/revista/n07-renault-18/gts-verd.jpg": {
+    "author": "David Perez",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_18_GTS_01_by-dpc.jpg",
+    "file": "Renault 18 GTS 01 by-dpc.jpg"
+  },
+  "images/revista/n07-renault-18/espanya.jpg": {
+    "author": "Charles01",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_18_(vert)_en_Espagne.jpg",
+    "file": "Renault 18 (vert) en Espagne.jpg"
+  },
+  "images/revista/n07-renault-18/familiar.jpg": {
+    "author": "Spanish Coches",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1982_Renault_18_GTS_Familiar_(4578003901).jpg",
+    "file": "1982 Renault 18 GTS Familiar (4578003901).jpg"
+  },
+  "images/revista/n07-renault-18/gtd-break.jpg": {
+    "author": "Txemari (Navarra)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_18_GTD._Break_(1983)._(55067905982).jpg",
+    "file": "Renault 18 GTD. Break (1983). (55067905982).jpg"
+  },
+  "images/revista/n07-renault-18/turbo-1984.jpg": {
+    "author": "Mike McBey",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Renault_18_Turbo._1984._(43150919150).jpg",
+    "file": "Renault 18 Turbo. 1984. (43150919150).jpg"
   }
 };
 
